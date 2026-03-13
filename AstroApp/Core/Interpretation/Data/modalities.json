@@ -1,0 +1,26 @@
+{
+  "cardinal": {
+    "title": "Öncü Modalite Baskın",
+    "short": "Öncü modalitesi baskın kişiler inisiyatif almada, başlatmada ve yön vermede doğal bir güç taşır.",
+    "detailed": "Haritasında öncü burçlar (Koç, Yengeç, Terazi, Oğlak) ağırlıklı olan bireyler doğuştan gelen bir öncü ve başlatıcı enerji taşır; yeni döngülere, projelere ve ilişkilere kapı aralamaktan doğal bir tatmin duyarlar. Bu kişiler gerektiğinde inisiyatif almaktan çekinmez ve çevrelerinde değişim ile ilerlemenin taşıyıcısı olurlar. Bununla birlikte, başladıklarını tamamlamakta güçlük ve çok sayıda projeye aynı anda dalmak en belirgin zorluklarından birini oluşturabilir.",
+    "strengths": ["İnisiyatif alma gücü", "Liderlik kapasitesi", "Yenilenme enerjisi", "Kararlı eylemlilik"],
+    "challenges": ["Başladıklarını tamamlamama", "Aşırı proje yüklenme", "Sabırsızlık", "Bitiş güçlüğü"],
+    "advice": "Başlatma gücünüz dünyayı dönüştürebilir; tamamlama disiplinini de bu gücün tamamlayıcısı olarak benimsediğinizde gerçek bir lider olarak iz bırakırsınız."
+  },
+  "fixed": {
+    "title": "Sabit Modalite Baskın",
+    "short": "Sabit modalitesi baskın kişiler güçlü bir odak, kararlı bir irade ve olağanüstü dayanıklılık taşır.",
+    "detailed": "Haritasında sabit burçlar (Boğa, Aslan, Akrep, Kova) ağırlıklı olan bireyler son derece kararlı, odaklı ve derinlemesine çalışan bir yapıya sahipken, başladıkları işi eksiksiz tamamlamak için büyük bir irade gücü sergilerler. Bu kişiler güvenilirlik ve tutarlılıklarıyla çevrelerinde derin bir güven duygusu oluştururlar. Bununla birlikte, katılık ve değişime karşı güçlü direnç en belirgin zorluklarından birini oluşturabilir.",
+    "strengths": ["Güçlü odak", "Kararlılık ve irade", "Güvenilirlik", "Dayanıklılık"],
+    "challenges": ["Katılık ve esneksizlik", "Değişime direnç", "Inatçılık", "Aşırı tutunma"],
+    "advice": "Dağlar gibi sağlam duruşunuz eşsiz bir güçtür; nehir gibi akmayı da öğrendiğinizde hem güçlü hem de uyumlu bir varlık olarak yaşamın her akışında yer bulursunuz."
+  },
+  "mutable": {
+    "title": "Değişken Modalite Baskın",
+    "short": "Değişken modalitesi baskın kişiler uyum sağlama, çok yönlülük ve geçiş dönemlerine hakimiyetle öne çıkar.",
+    "detailed": "Haritasında değişken burçlar (İkizler, Başak, Yay, Balık) ağırlıklı olan bireyler son derece esnek, uyum sağlayan ve sezgisel bir yapıya sahipken, farklı koşullar ve insanlarla zahmetsizce ritim tutabilirler. Bu kişiler değişime ve dönüşüme büyük bir açıklıkla kucak açar; doğal kolaylaştırıcılar ve arabulucular olarak öne çıkarlar. Bununla birlikte, kararsızlık ve tutarsızlık en belirgin zorluklarından birini oluşturabilir.",
+    "strengths": ["Uyum sağlama yeteneği", "Çok yönlülük", "Esneklik", "Değişim toleransı"],
+    "challenges": ["Kararsızlık", "Tutarsızlık", "Odak ve derinlik güçlüğü", "Sınırları belirsiz bırakma"],
+    "advice": "Uyum sağlama gücünüz nadir bir armağandır; net bir yön ve güçlü sınırlarla desteklendiğinde bu esneklik sizi gerçek anlamda dönüştürücü bir güce taşır."
+  }
+}

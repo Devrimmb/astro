@@ -1,0 +1,34 @@
+{
+  "fire": {
+    "title": "Ateş Elementi Baskın",
+    "short": "Ateş elementinin baskın olduğu kişiler enerjetik, ilham verici ve girişimci bir yaşam enerjisi taşır.",
+    "detailed": "Haritasında ateş elementi ağırlıklı olan bireyler doğal liderler ve vizyonerlerdir; hayata coşkulu, cesur ve iyimser bir tutumla yaklaşırlar. Eylem ve yaratım bu kişiler için temel motivasyon kaynağıdır; hareketsiz kalmak onları için neredeyse imkansız hissettirir. Düşünmeden önce harekete geçme ve sabırsızlık ise en belirgin zorluklarından birini oluşturabilir.",
+    "strengths": ["Enerji ve coşku", "Liderlik ve vizyon", "Cesaret ve girişimcilik", "İlham verme kapasitesi"],
+    "challenges": ["Sabırsızlık", "Düşünmeden harekete geçme", "Diğer kişilerin ihtiyaçlarını göz ardı etme", "Tükenme eğilimi"],
+    "advice": "Sınırsız enerjinizi odak ve sabırla dengelediğinizde, ateşiniz yıkıcı değil, aydınlatıcı ve dönüştürücü bir güce dönüşür."
+  },
+  "earth": {
+    "title": "Toprak Elementi Baskın",
+    "short": "Toprak elementinin baskın olduğu kişiler pratik, güvenilir ve kalıcı değerler inşa etmeye odaklı bir yapı taşır.",
+    "detailed": "Haritasında toprak elementi ağırlıklı olan bireyler son derece pratik, sabırlı ve gerçekçi bir yaşam anlayışına sahipken, söylemden çok eyleme ve somut sonuçlara önem verirler. Güvenilirlik ve tutarlılık bu kişilerin en güçlü özellikleri arasındadır; verdikleri sözü tutmak onlar için vazgeçilmez bir değerdir. Bununla birlikte, değişime direnç ve aşırı muhafazakarlık, yeni fırsatları kaçırmalarına neden olabilir.",
+    "strengths": ["Pratiklik ve güvenilirlik", "Sabır ve kararlılık", "Gerçekçi değerlendirme", "Uzun vadeli planlama"],
+    "challenges": ["Değişime direnç", "Aşırı muhafazakarlık", "Sezgiselliği küçümseme", "Katılık"],
+    "advice": "Sağlam temeller inşa etme gücünüz eşsizdir; esnekliği ve yeniliği de bu temelin doğal bir parçası olarak benimsediğinizde çok daha güçlü yapılar kurarsınız."
+  },
+  "air": {
+    "title": "Hava Elementi Baskın",
+    "short": "Hava elementinin baskın olduğu kişiler entelektüel, sosyal ve fikirlere tutkuyla bağlı bir zihin yapısı taşır.",
+    "detailed": "Haritasında hava elementi ağırlıklı olan bireyler zeki, iletişime açık ve entelektüel açıdan son derece meraklıdır; fikirler, sosyal bağlantılar ve bilgi akışı bu kişilerin yaşam enerjisinin kaynağını oluşturur. Farklı bakış açılarını bir arada değerlendirme ve soyut kavramları kolayca kavrama konusunda son derece başarılı olan bu bireyler, sosyal ağlar içinde de rahatlıkla yer edinir. Bununla birlikte, duygusal derinlikten kaçınma ve yüzeysel kalmak en belirgin zorluklarından birini oluşturabilir.",
+    "strengths": ["Entelektüel zeka", "İletişim ve sosyallik", "Çok yönlü bakış açısı", "Yenilikçi düşünce"],
+    "challenges": ["Duygusal kopukluk", "Kararsızlık", "Yüzeysellik eğilimi", "Pratiği göz ardı etme"],
+    "advice": "Düşünceleriniz güçlü bir araçtır; onları duygusal derinlik ve somut eylemle buluşturduğunuzda gerçek anlamda dönüştürücü bir güce ulaşırsınız."
+  },
+  "water": {
+    "title": "Su Elementi Baskın",
+    "short": "Su elementinin baskın olduğu kişiler derin empati, güçlü sezgi ve duygusal zenginlik taşır.",
+    "detailed": "Haritasında su elementi ağırlıklı olan bireyler son derece empatik, sezgisel ve duygusal açıdan derin bir iç dünyaya sahipken, başkalarının duygularını ve ihtiyaçlarını kolayca hisseder ve anlarlar. Manevi konular, psikolojik derinlik ve sembolik düşünce bu kişilerin doğal ilgi alanlarıdır. Bununla birlikte, duygusal bunaltı, sınır belirsizliği ve gerçeklikten kopma en belirgin zorluklarından birini oluşturabilir.",
+    "strengths": ["Derin empati", "Güçlü sezgi", "Duygusal zeka", "Ruhsal derinlik"],
+    "challenges": ["Duygusal bunaltı", "Sınır koyma güçlüğü", "Gerçeklikten kopma", "Aşırı duyarlılık"],
+    "advice": "Duygusal derinliğiniz olağanüstü bir armağandır; sağlam sınırlar ve pratik bir zemin bu armağanı güvenle taşımanın ve başkalarıyla paylaşmanın en güçlü yoludur."
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "originHash" : "86d9fee2c1f27c41ef8c27a3202d2fab34c9e400601864a09f40ddcc25e8e1a5",
+  "pins" : [
+    {
+      "identity" : "swift-package-manager-google-mobile-ads",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/googleads/swift-package-manager-google-mobile-ads.git",
+      "state" : {
+        "revision" : "1239c23464503053c17d37ee5daa70de3455e9c8",
+        "version" : "12.14.0"
+      }
+    },
+    {
+      "identity" : "swift-package-manager-google-user-messaging-platform",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/googleads/swift-package-manager-google-user-messaging-platform.git",
+      "state" : {
+        "revision" : "13b248eaa73b7826f0efb1bcf455e251d65ecb1b",
+        "version" : "3.1.0"
+      }
+    },
+    {
+      "identity" : "swissephemeris",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/vsmithers1087/SwissEphemeris.git",
+      "state" : {
+        "revision" : "9d9ac62383eafa176e744af1130dcb0da17ca325",
+        "version" : "0.0.99"
+      }
+    }
+  ],
+  "version" : 3
+}

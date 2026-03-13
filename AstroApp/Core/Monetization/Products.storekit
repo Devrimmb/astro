@@ -1,0 +1,62 @@
+{
+  "identifier" : "com.duygubal.AstroApp.products",
+  "type" : "com.apple.product-type.app-store",
+  "version" : 3,
+  "products" : [
+    {
+      "displayPrice" : "199.99",
+      "familyShareable" : false,
+      "internalID" : "001",
+      "localizations" : [
+        {
+          "description" : "Tam natal chart ve tüm gezegen yorumları",
+          "displayName" : "Natal Chart Pro",
+          "locale" : "tr"
+        }
+      ],
+      "productID" : "com.duygubal.AstroApp.natalchart",
+      "referenceName" : "Natal Chart Pro",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "299.99",
+      "familyShareable" : false,
+      "internalID" : "002",
+      "localizations" : [
+        {
+          "description" : "AI astroloji sohbet asistanı",
+          "displayName" : "AI Sohbet",
+          "locale" : "tr"
+        }
+      ],
+      "productID" : "com.duygubal.AstroApp.aichat",
+      "referenceName" : "AI Sohbet",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "399.99",
+      "familyShareable" : false,
+      "internalID" : "003",
+      "localizations" : [
+        {
+          "description" : "Tüm pro özelliklere sınırsız erişim",
+          "displayName" : "Tüm Özellikler",
+          "locale" : "tr"
+        }
+      ],
+      "productID" : "com.duygubal.AstroApp.allfeatures",
+      "referenceName" : "Tüm Özellikler",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_failTransactionsEnabled" : false,
+    "_storeKitErrors" : [
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Load Products"
+      }
+    ]
+  }
+}

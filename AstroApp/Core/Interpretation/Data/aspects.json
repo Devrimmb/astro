@@ -1,0 +1,128 @@
+{
+  "sun_moon": {
+    "conjunction": {
+      "title": "Güneş-Ay Kavuşumu",
+      "short": "Güneş ve Ay'ın kavuşumu bilinç ile duyguların, irade ile içgüdünün güçlü bir bütünlük içinde birleşmesini simgeler.",
+      "detailed": "Bu konumda kişinin bilinçli amacı ve derin duygusal doğası birlikte hareket eder; güçlü bir kişisel bütünlük ve net bir kimlik duygusu yaratır. Kişi çoğunlukla bölünmeksizin hem kalbinin hem de aklının sesini duyabilir. Bununla birlikte, iç dünyanın aşırı güçlenmesi dışarıdan gelen bakış açılarına kapalı kalma riskini beraberinde getirebilir.",
+      "strengths": ["Güçlü kimlik bütünlüğü", "Duygusal netlik", "Kararlı irade", "Özgüven"],
+      "challenges": ["Subjektiflik", "Başkalarının bakış açılarını görmekte güçlük", "Yoğun öz odaklılık"],
+      "advice": "İçsel bütünlüğünüz büyük bir güçtür; zaman zaman farklı bakış açılarına kapı aralayarak bu gücü daha da zenginleştirin."
+    },
+    "sextile": {
+      "title": "Güneş-Ay Sekstili",
+      "short": "Güneş ve Ay arasındaki sekstil ego ile duygular arasındaki uyumlu ve destekleyici bir akışı simgeler.",
+      "detailed": "Bu açıyla kişinin bilinçli hedefleri ve duygusal ihtiyaçları birbirini destekler; hem üretken hem de duygusal açıdan dengeli bir yaşam sürdürme kapasitesini güçlendirir. İç huzur ve dışsal başarı arasındaki ilişki görece uyumludur. Bu kişiler genellikle hem pratik hem de empatik olarak algılanır.",
+      "strengths": ["Duygusal denge", "Üretkenlik", "Empati", "Uyum"],
+      "challenges": ["Şımarma eğilimi", "Zorlukları gerektiği gibi ciddiye almama", "Aşırı iyimserlik"],
+      "advice": "Doğal uyumunuz değerli bir armağandır; zorluklarla yüzleşmeyi de bu dengenin parçası olarak benimseyin."
+    },
+    "square": {
+      "title": "Güneş-Ay Karesi",
+      "short": "Güneş ve Ay arasındaki kare ego ile duygular arasındaki içsel gerilimi ve büyüme için gereken sürtüşmeyi temsil eder.",
+      "detailed": "Bu açıyla kişinin bilinçli arzuları ve duygusal ihtiyaçları zaman zaman çatışabilir; bunun sonucu olarak iç çatışma ve karar verme güçlüğü yaşanabilir. Ancak bu gerilim aynı zamanda güçlü bir büyüme motorudur; zorluklarla yüzleşmek kişiyi olgunlaştırır ve derinleştirir. Kişilik gelişimi çoğunlukla bu iki kutbun uzlaştırılmasına doğru ilerler.",
+      "strengths": ["Dinamik büyüme", "Dayanıklılık", "Karmaşıklık farkındalığı", "Motivasyon"],
+      "challenges": ["İçsel çatışma", "Karar verme güçlüğü", "Duygusal dengesizlik"],
+      "advice": "İçsel çatışmalarınız sizi parçalamaz, tersine bütünleştirir; bu gerilimi içsel büyümün yakıtı olarak kullanın."
+    },
+    "trine": {
+      "title": "Güneş-Ay Trini",
+      "short": "Güneş ve Ay arasındaki trin ego ile duyguların arasındaki doğal ahengi ve yaşam akışını simgeler.",
+      "detailed": "Bu açıyla kişinin bilinçli hedefleri ve duygusal yaşamı uyum içinde akar; sezgileri ve kişisel ifadeleri doğal bir bütünlük içinde hareket eder. Bu kişiler genellikle içten, dengeli ve gerçek anlamda güven verici bireyler olarak algılanır. Bu doğal akış, kişisel gelişim ve ifade için güçlü bir temel oluşturur.",
+      "strengths": ["Doğal ahenk", "Duygusal zeka", "Özgünlük", "Güven verici kişilik"],
+      "challenges": ["Rahatlığa aşırı güvenme", "Değişime az güdülenme", "Zorluğu küçümseme"],
+      "advice": "Doğal uyumunuz sizi öne çıkarır; potansiyelinizi tam anlamıyla açığa çıkarmak için zaman zaman kendinizi zorlamayı da seçin."
+    },
+    "opposition": {
+      "title": "Güneş-Ay Karşıtlığı",
+      "short": "Güneş ve Ay arasındaki karşıtlık, bilinçli benlik ile duygusal ihtiyaçlar arasındaki gerilimi ve denge arayışını simgeler.",
+      "detailed": "Bu açıyla kişi bilinçli iradesi ile duygusal dünyasının birbirinden kopuk hissettirebileceği dönemler yaşayabilir; bu durum özellikle kişisel ilişkilerde derin yansımalar bulur. Büyük yaşam dersleri, genellikle bu iki kutbu uzlaştırma çabası aracılığıyla ortaya çıkar. Bu gerilim, derinlikli bir kişisel bütünleşme yolculuğunun habercisidir.",
+      "strengths": ["İlişkisel farkındalık", "Büyüme motivasyonu", "Nüanslı anlayış", "Derinlik"],
+      "challenges": ["İçsel gerilim", "İlişkisel çatışmalar", "Bölünmüş enerji"],
+      "advice": "Bu karşıtlık bütünleşme davetini taşır; hem Güneş'in iradesini hem de Ay'ın duygusal bilgeliğini onurlandırmayı öğrenin."
+    }
+  },
+  "sun_mercury": {
+    "conjunction": {
+      "title": "Güneş-Merkür Kavuşumu",
+      "short": "Güneş ve Merkür'ün kavuşumu kimliği zeka ve iletişimle derinden bütünleştirir.",
+      "detailed": "Bu konumda kişinin kimliği ve öz ifadesi, düşünce ile iletişimle neredeyse iç içe geçmiştir; bu bireyler genellikle fikirlerini ve görüşlerini doğrudan ve özgüvenle paylaşır. Zeka ve iletişim yeteneği bu kişilerin kimliğinin ayrılmaz bir parçasıdır. Bununla birlikte, aşırı öznel bir bakış açısı ve kendi fikirlerini diğer fikirlerin önünde tutma eğilimi zaman zaman zorluk yaratabilir.",
+      "strengths": ["Güçlü ifade", "Özgüvenli iletişim", "Net düşünce", "Zeka"],
+      "challenges": ["Öznellik", "Dinleme güçlüğü", "Saplantılı fikirler"],
+      "advice": "Kendi bakış açınızı güvenle ifade ederken, başkalarının fikirlerine de gerçek anlamda kulak verin; en derin anlayış karşılıklı dinlemeden doğar."
+    },
+    "sextile": {
+      "title": "Güneş-Merkür Sekstili",
+      "short": "Güneş ve Merkür arasındaki sekstil kimlik ve iletişim arasındaki destekleyici ve verimli işbirliğini simgeler.",
+      "detailed": "Bu açıyla kişi kendini etkin ve açık biçimde ifade edebilir; iletişim yetenekleri yaratıcılık ve kişisel kimlik duygusuyla güzel bir uyum içinde çalışır. Bu kişiler doğal öğretmenler ve yetenekli iletişimcilerdir. Düşünce ve ifade arasındaki bu doğal köprü, hem profesyonel hem de kişisel alanda büyük bir avantaj sağlar.",
+      "strengths": ["Etkin iletişim", "Öğretme yeteneği", "Yaratıcı ifade", "Berrak düşünce"],
+      "challenges": ["Sıradan düşünce kalıplarına alışkanlık", "Derinleşmeyi ihmal etme", "Yüzeysellik"],
+      "advice": "İletişim gücünüzü sürekli besleyin; en berrak sesler, hem yüzeysel hem de derin sularda yüzebilenlere aittir."
+    },
+    "square": {
+      "title": "Güneş-Merkür Karesi",
+      "short": "Güneş ve Merkür arasındaki kare kimlik ve zihinsel ifade arasındaki gerilimi simgeler.",
+      "detailed": "Not: Merkür hiçbir zaman Güneş'ten 28 dereceden daha uzaklaşamaz; bu nedenle aralarında gerçek bir kare oluşması astrometrik açıdan mümkün değildir. Bu durum, neredeyse her zaman kavuşum ya da yakın bir konumla sonuçlanır.",
+      "strengths": null,
+      "challenges": null,
+      "advice": "Güneş-Merkür karesi gerçek doğum haritalarında görülmez; yorum hesaplama mantığınızı gözden geçirin."
+    },
+    "trine": {
+      "title": "Güneş-Merkür Trini",
+      "short": "Güneş ve Merkür arasındaki trin ifade ve kimlik arasındaki doğal, akıcı uyumu simgeler.",
+      "detailed": "Not: Merkür hiçbir zaman Güneş'ten 28 dereceden daha uzaklaşamaz; bu nedenle aralarında gerçek bir trin oluşması astrometrik açıdan mümkün değildir. Bu durum, neredeyse her zaman kavuşum ya da yakın bir konumla sonuçlanır.",
+      "strengths": null,
+      "challenges": null,
+      "advice": "Güneş-Merkür trini gerçek doğum haritalarında görülmez; yorum hesaplama mantığınızı gözden geçirin."
+    },
+    "opposition": {
+      "title": "Güneş-Merkür Karşıtlığı",
+      "short": "Güneş ve Merkür arasındaki karşıtlık kimlik ve zihinsel ifade arasındaki derin gerilimi simgeler.",
+      "detailed": "Not: Merkür hiçbir zaman Güneş'ten 28 dereceden daha uzaklaşamaz; bu nedenle aralarında gerçek bir karşıtlık oluşması astrometrik açıdan mümkün değildir. Bu durum, neredeyse her zaman kavuşum ya da yakın bir konumla sonuçlanır.",
+      "strengths": null,
+      "challenges": null,
+      "advice": "Güneş-Merkür karşıtlığı gerçek doğum haritalarında görülmez; yorum hesaplama mantığınızı gözden geçirin."
+    }
+  },
+  "moon_mercury": {
+    "conjunction": {
+      "title": "Ay-Merkür Kavuşumu",
+      "short": "Ay ve Merkür'ün kavuşumu duygu ve zihni birbirinden ayırt etmeksizin bütünleştiren, duygusal zekası yüksek bir yapıyı simgeler.",
+      "detailed": "Bu konumda kişinin duyguları ve düşünceleri derinden iç içe geçer; bu bireyler duygusal deneyimlerini büyük bir içgüdüsel netlikle hem hisseder hem de dile getirirler. Sezgisel düşünce, şiirsel ve empatik iletişim bu kişilerin en belirgin özelliklerindendir. Bununla birlikte, duyguların nesnel analizi zorlaştırması ya da düşüncelerin taraflı bir duygusal yoruma kayması zaman zaman sorun yaratabilir.",
+      "strengths": ["Duygusal zeka", "Sezgisel iletişim", "Empati", "İfade zenginliği"],
+      "challenges": ["Öznellik", "Duygusal düşünce karmaşası", "Kaygı eğilimi"],
+      "advice": "Sezgileriniz ve düşünceleriniz birlikte büyük bir güç oluşturur; zaman zaman duygusal mesafe koyarak durumu değerlendirmeyi de alışkanlık edinmek bu gücü daha da arttırır."
+    },
+    "sextile": {
+      "title": "Ay-Merkür Sekstili",
+      "short": "Ay ve Merkür arasındaki sekstil duygusal ifade ve düşünce arasındaki uyumlu ve zenginleştirici ilişkiyi simgeler.",
+      "detailed": "Bu açıyla kişi hem duygularını hem de düşüncelerini nüanslı ve empatik bir biçimde ifade edebilir; bu kişiler hem sezgisel hem de analitik zekaya sahip dengeli bireyler olarak öne çıkar. Danışmanlık, öğretme ve terapötik alanlarda doğal bir yetkinlik taşıyan bu bireyler, insanları anlama konusunda da son derece başarılıdır. İletişim güçleri, hem derin hissetme hem de berrak düşünmekten beslenir.",
+      "strengths": ["Duygusal ifade", "Empati", "Analitik düşünce", "İletişim dengesi"],
+      "challenges": ["Aşırı analiz", "Duygusal mesafe kaybı", "Karar vermede yavaşlık"],
+      "advice": "Hem kalbinizin hem de zihninizin sesini duyabilmek nadir bir armağandır; bu iki sesi uyum içinde tutmak en derin bilgeliğe götürür."
+    },
+    "square": {
+      "title": "Ay-Merkür Karesi",
+      "short": "Ay ve Merkür arasındaki kare duygusal ihtiyaçlar ile düşünce tarzı arasındaki gerilimi ve birbiriyle çelişen sinyalleri simgeler.",
+      "detailed": "Bu açıyla kişinin duyguları ve düşünceleri zaman zaman birbiriyle çatışabilir; hissettikleri ile düşündükleri arasındaki uyumsuzluk, hem iç karmaşaya hem de iletişim güçlüklerine zemin hazırlayabilir. Kaygı eğilimi ve duygularla analitik düşüncenin iç içe geçmesi bu konumun en belirgin zorluklarındandır. Ancak bu gerilim aynı zamanda olağanüstü bir duygusal derinlik ve anlayış kapasitesini de beraberinde getiren güçlü bir büyüme motorudur.",
+      "strengths": ["Duygusal derinlik", "Psikololojik farkındalık", "İletişim motivasyonu", "Dayanıklılık"],
+      "challenges": ["Duygusal düşünce karmaşası", "Kaygı", "İletişim güçlükleri"],
+      "advice": "Duygularınız ve düşünceleriniz arasındaki köprüyü kurmak bir süreç gerektirir; günlük yazma ya da terapötik çalışmalar bu bütünleşme yolculuğunda size rehberlik edebilir."
+    },
+    "trine": {
+      "title": "Ay-Merkür Trini",
+      "short": "Ay ve Merkür arasındaki trin duygusal dünya ve zihinsel süreçlerin doğal, akıcı uyumunu simgeler.",
+      "detailed": "Bu açıyla kişinin duyguları ve düşünceleri zahmetsiz bir uyum içinde akar; hem hissedip hem de açıkça ifade edebilen, kolayca anlaşılan bir iletişim tarzı ortaya çıkar. Bu kişiler doğal anlatıcılar, danışmanlar ve empatik dinleyiciler olarak öne çıkar. Bu konum yaratıcı yazarlık, danışmanlık ve öğretmenlik gibi alanlarda olağanüstü bir zemin sağlar.",
+      "strengths": ["Doğal duygusal ifade", "Empatik iletişim", "Sezgisel anlayış", "Yaratıcı dil"],
+      "challenges": ["Nesnel olmayı göz ardı etme", "Zorlu gerçeklerden kaçınma", "Duygusal önyargı"],
+      "advice": "Duygusal ve zihinsel zekanızı bir araya getirme gücünüz sizi eşsiz kılar; bunu hem kişisel bütünleşme hem de başkalarına katkı için etkin biçimde kullanın."
+    },
+    "opposition": {
+      "title": "Ay-Merkür Karşıtlığı",
+      "short": "Ay ve Merkür arasındaki karşıtlık duygusal dünya ile mantıksal zihin arasındaki gerilimi ve bütünleşme arayışını simgeler.",
+      "detailed": "Bu açıyla kişi kalbiyle aklı arasında sık sık güçlü bir gerilim yaşar; hissettikleri ile düşündükleri birbirinin zıttı sinyaller verebilir ve bu durum iletişimde önemli zorluklara neden olabilir. Bilinçli düşünceler ve bilinçdışı duygusal kalıplar arasındaki derin ayrışma, hem kişisel hem de ilişkisel düzeyde önemli yansımalar bırakır. Bu gerilim, büyüme için güçlü bir alan açar ve çözüldüğünde derin bir bilgelik ortaya çıkar.",
+      "strengths": ["Derin psikolojik farkındalık", "İletişimde büyüme motivasyonu", "Karmaşıklığa tolerans", "Empati"],
+      "challenges": ["Duygusal-zihinsel çatışma", "İletişim çelişkileri", "Bilinçdışı sabotaj"],
+      "advice": "Bu karşıtlık kalbiniz ve zihninizi bütünleştirme davetini taşır; her ikisini de eşit değerde saydığınızda daha bütün ve özgün bir iletişim tarzı ortaya çıkar."
+    }
+  }
+}
