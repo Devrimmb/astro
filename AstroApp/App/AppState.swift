@@ -41,12 +41,19 @@ class AppState {
 
     /// Widget ile veri paylas
     func syncWidgetData() {
-        guard let chart = currentChart else { return }
-        let signRaw = chart.sunSign?.name ?? ""
-        let name = birthDataStore.savedData?.name ?? ""
-        let lat = birthDataStore.savedData?.latitude ?? 41.0082
-        let lon = birthDataStore.savedData?.longitude ?? 28.9784
-        SharedDefaults.saveForWidget(signRawValue: signRaw, name: name, latitude: lat, longitude: lon)
+        let data = birthDataStore.savedData
+        let signRaw: String
+        if let chart = currentChart, let sun = chart.sunSign {
+            signRaw = sun.name
+        } else if let birthDate = data?.birthDate {
+            signRaw = ZodiacSign.from(birthDate: birthDate).name
+        } else {
+            return
+        }
+        let name = data?.name ?? ""
+        let lat = data?.latitude ?? 41.0082
+        let lon = data?.longitude ?? 28.9784
+        SharedDefaults.saveForWidget(signRawValue: signRaw, name: name, latitude: lat, longitude: lon, birthDate: data?.birthDate)
         WidgetCenter.shared.reloadAllTimelines()
     }
 }

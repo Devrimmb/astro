@@ -9,11 +9,21 @@ enum WidgetSharedDefaults {
     }
 
     static var userSign: WidgetZodiacSign {
-        guard let raw = shared.string(forKey: "widget_user_sign"),
-              let sign = WidgetZodiacSign(rawValue: raw) else {
-            return .aries
+        // Oncelik: App'ten yazilan burc
+        if let raw = shared.string(forKey: "widget_user_sign"),
+           let sign = WidgetZodiacSign(rawValue: raw) {
+            return sign
         }
-        return sign
+        // Fallback: dogum tarihinden hesapla
+        if let birthDate = userBirthDate {
+            return WidgetZodiacSign.from(birthDate: birthDate)
+        }
+        return .aries
+    }
+
+    static var userBirthDate: Date? {
+        let val = shared.double(forKey: "widget_user_birth_date")
+        return val == 0 ? nil : Date(timeIntervalSince1970: val)
     }
 
     static var userName: String {

@@ -32,6 +32,9 @@ struct HomeView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbarColorScheme(.dark, for: .navigationBar)
             .onAppear { loadData() }
+            .onChange(of: appState.currentChart?.sunSign) { _, _ in
+                loadData()
+            }
         }
     }
 
@@ -375,8 +378,15 @@ struct HomeView: View {
     // MARK: - Veri Yükleme
 
     private func loadData() {
-        // Günlük burç
-        let sign = appState.currentChart?.sunSign ?? .aries
+        // Günlük burç — chart yoksa doğum tarihinden hesapla
+        let sign: ZodiacSign
+        if let chartSign = appState.currentChart?.sunSign {
+            sign = chartSign
+        } else if let birthDate = appState.birthDataStore.savedData?.birthDate {
+            sign = ZodiacSign.from(birthDate: birthDate)
+        } else {
+            sign = .aries
+        }
         horoscope = DailyHoroscopeGenerator.generate(for: sign, date: .now)
 
         // Ay fazı
@@ -385,8 +395,15 @@ struct HomeView: View {
         // Gezegen saati (İstanbul default)
         let lat = appState.birthDataStore.savedData?.latitude ?? 41.0082
         let lon = appState.birthDataStore.savedData?.longitude ?? 28.9784
-        let dailyHours = PlanetaryHourCalculator.calculate(date: .now, latitude: lat, longitude: lon)
+        let now = Date.now
+        let dailyHours = PlanetaryHourCalculator.calculate(date: now, latitude: lat, longitude: lon)
         currentPlanetaryHour = dailyHours.currentHour
+        // Gece yarısından sonra, bugünün saatlerinde bulunamazsa dünün gece saatlerini dene
+        if currentPlanetaryHour == nil {
+            let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: now)!
+            let yesterdayHours = PlanetaryHourCalculator.calculate(date: yesterday, latitude: lat, longitude: lon)
+            currentPlanetaryHour = yesterdayHours.currentHour
+        }
 
         // Aktif retrogradlar
         let year = Calendar.current.component(.year, from: .now)

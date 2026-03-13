@@ -69,7 +69,7 @@ struct AstroSummaryWidget: Widget {
         }
         .configurationDisplayName("Astro Ozet")
         .description("Gunluk burc, ay fazi ve gezegen saati")
-        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
+        .supportedFamilies([.systemSmall, .systemMedium])
     }
 }
 
@@ -81,12 +81,8 @@ struct AstroSummaryWidgetView: View {
 
     var body: some View {
         switch family {
-        case .systemSmall:
-            smallView
         case .systemMedium:
             mediumView
-        case .systemLarge:
-            largeView
         default:
             smallView
         }
@@ -139,145 +135,69 @@ struct AstroSummaryWidgetView: View {
     // MARK: Medium
 
     private var mediumView: some View {
-        HStack(spacing: 14) {
-            // Sol: Burc + rating
-            VStack(spacing: 8) {
+        VStack(alignment: .leading, spacing: 8) {
+            // Ust: Burc + tarih + yildizlar
+            HStack {
                 Text(entry.sign.glyph)
-                    .font(.system(size: 36))
-                Text(entry.sign.rawValue)
-                    .font(.caption.bold())
-                    .foregroundStyle(.white)
+                    .font(.title2)
+                VStack(alignment: .leading, spacing: 1) {
+                    Text(entry.sign.rawValue)
+                        .font(.subheadline.bold())
+                        .foregroundStyle(.white)
+                    Text(dateText)
+                        .font(.system(size: 9))
+                        .foregroundStyle(.white.opacity(0.4))
+                }
+                Spacer()
                 HStack(spacing: 2) {
                     ForEach(0..<5, id: \.self) { i in
                         Image(systemName: i < entry.horoscope.overall ? "star.fill" : "star")
-                            .font(.system(size: 8))
-                            .foregroundStyle(i < entry.horoscope.overall ? .orange : .gray.opacity(0.4))
+                            .font(.system(size: 9))
+                            .foregroundStyle(i < entry.horoscope.overall ? .orange : .gray.opacity(0.3))
                     }
                 }
             }
-            .frame(width: 80)
 
-            // Sag: Detaylar
-            VStack(alignment: .leading, spacing: 6) {
-                Text(entry.horoscope.text)
-                    .font(.caption2)
-                    .foregroundStyle(.white.opacity(0.8))
-                    .lineLimit(3)
+            // Orta: Gunluk yorum
+            Text(entry.horoscope.text)
+                .font(.caption2)
+                .foregroundStyle(.white.opacity(0.7))
+                .lineLimit(2)
+
+            // Alt: Ay + Gezegen saati
+            HStack(spacing: 14) {
+                Label(entry.moon.phase.name, systemImage: entry.moon.phase.sfSymbol)
+                    .font(.system(size: 9))
+                    .foregroundStyle(.yellow.opacity(0.7))
+
+                if let hour = entry.planetaryHour {
+                    Label(hour.planet, systemImage: "clock.fill")
+                        .font(.system(size: 9))
+                        .foregroundStyle(.purple.opacity(0.7))
+                }
 
                 Spacer()
 
-                HStack(spacing: 12) {
-                    Label(entry.moon.phase.name, systemImage: entry.moon.phase.sfSymbol)
-                        .font(.system(size: 9))
-                        .foregroundStyle(.yellow.opacity(0.8))
-
-                    if let hour = entry.planetaryHour {
-                        Label(hour.planet, systemImage: "clock.fill")
-                            .font(.system(size: 9))
-                            .foregroundStyle(.purple.opacity(0.8))
-                    }
+                HStack(spacing: 8) {
+                    moodMini(title: "A", rating: entry.horoscope.love, color: .red)
+                    moodMini(title: "K", rating: entry.horoscope.career, color: .purple)
+                    moodMini(title: "S", rating: entry.horoscope.health, color: .green)
+                    moodMini(title: "Ş", rating: entry.horoscope.luck, color: .orange)
                 }
             }
         }
         .padding(2)
     }
 
-    // MARK: Large
-
-    private var largeView: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            // Baslik
-            HStack {
-                Text(entry.sign.glyph)
-                    .font(.largeTitle)
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(entry.sign.rawValue)
-                        .font(.title3.bold())
-                        .foregroundStyle(.white)
-                    Text(dateText)
-                        .font(.caption2)
-                        .foregroundStyle(.white.opacity(0.5))
-                }
-                Spacer()
-                HStack(spacing: 2) {
-                    ForEach(0..<5, id: \.self) { i in
-                        Image(systemName: i < entry.horoscope.overall ? "star.fill" : "star")
-                            .font(.caption2)
-                            .foregroundStyle(i < entry.horoscope.overall ? .orange : .gray.opacity(0.4))
-                    }
-                }
-            }
-
-            // Gunluk yorum
-            Text(entry.horoscope.text)
-                .font(.caption)
-                .foregroundStyle(.white.opacity(0.8))
-                .lineSpacing(2)
-
-            Divider().overlay(Color.white.opacity(0.1))
-
-            // Mood
-            HStack(spacing: 0) {
-                moodDot(title: "Ask", rating: entry.horoscope.love, color: .red)
-                moodDot(title: "Kariyer", rating: entry.horoscope.career, color: .purple)
-                moodDot(title: "Saglik", rating: entry.horoscope.health, color: .green)
-                moodDot(title: "Sans", rating: entry.horoscope.luck, color: .orange)
-            }
-
-            Divider().overlay(Color.white.opacity(0.1))
-
-            // Ay & Gezegen Saati
-            HStack(spacing: 16) {
-                HStack(spacing: 6) {
-                    Image(systemName: entry.moon.phase.sfSymbol)
-                        .font(.title3)
-                        .foregroundStyle(.yellow.opacity(0.8))
-                    VStack(alignment: .leading, spacing: 1) {
-                        Text(entry.moon.phase.name)
-                            .font(.caption2.bold())
-                            .foregroundStyle(.white)
-                        Text("\(entry.moon.moonSign.glyph) \(entry.moon.moonSign.rawValue)")
-                            .font(.system(size: 9))
-                            .foregroundStyle(.white.opacity(0.5))
-                    }
-                }
-
-                Spacer()
-
-                if let hour = entry.planetaryHour {
-                    HStack(spacing: 6) {
-                        Image(systemName: "clock.fill")
-                            .font(.title3)
-                            .foregroundStyle(.purple.opacity(0.8))
-                        VStack(alignment: .leading, spacing: 1) {
-                            Text(hour.planet)
-                                .font(.caption2.bold())
-                                .foregroundStyle(.white)
-                            Text(hour.timeText)
-                                .font(.system(size: 9))
-                                .foregroundStyle(.white.opacity(0.5))
-                        }
-                    }
-                }
-            }
-        }
-        .padding(4)
-    }
-
-    private func moodDot(title: String, rating: Int, color: Color) -> some View {
-        VStack(spacing: 3) {
+    private func moodMini(title: String, rating: Int, color: Color) -> some View {
+        HStack(spacing: 1) {
             Text(title)
-                .font(.system(size: 9))
-                .foregroundStyle(.white.opacity(0.5))
-            HStack(spacing: 2) {
-                ForEach(0..<5, id: \.self) { i in
-                    Circle()
-                        .fill(i < rating ? color : Color.gray.opacity(0.3))
-                        .frame(width: 5, height: 5)
-                }
-            }
+                .font(.system(size: 8))
+                .foregroundStyle(.white.opacity(0.4))
+            Text("\(rating)")
+                .font(.system(size: 8).bold())
+                .foregroundStyle(color.opacity(0.8))
         }
-        .frame(maxWidth: .infinity)
     }
 
     private var dateText: String {

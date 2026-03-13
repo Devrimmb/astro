@@ -178,6 +178,7 @@ struct OnboardingView: View {
             latitude: city.lat,
             longitude: city.lon
         ))
+        appState.syncWidgetData()
 
         isCalculating = false
         onComplete()
