@@ -18,28 +18,16 @@ struct TarotView: View {
 
                 ScrollView {
                     VStack(spacing: 24) {
-                        if vm.hasDrawn {
-                            spreadView
-                            if vm.allRevealed {
-                                interpretationView
-
-                                // Paylaş
-                                Button {
-                                    ShareImageRenderer.shareTarot(drawnCards: vm.drawnCards)
-                                } label: {
-                                    HStack(spacing: 8) {
-                                        Image(systemName: "square.and.arrow.up")
-                                        Text("Sonucu Paylaş")
-                                    }
-                                    .glassButton()
-                                }
-
-                                resetButton
-                            }
-                        } else if canDraw {
-                            introView
-                        } else {
+                        if !canDraw && vm.selectedCategory == nil {
                             adGateSection
+                        } else if vm.selectedCategory == nil {
+                            categorySelectionView
+                        } else if vm.drawnCard == nil {
+                            drawCardView
+                        } else if !vm.isRevealed {
+                            cardBackView
+                        } else {
+                            revealedCardView
                         }
                     }
                     .padding()
@@ -78,11 +66,11 @@ struct TarotView: View {
         }
     }
 
-    // MARK: - Giriş
+    // MARK: - Kategori Seçimi
 
-    private var introView: some View {
-        VStack(spacing: 24) {
-            Spacer().frame(height: 60)
+    private var categorySelectionView: some View {
+        VStack(spacing: 28) {
+            Spacer().frame(height: 40)
 
             Text("✦")
                 .font(.system(size: 48))
@@ -92,44 +80,114 @@ struct TarotView: View {
                 Text("Tarot")
                     .font(.largeTitle.weight(.bold))
                     .foregroundStyle(.white)
-                Text("Geçmiş, Şimdi ve Gelecek")
+                Text("Bir kategori seç ve kartını çek")
+                    .font(.subheadline)
+                    .foregroundStyle(AstroTheme.textSecondary)
+            }
+
+            VStack(spacing: 12) {
+                ForEach(TarotCategory.allCases) { category in
+                    Button {
+                        withAnimation(.spring(duration: 0.4)) {
+                            vm.selectCategory(category)
+                        }
+                    } label: {
+                        HStack(spacing: 12) {
+                            Image(systemName: category.icon)
+                                .font(.title3)
+                                .foregroundStyle(AstroTheme.accent)
+                                .frame(width: 32)
+
+                            Text(category.rawValue)
+                                .font(.headline)
+                                .foregroundStyle(.white)
+
+                            Spacer()
+
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundStyle(AstroTheme.textTertiary)
+                        }
+                        .padding(16)
+                        .background(AstroTheme.surface, in: .rect(cornerRadius: 16))
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                                .stroke(AstroTheme.cardBorder, lineWidth: 1)
+                        }
+                    }
+                }
+            }
+            .padding(.top, 8)
+        }
+    }
+
+    // MARK: - Kart Çek
+
+    private var drawCardView: some View {
+        VStack(spacing: 28) {
+            Spacer().frame(height: 40)
+
+            if let category = vm.selectedCategory {
+                HStack(spacing: 8) {
+                    Image(systemName: category.icon)
+                    Text(category.rawValue)
+                }
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(AstroTheme.accent)
+                .padding(.horizontal, 16)
+                .padding(.vertical, 8)
+                .background(AstroTheme.accent.opacity(0.12), in: .capsule)
+            }
+
+            Text("✦")
+                .font(.system(size: 56))
+                .foregroundStyle(AstroTheme.accent)
+
+            VStack(spacing: 8) {
+                Text("Kartını Çek")
+                    .font(.title2.weight(.bold))
+                    .foregroundStyle(.white)
+                Text("Zihnini odakla ve kartına dokun")
                     .font(.subheadline)
                     .foregroundStyle(AstroTheme.textSecondary)
             }
 
             Button {
                 withAnimation(.spring(duration: 0.5)) {
-                    vm.drawCards()
+                    vm.drawCard()
                 }
             } label: {
-                Text("Kartları Çek")
+                Text("Kartı Çek")
                     .glassButton()
             }
-            .padding(.top, 20)
+            .padding(.top, 12)
+
+            backButton
         }
     }
 
-    // MARK: - Kart Açılımı
+    // MARK: - Kart Arka Yüz (Kapalı)
 
-    private var spreadView: some View {
-        HStack(spacing: 10) {
-            ForEach(vm.drawnCards) { drawn in
-                cardView(drawn)
+    private var cardBackView: some View {
+        VStack(spacing: 24) {
+            Spacer().frame(height: 30)
+
+            if let category = vm.selectedCategory {
+                HStack(spacing: 8) {
+                    Image(systemName: category.icon)
+                    Text(category.rawValue)
+                }
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(AstroTheme.accent)
             }
-        }
-    }
 
-    private func cardView(_ drawn: DrawnCard) -> some View {
-        VStack(spacing: 8) {
-            Text(drawn.position.rawValue)
-                .font(.caption2.weight(.semibold))
+            Text("Kartına dokun ve aç")
+                .font(.subheadline)
                 .foregroundStyle(AstroTheme.textSecondary)
-                .textCase(.uppercase)
-                .tracking(1)
 
+            // Kapalı kart
             ZStack {
-                // Arka yüz
-                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                RoundedRectangle(cornerRadius: 20, style: .continuous)
                     .fill(
                         LinearGradient(
                             colors: [AstroTheme.accent.opacity(0.6), AstroTheme.accentSecondary.opacity(0.3)],
@@ -138,98 +196,118 @@ struct TarotView: View {
                         )
                     )
                     .overlay {
-                        RoundedRectangle(cornerRadius: 16, style: .continuous)
+                        RoundedRectangle(cornerRadius: 20, style: .continuous)
                             .stroke(AstroTheme.cardBorder, lineWidth: 1)
                     }
-                    .overlay {
-                        Text("✦")
-                            .font(.title)
-                            .foregroundStyle(.white.opacity(0.2))
-                    }
-                    .opacity(drawn.isRevealed ? 0 : 1)
 
-                // Ön yüz
-                VStack(spacing: 8) {
-                    Text(drawn.card.image)
-                        .font(.system(size: 32))
-
-                    Text(drawn.card.name)
-                        .font(.caption2.weight(.semibold))
-                        .foregroundStyle(.white)
-                        .multilineTextAlignment(.center)
-                        .lineLimit(2)
-
-                    if drawn.isReversed {
-                        Text("Ters")
-                            .font(.caption2)
-                            .foregroundStyle(AstroTheme.zorlayici)
-                            .padding(.horizontal, 8)
-                            .padding(.vertical, 2)
-                            .background(AstroTheme.zorlayici.opacity(0.15), in: .capsule)
-                    }
+                VStack(spacing: 12) {
+                    Text("✦")
+                        .font(.system(size: 48))
+                        .foregroundStyle(.white.opacity(0.3))
+                    Text("Dokun ve Aç")
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(.white.opacity(0.4))
                 }
-                .padding(8)
-                .opacity(drawn.isRevealed ? 1 : 0)
             }
-            .frame(height: 160)
-            .frame(maxWidth: .infinity)
-            .background(AstroTheme.surface, in: .rect(cornerRadius: 16))
-            .overlay {
-                RoundedRectangle(cornerRadius: 16, style: .continuous)
-                    .stroke(AstroTheme.cardBorder, lineWidth: 1)
-            }
-            .rotation3DEffect(
-                .degrees(drawn.isRevealed ? 0 : 180),
-                axis: (x: 0, y: 1, z: 0),
-                perspective: 0.5
-            )
+            .frame(width: 180, height: 260)
             .onTapGesture {
-                guard !drawn.isRevealed else { return }
                 withAnimation(.spring(duration: 0.6)) {
-                    vm.revealCard(drawn)
+                    vm.revealCard()
                 }
             }
         }
     }
 
-    // MARK: - Yorum
+    // MARK: - Açılmış Kart + Yorum
 
-    private var interpretationView: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text("Kartların Mesajı")
-                .font(.headline)
-                .foregroundStyle(.white)
+    private var revealedCardView: some View {
+        VStack(spacing: 20) {
+            if let card = vm.drawnCard, let category = vm.selectedCategory {
+                // Kategori etiketi
+                HStack(spacing: 8) {
+                    Image(systemName: category.icon)
+                    Text(category.rawValue)
+                }
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(AstroTheme.accent)
+                .padding(.top, 8)
 
-            ForEach(vm.drawnCards) { drawn in
-                VStack(alignment: .leading, spacing: 4) {
-                    HStack(spacing: 6) {
-                        Text(drawn.position.rawValue)
-                            .font(.caption2.weight(.bold))
-                            .foregroundStyle(AstroTheme.accent)
-                            .textCase(.uppercase)
-                        Text(drawn.card.name)
-                            .font(.caption.weight(.semibold))
+                // Kart görseli
+                VStack(spacing: 12) {
+                    Text(card.image)
+                        .font(.system(size: 48))
+
+                    Text(card.name)
+                        .font(.title3.weight(.bold))
+                        .foregroundStyle(.white)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 20)
+                .background(AstroTheme.surface, in: .rect(cornerRadius: 20))
+                .overlay {
+                    RoundedRectangle(cornerRadius: 20, style: .continuous)
+                        .stroke(AstroTheme.cardBorder, lineWidth: 1)
+                }
+
+                // Markdown yorum
+                if let interpretation = vm.interpretation {
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("Kartın Yorumu")
+                            .font(.headline)
                             .foregroundStyle(.white)
-                        if drawn.isReversed {
-                            Text("(Ters)")
-                                .font(.caption2)
-                                .foregroundStyle(AstroTheme.zorlayici)
-                        }
+
+                        MarkdownTextView(interpretation)
                     }
-                    Text(drawn.interpretation)
-                        .font(.caption)
-                        .foregroundStyle(AstroTheme.textSecondary)
+                    .glassCard()
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
                 }
-                .padding(12)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .background(AstroTheme.surface, in: .rect(cornerRadius: 12))
+
+                // Paylaş
+                Button {
+                    ShareImageRenderer.shareTarot(card: card, category: category)
+                } label: {
+                    HStack(spacing: 8) {
+                        Image(systemName: "square.and.arrow.up")
+                        Text("Sonucu Paylaş")
+                    }
+                    .glassButton()
+                }
+
+                // Aynı kategoride tekrar çek
+                Button {
+                    withAnimation(.spring(duration: 0.4)) {
+                        vm.backToCategories()
+                    }
+                } label: {
+                    Label("Başka Kart Çek", systemImage: "arrow.counterclockwise")
+                        .font(.caption.weight(.medium))
+                        .foregroundStyle(AstroTheme.textSecondary)
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 10)
+                        .background(AstroTheme.surface, in: .capsule)
+                        .overlay {
+                            Capsule().stroke(AstroTheme.cardBorder, lineWidth: 1)
+                        }
+                }
+
+                resetButton
             }
         }
-        .glassCard()
-        .transition(.move(edge: .bottom).combined(with: .opacity))
     }
 
-    // MARK: - Sıfırla
+    // MARK: - Ortak Butonlar
+
+    private var backButton: some View {
+        Button {
+            withAnimation(.spring(duration: 0.3)) {
+                vm.backToCategories()
+            }
+        } label: {
+            Label("Geri", systemImage: "chevron.left")
+                .font(.caption.weight(.medium))
+                .foregroundStyle(AstroTheme.textSecondary)
+        }
+    }
 
     private var resetButton: some View {
         Button {
@@ -238,7 +316,7 @@ struct TarotView: View {
                 vm.reset()
             }
         } label: {
-            Label("Tekrar Çek", systemImage: "arrow.counterclockwise")
+            Label("Kategorilere Dön", systemImage: "square.grid.2x2")
                 .font(.caption.weight(.medium))
                 .foregroundStyle(AstroTheme.textSecondary)
                 .padding(.horizontal, 20)

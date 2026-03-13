@@ -2,8 +2,10 @@ import SwiftUI
 
 @Observable
 class TarotViewModel {
-    var drawnCards: [DrawnCard] = []
-    var hasDrawn = false
+    var selectedCategory: TarotCategory?
+    var drawnCard: TarotCard?
+    var isRevealed = false
+
     private let deck: [TarotCard]
 
     private static let lastFreeReadingKey = "tarot_last_free_reading_date"
@@ -21,36 +23,38 @@ class TarotViewModel {
         UserDefaults.standard.set(Date(), forKey: Self.lastFreeReadingKey)
     }
 
-    var allRevealed: Bool {
-        drawnCards.allSatisfy(\.isRevealed)
+    /// Seçili kategorideki yorum metni
+    var interpretation: String? {
+        guard let card = drawnCard, let category = selectedCategory else { return nil }
+        return card.descriptions.text(for: category)
     }
 
     init() {
         deck = JSONLoader.load("tarot_cards")
     }
 
-    func drawCards() {
-        let shuffled = deck.shuffled()
-        let positions: [TarotSpreadPosition] = [.past, .present, .future]
+    func selectCategory(_ category: TarotCategory) {
+        selectedCategory = category
+    }
 
-        drawnCards = (0..<3).map { i in
-            DrawnCard(
-                card: shuffled[i],
-                position: positions[i],
-                isReversed: Bool.random()
-            )
-        }
-        hasDrawn = true
+    func drawCard() {
+        guard let card = deck.randomElement() else { return }
+        drawnCard = card
         consumeFreeReading()
     }
 
-    func revealCard(_ card: DrawnCard) {
-        guard let index = drawnCards.firstIndex(where: { $0.id == card.id }) else { return }
-        drawnCards[index].isRevealed = true
+    func revealCard() {
+        isRevealed = true
     }
 
     func reset() {
-        drawnCards = []
-        hasDrawn = false
+        selectedCategory = nil
+        drawnCard = nil
+        isRevealed = false
+    }
+
+    func backToCategories() {
+        drawnCard = nil
+        isRevealed = false
     }
 }

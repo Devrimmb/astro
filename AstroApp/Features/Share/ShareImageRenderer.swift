@@ -59,8 +59,8 @@ enum ShareImageRenderer {
 
     /// Tarot falı görseli render edip paylaşım sheet'i açar.
     @MainActor
-    static func shareTarot(drawnCards: [DrawnCard]) {
-        let view = TarotShareCard(drawnCards: drawnCards)
+    static func shareTarot(card: TarotCard, category: TarotCategory) {
+        let view = TarotShareCard(card: card, category: category)
         guard let image = renderToImage(view) else { return }
         presentShareSheet(items: [image])
     }

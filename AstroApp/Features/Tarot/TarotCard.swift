@@ -5,37 +5,44 @@ struct TarotCard: Identifiable, Codable, Sendable {
     let name: String
     let arcana: Arcana
     let image: String
-    let upright: String
-    let reversed: String
+    let descriptions: Descriptions
 
     enum Arcana: String, Codable, Sendable {
-        case major = "major"
-        case minor = "minor"
+        case major
+        case minor
+    }
+
+    struct Descriptions: Codable, Sendable {
+        let love: String
+        let career: String
+        let general: String
+        let yesno: String
+
+        func text(for category: TarotCategory) -> String {
+            switch category {
+            case .love: love
+            case .career: career
+            case .general: general
+            case .yesno: yesno
+            }
+        }
     }
 }
 
-enum TarotSpreadPosition: String, Sendable {
-    case past = "Geçmiş"
-    case present = "Şimdi"
-    case future = "Gelecek"
-}
+enum TarotCategory: String, CaseIterable, Identifiable, Sendable {
+    case general = "Genel"
+    case love = "Aşk"
+    case career = "Kariyer"
+    case yesno = "Evet-Hayır"
 
-struct DrawnCard: Identifiable, Sendable {
-    let id: UUID
-    let card: TarotCard
-    let position: TarotSpreadPosition
-    let isReversed: Bool
-    var isRevealed: Bool
+    var id: String { rawValue }
 
-    init(card: TarotCard, position: TarotSpreadPosition, isReversed: Bool) {
-        self.id = UUID()
-        self.card = card
-        self.position = position
-        self.isReversed = isReversed
-        self.isRevealed = false
-    }
-
-    var interpretation: String {
-        isReversed ? card.reversed : card.upright
+    var icon: String {
+        switch self {
+        case .general: "sparkles"
+        case .love: "heart.fill"
+        case .career: "briefcase.fill"
+        case .yesno: "questionmark.circle.fill"
+        }
     }
 }
