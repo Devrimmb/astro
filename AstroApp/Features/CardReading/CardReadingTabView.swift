@@ -21,6 +21,17 @@ struct CardReadingTabView: View {
                             destination: TarotView()
                         )
 
+                        // MARK: - Katina
+                        sectionHeader(title: "Katina", icon: "eye.fill", color: .orange)
+
+                        featureCard(
+                            icon: "eye.fill",
+                            title: "Katina Falı",
+                            description: "Kadim katina kartları ile geleceğine bak",
+                            color: .orange,
+                            destination: KatinaView()
+                        )
+
                         // MARK: - Yakında
                         sectionHeader(title: "Yakında", icon: "clock.badge", color: AstroTheme.textTertiary)
 

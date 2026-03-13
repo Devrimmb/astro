@@ -65,6 +65,14 @@ enum ShareImageRenderer {
         presentShareSheet(items: [image])
     }
 
+    /// Katina falı görseli render edip paylaşım sheet'i açar.
+    @MainActor
+    static func shareKatina(card: KatinaCard) {
+        let view = KatinaShareCard(card: card)
+        guard let image = renderToImage(view) else { return }
+        presentShareSheet(items: [image])
+    }
+
     // MARK: - Private
 
     @MainActor
