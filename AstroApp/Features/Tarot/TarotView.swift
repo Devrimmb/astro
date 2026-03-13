@@ -98,7 +98,7 @@ struct TarotView: View {
                                 .foregroundStyle(AstroTheme.accent)
                                 .frame(width: 32)
 
-                            Text(category.rawValue)
+                            Text(category.localizedName)
                                 .font(.headline)
                                 .foregroundStyle(.white)
 
@@ -130,7 +130,7 @@ struct TarotView: View {
             if let category = vm.selectedCategory {
                 HStack(spacing: 8) {
                     Image(systemName: category.icon)
-                    Text(category.rawValue)
+                    Text(category.localizedName)
                 }
                 .font(.subheadline.weight(.semibold))
                 .foregroundStyle(AstroTheme.accent)
@@ -175,7 +175,7 @@ struct TarotView: View {
             if let category = vm.selectedCategory {
                 HStack(spacing: 8) {
                     Image(systemName: category.icon)
-                    Text(category.rawValue)
+                    Text(category.localizedName)
                 }
                 .font(.subheadline.weight(.semibold))
                 .foregroundStyle(AstroTheme.accent)
@@ -226,7 +226,7 @@ struct TarotView: View {
                 // Kategori etiketi
                 HStack(spacing: 8) {
                     Image(systemName: category.icon)
-                    Text(category.rawValue)
+                    Text(category.localizedName)
                 }
                 .font(.subheadline.weight(.semibold))
                 .foregroundStyle(AstroTheme.accent)

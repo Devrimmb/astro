@@ -1,4 +1,4 @@
-import Foundation
+import SwiftUI
 
 struct TarotCard: Identifiable, Codable, Sendable {
     let id: Int
@@ -44,5 +44,10 @@ enum TarotCategory: String, CaseIterable, Identifiable, Sendable {
         case .career: "briefcase.fill"
         case .yesno: "questionmark.circle.fill"
         }
+    }
+
+    /// Localize edilmiş görüntüleme adı
+    var localizedName: LocalizedStringKey {
+        LocalizedStringKey(rawValue)
     }
 }

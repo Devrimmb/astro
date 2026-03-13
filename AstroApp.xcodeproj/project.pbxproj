@@ -202,10 +202,12 @@
 				};
 			};
 			buildConfigurationList = 69746B892F632FEA00B1905B /* Build configuration list for PBXProject "AstroApp" */;
-			developmentRegion = en;
+			developmentRegion = tr;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				tr,
 				en,
+				de,
 				Base,
 			);
 			mainGroup = 69746B852F632FEA00B1905B;

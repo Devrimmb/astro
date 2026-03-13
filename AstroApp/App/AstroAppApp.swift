@@ -3,6 +3,7 @@ import SwiftUI
 @main
 struct AstroAppApp: App {
     @State private var appState = AppState()
+    @State private var languageManager = LanguageManager.shared
     @State private var showOnboarding = false
     @State private var showSplash = true
 
@@ -37,6 +38,7 @@ struct AstroAppApp: App {
                 }
             }
             .preferredColorScheme(.dark)
+            .environment(\.locale, languageManager.activeLocale ?? .current)
         }
     }
 }

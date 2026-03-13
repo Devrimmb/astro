@@ -14,6 +14,7 @@ struct SettingsView: View {
                 ScrollView {
                     VStack(spacing: 16) {
                         proStatusCard
+                        languageCard
                         settingsCard
                         disclaimerCard
                     }
@@ -73,6 +74,60 @@ struct SettingsView: View {
             }
         }
         .glassCard()
+    }
+
+    // MARK: - Language
+
+    private var languageCard: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack(spacing: 8) {
+                Image(systemName: "globe")
+                    .foregroundStyle(AstroTheme.accent)
+                Text("Dil")
+                    .font(.headline)
+                    .foregroundStyle(.white)
+            }
+
+            VStack(spacing: 4) {
+                ForEach(AppLanguage.allCases) { lang in
+                    Button {
+                        withAnimation(.easeInOut(duration: 0.2)) {
+                            LanguageManager.shared.selected = lang
+                        }
+                    } label: {
+                        HStack(spacing: 12) {
+                            Image(systemName: lang.icon)
+                                .font(.subheadline)
+                                .foregroundStyle(isSelected(lang) ? AstroTheme.accent : AstroTheme.textSecondary)
+                                .frame(width: 24)
+
+                            Text(lang.displayName)
+                                .font(.subheadline)
+                                .foregroundStyle(isSelected(lang) ? .white : AstroTheme.textSecondary)
+
+                            Spacer()
+
+                            if isSelected(lang) {
+                                Image(systemName: "checkmark")
+                                    .font(.caption.weight(.bold))
+                                    .foregroundStyle(AstroTheme.accent)
+                            }
+                        }
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 10)
+                        .background(
+                            isSelected(lang) ? AstroTheme.accent.opacity(0.1) : .clear,
+                            in: .rect(cornerRadius: 10)
+                        )
+                    }
+                }
+            }
+        }
+        .glassCard()
+    }
+
+    private func isSelected(_ lang: AppLanguage) -> Bool {
+        LanguageManager.shared.selected == lang
     }
 
     // MARK: - Settings Card

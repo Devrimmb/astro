@@ -76,8 +76,8 @@ struct AstroCalendarContent: View {
 
     private var weekdayHeader: some View {
         LazyVGrid(columns: columns, spacing: 4) {
-            ForEach(weekdays, id: \.self) { day in
-                Text(day)
+            ForEach(Array(weekdays.enumerated()), id: \.offset) { _, day in
+                Text(LocalizedStringKey(day))
                     .font(.caption2.bold())
                     .foregroundStyle(AstroTheme.textSecondary)
                     .frame(maxWidth: .infinity)

@@ -11,7 +11,7 @@ struct TarotShareCard: View {
             // Kategori
             HStack(spacing: 8) {
                 Image(systemName: category.icon)
-                Text(category.rawValue)
+                Text(category.localizedName)
             }
             .font(.system(size: 18, weight: .semibold))
             .foregroundStyle(purple)
