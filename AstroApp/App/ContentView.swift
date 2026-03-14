@@ -3,18 +3,22 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            Tab("Anasayfa", systemImage: "house.fill") {
-                HomeView()
-            }
-            Tab("Astroloji", systemImage: "star.circle.fill") {
-                AstrologyTabView()
-            }
-            Tab("Kart Falı", systemImage: "sparkles") {
-                CardReadingTabView()
-            }
-            Tab("Ayarlar", systemImage: "gearshape") {
-                SettingsView()
-            }
+            HomeView()
+                .tabItem {
+                    Label("Anasayfa", systemImage: "house.fill")
+                }
+            AstrologyTabView()
+                .tabItem {
+                    Label("Astroloji", systemImage: "star.circle.fill")
+                }
+            CardReadingTabView()
+                .tabItem {
+                    Label("Kart Falı", systemImage: "sparkles")
+                }
+            SettingsView()
+                .tabItem {
+                    Label("Ayarlar", systemImage: "gearshape")
+                }
         }
         .tint(AstroTheme.accent)
         .preferredColorScheme(.dark)

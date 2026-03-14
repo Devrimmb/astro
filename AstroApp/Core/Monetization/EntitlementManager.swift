@@ -8,7 +8,6 @@ enum AppFeature {
     case detailedChart
     case compatibility
     case fullNatalChart
-    case aiChat
 }
 
 enum FeatureAccess: Sendable {
@@ -43,13 +42,6 @@ final class EntitlementManager {
                 return .free
             }
             return .requiresPurchase(StoreManager.natalChartID)
-
-        case .aiChat:
-            if store.isPurchased(StoreManager.aiChatID) ||
-               store.isPurchased(StoreManager.allFeaturesID) {
-                return .free
-            }
-            return .requiresPurchase(StoreManager.aiChatID)
         }
     }
 
@@ -59,15 +51,6 @@ final class EntitlementManager {
 
     var hasNatalChart: Bool {
         store.isPurchased(StoreManager.natalChartID) || hasFullAccess
-    }
-
-    var hasAIChat: Bool {
-        #if DEBUG
-        return true
-        #else
-        if Self.isTestFlight { return true }
-        return store.isPurchased(StoreManager.aiChatID) || hasFullAccess
-        #endif
     }
 
     var hasNatalChartOrTest: Bool {

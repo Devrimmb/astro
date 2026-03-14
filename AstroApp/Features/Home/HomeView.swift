@@ -17,12 +17,12 @@ struct HomeView: View {
                 ScrollView {
                     VStack(spacing: 16) {
                         greetingSection
+                        if appState.currentChart != nil { bigThreeCard }
                         if let horoscope { dailySummaryCard(horoscope) }
-                        moonPhaseCard
-                        planetaryHourCard
                         todayCalendarCard
                         if !activeRetrogrades.isEmpty { retrogradeCard }
-                        if appState.currentChart != nil { bigThreeCard }
+                        moonPhaseCard
+                        planetaryHourCard
                     }
                     .padding()
                     .padding(.bottom, 40)

@@ -6,7 +6,6 @@
 //
 
 import WidgetKit
-import AppIntents
 
 // Placeholder — simdilik widget'lar StaticConfiguration kullaniyor.
 // Ileride kullanicinin burc secebilecegi configurable widget eklenebilir.

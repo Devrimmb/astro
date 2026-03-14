@@ -7,11 +7,10 @@ final class StoreManager {
     var isLoading = false
 
     static let natalChartID = "com.duygubal.AstroApp.natalchart"
-    static let aiChatID = "com.duygubal.AstroApp.aichat"
     static let allFeaturesID = "com.duygubal.AstroApp.allfeatures"
 
     private let productIDs: Set<String> = [
-        natalChartID, aiChatID, allFeaturesID
+        natalChartID, allFeaturesID
     ]
 
     private var transactionListener: Task<Void, Never>?

@@ -58,7 +58,7 @@ struct SettingsView: View {
                     Text("Tüm Özellikleri Aç")
                         .font(.headline)
                         .foregroundStyle(.white)
-                    Text("Detaylı harita, AI sohbet ve daha fazlası")
+                    Text("Detaylı harita, uyumluluk analizi ve daha fazlası")
                         .font(.caption)
                         .foregroundStyle(AstroTheme.textSecondary)
 
