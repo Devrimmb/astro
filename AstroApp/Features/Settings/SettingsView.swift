@@ -6,6 +6,7 @@ struct SettingsView: View {
     @State private var showPaywall = false
     @State private var showAbout = false
     @State private var showDeviceID = false
+    @State private var adminTestMode = EntitlementManager.adminTestMode
 
     var body: some View {
         NavigationStack {
@@ -17,6 +18,9 @@ struct SettingsView: View {
                         proStatusCard
                         languageCard
                         settingsCard
+                        if EntitlementManager.isAdminDevice {
+                            adminCard
+                        }
                         disclaimerCard
                     }
                     .padding()
@@ -193,6 +197,49 @@ struct SettingsView: View {
             settingsRow(icon: "doc.text", title: "Gizlilik Politikası") {}
         }
         .glassCard(padding: 0)
+    }
+
+    // MARK: - Admin Panel
+
+    private var adminCard: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack(spacing: 8) {
+                Image(systemName: "wrench.and.screwdriver.fill")
+                    .foregroundStyle(.orange)
+                Text("Admin")
+                    .font(.headline)
+                    .foregroundStyle(.orange)
+            }
+
+            Toggle(isOn: $adminTestMode) {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Kullanıcı Modu")
+                        .font(.subheadline)
+                        .foregroundStyle(.white)
+                    Text(adminTestMode
+                         ? "Normal kullanıcı gibi görüyorsun (ödeme/reklam aktif)"
+                         : "Admin — tüm özellikler açık")
+                        .font(.caption2)
+                        .foregroundStyle(AstroTheme.textTertiary)
+                }
+            }
+            .tint(.orange)
+            .onChange(of: adminTestMode) { _, newValue in
+                EntitlementManager.adminTestMode = newValue
+            }
+
+            // Kredi bilgisi
+            HStack {
+                Text("Harita Kredisi:")
+                    .font(.caption)
+                    .foregroundStyle(AstroTheme.textSecondary)
+                Spacer()
+                Text("\(appState.store.chartCredits)")
+                    .font(.caption.bold())
+                    .foregroundStyle(.white)
+            }
+        }
+        .glassCard()
     }
 
     // MARK: - Disclaimer

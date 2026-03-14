@@ -13,6 +13,30 @@ final class StoreManager {
         natalChartID, allFeaturesID
     ]
 
+    // MARK: - Consumable Kredi Sistemi
+
+    private static let chartCreditsKey = "natal_chart_credits"
+
+    /// Mevcut harita hesaplama kredisi
+    var chartCredits: Int {
+        get { UserDefaults.standard.integer(forKey: Self.chartCreditsKey) }
+        set { UserDefaults.standard.set(newValue, forKey: Self.chartCreditsKey) }
+    }
+
+    /// Kredi ekle (satın alma sonrası)
+    func addChartCredit() {
+        chartCredits += 1
+    }
+
+    /// Kredi harca (hesaplama öncesi)
+    /// - Returns: true ise kredi vardı ve harcandı
+    @discardableResult
+    func consumeChartCredit() -> Bool {
+        guard chartCredits > 0 else { return false }
+        chartCredits -= 1
+        return true
+    }
+
     private var transactionListener: Task<Void, Never>?
 
     init() {
@@ -42,6 +66,12 @@ final class StoreManager {
         switch result {
         case .success(let verification):
             let transaction = try Self.checkVerified(verification)
+
+            // Consumable ürünlerde kredi ekle
+            if transaction.productID == Self.natalChartID {
+                addChartCredit()
+            }
+
             purchasedProductIDs.insert(transaction.productID)
             await transaction.finish()
             return true

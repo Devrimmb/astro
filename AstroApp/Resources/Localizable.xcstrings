@@ -13,6 +13,9 @@
     "/ 100" : {
 
     },
+    "/ hesaplama" : {
+
+    },
     "%@ – %@" : {
       "localizations" : {
         "tr" : {
@@ -163,6 +166,9 @@
     "%lld gün" : {
 
     },
+    "%lld hesaplama hakkınız mevcut" : {
+
+    },
     "%lld." : {
 
     },
@@ -308,6 +314,12 @@
           }
         }
       }
+    },
+    "Admin" : {
+
+    },
+    "Admin — tüm özellikler açık" : {
+
     },
     "AKTİF" : {
       "extractionState" : "manual",
@@ -1291,6 +1303,9 @@
         }
       }
     },
+    "Doğum anındaki gökyüzünün sırlarını\ndetaylı bir harita ile keşfet" : {
+
+    },
     "Doğum Bilgileri" : {
 
     },
@@ -2145,6 +2160,9 @@
         }
       }
     },
+    "Harita Kredisi:" : {
+
+    },
     "Harita sekmesinden doğum bilgilerinizi girerek profilinizi oluşturun." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2181,6 +2199,9 @@
           }
         }
       }
+    },
+    "Haritamı Hesaplat" : {
+
     },
     "Haritanı hesaplamak için bilgilerini gir." : {
       "extractionState" : "manual",
@@ -2470,6 +2491,9 @@
           }
         }
       }
+    },
+    "İşleniyor..." : {
+
     },
     "İyi Akşamlar" : {
       "extractionState" : "manual",
@@ -3033,6 +3057,9 @@
     "Kopyala" : {
 
     },
+    "Kullanıcı Modu" : {
+
+    },
     "mag %@" : {
 
     },
@@ -3115,6 +3142,9 @@
           }
         }
       }
+    },
+    "Normal kullanıcı gibi görüyorsun (ödeme/reklam aktif)" : {
+
     },
     "Ödül için bekleyin: %llds" : {
 
@@ -3987,6 +4017,9 @@
         }
       }
     },
+    "Tek seferlik ödeme. Abonelik değildir." : {
+
+    },
     "Tekrar Çek" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -4318,6 +4351,9 @@
       }
     },
     "Yasal uyarı: Bu uygulama eğlence amaçlıdır, profesyonel danışmanlık yerine geçmez." : {
+
+    },
+    "Yıldız Haritanı Keşfet" : {
 
     },
     "Yıldız haritanın tüm detaylarını keşfet" : {

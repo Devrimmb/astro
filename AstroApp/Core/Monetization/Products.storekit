@@ -4,34 +4,19 @@
   "version" : 3,
   "products" : [
     {
-      "displayPrice" : "199.99",
+      "displayPrice" : "49.99",
       "familyShareable" : false,
       "internalID" : "001",
       "localizations" : [
         {
-          "description" : "Tam natal chart ve tüm gezegen yorumları",
-          "displayName" : "Natal Chart Pro",
+          "description" : "Doğum haritası hesaplama — 1 kullanım",
+          "displayName" : "Doğum Haritası Hesapla",
           "locale" : "tr"
         }
       ],
       "productID" : "com.duygubal.AstroApp.natalchart",
-      "referenceName" : "Natal Chart Pro",
-      "type" : "NonConsumable"
-    },
-    {
-      "displayPrice" : "299.99",
-      "familyShareable" : false,
-      "internalID" : "002",
-      "localizations" : [
-        {
-          "description" : "AI astroloji sohbet asistanı",
-          "displayName" : "AI Sohbet",
-          "locale" : "tr"
-        }
-      ],
-      "productID" : "com.duygubal.AstroApp.aichat",
-      "referenceName" : "AI Sohbet",
-      "type" : "NonConsumable"
+      "referenceName" : "Doğum Haritası (1 Hesaplama)",
+      "type" : "Consumable"
     },
     {
       "displayPrice" : "399.99",

@@ -55,6 +55,11 @@ final class EntitlementManager {
         Self.isAdmin || store.isPurchased(StoreManager.natalChartID) || hasFullAccess
     }
 
+    /// Harita hesaplama hakkı var mı? (admin, kredi veya allFeatures)
+    var canCalculateChart: Bool {
+        Self.isAdmin || store.chartCredits > 0 || store.isPurchased(StoreManager.allFeaturesID)
+    }
+
     var hasNatalChartOrTest: Bool {
         if Self.isAdmin { return true }
         #if DEBUG
@@ -65,11 +70,26 @@ final class EntitlementManager {
         #endif
     }
 
-    /// Admin cihaz mı kontrol et
-    static let isAdmin: Bool = {
+    /// Admin test modu — admin kullanıcı, normal kullanıcı gibi görebilir
+    private static let adminTestModeKey = "admin_test_mode_enabled"
+
+    static var adminTestMode: Bool {
+        get { UserDefaults.standard.bool(forKey: adminTestModeKey) }
+        set { UserDefaults.standard.set(newValue, forKey: adminTestModeKey) }
+    }
+
+    /// Admin cihaz mı? (test modu açıksa false döner — normal kullanıcı gibi davranır)
+    static var isAdmin: Bool {
+        guard isAdminDevice else { return false }
+        return !adminTestMode
+    }
+
+    /// Cihaz admin listesinde mi? (test modu'ndan bağımsız)
+    static let isAdminDevice: Bool = {
         let adminIDs: Set<String> = [
             "BF92A0DA-3782-415C-BF7F-4D9AC4AFD554",
-            "0F3534D6-A8AC-4093-89E5-C616A9DA32F5"
+            "0F3534D6-A8AC-4093-89E5-C616A9DA32F5",
+            "426A7520-78A7-4BAE-9DC3-489C1BE842B0"
         ]
         guard let deviceID = UIDevice.current.identifierForVendor?.uuidString else {
             return false
