@@ -106,7 +106,7 @@ struct BirthChartResultView: View {
 
             ForEach(chart.planets) { position in
                 HStack {
-                    Text(position.planet.rawValue)
+                    Text(position.planet.name)
                         .font(.subheadline)
                         .foregroundStyle(.white)
                         .frame(width: 95, alignment: .leading)
@@ -133,7 +133,7 @@ struct BirthChartResultView: View {
                         .background(AstroTheme.surface, in: .capsule)
                 }
                 .accessibilityElement(children: .combine)
-                .accessibilityLabel("\(position.planet.rawValue), \(position.sign.name), \(String(format: "%.0f", position.degree)) derece, \(position.house). ev\(position.isRetrograde ? ", retrograd" : "")")
+                .accessibilityLabel("\(position.planet.name), \(position.sign.name), \(String(format: "%.0f", position.degree)) derece, \(position.house). ev\(position.isRetrograde ? ", retrograd" : "")")
                 if position.planet != chart.planets.last?.planet {
                     Divider().overlay(AstroTheme.cardBorder)
                 }
@@ -208,12 +208,12 @@ struct BirthChartResultView: View {
             } else {
                 ForEach(Array(chart.aspects.enumerated()), id: \.offset) { _, aspect in
                     HStack {
-                        Text(aspect.planet1.rawValue)
+                        Text(aspect.planet1.name)
                             .font(.caption)
                             .frame(width: 65, alignment: .leading)
                         Text(aspectSymbol(aspect.type))
                             .font(.caption)
-                        Text(aspect.planet2.rawValue)
+                        Text(aspect.planet2.name)
                             .font(.caption)
                             .frame(width: 65, alignment: .leading)
                         Spacer()
@@ -371,7 +371,7 @@ private struct HouseInterpretationSheet: View {
                                         Text(planet.sign.glyph)
                                             .font(.title3)
                                         VStack(alignment: .leading, spacing: 2) {
-                                            Text(planet.planet.rawValue)
+                                            Text(planet.planet.name)
                                                 .font(.subheadline.weight(.medium))
                                                 .foregroundStyle(.white)
                                             Text("\(planet.sign.name) \(String(format: "%.1f°", planet.degree))")

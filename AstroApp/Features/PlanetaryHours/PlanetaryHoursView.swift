@@ -40,7 +40,7 @@ struct PlanetaryHoursView: View {
                 .font(.caption)
                 .foregroundStyle(AstroTheme.textSecondary)
 
-            Text(current?.planet.rawValue ?? "—")
+            Text(current?.planet.name ?? "—")
                 .font(.title2.bold())
                 .foregroundStyle(.white)
 
@@ -103,7 +103,7 @@ struct PlanetaryHoursView: View {
                 .foregroundStyle(AstroTheme.textTertiary)
                 .frame(width: 20)
 
-            Text(hour.planet.rawValue)
+            Text(hour.planet.name)
                 .font(.caption.bold())
                 .foregroundStyle(hour.isActive ? .orange : .white)
                 .frame(width: 60, alignment: .leading)

@@ -62,7 +62,7 @@ struct SolarReturnShareCard: View {
 
                     ForEach(solarReturn.chart.planets, id: \.planet) { pos in
                         HStack(spacing: 10) {
-                            Text(pos.planet.rawValue)
+                            Text(pos.planet.name)
                                 .font(.system(size: 16))
                                 .foregroundStyle(.white.opacity(0.5))
                                 .frame(width: 110, alignment: .leading)

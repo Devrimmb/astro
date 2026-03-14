@@ -116,7 +116,7 @@ final class AstroCalendarViewModel {
                     events.append(CalendarEvent(
                         date: retro.startDate,
                         type: .retrograde,
-                        title: "\(retro.planet.rawValue) Retrograde Başlangıç",
+                        title: "\(retro.planet.name) Retrograde Başlangıç",
                         subtitle: "\(retro.startSign.name) — \(retro.durationDays) gün",
                         icon: "arrow.backward.circle.fill"
                     ))
@@ -125,7 +125,7 @@ final class AstroCalendarViewModel {
                     events.append(CalendarEvent(
                         date: retro.endDate,
                         type: .retrograde,
-                        title: "\(retro.planet.rawValue) Retrograde Bitiş",
+                        title: "\(retro.planet.name) Retrograde Bitiş",
                         subtitle: retro.endSign.name,
                         icon: "arrow.forward.circle.fill"
                     ))

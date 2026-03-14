@@ -56,7 +56,7 @@ struct FixedStarsView: View {
                             .foregroundStyle(.yellow)
                         Text("☌")
                             .foregroundStyle(AstroTheme.accent)
-                        Text(conj.planet.rawValue)
+                        Text(conj.planet.name)
                             .font(.subheadline.bold())
                             .foregroundStyle(.white)
                         Spacer()

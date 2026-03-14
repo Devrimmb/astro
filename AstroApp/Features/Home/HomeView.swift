@@ -46,7 +46,7 @@ struct HomeView: View {
                 .font(.title2.bold())
                 .foregroundStyle(.white)
             if let name = appState.birthDataStore.savedData?.name, !name.isEmpty {
-                Text("Merhaba, \(name)")
+                Text("\(LanguageManager.localized("Merhaba")), \(name)")
                     .font(.subheadline)
                     .foregroundStyle(AstroTheme.textSecondary)
             }
@@ -204,7 +204,7 @@ struct HomeView: View {
                     .font(.caption.bold())
                     .foregroundStyle(AstroTheme.textTertiary)
                 if let hour = currentPlanetaryHour {
-                    Text(hour.planet.rawValue)
+                    Text(hour.planet.name)
                         .font(.headline)
                         .foregroundStyle(.white)
                     Text(hour.timeText)
@@ -236,12 +236,12 @@ struct HomeView: View {
 
             ForEach(activeRetrogrades) { retro in
                 HStack(spacing: 10) {
-                    Text(retro.planet.rawValue.prefix(2))
+                    Text(retro.planet.name.prefix(2))
                         .font(.caption.bold())
                         .foregroundStyle(AstroTheme.accent)
                         .frame(width: 28)
                     VStack(alignment: .leading, spacing: 2) {
-                        Text("\(retro.planet.rawValue) Retrograde")
+                        Text("\(retro.planet.name) Retrograde")
                             .font(.caption.bold())
                             .foregroundStyle(.white)
                         Text("\(retro.startText) – \(retro.endText)")
@@ -361,10 +361,10 @@ struct HomeView: View {
     private var greetingText: String {
         let hour = Calendar.current.component(.hour, from: .now)
         switch hour {
-        case 5..<12: return "Günaydın"
-        case 12..<18: return "İyi Günler"
-        case 18..<22: return "İyi Akşamlar"
-        default: return "İyi Geceler"
+        case 5..<12: return LanguageManager.localized("Günaydın")
+        case 12..<18: return LanguageManager.localized("İyi Günler")
+        case 18..<22: return LanguageManager.localized("İyi Akşamlar")
+        default: return LanguageManager.localized("İyi Geceler")
         }
     }
 
@@ -442,7 +442,7 @@ struct HomeView: View {
             if calendar.isDate(retro.startDate, inSameDayAs: today) {
                 events.append(CalendarEvent(
                     date: retro.startDate, type: .retrograde,
-                    title: "\(retro.planet.rawValue) Retrograde Başlangıç",
+                    title: "\(retro.planet.name) Retrograde Başlangıç",
                     subtitle: retro.startSign.name,
                     icon: "arrow.backward.circle.fill"
                 ))

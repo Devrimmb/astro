@@ -55,4 +55,28 @@ class LanguageManager {
         let saved = UserDefaults.standard.string(forKey: "app_language") ?? "system"
         self.selected = AppLanguage(rawValue: saved) ?? .system
     }
+
+    /// Seçili dile uygun Bundle
+    var localizedBundle: Bundle {
+        let langCode: String
+        switch selected {
+        case .system:
+            langCode = Locale.current.language.languageCode?.identifier ?? "tr"
+        case .turkish: langCode = "tr"
+        case .english: langCode = "en"
+        case .german: langCode = "de"
+        }
+        if let path = Bundle.main.path(forResource: langCode, ofType: "lproj"),
+           let bundle = Bundle(path: path) {
+            return bundle
+        }
+        return Bundle.main
+    }
+
+    /// Uygulama içi dil ayarına göre lokalize string döner.
+    /// Model katmanında (view dışında) kullanılır.
+    static func localized(_ key: String.LocalizationValue) -> String {
+        let bundle = shared.localizedBundle
+        return String(localized: key, bundle: bundle)
+    }
 }

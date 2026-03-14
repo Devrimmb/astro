@@ -20,6 +20,30 @@ enum Planet: String, CaseIterable, Codable, Sendable {
     case juno = "Juno"
     case vesta = "Vesta"
 
+    /// Lokalize edilmiş gezegen adı
+    var name: String {
+        switch self {
+        case .sun: LanguageManager.localized( "Güneş")
+        case .moon: LanguageManager.localized( "Ay")
+        case .mercury: LanguageManager.localized( "Merkür")
+        case .venus: LanguageManager.localized( "Venüs")
+        case .mars: LanguageManager.localized( "Mars")
+        case .jupiter: LanguageManager.localized( "Jüpiter")
+        case .saturn: LanguageManager.localized( "Satürn")
+        case .uranus: LanguageManager.localized( "Uranüs")
+        case .neptune: LanguageManager.localized( "Neptün")
+        case .pluto: LanguageManager.localized( "Plüton")
+        case .northNode: LanguageManager.localized( "Kuzey Düğüm")
+        case .chiron: LanguageManager.localized( "Chiron")
+        case .lilith: LanguageManager.localized( "Lilith")
+        case .partOfFortune: LanguageManager.localized( "Talih Noktası")
+        case .ceres: LanguageManager.localized( "Ceres")
+        case .pallas: LanguageManager.localized( "Pallas")
+        case .juno: LanguageManager.localized( "Juno")
+        case .vesta: LanguageManager.localized( "Vesta")
+        }
+    }
+
     var identifier: String {
         switch self {
         case .sun: "sun"

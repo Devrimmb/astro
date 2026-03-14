@@ -92,7 +92,7 @@ struct RetrogradeCalendarView: View {
         return ForEach(sortedPlanets, id: \.self) { planet in
             VStack(alignment: .leading, spacing: 10) {
                 HStack(spacing: 6) {
-                    Text(planet.rawValue)
+                    Text(planet.name)
                         .font(.headline)
                         .foregroundStyle(.white)
                     Text("℞")

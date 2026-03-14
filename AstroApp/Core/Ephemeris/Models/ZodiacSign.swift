@@ -9,10 +9,10 @@ enum ZodiacSign: Int, CaseIterable, Codable, Sendable {
 
         var displayName: String {
             switch self {
-            case .fire: "Ateş"
-            case .earth: "Toprak"
-            case .air: "Hava"
-            case .water: "Su"
+            case .fire: LanguageManager.localized( "Ateş")
+            case .earth: LanguageManager.localized( "Toprak")
+            case .air: LanguageManager.localized( "Hava")
+            case .water: LanguageManager.localized( "Su")
             }
         }
     }
@@ -22,27 +22,27 @@ enum ZodiacSign: Int, CaseIterable, Codable, Sendable {
 
         var displayName: String {
             switch self {
-            case .cardinal: "Öncü"
-            case .fixed: "Sabit"
-            case .mutable: "Değişken"
+            case .cardinal: LanguageManager.localized( "Öncü")
+            case .fixed: LanguageManager.localized( "Sabit")
+            case .mutable: LanguageManager.localized( "Değişken")
             }
         }
     }
 
     var name: String {
         switch self {
-        case .aries: "Koç"
-        case .taurus: "Boğa"
-        case .gemini: "İkizler"
-        case .cancer: "Yengeç"
-        case .leo: "Aslan"
-        case .virgo: "Başak"
-        case .libra: "Terazi"
-        case .scorpio: "Akrep"
-        case .sagittarius: "Yay"
-        case .capricorn: "Oğlak"
-        case .aquarius: "Kova"
-        case .pisces: "Balık"
+        case .aries: LanguageManager.localized( "Koç")
+        case .taurus: LanguageManager.localized( "Boğa")
+        case .gemini: LanguageManager.localized( "İkizler")
+        case .cancer: LanguageManager.localized( "Yengeç")
+        case .leo: LanguageManager.localized( "Aslan")
+        case .virgo: LanguageManager.localized( "Başak")
+        case .libra: LanguageManager.localized( "Terazi")
+        case .scorpio: LanguageManager.localized( "Akrep")
+        case .sagittarius: LanguageManager.localized( "Yay")
+        case .capricorn: LanguageManager.localized( "Oğlak")
+        case .aquarius: LanguageManager.localized( "Kova")
+        case .pisces: LanguageManager.localized( "Balık")
         }
     }
 

@@ -296,7 +296,20 @@
 
     },
     "Ad" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Name"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Name"
+          }
+        }
+      }
     },
     "Adın" : {
       "extractionState" : "manual",
@@ -321,6 +334,22 @@
     "Admin — tüm özellikler açık" : {
 
     },
+    "Akrep" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skorpion"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scorpio"
+          }
+        }
+      }
+    },
     "AKTİF" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -344,7 +373,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aktive Retrograde"
+            "value" : "Aktive Rückläufer"
           }
         },
         "en" : {
@@ -405,6 +434,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Love"
+          }
+        }
+      }
+    },
+    "Aslan" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Löwe"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Leo"
           }
         }
       }
@@ -494,6 +539,22 @@
         }
       }
     },
+    "Ateş" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feuer"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fire"
+          }
+        }
+      }
+    },
     "Ay" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -556,7 +617,20 @@
       }
     },
     "Ay Burcu" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mondzeichen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moon Sign"
+          }
+        }
+      }
     },
     "Ay burcu hesaplanamadı" : {
 
@@ -565,10 +639,36 @@
 
     },
     "Ay burcun duygusal dünyanı yansıtır" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dein Mondzeichen spiegelt deine emotionale Welt"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your moon sign reflects your emotional world"
+          }
+        }
+      }
     },
     "Ay Burcunu Hesapla" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mondzeichen berechnen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calculate Moon Sign"
+          }
+        }
+      }
     },
     "Ay Enerjisi" : {
       "extractionState" : "manual",
@@ -726,8 +826,53 @@
     "Aydınlanma: %%%lld" : {
 
     },
+    "Balık" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fische"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pisces"
+          }
+        }
+      }
+    },
+    "Başak" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jungfrau"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Virgo"
+          }
+        }
+      }
+    },
     "Başka Biri" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jemand anderes"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Someone Else"
+          }
+        }
+      }
     },
     "Başka Kart Çek" : {
       "extractionState" : "manual",
@@ -752,7 +897,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Los geht's"
+            "value" : "Starten"
           }
         },
         "en" : {
@@ -816,6 +961,22 @@
     },
     "Bitiş: %@" : {
 
+    },
+    "Boğa" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stier"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Taurus"
+          }
+        }
+      }
     },
     "Bu ay burcu için henüz yorum eklenmedi." : {
 
@@ -954,13 +1115,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Du hast deine kostenlose Legung heute verbraucht"
+            "value" : "Du hast deine kostenlose Lesung für heute verbraucht"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "You've used your free reading today"
+            "value" : "You've used your free reading for today"
           }
         }
       }
@@ -1011,7 +1172,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Today's Reading"
+            "value" : "Today's Horoscope"
           }
         }
       }
@@ -1051,7 +1212,20 @@
       }
     },
     "Büyük Üçlün" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deine großen Drei"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your Big Three"
+          }
+        }
+      }
     },
     "Ça" : {
       "extractionState" : "manual",
@@ -1070,11 +1244,56 @@
         }
       }
     },
+    "Ceres" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ceres"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ceres"
+          }
+        }
+      }
+    },
+    "Chiron" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chiron"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chiron"
+          }
+        }
+      }
+    },
     "Cihaz ID" : {
 
     },
     "Cinsiyet" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geschlecht"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gender"
+          }
+        }
+      }
     },
     "Ciro Discepolo metodu — gezegen etkileşimlerine dayalı" : {
       "extractionState" : "manual",
@@ -1215,6 +1434,22 @@
         }
       }
     },
+    "Değişken" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veränderlich"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mutable"
+          }
+        }
+      }
+    },
     "Değiştir" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1250,7 +1485,20 @@
       }
     },
     "Detaylı harita, uyumluluk analizi ve daha fazlası" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detailliertes Horoskop, Kompatibilitätsanalyse und mehr"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detailed chart, compatibility analysis and more"
+          }
+        }
+      }
     },
     "Detaylı kart yorumları" : {
       "extractionState" : "manual",
@@ -1307,7 +1555,20 @@
 
     },
     "Doğum Bilgileri" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geburtsdaten"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Birth Details"
+          }
+        }
+      }
     },
     "Doğum Bilgilerin" : {
       "extractionState" : "manual",
@@ -1315,13 +1576,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Deine Geburtsdaten"
+            "value" : "Geburtsdaten"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Your Birth Details"
+            "value" : "Birth Information"
           }
         }
       }
@@ -1471,13 +1732,30 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zum Aufdecken berühren"
+            "value" : "Tippen zum Aufdecken"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Touch to Reveal"
+            "value" : "Tap to Reveal"
+          }
+        }
+      }
+    },
+    "Dolunay" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vollmond"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Full Moon"
           }
         }
       }
@@ -1546,6 +1824,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Element Balance"
+          }
+        }
+      }
+    },
+    "Erkek" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Männlich"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Male"
           }
         }
       }
@@ -1809,7 +2104,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Datenschutzrichtlinie"
+            "value" : "Datenschutz"
           }
         },
         "en" : {
@@ -2127,7 +2422,20 @@
       }
     },
     "Hangi tanrı sana mesaj gönderiyor?" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Welcher Gott sendet dir eine Nachricht?"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Which god is sending you a message?"
+          }
+        }
+      }
     },
     "Harika" : {
       "extractionState" : "manual",
@@ -2164,7 +2472,20 @@
       }
     },
     "Harita Kredisi:" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Horoskop-Guthaben:"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chart Credits:"
+          }
+        }
+      }
     },
     "Harita sekmesinden doğum bilgilerinizi girerek profilinizi oluşturun." : {
       "extractionState" : "manual",
@@ -2184,7 +2505,20 @@
       }
     },
     "Haritamdan" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aus meinem Horoskop"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "From My Chart"
+          }
+        }
+      }
     },
     "Haritamı Hesapla" : {
       "extractionState" : "manual",
@@ -2204,7 +2538,20 @@
       }
     },
     "Haritamı Hesaplat" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mein Horoskop berechnen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calculate My Chart"
+          }
+        }
+      }
     },
     "Haritanı hesaplamak için bilgilerini gir." : {
       "extractionState" : "manual",
@@ -2274,6 +2621,22 @@
         }
       }
     },
+    "Hava" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Luft"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Air"
+          }
+        }
+      }
+    },
     "Henüz kimse eklenmedi" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2331,13 +2694,47 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Berechne..."
+            "value" : "Berechnung..."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Calculating..."
+          }
+        }
+      }
+    },
+    "Hilal (Büyüyen)" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zunehmende Sichel"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Waxing Crescent"
+          }
+        }
+      }
+    },
+    "Hilal (Küçülen)" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abnehmende Sichel"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Waning Crescent"
           }
         }
       }
@@ -2372,6 +2769,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Relationship chart from midpoints of two charts"
+          }
+        }
+      }
+    },
+    "İkizler" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zwillinge"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gemini"
           }
         }
       }
@@ -2566,6 +2979,38 @@
         }
       }
     },
+    "Juno" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Juno"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Juno"
+          }
+        }
+      }
+    },
+    "Jüpiter" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jupiter"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jupiter"
+          }
+        }
+      }
+    },
     "Kader İşareti" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2601,7 +3046,37 @@
       }
     },
     "Kadim runelerden rehberlik al" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erhalte Führung von alten Runen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Receive guidance from ancient runes"
+          }
+        }
+      }
+    },
+    "Kadın" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weiblich"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Female"
+          }
+        }
+      }
     },
     "Kahve Falı" : {
       "extractionState" : "manual",
@@ -2624,7 +3099,20 @@
 
     },
     "Kapat" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schließen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Close"
+          }
+        }
+      }
     },
     "Kararlılık" : {
       "extractionState" : "manual",
@@ -2729,7 +3217,20 @@
       }
     },
     "Kartı Değiştir" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Karte wechseln"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Change Card"
+          }
+        }
+      }
     },
     "Kartın Yorumu" : {
       "extractionState" : "manual",
@@ -2754,13 +3255,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Berühre deine Karte zum Aufdecken"
+            "value" : "Tippe auf deine Karte"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Touch your card to reveal"
+            "value" : "Tap your card to reveal"
           }
         }
       }
@@ -2783,7 +3284,20 @@
       }
     },
     "Kartını Seç" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wähle deine Karte"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose Your Card"
+          }
+        }
+      }
     },
     "Kartını tekrar çekmek için kısa bir reklam izle veya Pro'ya geç." : {
       "extractionState" : "manual",
@@ -2910,7 +3424,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aus gespeicherten Personen auswählen"
+            "value" : "Aus gespeicherten Personen wählen"
           }
         },
         "en" : {
@@ -2995,7 +3509,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Person auswählen"
+            "value" : "Person wählen"
           }
         },
         "en" : {
@@ -3057,23 +3571,175 @@
         }
       }
     },
+    "Koç" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Widder"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aries"
+          }
+        }
+      }
+    },
     "Kopyala" : {
 
     },
+    "Kova" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wassermann"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aquarius"
+          }
+        }
+      }
+    },
     "Kullanıcı Modu" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benutzermodus"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "User Mode"
+          }
+        }
+      }
+    },
+    "Kuzey Düğüm" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mondknoten"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "North Node"
+          }
+        }
+      }
+    },
+    "Lilith" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lilith"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lilith"
+          }
+        }
+      }
     },
     "mag %@" : {
 
     },
     "Manuel giriş yap" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Manuell eingeben"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter manually"
+          }
+        }
+      }
+    },
+    "Mars" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mars"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mars"
+          }
+        }
+      }
     },
     "MC" : {
 
     },
+    "Merhaba" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hallo"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hello"
+          }
+        }
+      }
+    },
     "Merhaba, %@" : {
-
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hallo, %@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hello, %@"
+          }
+        }
+      }
+    },
+    "Merkür" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Merkur"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mercury"
+          }
+        }
+      }
     },
     "Min." : {
       "extractionState" : "manual",
@@ -3146,6 +3812,22 @@
         }
       }
     },
+    "Neptün" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neptun"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neptune"
+          }
+        }
+      }
+    },
     "Normal kullanıcı gibi görüyorsun (ödeme/reklam aktif)" : {
 
     },
@@ -3154,6 +3836,22 @@
     },
     "Ödülü Al" : {
 
+    },
+    "Oğlak" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Steinbock"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Capricorn"
+          }
+        }
+      }
     },
     "Olaylar" : {
       "extractionState" : "manual",
@@ -3177,6 +3875,22 @@
     },
     "Önce doğum bilgilerinizi girerek haritanızı hesaplatın." : {
 
+    },
+    "Öncü" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kardinal"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cardinal"
+          }
+        }
+      }
     },
     "Önemli" : {
       "extractionState" : "manual",
@@ -3263,6 +3977,22 @@
         }
       }
     },
+    "Pallas" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pallas"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pallas"
+          }
+        }
+      }
+    },
     "Partner Bilgileri" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3314,6 +4044,22 @@
         }
       }
     },
+    "Plüton" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pluto"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pluto"
+          }
+        }
+      }
+    },
     "Pro abonelik aktif" : {
 
     },
@@ -3360,13 +4106,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zu Pro wechseln"
+            "value" : "Pro werden"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Upgrade to Pro"
+            "value" : "Go Pro"
           }
         }
       }
@@ -3513,13 +4259,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Werbung ansehen und freischalten"
+            "value" : "Werbung ansehen & freischalten"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Watch Ad and Unlock"
+            "value" : "Watch Ad & Unlock"
           }
         }
       }
@@ -3537,6 +4283,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Internet connection required to watch ads."
+          }
+        }
+      }
+    },
+    "Retrograde" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rückläufig"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retrograde"
           }
         }
       }
@@ -3564,7 +4327,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Runen-Lesung"
+            "value" : "Runen-Legung"
           }
         },
         "en" : {
@@ -3576,10 +4339,53 @@
       }
     },
     "Runene dokun ve aç" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tippe auf deine Rune"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap your rune to reveal"
+          }
+        }
+      }
+    },
+    "Runeni Çek" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ziehe deine Rune"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Draw Your Rune"
+          }
+        }
+      }
     },
     "Runenin Yorumu" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Runen-Deutung"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rune Interpretation"
+          }
+        }
+      }
     },
     "Sa" : {
       "extractionState" : "manual",
@@ -3594,6 +4400,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tue"
+          }
+        }
+      }
+    },
+    "Sabit" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fix"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fixed"
           }
         }
       }
@@ -3655,6 +4477,23 @@
     "Şanslı sayı: %lld" : {
 
     },
+    "Satın Al" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kaufen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purchase"
+          }
+        }
+      }
+    },
     "Satın Almaları Geri Yükle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3668,6 +4507,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Restore Purchases"
+          }
+        }
+      }
+    },
+    "Satürn" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saturn"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saturn"
           }
         }
       }
@@ -3690,10 +4545,36 @@
       }
     },
     "Şehir ara..." : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stadt suchen..."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search city..."
+          }
+        }
+      }
     },
     "Şehir Seç" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stadt wählen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select City"
+          }
+        }
+      }
     },
     "Sil" : {
       "extractionState" : "manual",
@@ -3725,6 +4606,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Symbols"
+          }
+        }
+      }
+    },
+    "Şişkin Ay (Büyüyen)" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zunehmender Mond"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Waxing Gibbous"
+          }
+        }
+      }
+    },
+    "Şişkin Ay (Küçülen)" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abnehmender Mond"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Waning Gibbous"
           }
         }
       }
@@ -3848,6 +4763,22 @@
         }
       }
     },
+    "Su" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wasser"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Water"
+          }
+        }
+      }
+    },
     "Şu An Retrograde" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3946,6 +4877,22 @@
         }
       }
     },
+    "Talih Noktası" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Glückspunkt"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Part of Fortune"
+          }
+        }
+      }
+    },
     "Tam Natal Chart" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3981,10 +4928,36 @@
       }
     },
     "Tanrı Kartları" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Götterkarten"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "God Cards"
+          }
+        }
+      }
     },
     "Tanrının Mesajı" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Botschaft des Gottes"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "God's Message"
+          }
+        }
+      }
     },
     "Tarot" : {
       "extractionState" : "manual",
@@ -4021,7 +4994,20 @@
       }
     },
     "Tek seferlik ödeme. Abonelik değildir." : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einmalige Zahlung. Kein Abo."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "One-time payment. Not a subscription."
+          }
+        }
+      }
     },
     "Tekrar Çek" : {
       "extractionState" : "manual",
@@ -4029,7 +5015,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Erneut ziehen"
+            "value" : "Nochmal ziehen"
           }
         },
         "en" : {
@@ -4046,7 +5032,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Erneut legen"
+            "value" : "Nochmal lesen"
           }
         },
         "en" : {
@@ -4058,10 +5044,36 @@
       }
     },
     "Tekrar Hesapla" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neu berechnen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recalculate"
+          }
+        }
+      }
     },
     "Tekrar Kart Çek" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neue Karte ziehen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Draw Another Card"
+          }
+        }
+      }
     },
     "Temel enerji" : {
       "extractionState" : "manual",
@@ -4080,11 +5092,43 @@
         }
       }
     },
+    "Terazi" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Waage"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Libra"
+          }
+        }
+      }
+    },
     "Test Reklam" : {
 
     },
     "Toplam: %lld puan" : {
 
+    },
+    "Toprak" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erde"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Earth"
+          }
+        }
+      }
     },
     "Transit Hesapla" : {
       "extractionState" : "manual",
@@ -4143,7 +5187,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sie haben Zugriff auf alle Funktionen."
+            "value" : "Du hast Zugriff auf alle Funktionen."
           }
         },
         "en" : {
@@ -4226,13 +5270,68 @@
       }
     },
     "Ülke" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Land"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Country"
+          }
+        }
+      }
     },
     "Ülke ara..." : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Land suchen..."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search country..."
+          }
+        }
+      }
     },
     "Ülke Seç" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Land wählen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select Country"
+          }
+        }
+      }
+    },
+    "Uranüs" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uranus"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uranus"
+          }
+        }
+      }
     },
     "Ürünler yüklenemedi" : {
       "extractionState" : "manual",
@@ -4281,6 +5380,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Harmonious Transits"
+          }
+        }
+      }
+    },
+    "Venüs" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Venus"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Venus"
+          }
+        }
+      }
+    },
+    "Vesta" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vesta"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vesta"
           }
         }
       }
@@ -4353,11 +5484,107 @@
         }
       }
     },
+    "Yarım Ay (İlk Dördün)" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erstes Viertel"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "First Quarter"
+          }
+        }
+      }
+    },
+    "Yarım Ay (Son Dördün)" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Letztes Viertel"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Last Quarter"
+          }
+        }
+      }
+    },
     "Yasal uyarı: Bu uygulama eğlence amaçlıdır, profesyonel danışmanlık yerine geçmez." : {
 
     },
+    "Yay" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schütze"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sagittarius"
+          }
+        }
+      }
+    },
+    "Yengeç" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Krebs"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancer"
+          }
+        }
+      }
+    },
+    "Yeni Ay" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neumond"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "New Moon"
+          }
+        }
+      }
+    },
     "Yıldız Haritanı Keşfet" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entdecke dein Sternenkarte"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Discover Your Star Chart"
+          }
+        }
+      }
     },
     "Yıldız haritanın tüm detaylarını keşfet" : {
       "extractionState" : "manual",
@@ -4549,6 +5776,23 @@
         }
       }
     },
+    "Yorumu Göster" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deutung anzeigen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show Interpretation"
+          }
+        }
+      }
+    },
     "Yükleniyor..." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -4578,13 +5822,26 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Rising"
+            "value" : "Ascendant"
           }
         }
       }
     },
     "Zihnini odakla ve bir kart seç" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Konzentriere dich und wähle eine Karte"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Focus your mind and choose a card"
+          }
+        }
+      }
     },
     "Zihnini odakla ve kartına dokun" : {
       "extractionState" : "manual",
@@ -4592,13 +5849,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Konzentriere dich und berühre deine Karte"
+            "value" : "Konzentriere dich und tippe auf deine Karte"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Focus your mind and touch your card"
+            "value" : "Focus your mind and tap your card"
           }
         }
       }
