@@ -52,10 +52,11 @@ final class StoreManager {
     func loadProducts() async {
         isLoading = true
         do {
-            products = try await Product.products(for: productIDs)
-                .sorted { $0.price < $1.price }
+            let loaded = try await Product.products(for: productIDs)
+            products = loaded.sorted { $0.price < $1.price }
+            print("✅ StoreKit: \(loaded.count) ürün yüklendi — \(loaded.map { "\($0.id): \($0.displayPrice)" })")
         } catch {
-            print("Ürünler yüklenemedi: \(error)")
+            print("❌ StoreKit ürün yükleme hatası: \(error)")
         }
         isLoading = false
     }

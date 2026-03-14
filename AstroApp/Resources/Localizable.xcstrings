@@ -1607,6 +1607,9 @@
         }
       }
     },
+    "Fiyat bilgisi yükleniyor..." : {
+
+    },
     "Fotoğraf çekin, yapay zeka yorumlasın" : {
       "extractionState" : "manual",
       "localizations" : {

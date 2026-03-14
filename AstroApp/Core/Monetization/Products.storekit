@@ -1,13 +1,29 @@
 {
-  "identifier" : "com.duygubal.AstroApp.products",
-  "type" : "com.apple.product-type.app-store",
-  "version" : 3,
+  "appPolicies" : {
+    "eula" : "",
+    "policies" : [
+      {
+        "locale" : "en_US",
+        "policyText" : "",
+        "policyURL" : ""
+      }
+    ]
+  },
+  "identifier" : "38904BB8",
+  "nonRenewingSubscriptions" : [
+
+  ],
   "products" : [
     {
       "displayPrice" : "49.99",
       "familyShareable" : false,
-      "internalID" : "001",
+      "internalID" : "1556215A",
       "localizations" : [
+        {
+          "description" : "",
+          "displayName" : "",
+          "locale" : "en_US"
+        },
         {
           "description" : "Doğum haritası hesaplama — 1 kullanım",
           "displayName" : "Doğum Haritası Hesapla",
@@ -15,17 +31,22 @@
         }
       ],
       "productID" : "com.duygubal.AstroApp.natalchart",
-      "referenceName" : "Doğum Haritası (1 Hesaplama)",
+      "referenceName" : "Doğum Haritası",
       "type" : "Consumable"
     },
     {
       "displayPrice" : "399.99",
       "familyShareable" : false,
-      "internalID" : "003",
+      "internalID" : "B465635D",
       "localizations" : [
         {
-          "description" : "Tüm pro özelliklere sınırsız erişim",
-          "displayName" : "Tüm Özellikler",
+          "description" : "",
+          "displayName" : "",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "hepsi",
+          "displayName" : "Her şey",
           "locale" : "tr"
         }
       ],
@@ -35,13 +56,24 @@
     }
   ],
   "settings" : {
+    "_askToBuyEnabled" : false,
+    "_billingGracePeriodEnabled" : false,
+    "_billingIssuesEnabled" : false,
+    "_disableDialogs" : false,
     "_failTransactionsEnabled" : false,
+    "_locale" : "en_US",
+    "_renewalBillingIssuesEnabled" : false,
+    "_storefront" : "USA",
     "_storeKitErrors" : [
-      {
-        "current" : null,
-        "enabled" : false,
-        "name" : "Load Products"
-      }
-    ]
+
+    ],
+    "_timeRate" : 0
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 4,
+    "minor" : 0
   }
 }

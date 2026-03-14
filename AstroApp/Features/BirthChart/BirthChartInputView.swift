@@ -254,9 +254,13 @@ struct ChartPaymentSheet: View {
                             }
                         }
                     } else {
-                        ProgressView()
-                            .tint(AstroTheme.accent)
-                            .task { await appState.store.loadProducts() }
+                        VStack(spacing: 8) {
+                            ProgressView()
+                                .tint(AstroTheme.accent)
+                            Text("Fiyat bilgisi yükleniyor...")
+                                .font(.caption)
+                                .foregroundStyle(.white.opacity(0.3))
+                        }
                     }
 
                     if let error = errorMessage {
@@ -276,6 +280,11 @@ struct ChartPaymentSheet: View {
             }
         }
         .presentationDetents([.large])
+        .task {
+            if appState.store.products.isEmpty {
+                await appState.store.loadProducts()
+            }
+        }
     }
 
     private func purchaseChart(_ product: Product) async {
