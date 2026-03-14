@@ -187,6 +187,9 @@
     "☌" : {
 
     },
+    "⚡" : {
+
+    },
     "✦" : {
 
     },
@@ -2050,6 +2053,9 @@
         }
       }
     },
+    "Hangi tanrı sana mesaj gönderiyor?" : {
+
+    },
     "Harika" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3864,6 +3870,12 @@
           }
         }
       }
+    },
+    "Tanrı Kartları" : {
+
+    },
+    "Tanrının Mesajı" : {
+
     },
     "Tarot" : {
       "extractionState" : "manual",

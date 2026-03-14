@@ -81,6 +81,14 @@ enum ShareImageRenderer {
         presentShareSheet(items: [image])
     }
 
+    /// Tanrı kartı görseli render edip paylaşım sheet'i açar.
+    @MainActor
+    static func shareGodCard(card: GodCard) {
+        let view = GodCardShareCard(card: card)
+        guard let image = renderToImage(view) else { return }
+        presentShareSheet(items: [image])
+    }
+
     // MARK: - Private
 
     @MainActor

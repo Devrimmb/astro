@@ -42,6 +42,17 @@ struct CardReadingTabView: View {
                             color: .brown,
                             destination: RuneView()
                         )
+
+                        // MARK: - Tanrı Kartları
+                        sectionHeader(title: "Tanrı Kartları", icon: "bolt.fill", color: .indigo)
+
+                        featureCard(
+                            icon: "bolt.fill",
+                            title: "Tanrı Kartları",
+                            description: "Mitolojik tanrılardan sana özel mesaj al",
+                            color: .indigo,
+                            destination: GodCardView()
+                        )
                     }
                     .padding()
                     .padding(.bottom, 40)
