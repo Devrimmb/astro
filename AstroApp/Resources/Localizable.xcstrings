@@ -2515,7 +2515,7 @@
         }
       }
     },
-    "Kadim Viking runelerinden rehberlik al" : {
+    "Kadim runelerden rehberlik al" : {
 
     },
     "Kahve Falı" : {
@@ -2639,6 +2639,9 @@
           }
         }
       }
+    },
+    "Kartı Değiştir" : {
+
     },
     "Kartın Yorumu" : {
       "extractionState" : "manual",
@@ -3470,9 +3473,6 @@
       }
     },
     "Runene dokun ve aç" : {
-
-    },
-    "Runeni Çek" : {
 
     },
     "Runenin Yorumu" : {
@@ -4452,6 +4452,9 @@
           }
         }
       }
+    },
+    "Zihnini odakla ve bir kart seç" : {
+
     },
     "Zihnini odakla ve kartına dokun" : {
       "extractionState" : "manual",

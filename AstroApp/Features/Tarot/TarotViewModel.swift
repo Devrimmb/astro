@@ -41,11 +41,11 @@ class TarotViewModel {
         let candidates = deck.filter { $0.id != drawnCard?.id }
         guard let card = candidates.randomElement() else { return }
         drawnCard = card
-        consumeFreeReading()
     }
 
     func revealCard() {
         isRevealed = true
+        consumeFreeReading()
     }
 
     func reset() {
