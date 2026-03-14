@@ -12,27 +12,31 @@ struct KatinaView: View {
     }
 
     var body: some View {
-        NavigationStack {
-            ZStack {
-                SubtleStarsBackground()
+        ZStack {
+            SubtleStarsBackground()
 
-                ScrollView {
-                    VStack(spacing: 24) {
-                        if !canDraw && vm.drawnCard == nil {
-                            adGateSection
-                        } else if vm.drawnCard == nil {
-                            introView
-                        } else if !vm.isRevealed {
-                            cardBackView
-                        } else {
-                            revealedCardView
-                        }
+            ScrollView {
+                VStack(spacing: 24) {
+                    if !canDraw && vm.drawnCard == nil {
+                        adGateSection
+                    } else if vm.drawnCard == nil {
+                        introView
+                    } else if !vm.isRevealed {
+                        cardBackView
+                    } else {
+                        revealedCardView
                     }
-                    .padding()
-                    .padding(.bottom, 40)
                 }
+                .padding()
+                .padding(.bottom, 40)
             }
-            .navigationBarHidden(true)
+        }
+        .navigationTitle("Katina Falı")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarColorScheme(.dark, for: .navigationBar)
+        .onDisappear {
+            vm.reset()
+            isUnlockedByAd = false
         }
     }
 

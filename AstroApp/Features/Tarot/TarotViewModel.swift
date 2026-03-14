@@ -38,7 +38,8 @@ class TarotViewModel {
     }
 
     func drawCard() {
-        guard let card = deck.randomElement() else { return }
+        let candidates = deck.filter { $0.id != drawnCard?.id }
+        guard let card = candidates.randomElement() else { return }
         drawnCard = card
         consumeFreeReading()
     }
@@ -53,8 +54,4 @@ class TarotViewModel {
         isRevealed = false
     }
 
-    func backToCategories() {
-        drawnCard = nil
-        isRevealed = false
-    }
 }

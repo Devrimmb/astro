@@ -73,6 +73,14 @@ enum ShareImageRenderer {
         presentShareSheet(items: [image])
     }
 
+    /// Rune falı görseli render edip paylaşım sheet'i açar.
+    @MainActor
+    static func shareRune(card: RuneCard) {
+        let view = RuneShareCard(card: card)
+        guard let image = renderToImage(view) else { return }
+        presentShareSheet(items: [image])
+    }
+
     // MARK: - Private
 
     @MainActor

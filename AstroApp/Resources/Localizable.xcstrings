@@ -2509,6 +2509,9 @@
         }
       }
     },
+    "Kadim Viking runelerinden rehberlik al" : {
+
+    },
     "Kahve Falı" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3460,6 +3463,15 @@
         }
       }
     },
+    "Runene dokun ve aç" : {
+
+    },
+    "Runeni Çek" : {
+
+    },
+    "Runenin Yorumu" : {
+
+    },
     "Sa" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3920,6 +3932,9 @@
           }
         }
       }
+    },
+    "Tekrar Kart Çek" : {
+
     },
     "Temel enerji" : {
       "extractionState" : "manual",
@@ -4493,6 +4508,9 @@
           }
         }
       }
+    },
+    "ᚱ" : {
+
     }
   },
   "version" : "1.0"

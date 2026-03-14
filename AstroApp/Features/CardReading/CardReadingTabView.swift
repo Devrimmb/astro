@@ -32,25 +32,15 @@ struct CardReadingTabView: View {
                             destination: KatinaView()
                         )
 
-                        // MARK: - Yakında
-                        sectionHeader(title: "Yakında", icon: "clock.badge", color: AstroTheme.textTertiary)
+                        // MARK: - Rune
+                        sectionHeader(title: "Rune", icon: "circle.grid.3x3.fill", color: .brown)
 
-                        comingSoonCard(
-                            icon: "suit.club.fill",
-                            title: "İskambil Falı",
-                            description: "Klasik iskambil kartları ile fal bakın"
-                        )
-
-                        comingSoonCard(
+                        featureCard(
                             icon: "circle.grid.3x3.fill",
                             title: "Rune Falı",
-                            description: "Antik Viking runeleri ile rehberlik alın"
-                        )
-
-                        comingSoonCard(
-                            icon: "cup.and.saucer.fill",
-                            title: "Kahve Falı",
-                            description: "Fotoğraf çekin, yapay zeka yorumlasın"
+                            description: "Kadim Viking runeleri ile rehberlik al",
+                            color: .brown,
+                            destination: RuneView()
                         )
                     }
                     .padding()
@@ -119,37 +109,4 @@ struct CardReadingTabView: View {
         }
     }
 
-    // MARK: - Coming Soon Card
-
-    private func comingSoonCard(icon: String, title: String, description: String) -> some View {
-        HStack(spacing: 14) {
-            Image(systemName: icon)
-                .font(.title2)
-                .foregroundStyle(AstroTheme.textTertiary)
-                .frame(width: 44, height: 44)
-                .background(AstroTheme.surface, in: .rect(cornerRadius: 12))
-
-            VStack(alignment: .leading, spacing: 3) {
-                HStack(spacing: 6) {
-                    Text(title)
-                        .font(.headline)
-                        .foregroundStyle(AstroTheme.textTertiary)
-                    Text("Yakında")
-                        .font(.caption2.bold())
-                        .foregroundStyle(AstroTheme.accent)
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 2)
-                        .background(AstroTheme.accent.opacity(0.15), in: .capsule)
-                }
-                Text(description)
-                    .font(.caption)
-                    .foregroundStyle(AstroTheme.textTertiary)
-                    .lineLimit(2)
-            }
-
-            Spacer()
-        }
-        .glassCard()
-        .opacity(0.6)
-    }
 }

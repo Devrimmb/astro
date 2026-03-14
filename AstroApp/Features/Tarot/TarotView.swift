@@ -12,29 +12,33 @@ struct TarotView: View {
     }
 
     var body: some View {
-        NavigationStack {
-            ZStack {
-                SubtleStarsBackground()
+        ZStack {
+            SubtleStarsBackground()
 
-                ScrollView {
-                    VStack(spacing: 24) {
-                        if !canDraw && vm.selectedCategory == nil {
-                            adGateSection
-                        } else if vm.selectedCategory == nil {
-                            categorySelectionView
-                        } else if vm.drawnCard == nil {
-                            drawCardView
-                        } else if !vm.isRevealed {
-                            cardBackView
-                        } else {
-                            revealedCardView
-                        }
+            ScrollView {
+                VStack(spacing: 24) {
+                    if !canDraw && vm.selectedCategory == nil {
+                        adGateSection
+                    } else if vm.selectedCategory == nil {
+                        categorySelectionView
+                    } else if vm.drawnCard == nil {
+                        drawCardView
+                    } else if !vm.isRevealed {
+                        cardBackView
+                    } else {
+                        revealedCardView
                     }
-                    .padding()
-                    .padding(.bottom, 40)
                 }
+                .padding()
+                .padding(.bottom, 40)
             }
-            .navigationBarHidden(true)
+        }
+        .navigationTitle("Tarot")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarColorScheme(.dark, for: .navigationBar)
+        .onDisappear {
+            vm.reset()
+            isUnlockedByAd = false
         }
     }
 
@@ -273,13 +277,14 @@ struct TarotView: View {
                     .glassButton()
                 }
 
-                // Aynı kategoride tekrar çek
+                // Tekrar kart çek → kategori seçimine dön
                 Button {
                     withAnimation(.spring(duration: 0.4)) {
-                        vm.backToCategories()
+                        isUnlockedByAd = false
+                        vm.reset()
                     }
                 } label: {
-                    Label("Başka Kart Çek", systemImage: "arrow.counterclockwise")
+                    Label("Tekrar Kart Çek", systemImage: "arrow.counterclockwise")
                         .font(.caption.weight(.medium))
                         .foregroundStyle(AstroTheme.textSecondary)
                         .padding(.horizontal, 20)
@@ -289,8 +294,6 @@ struct TarotView: View {
                             Capsule().stroke(AstroTheme.cardBorder, lineWidth: 1)
                         }
                 }
-
-                resetButton
             }
         }
     }
@@ -300,31 +303,12 @@ struct TarotView: View {
     private var backButton: some View {
         Button {
             withAnimation(.spring(duration: 0.3)) {
-                vm.backToCategories()
+                vm.reset()
             }
         } label: {
             Label("Geri", systemImage: "chevron.left")
                 .font(.caption.weight(.medium))
                 .foregroundStyle(AstroTheme.textSecondary)
-        }
-    }
-
-    private var resetButton: some View {
-        Button {
-            withAnimation(.spring(duration: 0.4)) {
-                isUnlockedByAd = false
-                vm.reset()
-            }
-        } label: {
-            Label("Kategorilere Dön", systemImage: "square.grid.2x2")
-                .font(.caption.weight(.medium))
-                .foregroundStyle(AstroTheme.textSecondary)
-                .padding(.horizontal, 20)
-                .padding(.vertical, 10)
-                .background(AstroTheme.surface, in: .capsule)
-                .overlay {
-                    Capsule().stroke(AstroTheme.cardBorder, lineWidth: 1)
-                }
         }
     }
 }
