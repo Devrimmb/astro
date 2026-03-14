@@ -1018,6 +1018,9 @@
         }
       }
     },
+    "Cihaz ID" : {
+
+    },
     "Ciro Discepolo metodu — gezegen etkileşimlerine dayalı" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2968,6 +2971,9 @@
           }
         }
       }
+    },
+    "Kopyala" : {
+
     },
     "mag %@" : {
 

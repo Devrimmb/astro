@@ -5,6 +5,7 @@ struct SettingsView: View {
     @Environment(EntitlementManager.self) private var entitlements
     @State private var showPaywall = false
     @State private var showAbout = false
+    @State private var showDeviceID = false
 
     var body: some View {
         NavigationStack {
@@ -209,6 +210,17 @@ struct SettingsView: View {
         .padding(.horizontal, 8)
         .accessibilityElement(children: .combine)
         .accessibilityLabel("Yasal uyarı: Bu uygulama eğlence amaçlıdır, profesyonel danışmanlık yerine geçmez.")
+        .onTapGesture(count: 5) {
+            showDeviceID = true
+        }
+        .alert("Cihaz ID", isPresented: $showDeviceID) {
+            Button("Kopyala") {
+                UIPasteboard.general.string = UIDevice.current.identifierForVendor?.uuidString ?? "Bilinmiyor"
+            }
+            Button("Tamam", role: .cancel) {}
+        } message: {
+            Text(UIDevice.current.identifierForVendor?.uuidString ?? "Bilinmiyor")
+        }
     }
 
     // MARK: - Row

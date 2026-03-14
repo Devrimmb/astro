@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 enum AppFeature {
     case dailyHoroscope
@@ -25,6 +26,7 @@ final class EntitlementManager {
     }
 
     func accessLevel(for feature: AppFeature) -> FeatureAccess {
+        if Self.isAdmin { return .free }
         switch feature {
         case .dailyHoroscope, .tarot, .moonPhase, .elementAnalysis:
             return .free
@@ -46,14 +48,15 @@ final class EntitlementManager {
     }
 
     var hasFullAccess: Bool {
-        store.isPurchased(StoreManager.allFeaturesID)
+        Self.isAdmin || store.isPurchased(StoreManager.allFeaturesID)
     }
 
     var hasNatalChart: Bool {
-        store.isPurchased(StoreManager.natalChartID) || hasFullAccess
+        Self.isAdmin || store.isPurchased(StoreManager.natalChartID) || hasFullAccess
     }
 
     var hasNatalChartOrTest: Bool {
+        if Self.isAdmin { return true }
         #if DEBUG
         return true
         #else
@@ -61,6 +64,17 @@ final class EntitlementManager {
         return hasNatalChart
         #endif
     }
+
+    /// Admin cihaz mı kontrol et
+    static let isAdmin: Bool = {
+        let adminIDs: Set<String> = [
+            "BF92A0DA-3782-415C-BF7F-4D9AC4AFD554"
+        ]
+        guard let deviceID = UIDevice.current.identifierForVendor?.uuidString else {
+            return false
+        }
+        return adminIDs.contains(deviceID)
+    }()
 
     /// TestFlight build'i mi kontrol et
     static let isTestFlight: Bool = {
