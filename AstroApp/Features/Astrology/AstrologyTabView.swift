@@ -20,6 +20,13 @@ struct AstrologyTabView: View {
                             color: AstroTheme.accent
                         ) { BirthChartInputView() }
 
+                        featureCard(
+                            icon: "moon.fill",
+                            title: "Ay Burcu Yorumu",
+                            description: "Ay burcunun duygusal dünyandaki etkisini keşfet",
+                            color: .yellow
+                        ) { MoonSignView() }
+
                         // MARK: - Günlük & Dönemsel
                         sectionHeader(title: "Günlük & Dönemsel", icon: "sun.horizon", color: .orange)
 

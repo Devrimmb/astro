@@ -76,6 +76,9 @@
     "%@ burcu" : {
 
     },
+    "%@ Elementi" : {
+
+    },
     "%@ Güneş Dönüşü" : {
 
     },
@@ -540,6 +543,21 @@
         }
       }
     },
+    "Ay Burcu" : {
+
+    },
+    "Ay burcu hesaplanamadı" : {
+
+    },
+    "Ay Burcu: %@" : {
+
+    },
+    "Ay burcun duygusal dünyanı yansıtır" : {
+
+    },
+    "Ay Burcunu Hesapla" : {
+
+    },
     "Ay Enerjisi" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -696,6 +714,9 @@
     "Aydınlanma: %%%lld" : {
 
     },
+    "Başka Biri" : {
+
+    },
     "Başka Kart Çek" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -782,6 +803,9 @@
       }
     },
     "Bitiş: %@" : {
+
+    },
+    "Bu ay burcu için henüz yorum eklenmedi." : {
 
     },
     "Bu bir simüle reklamdır.\nGerçek cihazda Google AdMob reklamı gösterilecektir." : {
@@ -1037,6 +1061,9 @@
     "Cihaz ID" : {
 
     },
+    "Cinsiyet" : {
+
+    },
     "Ciro Discepolo metodu — gezegen etkileşimlerine dayalı" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1263,6 +1290,9 @@
           }
         }
       }
+    },
+    "Doğum Bilgileri" : {
+
     },
     "Doğum Bilgilerin" : {
       "extractionState" : "manual",
@@ -1649,6 +1679,9 @@
           }
         }
       }
+    },
+    "Geri Dön" : {
+
     },
     "Gezegen hareketlerinin haritanıza etkisi" : {
       "extractionState" : "manual",
@@ -2128,6 +2161,9 @@
           }
         }
       }
+    },
+    "Haritamdan" : {
+
     },
     "Haritamı Hesapla" : {
       "extractionState" : "manual",
@@ -3106,6 +3142,9 @@
     "Olaylar (%lld)" : {
 
     },
+    "Önce doğum bilgilerinizi girerek haritanızı hesaplatın." : {
+
+    },
     "Önemli" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3981,6 +4020,9 @@
           }
         }
       }
+    },
+    "Tekrar Hesapla" : {
+
     },
     "Tekrar Kart Çek" : {
 
