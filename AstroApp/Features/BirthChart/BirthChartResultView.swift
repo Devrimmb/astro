@@ -3,6 +3,7 @@ import SwiftUI
 struct BirthChartResultView: View {
     @Environment(AppState.self) private var appState
     let chart: BirthChart
+    @State private var selectedHouse: House?
 
     var body: some View {
         ZStack {
@@ -145,30 +146,50 @@ struct BirthChartResultView: View {
 
     private var housesCard: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Evler")
-                .font(.headline)
-                .foregroundStyle(.white)
-                .padding(.bottom, 4)
+            HStack {
+                Text("Evler")
+                    .font(.headline)
+                    .foregroundStyle(.white)
+                Spacer()
+                Text("Dokun → Yorum")
+                    .font(.caption2)
+                    .foregroundStyle(AstroTheme.textTertiary)
+            }
+            .padding(.bottom, 4)
 
             LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 4), spacing: 8) {
                 ForEach(chart.houses) { house in
-                    VStack(spacing: 3) {
-                        Text("\(house.id)")
-                            .font(.caption2)
-                            .foregroundStyle(AstroTheme.textTertiary)
-                        Text(house.sign.glyph)
-                            .font(.title3)
-                        Text(String(format: "%.0f°", house.degree))
-                            .font(.caption2)
-                            .foregroundStyle(AstroTheme.textSecondary)
+                    let hasInterpretation = HouseSignInterpretation.interpretation(house: house.id, zodiacSign: house.sign) != nil
+                    Button {
+                        selectedHouse = house
+                    } label: {
+                        VStack(spacing: 3) {
+                            Text("\(house.id)")
+                                .font(.caption2)
+                                .foregroundStyle(AstroTheme.textTertiary)
+                            Text(house.sign.glyph)
+                                .font(.title3)
+                            Text(String(format: "%.0f°", house.degree))
+                                .font(.caption2)
+                                .foregroundStyle(AstroTheme.textSecondary)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 8)
+                        .background(AstroTheme.surface, in: .rect(cornerRadius: 10))
+                        .overlay {
+                            if hasInterpretation {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(AstroTheme.accent.opacity(0.3), lineWidth: 1)
+                            }
+                        }
                     }
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 8)
-                    .background(AstroTheme.surface, in: .rect(cornerRadius: 10))
                 }
             }
         }
         .glassCard()
+        .sheet(item: $selectedHouse) { house in
+            HouseInterpretationSheet(house: house)
+        }
     }
 
     // MARK: - Açılar
@@ -185,7 +206,7 @@ struct BirthChartResultView: View {
                     .foregroundStyle(AstroTheme.textSecondary)
                     .font(.subheadline)
             } else {
-                ForEach(Array(chart.aspects.prefix(10).enumerated()), id: \.offset) { _, aspect in
+                ForEach(Array(chart.aspects.enumerated()), id: \.offset) { _, aspect in
                     HStack {
                         Text(aspect.planet1.rawValue)
                             .font(.caption)
@@ -204,11 +225,6 @@ struct BirthChartResultView: View {
                             .frame(width: 6, height: 6)
                     }
                     .foregroundStyle(AstroTheme.textSecondary)
-                }
-                if chart.aspects.count > 10 {
-                    Text("+\(chart.aspects.count - 10) açı daha")
-                        .font(.caption2)
-                        .foregroundStyle(AstroTheme.textTertiary)
                 }
             }
         }
@@ -242,7 +258,6 @@ struct BirthChartResultView: View {
                         Text(section.body)
                             .font(.caption2)
                             .foregroundStyle(AstroTheme.textSecondary)
-                            .lineLimit(3)
                     }
                     .padding(12)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -286,5 +301,109 @@ struct BirthChartResultView: View {
         return Circle()
             .fill(color)
             .frame(width: 6, height: 6)
+    }
+}
+
+// MARK: - Ev Yorum Sheet
+
+private struct HouseInterpretationSheet: View {
+    @Environment(\.dismiss) private var dismiss
+    let house: House
+
+    private var entry: HouseSignEntry? {
+        HouseSignInterpretation.interpretation(house: house.id, zodiacSign: house.sign)
+    }
+
+    var body: some View {
+        NavigationStack {
+            ZStack {
+                AstroTheme.background.ignoresSafeArea()
+
+                ScrollView {
+                    VStack(spacing: 16) {
+                        // Ev başlığı
+                        VStack(spacing: 8) {
+                            Text(house.sign.glyph)
+                                .font(.system(size: 48))
+                            Text("\(house.id). Ev — \(house.sign.name)")
+                                .font(.title3.weight(.bold))
+                                .foregroundStyle(.white)
+                            Text(String(format: "%.1f°", house.degree))
+                                .font(.caption)
+                                .foregroundStyle(AstroTheme.textSecondary)
+                        }
+                        .padding(.top, 8)
+
+                        // Yorum
+                        if let entry {
+                            VStack(alignment: .leading, spacing: 12) {
+                                Text("Yorum")
+                                    .font(.headline)
+                                    .foregroundStyle(.white)
+
+                                Text(entry.description)
+                                    .font(.subheadline)
+                                    .foregroundStyle(AstroTheme.textSecondary)
+                                    .lineSpacing(4)
+                            }
+                            .glassCard()
+                        } else {
+                            VStack(spacing: 8) {
+                                Image(systemName: "text.badge.plus")
+                                    .font(.title2)
+                                    .foregroundStyle(AstroTheme.textTertiary)
+                                Text("Bu ev için henüz yorum eklenmedi.")
+                                    .font(.subheadline)
+                                    .foregroundStyle(AstroTheme.textTertiary)
+                            }
+                            .padding(.top, 40)
+                        }
+
+                        // Evdeki gezegenler
+                        if !house.planets.isEmpty {
+                            VStack(alignment: .leading, spacing: 10) {
+                                Text("Bu Evdeki Gezegenler")
+                                    .font(.headline)
+                                    .foregroundStyle(.white)
+
+                                ForEach(house.planets) { planet in
+                                    HStack(spacing: 10) {
+                                        Text(planet.sign.glyph)
+                                            .font(.title3)
+                                        VStack(alignment: .leading, spacing: 2) {
+                                            Text(planet.planet.rawValue)
+                                                .font(.subheadline.weight(.medium))
+                                                .foregroundStyle(.white)
+                                            Text("\(planet.sign.name) \(String(format: "%.1f°", planet.degree))")
+                                                .font(.caption)
+                                                .foregroundStyle(AstroTheme.textSecondary)
+                                        }
+                                        Spacer()
+                                        if planet.isRetrograde {
+                                            Text("℞")
+                                                .font(.caption.bold())
+                                                .foregroundStyle(.red)
+                                        }
+                                    }
+                                }
+                            }
+                            .glassCard()
+                        }
+                    }
+                    .padding()
+                    .padding(.bottom, 40)
+                }
+            }
+            .navigationTitle("\(house.id). Ev")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbarColorScheme(.dark, for: .navigationBar)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Kapat") { dismiss() }
+                        .foregroundStyle(AstroTheme.textSecondary)
+                }
+            }
+        }
+        .presentationDetents([.large])
     }
 }

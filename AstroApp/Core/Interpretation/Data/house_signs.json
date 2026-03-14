@@ -1,0 +1,290 @@
+[
+  {
+    "houseId": 1,
+    "sign": "Aquarius",
+    "name": "1. Ev Kova",
+    "description": "Benliğimiz, imajımız ve sahip olduğumuz kişisel özelliklerimiz, alışkanlıklarımız bu evin konusudur. Bizi tanıyanlar; bu evdeki burcumuza bağlı olan tepkilerimizi görür.\n\nÖzgün – Yaratıcı – Yenilikçi – Bağımsız – Sevecen\n\nKeşfetmek ister\nFarklı ve kendine has bir yapı\nBaskı altında sinirlenir\nKontrol altına alınamaz\nTartışmacı ve savunucudur\nİyi bir arkadaştır\nBeklenmedik olanı yapar\nAynı anda pek çok şey yapabilir\nTatminsiz olabilir\nZekidir ve çok düşünür\nDoğaldır, sertlik ve kuralcılık sevmez\nBilgiyi paylaşmak ister"
+  },
+  {
+    "houseId": 1,
+    "sign": "Aries",
+    "name": "1. Ev Koç",
+    "description": "Benliğimiz, imajımız ve sahip olduğumuz kişisel özelliklerimiz, alışkanlıklarımız bu evin konusudur. Bizi tanıyanlar; bu evdeki burcumuza bağlı olan tepkilerimizi görür.\n\nHareketli – Sabırsız – Maceracı – Yöneticilik – Yüksek Arzu\n\nÇabuk sinirlenebilir.\nBekletilmek istemez.\nEnerjik yapı vardır.\nSpor ve hareket ihtiyacı\nGüçlü ve hırslı davranışlar\nBağımsız, yaratıcı zeka sahibi\nTutkulu bir enerji\nKolay sıkılabilir.\nBen merkezci özellik\nEmir almaktan hoşlanmaz\nStresle mücadele zorluğu\nYeniye heves ve rekabetçi"
+  },
+  {
+    "houseId": 1,
+    "sign": "Cancer",
+    "name": "1. Ev Yengeç",
+    "description": "Benliğimiz, imajımız ve sahip olduğumuz kişisel özelliklerimiz, alışkanlıklarımız bu evin konusudur. Bizi tanıyanlar; bu evdeki burcumuza bağlı olan tepkilerimizi görür.\n\nOldukça duygusal\nAni ruhsal değişimler yaşar\nTedirgin huzursuz yapı\nSevdiklerine bağlılık\nSahiplenici özelliği vardır\nGüvende hissetme ihtiyacı\nKırılgan, dikkatli konuşulması gerekilir\nGüçlü hafıza vardır\nYardımsever koruyucudur\nKendini saklar, gizemlidir.\nAni kıskançlık, ani öfke"
+  },
+  {
+    "houseId": 1,
+    "sign": "Capricorn",
+    "name": "1. Ev Oğlak",
+    "description": "Benliğimiz, imajımız ve sahip olduğumuz kişisel özelliklerimiz, alışkanlıklarımız bu evin konusudur. Bizi tanıyanlar; bu evdeki burcumuza bağlı olan tepkilerimizi görür.\n\nSorumluluk – Hırslı – Ciddi – Çekingen – Azimli\n\nBaşarmak için mücadele verir\nDisipline önem verir\nDuygusal olarak mesafeli\nOlgun ve karizmatik görünüm\nTaviz vermez\nÖncülük özelliği vardır\nKuşku ile yaklaşır\nKendini eleştirir\nYakın olmak ister ama uzak durur\nStatü ve takdir görmek mutlu eder\nSabırlı sadık dayanıklı yapı\nDuygusal davranış zorlayıcıdır"
+  },
+  {
+    "houseId": 1,
+    "sign": "Gemini",
+    "name": "1. Ev İkizler",
+    "description": "Benliğimiz, imajımız ve sahip olduğumuz kişisel özelliklerimiz, alışkanlıklarımız bu evin konusudur. Bizi tanıyanlar; bu evdeki burcumuza bağlı olan tepkilerimizi görür.\n\nEnerjik – sosyal aktivite – eğlenceli – oyuncu – karıştırıcı\n\nMeraklı yapı\nAraştırmayı ve geliştirmeyi sever\nSeyahat etmek ihtiyacıdır.\nArkadaşlıklar önemlidir.\nİletişim becerileri kullanır.\nRomantik yaklaşımlarda zorlanır\nYazma konusunda yetenekli\nNeşeli ve uyumlu yapı\nYalan söyleme özelliği\nOrtalığı karıştırabilir.\nBirden fazla işi yapabilme özelliği\nBaşarı mutlu eder"
+  },
+  {
+    "houseId": 1,
+    "sign": "Leo",
+    "name": "1. Ev Aslan",
+    "description": "Benliğimiz, imajımız ve sahip olduğumuz kişisel özelliklerimiz, alışkanlıklarımız bu evin konusudur. Bizi tanıyanlar; bu evdeki burcumuza bağlı olan tepkilerimizi görür.\n\nKarizmatik – Kendine güvenen – Gururlu – Rahat – Cesaret\n\nArkadaş canlısıdır\nİlgi ve övgü ister\nCömert ve paylaşımcı\nSempatik, neşeli bir güç\nGösteriş sever, beğenilmek ister\nIsrarcı ve hırslı yapı\nLüks ihtiyacı vardır\nİlgi görmezse kırılır\nAnlık öfke patlaması yaşar\nGururları oldukça önemlidir\nCesaretli ve kendine güvenme özelliği\nKral, kraliçe hissiyatına sahip"
+  },
+  {
+    "houseId": 1,
+    "sign": "Libra",
+    "name": "1.Ev Terazi",
+    "description": "Benliğimiz, imajımız ve sahip olduğumuz kişisel özelliklerimiz, alışkanlıklarımız bu evin konusudur. Bizi tanıyanlar; bu evdeki burcumuza bağlı olan tepkilerimizi görür.\n\nUzlaşmacı – Nazik – Sanatsal – Girişken – Kararsız\n\nDengeyi bulmaya çalışır\nKararsızlık ve endişeye düşebilir\nDış görünüşe özenir\nGüzellik ve görüntüye önem verir.\nYalnızlığı sevmez.\nİyi bir dinleyicidir\nUyum gösterir\nBaşkalarının düşüncesi önemlidir\nPolitik tavırlar sergiler\nOnaylanmak mutlu eder\nİletişim kurmak önemlidir\nZevkli ve entelektüeldir"
+  },
+  {
+    "houseId": 1,
+    "sign": "Pisces",
+    "name": "1. Ev Balık",
+    "description": "Benliğimiz, imajımız ve sahip olduğumuz kişisel özelliklerimiz, alışkanlıklarımız bu evin konusudur. Bizi tanıyanlar; bu evdeki burcumuza bağlı olan tepkilerimizi görür.\n\nHayalperest – Sanatçı – Duygusal – Merhametli – Kolay etkilenen\n\nİçsel dünyasına dalar\nRomantik ve hassas yapı\nGözlem ve sezi yeteneği vardır\nGüven problemi yaşar\nSanatsal alanlara karşı yetenekli\nKararsız, endişeli olabilir\nZihinleri dağınık\nPaylaşımcı ve iyi niyetlidir\nŞefkat beklentisi\nDeğişken fikir her şeyden etkilenebilir\nKibar bir kıskanç\nKüskün davranabilir"
+  },
+  {
+    "houseId": 1,
+    "sign": "Sagittarius",
+    "name": "1. Ev Yay",
+    "description": "Benliğimiz, imajımız ve sahip olduğumuz kişisel özelliklerimiz, alışkanlıklarımız bu evin konusudur. Bizi tanıyanlar; bu evdeki burcumuza bağlı olan tepkilerimizi görür.\n\nGezmeyi öğrenmeyi sever\nPozitif bakmak ister\nDeneyim yaşar\nBağımsız baskılanamaz ruh\nEleştirici ve tartışmacı olabilir\nYenilik merakı\nYaşamak ve lüks önemlidir\nHer konuyu anlar\nÖzgürlüğüne düşkün\nUmursamaz davranabilir\nHareketsizlik mutsuz eder\nOrganizasyonda başarılı"
+  },
+  {
+    "houseId": 1,
+    "sign": "Scorpio",
+    "name": "1. Ev Akrep",
+    "description": "Benliğimiz, imajımız ve sahip olduğumuz kişisel özelliklerimiz, alışkanlıklarımız bu evin konusudur. Bizi tanıyanlar; bu evdeki burcumuza bağlı olan tepkilerimizi görür.\n\nÇekicilik – Gizem – Şüphecilik – Kontrolcü – Bilinçaltı\n\nEtkileyici gücü vardır\nSaklı bir içsel dünya\nGeri adım atmaz\nSert davranabilir\nKuşkular hep vardır\nKötüyü unutmaz\nKontrolü sever kararlılık gösterir\nRuhunu yakınlarına gösterir\nYalnızlıktan korkmaz\nCinsel arzular yüksektir\nKibir ve kabalıktan hoşlanmaz\nKıskanç ve yıkıcı olabilir\nSezgisel karakter"
+  },
+  {
+    "houseId": 1,
+    "sign": "Taurus",
+    "name": "1. Ev Boğa",
+    "description": "Dayanıklılık- Tutkulu- Sabit fikir- İnatçılık – Cana yakın\n\nKararları zor değişir.\nDokunmak önemlidir.\nÇalışkan ve dayanıklı yapı\nKeyif ve huzur bulma ihtiyacı\nMaddi şeylere düşkünlük\nCinsel enerji ve arzular yüksek\nSabırlı ve yavaş hareket eden\nEtkileyici ve becerikli \nKendi fikirlerine bağlılık\nİkna edilmesi zordur ve değişmez\nZor sinirlenir ama öfkesi büyüktür."
+  },
+  {
+    "houseId": 1,
+    "sign": "Virgo",
+    "name": "1. Ev Başak",
+    "description": "Benliğimiz, imajımız ve sahip olduğumuz kişisel özelliklerimiz, alışkanlıklarımız bu evin konusudur. Bizi tanıyanlar; bu evdeki burcumuza bağlı olan tepkilerimizi görür.\n\nMantıklı – Pratik – Düzenli – Sorgulayıcı – Meraklı\n\nÇabuk kavrama yeteneği vardır\nAraştırmacı ve detaycıdır\nTemizliği ve düzeni sever\nBilgi biriktirir\nHer ortamda rahat olamaz\nEksik işlerden hoşlanmaz\nHer şeyi eleştirebilir\nÇalışmaktan hoşlanır.\nUtangaçlık yapabilir.\nUyumlu ve iyi niyetlidir.\nBazen huzursuzluk yaşar\nSoğukkanlı bir konuşmacıdır\nTemiz kalpli"
+  },
+  {
+    "houseId": 2,
+    "sign": "Aquarius",
+    "name": "2. Ev Kova",
+    "description": "Sahip olduğumuz bütün varlıkları anlatır. Parayı harcama şeklimiz, kazanma şeklimiz. Maddi, manevi kendimize ait hissettiğimiz şeylerin bütünüdür.\n\nAni fikir değişimleri yaşayabilir. Değişik yatırımlar yapabilir. Yenilikçi ve modern düşünme yapısı vardır. Kazanç elde etme konusunda farklı fikirler düşünür. Zeki ve kendi düşüncelerini uygulamak isteyen biridir. Maddi açıdan özgür ve güçlü olmak ister. Bağlantılar kurar ve sosyal ilişkileri de kazanca dönüştürebilir."
+  },
+  {
+    "houseId": 2,
+    "sign": "Aries",
+    "name": "2. Ev Koç",
+    "description": "Sahip olduğumuz bütün varlıkları anlatır. Parayı harcama şeklimiz, kazanma şeklimiz. Maddi, manevi kendimize ait hissettiğimiz şeylerin bütünüdür.\n\nKoç burcu 2. Evde kişiye kazanma hırsını getirir. Kısa vadede kazanç elde etme isteği ortaya çıkar. Yükselmek, başarılı olmayı arzulamak stres yaratabilir. Birikim yapma konularında zorlanma yaşanabilir. Hayatın gerçekleriyle yüzleşmiştir. Mücadele ve güç yapılarında vardır. Proje ve girişimlerde başarı yakalayabilir."
+  },
+  {
+    "houseId": 2,
+    "sign": "Cancer",
+    "name": "2. Ev Yengeç",
+    "description": "Sahip olduğumuz bütün varlıkları anlatır. Parayı harcama şeklimiz, kazanma şeklimiz. Maddi, manevi kendimize ait hissettiğimiz şeylerin bütünüdür.\n\nYengeç 2.evde kişiye kendini maddi manevi güvende hissetme ihtiyacı getirir. Maddi iniş çıkışlar, duyguları oldukça etkiler. Mal varlığına sahip olmak ister. Gelecek konusunda endişelidir. Duygusal olarak kendilerini rahat hissederlerse daha kolay çalışırlar. Birikim yapmak ister ve hayata karşı tedbirli davranır."
+  },
+  {
+    "houseId": 2,
+    "sign": "Capricorn",
+    "name": "2. Ev Oğlak",
+    "description": "Sahip olduğumuz bütün varlıkları anlatır. Parayı harcama şeklimiz, kazanma şeklimiz. Maddi, manevi kendimize ait hissettiğimiz şeylerin bütünüdür.\n\nPlanlı olmak ister. Uzun vadeli yatırımlar yapabilir. Gelir gider dengesini kurar. Gelecek için birikim yapma hevesi vardır. Başkalarından fazla çalışabilir. Sahip oldukları arttıkça kendini rahat hisseder. Genelde sabredip kazanç elde eder. Duygusal ilişkileri geri planda tutabilir. Deneyim edinme ve bunu kullanma becerisi vardır."
+  },
+  {
+    "houseId": 2,
+    "sign": "Gemini",
+    "name": "2. Ev İkizler",
+    "description": "Sahip olduğumuz bütün varlıkları anlatır. Parayı harcama şeklimiz, kazanma şeklimiz. Maddi, manevi kendimize ait hissettiğimiz şeylerin bütünüdür.\n\nİkizler 2.evde kişiye kazanç konusunda değişkenlik verir. Hızlı para kazanıp hızlı harcayabilir. Kendini geliştirmeye ve eğitime para harcayabilir. Özellikle seyahat konusunda harcama yapma isteği olabilir. El becerileri gelişmiştir. Kendilerini iyi ifade ederler. Fırsatları görüp değerlendirmeleri gerekir."
+  },
+  {
+    "houseId": 2,
+    "sign": "Leo",
+    "name": "2. Ev Aslan",
+    "description": "Sahip olduğumuz bütün varlıkları anlatır. Parayı harcama şeklimiz, kazanma şeklimiz. Maddi, manevi kendimize ait hissettiğimiz şeylerin bütünüdür.\n\nAslan 2.evde kişiye sahip olduklarıyla övünme özelliği getirir. Para güç demektir ve lüks harcamalar yapmak isteyebilir. Organizasyonda yeteneklidir. Mutlu olmak ve neşelenmek için kazanmak ister. Birikim yapmak ister ama harcamalar da bir o kadar çoktur. Yaptığı işin takdir edilmesi oldukça önemlidir. Kazançları yönetmeyi bilir."
+  },
+  {
+    "houseId": 2,
+    "sign": "Libra",
+    "name": "2. Ev Terazi",
+    "description": "Sahip olduğumuz bütün varlıkları anlatır. Parayı harcama şeklimiz, kazanma şeklimiz. Maddi, manevi kendimize ait hissettiğimiz şeylerin bütünüdür.\n\nTerazi 2. Evde kişiye çalışma hayatında sosyal başarı getirir. Becerilerini kullanma özelliği verir. Amaçlarına ulaşmak için her şeyi yapabilir. Parayı kazanmak ve dengede tutmak ister. Kazandıkça güvende hisseder. Girişimci ve öncü yapıları olurlar. Ortaklıkta başarılıdır. Zevkleri, hobileri ve romantik ilişkiler için para harcarsa mutlu olur."
+  },
+  {
+    "houseId": 2,
+    "sign": "Pisces",
+    "name": "2. Ev Balık",
+    "description": "Sahip olduğumuz bütün varlıkları anlatır. Parayı harcama şeklimiz, kazanma şeklimiz. Maddi, manevi kendimize ait hissettiğimiz şeylerin bütünüdür.\n\nCömert ve yardımsever bir yapısı vardır. Harekete geçmek için desteklenmek ister. Kendisi de ihtiyacı olana yardım edince mutlu olur. Sahip oldukları şeyler onu duygusal açıdan tatmin etmelidir. Çok para kazanmak değil huzurlu yaşamak için kazanmak önemlidir. Özgüvenlerinin kırılmaması gerekir. Risk almaktan çekinebilir. Mutlu olacakları işi yapmalıdırlar."
+  },
+  {
+    "houseId": 2,
+    "sign": "Sagittarius",
+    "name": "2. Ev Yay",
+    "description": "Sahip olduğumuz bütün varlıkları anlatır. Parayı harcama şeklimiz, kazanma şeklimiz. Maddi, manevi kendimize ait hissettiğimiz şeylerin bütünüdür.\n\nBilgiyi paylaşmak bu esnada kazanç elde etmek en büyük amaçlarıdır. Başarma hevesleri yüksektir. İş hayatında eleştirel bir tutum sergileyebilir. Farklı alanlardan gelir elde edebilir. Bazen kolay yoldan para kazanabilir. Riskli işlere girebilir. Hedefleri yüksektir. Rekabet ederek ve kendini eğlendirerek çalışır."
+  },
+  {
+    "houseId": 2,
+    "sign": "Scorpio",
+    "name": "2. Ev Akrep",
+    "description": "Sahip olduğumuz bütün varlıkları anlatır. Parayı harcama şeklimiz, kazanma şeklimiz. Maddi, manevi kendimize ait hissettiğimiz şeylerin bütünüdür.\n\nSahip olduğu şeylerden vazgeçmez. Birikim yapmak ister. Ve bunu kendine saklar. Kazançlarının bilinmesini istemez. Azimli ve cesurdur. Başarısızlık onu sinirlendirir. Tek başına mücadele içerisindedir. İçgüdüsel olarak kendilerini rahat hissetmeleri gerekir. Sezgileri kötüyü gösteriyorsa o işte çalışamaz. Rekabetçi ruhu da gelişmiştir."
+  },
+  {
+    "houseId": 2,
+    "sign": "Taurus",
+    "name": "2.Ev Boğa",
+    "description": "Sahip olduğumuz bütün varlıkları anlatır. Parayı harcama şeklimiz, kazanma şeklimiz. Maddi, manevi kendimize ait hissettiğimiz şeylerin bütünüdür.\n\nBoğa burcu 2.evde kişiye fiziksel güzellik ve kendinden eminlik getirir. Para kazanma yöntemlerinde kararlı olur. Israrcı bir tutum sergiler. Pratik şekilde istikrarlı bir yönde para kazanma isteği verir. Birikim yapmayı sevdikleri gibi lükse ve keyif için yapılacak harcamalardan hoşlanır. Yatırım yapabilir."
+  },
+  {
+    "houseId": 2,
+    "sign": "Virgo",
+    "name": "2. Ev Başak",
+    "description": "Sahip olduğumuz bütün varlıkları anlatır. Parayı harcama şeklimiz, kazanma şeklimiz. Maddi, manevi kendimize ait hissettiğimiz şeylerin bütünüdür.\n\nBaşak 2.evde kişiye düzenli ve istikrarlı çalışma isteği getirir. Pratik ve üretken olurlar. Emek gösterip, mücadele edip onun karşılığını alarak tatmin olur. Bilgi ve öğrenmeye değer verir. Hesabını bilir. Kazançlarını düzenlemek ve gelir gider hesabı yapma konusunda titiz olmak ister. Kendini iş hayatına fazla kaptırabilir."
+  },
+  {
+    "houseId": 3,
+    "sign": "Aquarius",
+    "name": "3. Ev Kova",
+    "description": "Düşünce ve iletişim gücünün evidir. Eğitim konuları, yakın çevre, aile ilişkilerini ve onlarla olan iletişim şeklini belirler. Bilgiyi paylaşma ve ifade etme yöntemlerimiz.\n\nKalıplar içerisinde yaşayamaz. Baskı ve zorlanmaya karşı isyan edebilir. Bilgi, seyahat yeni şeyler öğrenmek ve keşfetmek mutlu eder. Zekasıyla sorunları çözme becerisi gelişmiştir. Bildiklerini paylaşmak ve sosyal iletişimde olmayı sever. Yakın çevresiyle vakit geçirmeyi sever ama fikir uyuşmazlıklarına tahammül edemez."
+  },
+  {
+    "houseId": 3,
+    "sign": "Aries",
+    "name": "3. Ev Koç",
+    "description": "Düşünce ve iletişim gücünün evidir. Eğitim konuları, yakın çevre, aile ilişkilerini ve onlarla olan iletişim şeklini belirler. Bilgiyi paylaşma ve ifade etme yöntemlerimiz.\n\nHızlı düşünür, fikir üretir ve paylaşır. Kendinden başkasına kolay kolay güvenmez. Öğrenmeyi sever ama sabırsız davranabilir. Kendi fikirlerine bağlıdır. Rahatsız oldukları ortamda bir anda sinirlenebilir. Tartışmacıdır. Maceraya ve harekete hazırdır. Fikirlerini açıkça söyler. Baskındır. Sevdiklerine karşı düşünceli ve dürüsttür."
+  },
+  {
+    "houseId": 3,
+    "sign": "Cancer",
+    "name": "3. Ev Yengeç",
+    "description": "Düşünce ve iletişim gücünün evidir. Eğitim konuları, yakın çevre, aile ilişkilerini ve onlarla olan iletişim şeklini belirler. Bilgiyi paylaşma ve ifade etme yöntemlerimiz.\n\nDuygularına ve iç sesine göre kararlar alabilir. Ailesine ve sevdiklerine karşı duygusal olarak bağlanır. Bu yüzden iyi ve kötü anıları unutmaz. İnsanların sözlerinden ve durumlarından etkilenebilirler. Bazen çekingenleşebilir. Ama sevgisini paylaşır. Sevmek ve sevilmek önemli bir konudur. Sosyal ilişkilerinde koruyucu ve hassastır."
+  },
+  {
+    "houseId": 3,
+    "sign": "Capricorn",
+    "name": "3. Ev Oğlak",
+    "description": "Düşünce ve iletişim gücünün evidir. Eğitim konuları, yakın çevre, aile ilişkilerini ve onlarla olan iletişim şeklini belirler. Bilgiyi paylaşma ve ifade etme yöntemlerimiz.\n\nİletişime geçmeden önce düşünürler. Mesafeli ve soğuk görünebilirler. Saygı görmek ve ona göre davranılması önemlidir. Mantıklı kararlar alırlar. Uzun vadeli ilişkiler kurarlar. Yavaş ama temkinli adımlar atar. Kurallara uyulmasını ister. Kendilerini ve fikirlerini anlatma konusunda çekingen davranabilirler."
+  },
+  {
+    "houseId": 3,
+    "sign": "Gemini",
+    "name": "3. Ev İkizler",
+    "description": "Düşünce ve iletişim gücünün evidir. Eğitim konuları, yakın çevre, aile ilişkilerini ve onlarla olan iletişim şeklini belirler. Bilgiyi paylaşma ve ifade etme yöntemlerimiz.\n\nKendi evinde olduğu için bu kişiler güçlü bir iletişim becerisine sahiptir. Anlatmayı severler. Etkileyici tarzları vardır. Bilinmeyeni bilmek ister. Sosyal alanda oldukça baskın ve paylaşımcıdır. Karşı tarafı etkilemek ister. İnsanların hayatına neşe katar. Meraklıdır. Kötü niyet taşımaz fakat bazen yanlış anlaşılabilirler."
+  },
+  {
+    "houseId": 3,
+    "sign": "Leo",
+    "name": "3. Ev Aslan",
+    "description": "Düşünce ve iletişim gücünün evidir. Eğitim konuları, yakın çevre, aile ilişkilerini ve onlarla olan iletişim şeklini belirler. Bilgiyi paylaşma ve ifade etme yöntemlerimiz.\n\nYakın çevresinde sözü geçer ve sevilir. İnsanların ilgisinden ve beğenilmekten hoşlanır. Eğlendirmeyi ve yakın çevresiyle paylaşım içinde olmayı ister. Fikirlerinde kararlıdır hatta inatçıdır. Baskı altında ve negatif durumlarda sinirlenebilir. İsterse çok güler yüzlüdür. Saygısızlığa karşı sertleşebilir. Gururunun kırılmaması gerekir."
+  },
+  {
+    "houseId": 3,
+    "sign": "Libra",
+    "name": "3. Ev Terazi",
+    "description": "Düşünce ve iletişim gücünün evidir. Eğitim konuları, yakın çevre, aile ilişkilerini ve onlarla olan iletişim şeklini belirler. Bilgiyi paylaşma ve ifade etme yöntemlerimiz.\n\nEtkileyici ve güzel konuşan insanlardır. Orta noktada dururlar ona göre konuşurlar. Arkadaşlık konusunda başarılıdır. Karşı tarafın beklentisine göre davranırlar ve isteklerini yaptırırlar. Kararsızlıklar yaşayabilir. Neşeli ve hoşsohbet olurlar. İyi de dinleyicidirler. Kibarlık önemlidir."
+  },
+  {
+    "houseId": 3,
+    "sign": "Pisces",
+    "name": "3. Ev Balık",
+    "description": "Düşünce ve iletişim gücünün evidir. Eğitim konuları, yakın çevre, aile ilişkilerini ve onlarla olan iletişim şeklini belirler. Bilgiyi paylaşma ve ifade etme yöntemlerimiz.\n\nAile ve arkadaşlarla olan ilişki duygusal bağlar ile kurulmuştur. Fedakar ve kırılgan bir yapısı vardır. Sezgilerine güvenir. Kaba insanlardan uzak durmalıdır. Bazen içsel bir yalnızlık haline geçebilir. İletişim kurmakta zorlanırsa geri çekilip küsebilir. Ama sevdiklerine çok bağlanır."
+  },
+  {
+    "houseId": 3,
+    "sign": "Sagittarius",
+    "name": "3. Ev Yay",
+    "description": "Düşünce ve iletişim gücünün evidir. Eğitim konuları, yakın çevre, aile ilişkilerini ve onlarla olan iletişim şeklini belirler. Bilgiyi paylaşma ve ifade etme yöntemlerimiz.\n\nEğlenmek ve iyi vakit geçirmek önemlidir. Negatif ve mutsuz insanlarla olmamalılar. Yakın çevresiyle çok iyi iletişim kurar. Her türlü bilgi, gelişim ve seyahat mutlu eder ve neşelendirir. Özgürce kendini ifade etmek ister. Neşeli ve güler yüzlü olur. Topluluklara hitap edebilirler."
+  },
+  {
+    "houseId": 3,
+    "sign": "Scorpio",
+    "name": "3. Ev Akrep",
+    "description": "Düşünce ve iletişim gücünün evidir. Eğitim konuları, yakın çevre, aile ilişkilerini ve onlarla olan iletişim şeklini belirler. Bilgiyi paylaşma ve ifade etme yöntemlerimiz.\n\nFikirlerine ve inançlarına sıkı sıkı bağlıdır. Araştırmayı ve gözlemi sever. Her zaman güvencede olmak ister. Gerçekçidir ve net konuşur. Yakın çevresi için iyi bir sırdaş ve güvenilir arkadaştır. İç dünyasına gömülebilir. Hoşlanmadığı durumlarda huysuz ve kırıcı davranabilir. Yakın çevresiyle samimidir, yön vericidir. İyiliği de kötülüğü de unutmaz."
+  },
+  {
+    "houseId": 3,
+    "sign": "Taurus",
+    "name": "3. Ev Boğa",
+    "description": "Düşünce ve iletişim gücünün evidir. Eğitim konuları, yakın çevre, aile ilişkilerini ve onlarla olan iletişim şeklini belirler. Bilgiyi paylaşma ve ifade etme yöntemlerimiz.\n\nÇevresi tarafından sevilir. Acele etmeyi sevmez. Sempatik ve güvenilir olurlar. Kararlarını hayata geçirmek için uzun süre mücadele edebilir. Ailesine ve sevdiklerine karşı bağlılık ve koruyuculuk gösterir. Sözlü olarak iletişim kurmaktansa, hissetmek ve dokunmak daha önemlidir. Gezmek; keşfetmekten çok alışveriş yapmak için olabilir."
+  },
+  {
+    "houseId": 3,
+    "sign": "Virgo",
+    "name": "3. Ev Başak",
+    "description": "Düşünce ve iletişim gücünün evidir. Eğitim konuları, yakın çevre, aile ilişkilerini ve onlarla olan iletişim şeklini belirler. Bilgiyi paylaşma ve ifade etme yöntemlerimiz.\n\nPratik zekalı olurlar ve bu zekayı paylaşmak isterler. Yakın çevresine faydalı olmak ister. \nBaşak etkisinde eleştiri yapma ve düzeltme huyları olabilir. Keşfedebilecekleri her şey için zaman ayırıp seyahat edebilirler. Etkileyici ve mantıklı bir konuşmacıdır. Yakın çevresiyle iyi iletişim kurabilir."
+  },
+  {
+    "houseId": 4,
+    "sign": "Aquarius",
+    "name": "4. Ev Kova",
+    "description": "Ailemiz, evimiz ve ailemizin bizi nasıl şekillendirdiğini gösteren evdir. Kökten gelen özelliklerimiz, alışkanlıklarımız, gelecekte hayatımıza yön verecek olan olgular buradadır.\n\nBu evdeki kova etkisi, kişinin sürekli ev değiştirmesine sebep olabilir. Aile içinde farklılıklar ve dağınıklık söz konusu olabilir. Maceraya ve farklılığa açık bir yapısı olur. Belki yaşlanana kadar tam olarak ev diyebileceği bir ortam oluşturamayabilir. Genç yaşlarda da evinden ayrılabilir. Sempatik ve esprili olurlar. Evlerinde misafir severler. Aile hayatında baskısız bir özgürlük anlayışı içinde yaşamalıdır. Kendi çocuklarını da bu şekilde özgür büyütmek ister. Cana yakın anne baba olurlar. Sabrı çok zorlanmadıkça tartışma çıksın istemez. Sıkıcı ev hayatı bunaltır."
+  },
+  {
+    "houseId": 4,
+    "sign": "Aries",
+    "name": "4. Ev Koç",
+    "description": "Ailemiz, evimiz ve ailemizin bizi nasıl şekillendirdiğini gösteren evdir. Kökten gelen özelliklerimiz, alışkanlıklarımız, gelecekte hayatımıza yön verecek olan olgular buradadır.\n\nBu evde koç, baskın ve lider konumdadır. Yani aile içi ilişkilerde söz sahibi ve aktif kişiler olurlar. İnandıklarından ödün vermez. Tartışmacı yanları olabilir. Enerjik güçlüdür. Ruhu ileriki yaşlarında bile genç kalır. Kontrol edilmesi zor, baskı altında durmayan ve bu yüzden her türlü mücadeleye girebilecek bir yapı verir. Kendi çocukları içinse kuralcı davranır. Evde düzen ister. Uyulmadığında büyük tartışmalar yaşanabilir. Kendi düzenini uygular. Evin sorumluluğunu üstlenir bu yüzden kendisine uyulmasını bekler."
+  },
+  {
+    "houseId": 4,
+    "sign": "Cancer",
+    "name": "4. Ev Yengeç",
+    "description": "Ailemiz, evimiz ve ailemizin bizi nasıl şekillendirdiğini gösteren evdir. Kökten gelen özelliklerimiz, alışkanlıklarımız, gelecekte hayatımıza yön verecek olan olgular buradadır.\n\nBu evdeki yengeç; ailesine karşı derin duygusal bağlar ile bağlıdır. Sevildiğini hissetmek ister. Anne baba ve çocuklarına karşı koruyucu ve anaç tavırlar gösterir. Huzurlu bir ev ortamı oluşması için mücadele eder. Suya yakın alanlarda huzurlu olur. Evini içinden geldiği gibi düzenler. Bazen küskün, karamsar, takıntılı ruh hallerine düşebilir. Sevdiklerini destekler, hatta aile bireylerinin isteklerine karşı koyamayabilir. Verici olur. Şefkatli ve duygusal davranışlar sergiler."
+  },
+  {
+    "houseId": 4,
+    "sign": "Capricorn",
+    "name": "4. Ev Oğlak",
+    "description": "Ailemiz, evimiz ve ailemizin bizi nasıl şekillendirdiğini gösteren evdir. Kökten gelen özelliklerimiz, alışkanlıklarımız, gelecekte hayatımıza yön verecek olan olgular buradadır.\n\nAilesine karşı oldukça sorumluluk sahibi hisseder. Ve fazlaca iş yükünü de üzerine alabilir. Gelenekselci bir yapıları vardır. Herkesi ve her şeyi kontrol altında tutmak isteyebilir. Aile konusunda herkesin amaçlarının olmasını ve sorumluluk sahibi olmasını ister. Yavaş olsa da hedeflerine adım adım ilerler. 4. Evde oğlak mücadele gerektiren bir burçtur. Erken yaşta fazla yük altında olabilir. Ya da ailesinden kopmuş ve çatışma içinde olabilir. Deneyimlerle olgunlaşır. Birikim ve huzur başlıca hedefleri olacaktır. Sert tavırları olabilir."
+  },
+  {
+    "houseId": 4,
+    "sign": "Gemini",
+    "name": "4. Ev İkizler",
+    "description": "Ailemiz, evimiz ve ailemizin bizi nasıl şekillendirdiğini gösteren evdir. Kökten gelen özelliklerimiz, alışkanlıklarımız, gelecekte hayatımıza yön verecek olan olgular buradadır.\n\nBu evdeki ikizler burcu; sürekli evi için yenilik yapmayı ve yer değiştirmeyi ister. Aile hayatında anne ve baba ile bilgi paylaşımında bulunmak ve keşfetmek ister. Enerjik ve canlı bir yapıları olur. Arkadaşlarıyla yaşamak, değişik yerlerde kalmak mutlu eder. Hareket halinde olmak ister. Evlenme ve çocuk sahibi olma konularını erteleyebilir. Aile hayatında özgür ve eğitime önem veren biri olur. Çocukları içinse, onlarla her şeyi paylaşan ve öğreten yapıda olurlar. Mantık daha ön plandadır."
+  },
+  {
+    "houseId": 4,
+    "sign": "Leo",
+    "name": "4. Ev Aslan",
+    "description": "Ailemiz, evimiz ve ailemizin bizi nasıl şekillendirdiğini gösteren evdir. Kökten gelen özelliklerimiz, alışkanlıklarımız, gelecekte hayatımıza yön verecek olan olgular buradadır.\n\nBu evdeki aslan ile kişi evin lideri, evin koruyucusu olur. Eğlence sever olduğu için ailesi için cömert davranır. Lüks ve gösterişli bir ev ortamı olsun ister. Anne ve babadan etkilenir, onların desteğini bekler. Kurallara uyulmasını ister. Çocuklarını destekler sevgiyle büyütür. Kendi küçüklüklerinde ise sevgiye ve özgüvene ihtiyaç duyar. Kendini evinde, oldukça özgür ve ışıltılı gösterir. Ailesiyle gurur duymak ister. Neşeli bir ev ortamında mutlu olur."
+  },
+  {
+    "houseId": 4,
+    "sign": "Libra",
+    "name": "4. Ev Terazi",
+    "description": "Ailemiz, evimiz ve ailemizin bizi nasıl şekillendirdiğini gösteren evdir. Kökten gelen özelliklerimiz, alışkanlıklarımız, gelecekte hayatımıza yön verecek olan olgular buradadır.\n\nBu evdeki terazi kişiye; evini estetik dekorasyonlar ile donatma isteği verir. Anne babasına karşı kibar ve saygılı kişiler olurlar. Cana yakın, hoşgörülü ve uyumlu bir aile hayatı ister. Ailesi ve arkadaşları ile birlikte ev ortamında bulunmak mutlu eder. Uyumlu bir aile hayatı istedikleri için baskı ve çatışmadan uzak dururlar. Çocukları içinse her türlü eğitimi araştırır ve yönlendirirler. Süslü, farklı, enerjik bir ev ortamı isterler. Barış ortamında dengeli şekilde yaşamak ister."
+  },
+  {
+    "houseId": 4,
+    "sign": "Pisces",
+    "name": "4. Ev Balık",
+    "description": "Ailemiz, evimiz ve ailemizin bizi nasıl şekillendirdiğini gösteren evdir. Kökten gelen özelliklerimiz, alışkanlıklarımız, gelecekte hayatımıza yön verecek olan olgular buradadır.\n\nAnne babasına karşı sahiplenici ve hassas davranır. Dikkati dağılırsa ve ruhsal durumu değişirse bu durum ev ortamına yansır. Ailesini destekler aynı zamanda aynı desteği bekler. Kendini evinde güvende hissetmek ister. Şefkatli bir ruhu vardır. Balıktan gelen duygusal etkiler taşıdıkları için tepkileri bazen abartılı olabilir. Tartışmalardan çok etkiler bu yüzden daha sakin bir ev ortamında olmaları gerekir. Aile içinde uyumlu ve anlayışlıdır. Kendi çocuklarının ise kendisine bağlanmasını ve dediklerini uygulamasını ister."
+  },
+  {
+    "houseId": 4,
+    "sign": "Sagittarius",
+    "name": "4. Ev Yay",
+    "description": "Ailemiz, evimiz ve ailemizin bizi nasıl şekillendirdiğini gösteren evdir. Kökten gelen özelliklerimiz, alışkanlıklarımız, gelecekte hayatımıza yön verecek olan olgular buradadır.\n\nBu kişi aile hayatında baskı altında bırakılmamalıdır. Çünkü yenilikçi, modern ve kültürel bir zekası vardır. Evin içerisinde özgürce yaşayabilmesi gerekir. Ancak kendisini özgür bırakabilecek biriyle evlenmeyi düşünebilir. Büyük ve rahat bir ev ortamı ister. Anne ve babasının zorlamalarına ters tepki verir. Kendi çocuklarını baskısız ve kültürel gelişime önem vererek büyütür. Ailesiyle bağlarını korumak ister. Ev içinde uyumlu bir bireydir. Ama hoşlanmadığı şeyleri eleştirir."
+  },
+  {
+    "houseId": 4,
+    "sign": "Scorpio",
+    "name": "4. Ev Akrep",
+    "description": "Ailemiz, evimiz ve ailemizin bizi nasıl şekillendirdiğini gösteren evdir. Kökten gelen özelliklerimiz, alışkanlıklarımız, gelecekte hayatımıza yön verecek olan olgular buradadır.\n\nBu evdeki akrep etkisiyle kişi ailesini, oldukça özel ve gizli tutar. Çevresine aile hayatıyla ilgili bilgi vermek istemez. Ailesine karşı koruyucu ve sadık olur. Bunun yanında kıskanç olma durumu vardır. Anne babası ve çocuklarını çevreden kıskanabilir. Disiplinli olur ve başarısızlıklarını belli etmek istemez. Kurallara uyulmadığında ev içinde tartışmalar yaşanabilir. Bütün ailesi başarılı ve üstün olsun ister. 4. Evdeki akrep, kişiye çocukluk travmalarını hatırlatır. Cinsel arzuları yüksek olur."
+  },
+  {
+    "houseId": 4,
+    "sign": "Taurus",
+    "name": "4. Ev Boğa",
+    "description": "Ailemiz, evimiz ve ailemizin bizi nasıl şekillendirdiğini gösteren evdir. Kökten gelen özelliklerimiz, alışkanlıklarımız, gelecekte hayatımıza yön verecek olan olgular buradadır.\n\nBu evdeki boğa, evinde vakit geçirmeyi seven, ev ortamının huzurunu isteyen ve ev yemeklerine düşkün bir yapı verir. Ailesine çok bağlıdır. Onlara sarılmayı, dokunmayı ve maddi hediyeler vermek ister. Aileyle vakit geçirmek mutlu eder. Sakin bir yapısı olsa da sinirlenince kırıcı olabilir. Anne baba ve çocuklar onun için evde huzur, uyum içinde olmalıdır. Doğa ve sanata karşı ilgisi olur. Evini de böyle düzenleyebilir. Yeşil alanlar huzur verir."
+  },
+  {
+    "houseId": 4,
+    "sign": "Virgo",
+    "name": "4. Ev Başak",
+    "description": "Ailemiz, evimiz ve ailemizin bizi nasıl şekillendirdiğini gösteren evdir. Kökten gelen özelliklerimiz, alışkanlıklarımız, gelecekte hayatımıza yön verecek olan olgular buradadır.\n\nBu evdeki başak kişiye, ev hayatında oldukça hassas bir titizlik özelliği verir. Birden fazla evi olsun isteyebilir. Her birinde de temizlik ve düzen önemlidir. Evlerindeki düzensizlik konsantrasyonunu bozar. Arkadaşlarını ağırlamayı ve başarılı bir ev düzeni göstermek ister. Dağınık aile bireyleri aynı ev içinde tartışmalara sebep olabilir. Çocukları için iyi anne baba olurlar ve düzen, disiplini öğretirler. Anne babasını ve çocuklarını eleştirebilir. Yaşadığı ortamda çevreden gelen etkiler (negatif komşular, inşaat) huzurunu bozar."
+  }
+]

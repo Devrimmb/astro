@@ -7,22 +7,10 @@ struct OnboardingView: View {
     @State private var birthDate = Calendar.current.date(
         from: DateComponents(year: 1990, month: 6, day: 15, hour: 12)
     )!
+    @State private var birthCountryCode = "TR"
     @State private var birthCity = "İstanbul"
     @State private var isCalculating = false
     var onComplete: () -> Void
-
-    private let cities: [(name: String, lat: Double, lon: Double)] = [
-        ("İstanbul", 41.0082, 28.9784),
-        ("Ankara", 39.9334, 32.8597),
-        ("İzmir", 38.4192, 27.1287),
-        ("Antalya", 36.8969, 30.7133),
-        ("Bursa", 40.1885, 29.0610),
-        ("Adana", 37.0000, 35.3213),
-        ("Trabzon", 41.0027, 39.7168),
-        ("Diyarbakır", 37.9144, 40.2306),
-        ("Konya", 37.8746, 32.4932),
-        ("Samsun", 41.2867, 36.3300),
-    ]
 
     var body: some View {
         ZStack {
@@ -117,22 +105,10 @@ struct OnboardingView: View {
                         .background(AstroTheme.surface, in: .rect(cornerRadius: 12))
                     }
 
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Doğum Yeri")
-                            .font(.caption)
-                            .foregroundStyle(AstroTheme.textSecondary)
-                        Picker("", selection: $birthCity) {
-                            ForEach(cities, id: \.name) { city in
-                                Text(city.name).tag(city.name)
-                            }
-                        }
-                        .labelsHidden()
-                        .pickerStyle(.menu)
-                        .tint(.white)
-                        .padding(12)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .background(AstroTheme.surface, in: .rect(cornerRadius: 12))
-                    }
+                    LocationPickerView(
+                        selectedCountryCode: $birthCountryCode,
+                        selectedCity: $birthCity
+                    )
                 }
                 .glassCard()
 
@@ -161,22 +137,23 @@ struct OnboardingView: View {
     }
 
     private func completeOnboarding() async {
-        guard let city = cities.first(where: { $0.name == birthCity }) else { return }
+        let coords = WorldCityStore.coordinates(for: birthCity, countryCode: birthCountryCode)
         isCalculating = true
 
+        let tz = TimeZone(identifier: coords.tz) ?? TimeZone(identifier: "Europe/Istanbul")!
         let chart = await appState.ephemeris.calculateBirthChart(
             date: birthDate,
-            latitude: city.lat,
-            longitude: city.lon,
-            timeZone: TimeZone(identifier: "Europe/Istanbul")!
+            latitude: coords.lat,
+            longitude: coords.lon,
+            timeZone: tz
         )
         appState.currentChart = chart
         appState.birthDataStore.save(BirthData(
             name: name,
             birthDate: birthDate,
             cityName: birthCity,
-            latitude: city.lat,
-            longitude: city.lon
+            latitude: coords.lat,
+            longitude: coords.lon
         ))
         appState.syncWidgetData()
 

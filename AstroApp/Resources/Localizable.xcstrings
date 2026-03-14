@@ -166,6 +166,19 @@
     "%lld. ev" : {
 
     },
+    "%lld. Ev" : {
+
+    },
+    "%lld. Ev — %@" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld. Ev — %2$@"
+          }
+        }
+      }
+    },
     "℞" : {
 
     },
@@ -173,9 +186,6 @@
 
     },
     "+%lld" : {
-
-    },
-    "+%lld açı daha" : {
 
     },
     "★" : {
@@ -775,6 +785,12 @@
 
     },
     "Bu bir simüle reklamdır.\nGerçek cihazda Google AdMob reklamı gösterilecektir." : {
+
+    },
+    "Bu ev için henüz yorum eklenmedi." : {
+
+    },
+    "Bu Evdeki Gezegenler" : {
 
     },
     "Bu haritalar arasında belirgin cross-aspect bulunmuyor." : {
@@ -1400,6 +1416,9 @@
           }
         }
       }
+    },
+    "Dokun → Yorum" : {
+
     },
     "Dokun ve Aç" : {
       "extractionState" : "manual",
@@ -2541,6 +2560,9 @@
     "Kalan: %@" : {
 
     },
+    "Kapat" : {
+
+    },
     "Kararlılık" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3595,6 +3617,12 @@
         }
       }
     },
+    "Şehir ara..." : {
+
+    },
+    "Şehir Seç" : {
+
+    },
     "Sil" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -4119,6 +4147,15 @@
         }
       }
     },
+    "Ülke" : {
+
+    },
+    "Ülke ara..." : {
+
+    },
+    "Ülke Seç" : {
+
+    },
     "Ürünler yüklenemedi" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -4393,6 +4430,9 @@
           }
         }
       }
+    },
+    "Yorum" : {
+
     },
     "Yorum bulunamadı." : {
       "extractionState" : "manual",

@@ -182,20 +182,8 @@ struct AddPersonSheet: View {
 
     @State private var name = ""
     @State private var birthDate = Calendar.current.date(from: DateComponents(year: 1990, month: 6, day: 15, hour: 12))!
+    @State private var selectedCountryCode = "TR"
     @State private var selectedCity = "İstanbul"
-
-    private let cities: [(name: String, lat: Double, lon: Double)] = [
-        ("İstanbul", 41.0082, 28.9784),
-        ("Ankara", 39.9334, 32.8597),
-        ("İzmir", 38.4192, 27.1287),
-        ("Antalya", 36.8969, 30.7133),
-        ("Bursa", 40.1885, 29.0610),
-        ("Adana", 37.0000, 35.3213),
-        ("Trabzon", 41.0027, 39.7168),
-        ("Diyarbakır", 37.9144, 40.2306),
-        ("Konya", 37.8746, 32.4932),
-        ("Samsun", 41.2867, 36.3300),
-    ]
 
     init(editing: BirthData? = nil) {
         self.editing = editing
@@ -238,22 +226,10 @@ struct AddPersonSheet: View {
                             .colorScheme(.dark)
                         }
 
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text("Doğum Yeri")
-                                .font(.caption)
-                                .foregroundStyle(AstroTheme.textSecondary)
-                            Picker("", selection: $selectedCity) {
-                                ForEach(cities, id: \.name) { city in
-                                    Text(city.name).tag(city.name)
-                                }
-                            }
-                            .labelsHidden()
-                            .pickerStyle(.menu)
-                            .tint(.white)
-                            .padding(12)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .background(AstroTheme.surface, in: .rect(cornerRadius: 12))
-                        }
+                        LocationPickerView(
+                            selectedCountryCode: $selectedCountryCode,
+                            selectedCity: $selectedCity
+                        )
 
                         Button { savePerson() } label: {
                             Text(editing != nil ? "Güncelle" : "Kaydet")
@@ -284,7 +260,7 @@ struct AddPersonSheet: View {
     }
 
     private func savePerson() {
-        guard let city = cities.first(where: { $0.name == selectedCity }) else { return }
+        let coords = WorldCityStore.coordinates(for: selectedCity, countryCode: selectedCountryCode)
 
         if let existing = editing {
             let updated = BirthData(
@@ -292,8 +268,8 @@ struct AddPersonSheet: View {
                 name: name,
                 birthDate: birthDate,
                 cityName: selectedCity,
-                latitude: city.lat,
-                longitude: city.lon,
+                latitude: coords.lat,
+                longitude: coords.lon,
                 isOwner: existing.isOwner
             )
             appState.birthDataStore.updatePerson(updated)
@@ -302,8 +278,8 @@ struct AddPersonSheet: View {
                 name: name,
                 birthDate: birthDate,
                 cityName: selectedCity,
-                latitude: city.lat,
-                longitude: city.lon,
+                latitude: coords.lat,
+                longitude: coords.lon,
                 isOwner: false
             )
             appState.birthDataStore.addPerson(person)

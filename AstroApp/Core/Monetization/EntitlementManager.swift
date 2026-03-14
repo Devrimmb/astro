@@ -68,7 +68,8 @@ final class EntitlementManager {
     /// Admin cihaz mı kontrol et
     static let isAdmin: Bool = {
         let adminIDs: Set<String> = [
-            "BF92A0DA-3782-415C-BF7F-4D9AC4AFD554"
+            "BF92A0DA-3782-415C-BF7F-4D9AC4AFD554",
+            "0F3534D6-A8AC-4093-89E5-C616A9DA32F5"
         ]
         guard let deviceID = UIDevice.current.identifierForVendor?.uuidString else {
             return false

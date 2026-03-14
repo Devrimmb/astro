@@ -9,6 +9,7 @@ struct PersonSelectionCard: View {
     @State private var useManualEntry = false
     @State private var manualName = ""
     @State private var manualBirthDate = Calendar.current.date(from: DateComponents(year: 1990, month: 6, day: 15, hour: 12))!
+    @State private var manualCountryCode = "TR"
     @State private var manualCity = "İstanbul"
 
     // Kişi seçimi
@@ -137,22 +138,10 @@ struct PersonSelectionCard: View {
                 .background(AstroTheme.surface, in: .rect(cornerRadius: 10))
             }
 
-            VStack(alignment: .leading, spacing: 8) {
-                Text("Doğum Yeri")
-                    .font(.caption)
-                    .foregroundStyle(AstroTheme.textSecondary)
-                Picker("", selection: $manualCity) {
-                    ForEach(Cities.list, id: \.name) { city in
-                        Text(city.name).tag(city.name)
-                    }
-                }
-                .labelsHidden()
-                .pickerStyle(.menu)
-                .tint(.white)
-                .padding(10)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .background(AstroTheme.surface, in: .rect(cornerRadius: 10))
-            }
+            LocationPickerView(
+                selectedCountryCode: $manualCountryCode,
+                selectedCity: $manualCity
+            )
         }
     }
 
@@ -180,7 +169,7 @@ struct PersonSelectionCard: View {
     private var calculateButton: some View {
         Button {
             if useManualEntry || !hasSavedPeople {
-                let coords = Cities.coordinates(for: manualCity)
+                let coords = WorldCityStore.coordinates(for: manualCity)
                 let data = BirthData(
                     name: manualName,
                     birthDate: manualBirthDate,

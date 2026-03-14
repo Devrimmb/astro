@@ -11,9 +11,11 @@ struct CompositeChartView: View {
     @State private var useManualEntry = false
     @State private var person1Name = ""
     @State private var person1BirthDate = Calendar.current.date(from: DateComponents(year: 1990, month: 6, day: 15, hour: 12))!
+    @State private var person1CountryCode = "TR"
     @State private var person1City = "İstanbul"
     @State private var person2Name = ""
     @State private var person2BirthDate = Date(timeIntervalSince1970: 757_382_400)
+    @State private var person2CountryCode = "TR"
     @State private var person2City = "İstanbul"
 
     private var hasSavedPeople: Bool {
@@ -170,9 +172,9 @@ struct CompositeChartView: View {
                     .foregroundStyle(.white)
             }
 
-            personInputFields(label: "1. Kişi", name: $person1Name, date: $person1BirthDate, city: $person1City)
+            personInputFields(label: "1. Kişi", name: $person1Name, date: $person1BirthDate, countryCode: $person1CountryCode, city: $person1City)
             Divider().overlay(AstroTheme.cardBorder)
-            personInputFields(label: "2. Kişi", name: $person2Name, date: $person2BirthDate, city: $person2City)
+            personInputFields(label: "2. Kişi", name: $person2Name, date: $person2BirthDate, countryCode: $person2CountryCode, city: $person2City)
 
             Button {
                 Task { await calculateFromManual() }
@@ -187,7 +189,7 @@ struct CompositeChartView: View {
         .glassCard()
     }
 
-    private func personInputFields(label: String, name: Binding<String>, date: Binding<Date>, city: Binding<String>) -> some View {
+    private func personInputFields(label: String, name: Binding<String>, date: Binding<Date>, countryCode: Binding<String>, city: Binding<String>) -> some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(label)
                 .font(.caption.bold())
@@ -205,13 +207,10 @@ struct CompositeChartView: View {
                 .foregroundStyle(.white)
                 .colorScheme(.dark)
 
-            Picker("Şehir", selection: city) {
-                ForEach(Cities.list, id: \.name) { c in
-                    Text(c.name).tag(c.name)
-                }
-            }
-            .pickerStyle(.menu)
-            .tint(.white)
+            LocationPickerView(
+                selectedCountryCode: countryCode,
+                selectedCity: city
+            )
         }
     }
 
@@ -356,16 +355,18 @@ struct CompositeChartView: View {
     }
 
     private func calculateFromManual() async {
-        let coords1 = Cities.coordinates(for: person1City)
-        let coords2 = Cities.coordinates(for: person2City)
+        let coords1 = WorldCityStore.coordinates(for: person1City, countryCode: person1CountryCode)
+        let coords2 = WorldCityStore.coordinates(for: person2City, countryCode: person2CountryCode)
         isLoading = true
+        let tz1 = TimeZone(identifier: coords1.tz) ?? TimeZone(identifier: "Europe/Istanbul")!
+        let tz2 = TimeZone(identifier: coords2.tz) ?? TimeZone(identifier: "Europe/Istanbul")!
         async let chart1 = appState.ephemeris.calculateBirthChart(
             date: person1BirthDate, latitude: coords1.lat, longitude: coords1.lon,
-            timeZone: TimeZone(identifier: "Europe/Istanbul")!
+            timeZone: tz1
         )
         async let chart2 = appState.ephemeris.calculateBirthChart(
             date: person2BirthDate, latitude: coords2.lat, longitude: coords2.lon,
-            timeZone: TimeZone(identifier: "Europe/Istanbul")!
+            timeZone: tz2
         )
         compositeChart = CompositeChartCalculator.calculate(chart1: await chart1, chart2: await chart2)
         isLoading = false
