@@ -190,6 +190,6 @@ struct PersonSelectionCard: View {
             }
             .glassButton()
         }
-        .disabled(!useManualEntry && !hasSavedPeople && manualName.isEmpty)
+        .disabled((useManualEntry || !hasSavedPeople) && manualName.trimmingCharacters(in: .whitespaces).isEmpty)
     }
 }

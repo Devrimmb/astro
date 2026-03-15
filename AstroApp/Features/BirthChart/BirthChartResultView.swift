@@ -3,6 +3,7 @@ import SwiftUI
 struct BirthChartResultView: View {
     @Environment(AppState.self) private var appState
     let chart: BirthChart
+    let personName: String
     @State private var selectedHouse: House?
 
     var body: some View {
@@ -13,6 +14,7 @@ struct BirthChartResultView: View {
                 VStack(spacing: 16) {
                     chartWheelCard
                     bigThreeCard
+                    elementBalanceCard
                     planetPositionsCard
                     housesCard
                     aspectsCard
@@ -21,8 +23,7 @@ struct BirthChartResultView: View {
                     // Aksiyon butonları
                     HStack(spacing: 12) {
                         Button {
-                            let ownerName = appState.birthDataStore.ownerPerson?.name ?? ""
-                            ShareImageRenderer.shareChart(chart: chart, ownerName: ownerName)
+                            ShareImageRenderer.shareChart(chart: chart, ownerName: personName)
                         } label: {
                             HStack(spacing: 8) {
                                 Image(systemName: "square.and.arrow.up")
@@ -32,10 +33,9 @@ struct BirthChartResultView: View {
                         }
 
                         Button {
-                            let ownerName = appState.birthDataStore.ownerPerson?.name ?? ""
                             ChartPDFExporter.exportAndShare(
                                 chart: chart,
-                                ownerName: ownerName,
+                                ownerName: personName,
                                 interpretation: appState.interpretation
                             )
                         } label: {
@@ -107,6 +107,106 @@ struct BirthChartResultView: View {
         .frame(maxWidth: .infinity)
         .accessibilityElement(children: .combine)
         .accessibilityLabel("\(label): \(sign?.name ?? "bilinmiyor")")
+    }
+
+    // MARK: - Element & Modalite Dengesi
+
+    private var elementBalanceCard: some View {
+        let elements = chart.elementBalance
+        let modalities = chart.modalityBalance
+        let totalPlanets = chart.planets.count
+
+        return VStack(spacing: 14) {
+            Text("Element & Modalite Dengesi")
+                .font(.headline)
+                .foregroundStyle(.white)
+
+            // Elementler
+            VStack(spacing: 8) {
+                ForEach(ZodiacSign.Element.allCases, id: \.self) { element in
+                    let count = elements[element, default: 0]
+                    let ratio = totalPlanets > 0 ? Double(count) / Double(totalPlanets) : 0
+
+                    HStack(spacing: 10) {
+                        Text(elementIcon(element))
+                            .font(.title3)
+                            .frame(width: 28)
+
+                        Text(element.displayName)
+                            .font(.subheadline.weight(.medium))
+                            .foregroundStyle(.white)
+                            .frame(width: 55, alignment: .leading)
+
+                        GeometryReader { geo in
+                            ZStack(alignment: .leading) {
+                                RoundedRectangle(cornerRadius: 4)
+                                    .fill(.white.opacity(0.08))
+                                RoundedRectangle(cornerRadius: 4)
+                                    .fill(elementColor(element))
+                                    .frame(width: geo.size.width * ratio)
+                            }
+                        }
+                        .frame(height: 10)
+
+                        Text("\(count)")
+                            .font(.subheadline.weight(.bold).monospacedDigit())
+                            .foregroundStyle(elementColor(element))
+                            .frame(width: 24, alignment: .trailing)
+                    }
+                }
+            }
+
+            Rectangle()
+                .fill(.white.opacity(0.06))
+                .frame(height: 1)
+                .padding(.horizontal, 8)
+
+            // Modaliteler
+            HStack(spacing: 0) {
+                ForEach(ZodiacSign.Modality.allCases, id: \.self) { modality in
+                    let count = modalities[modality, default: 0]
+
+                    VStack(spacing: 6) {
+                        Text(modalityIcon(modality))
+                            .font(.title3)
+                        Text(modality.displayName)
+                            .font(.caption2.weight(.medium))
+                            .foregroundStyle(AstroTheme.textSecondary)
+                        Text("\(count)")
+                            .font(.title3.weight(.bold).monospacedDigit())
+                            .foregroundStyle(.white)
+                    }
+                    .frame(maxWidth: .infinity)
+                }
+            }
+        }
+        .glassCard()
+    }
+
+    private func elementIcon(_ element: ZodiacSign.Element) -> String {
+        switch element {
+        case .fire: "🔥"
+        case .earth: "🌍"
+        case .air: "💨"
+        case .water: "💧"
+        }
+    }
+
+    private func elementColor(_ element: ZodiacSign.Element) -> Color {
+        switch element {
+        case .fire: AstroTheme.fire
+        case .earth: .green
+        case .air: .yellow
+        case .water: .blue
+        }
+    }
+
+    private func modalityIcon(_ modality: ZodiacSign.Modality) -> String {
+        switch modality {
+        case .cardinal: "⚡"
+        case .fixed: "🪨"
+        case .mutable: "🌀"
+        }
     }
 
     // MARK: - Gezegen Pozisyonları

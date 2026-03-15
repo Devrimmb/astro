@@ -105,6 +105,15 @@ private struct ChartPDFContentView: View {
 
     private var headerSection: some View {
         VStack(spacing: 8) {
+            HStack(spacing: 6) {
+                Image(systemName: "sparkle")
+                    .foregroundStyle(accentColor)
+                Text("AstroApp")
+                    .font(.system(size: 14, weight: .semibold))
+                    .foregroundStyle(.white.opacity(0.5))
+            }
+            .padding(.bottom, 4)
+
             Text("✦ DOĞUM HARİTASI ✦")
                 .font(.system(size: 16, weight: .bold, design: .rounded))
                 .foregroundStyle(.white.opacity(0.9))

@@ -10,6 +10,7 @@ struct BirthChartInputView: View {
     @State private var showResult = false
     @State private var showPaymentRequired = false
     @State private var pendingBirthData: BirthData?
+    @State private var currentPersonName: String = ""
 
     var body: some View {
         NavigationStack {
@@ -47,7 +48,7 @@ struct BirthChartInputView: View {
             .navigationBarHidden(true)
             .navigationDestination(isPresented: $showResult) {
                 if let chart = calculatedChart {
-                    BirthChartResultView(chart: chart)
+                    BirthChartResultView(chart: chart, personName: currentPersonName)
                 }
             }
             .sheet(isPresented: $showPaymentRequired) {
@@ -85,6 +86,7 @@ struct BirthChartInputView: View {
 
                 ForEach(readings.sorted(by: { $0.calculatedAt > $1.calculatedAt })) { reading in
                     Button {
+                        currentPersonName = reading.personName
                         calculatedChart = reading.chart
                         showResult = true
                     } label: {
@@ -148,6 +150,8 @@ struct BirthChartInputView: View {
     // MARK: - Hesaplama Mantığı
 
     private func handleCalculateRequest(_ data: BirthData) {
+        currentPersonName = data.name
+
         // Daha önce bu kişi için hesaplanmış harita var mı kontrol et
         if let existingReading = appState.chartReadingStore.reading(forPersonID: data.id) {
             // Aynı doğum verisi mi?
