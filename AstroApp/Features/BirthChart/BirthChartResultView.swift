@@ -31,6 +31,20 @@ struct BirthChartResultView: View {
                             .glassButton()
                         }
 
+                        Button {
+                            let ownerName = appState.birthDataStore.ownerPerson?.name ?? ""
+                            ChartPDFExporter.exportAndShare(
+                                chart: chart,
+                                ownerName: ownerName,
+                                interpretation: appState.interpretation
+                            )
+                        } label: {
+                            HStack(spacing: 8) {
+                                Image(systemName: "doc.richtext")
+                                Text("PDF")
+                            }
+                            .glassButton()
+                        }
                     }
                     .padding(.top, 4)
                 }

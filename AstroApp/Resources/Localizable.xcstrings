@@ -903,6 +903,12 @@
         }
       }
     },
+    "Baskın Element" : {
+
+    },
+    "Baskın Modalite" : {
+
+    },
     "Başla" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1188,6 +1194,9 @@
           }
         }
       }
+    },
+    "Burç" : {
+
     },
     "burcunda" : {
       "extractionState" : "manual",
@@ -1478,6 +1487,9 @@
           }
         }
       }
+    },
+    "Derece" : {
+
     },
     "Detaylı harita, AI sohbet ve daha fazlası" : {
       "extractionState" : "manual",
@@ -1860,6 +1872,9 @@
     "Etkilenen: %@" : {
 
     },
+    "Ev" : {
+
+    },
     "Ev %lld" : {
 
     },
@@ -2009,6 +2024,9 @@
       }
     },
     "Geri Dön" : {
+
+    },
+    "Gezegen" : {
 
     },
     "Gezegen hareketlerinin haritanıza etkisi" : {
@@ -4041,6 +4059,9 @@
           }
         }
       }
+    },
+    "PDF" : {
+
     },
     "Pe" : {
       "extractionState" : "manual",
