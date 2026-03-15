@@ -1,0 +1,13 @@
+{
+  "images" : [
+    {
+      "filename" : "katina_48.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -5,23 +5,24 @@ struct KatinaShareCard: View {
 
     var body: some View {
         ShareCardTemplate(title: "KATİNA FALI", subtitle: formattedDate, seed: 55) {
-            // Kart
-            VStack(spacing: 12) {
-                Text("🔮")
-                    .font(.system(size: 52))
+            // Kart resmi
+            VStack(spacing: 0) {
+                Image(card.imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 200)
 
                 Text(card.name)
-                    .font(.system(size: 22, weight: .bold))
+                    .font(.system(size: 18, weight: .bold))
                     .foregroundStyle(.white)
+                    .padding(.vertical, 10)
+                    .frame(width: 200)
+                    .background(Color.white.opacity(0.06))
             }
-            .frame(width: 260, height: 200)
-            .background {
+            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+            .overlay {
                 RoundedRectangle(cornerRadius: 20, style: .continuous)
-                    .fill(Color.white.opacity(0.06))
-                    .overlay {
-                        RoundedRectangle(cornerRadius: 20, style: .continuous)
-                            .stroke(Color.white.opacity(0.08), lineWidth: 1)
-                    }
+                    .stroke(Color.white.opacity(0.08), lineWidth: 1)
             }
 
             // Kısa yorum özeti
