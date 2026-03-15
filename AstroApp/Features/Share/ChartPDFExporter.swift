@@ -92,6 +92,7 @@ private struct ChartPDFContentView: View {
             elementModalitySection
             planetPositionsSection
             housesSection
+            houseInterpretationsSection
             aspectsSection
             interpretationsSection
             footerSection
@@ -159,36 +160,103 @@ private struct ChartPDFContentView: View {
 
     // MARK: - Element & Modalite
 
-    @ViewBuilder
     private var elementModalitySection: some View {
-        if let element = chart.dominantElement, let modality = chart.dominantModality {
-            pdfCard {
-                HStack(spacing: 24) {
-                    VStack(spacing: 4) {
-                        Text("Baskın Element")
-                            .font(.system(size: 9, weight: .medium))
-                            .foregroundStyle(.white.opacity(0.5))
-                        Text(element.displayName)
-                            .font(.system(size: 13, weight: .semibold))
-                            .foregroundStyle(.white)
-                    }
-                    .frame(maxWidth: .infinity)
+        let elements = chart.elementBalance
+        let modalities = chart.modalityBalance
+        let totalPlanets = chart.planets.count
 
-                    Rectangle()
-                        .fill(.white.opacity(0.1))
-                        .frame(width: 1, height: 30)
+        return pdfCard {
+            VStack(spacing: 12) {
+                Text("Element & Modalite Dengesi")
+                    .font(.system(size: 13, weight: .bold))
+                    .foregroundStyle(.white)
 
-                    VStack(spacing: 4) {
-                        Text("Baskın Modalite")
-                            .font(.system(size: 9, weight: .medium))
-                            .foregroundStyle(.white.opacity(0.5))
-                        Text(modality.displayName)
-                            .font(.system(size: 13, weight: .semibold))
-                            .foregroundStyle(.white)
+                // Element progress bar'ları
+                VStack(spacing: 6) {
+                    ForEach(ZodiacSign.Element.allCases, id: \.self) { element in
+                        let count = elements[element, default: 0]
+                        let ratio = totalPlanets > 0 ? Double(count) / Double(totalPlanets) : 0
+
+                        HStack(spacing: 8) {
+                            Text(pdfElementIcon(element))
+                                .font(.system(size: 14))
+                                .frame(width: 20)
+
+                            Text(element.displayName)
+                                .font(.system(size: 10, weight: .medium))
+                                .foregroundStyle(.white)
+                                .frame(width: 42, alignment: .leading)
+
+                            // Progress bar
+                            GeometryReader { geo in
+                                ZStack(alignment: .leading) {
+                                    RoundedRectangle(cornerRadius: 3)
+                                        .fill(.white.opacity(0.08))
+                                    RoundedRectangle(cornerRadius: 3)
+                                        .fill(pdfElementColor(element))
+                                        .frame(width: max(4, geo.size.width * ratio))
+                                }
+                            }
+                            .frame(height: 8)
+
+                            Text("\(count)")
+                                .font(.system(size: 11, weight: .bold).monospacedDigit())
+                                .foregroundStyle(pdfElementColor(element))
+                                .frame(width: 20, alignment: .trailing)
+                        }
                     }
-                    .frame(maxWidth: .infinity)
+                }
+
+                Rectangle()
+                    .fill(.white.opacity(0.06))
+                    .frame(height: 1)
+                    .padding(.horizontal, 8)
+
+                // Modaliteler
+                HStack(spacing: 0) {
+                    ForEach(ZodiacSign.Modality.allCases, id: \.self) { modality in
+                        let count = modalities[modality, default: 0]
+
+                        VStack(spacing: 4) {
+                            Text(pdfModalityIcon(modality))
+                                .font(.system(size: 14))
+                            Text(modality.displayName)
+                                .font(.system(size: 8, weight: .medium))
+                                .foregroundStyle(.white.opacity(0.5))
+                            Text("\(count)")
+                                .font(.system(size: 16, weight: .bold).monospacedDigit())
+                                .foregroundStyle(.white)
+                        }
+                        .frame(maxWidth: .infinity)
+                    }
                 }
             }
+        }
+    }
+
+    private func pdfElementIcon(_ element: ZodiacSign.Element) -> String {
+        switch element {
+        case .fire: "🔥"
+        case .earth: "🌍"
+        case .air: "💨"
+        case .water: "💧"
+        }
+    }
+
+    private func pdfElementColor(_ element: ZodiacSign.Element) -> Color {
+        switch element {
+        case .fire: Color(red: 1.0, green: 0.40, blue: 0.45)
+        case .earth: .green
+        case .air: .yellow
+        case .water: .blue
+        }
+    }
+
+    private func pdfModalityIcon(_ modality: ZodiacSign.Modality) -> String {
+        switch modality {
+        case .cardinal: "⚡"
+        case .fixed: "🪨"
+        case .mutable: "🌀"
         }
     }
 
@@ -200,39 +268,42 @@ private struct ChartPDFContentView: View {
                 sectionTitle("Gezegen Pozisyonları")
 
                 // Başlık satırı
-                HStack {
+                HStack(spacing: 0) {
                     Text("Gezegen")
-                        .frame(width: 80, alignment: .leading)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     Text("Burç")
-                        .frame(width: 90, alignment: .leading)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     Text("Derece")
-                        .frame(width: 45, alignment: .trailing)
+                        .frame(width: 50, alignment: .trailing)
                     Text("Ev")
                         .frame(width: 30, alignment: .center)
-                    Spacer()
+                    Text("")
+                        .frame(width: 16)
                 }
                 .font(.system(size: 8, weight: .semibold))
                 .foregroundStyle(.white.opacity(0.4))
 
                 ForEach(chart.planets) { position in
-                    HStack {
+                    HStack(spacing: 0) {
                         Text(position.planet.name)
-                            .frame(width: 80, alignment: .leading)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                         HStack(spacing: 3) {
                             Text(position.sign.glyph)
                             Text(position.sign.name)
                         }
-                        .frame(width: 90, alignment: .leading)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         Text(String(format: "%.1f°", position.degree))
-                            .frame(width: 45, alignment: .trailing)
+                            .frame(width: 50, alignment: .trailing)
                         Text("\(position.house)")
                             .frame(width: 30, alignment: .center)
                         if position.isRetrograde {
                             Text("℞")
                                 .foregroundStyle(Color(red: 1.0, green: 0.40, blue: 0.45))
                                 .font(.system(size: 9, weight: .bold))
+                                .frame(width: 16)
+                        } else {
+                            Spacer().frame(width: 16)
                         }
-                        Spacer()
                     }
                     .font(.system(size: 10))
                     .foregroundStyle(.white.opacity(0.8))
@@ -247,50 +318,75 @@ private struct ChartPDFContentView: View {
         }
     }
 
-    // MARK: - Evler
+    // MARK: - Evler (Özet Grid)
 
     private var housesSection: some View {
         pdfCard {
-            VStack(alignment: .leading, spacing: 10) {
+            VStack(alignment: .leading, spacing: 8) {
                 sectionTitle("Evler")
 
-                ForEach(chart.houses) { house in
-                    VStack(alignment: .leading, spacing: 4) {
-                        // Ev başlığı
-                        HStack(spacing: 6) {
-                            Text(house.sign.glyph)
-                                .font(.system(size: 16))
-                            Text("\(house.id). Ev — \(house.sign.name)")
-                                .font(.system(size: 11, weight: .semibold))
-                                .foregroundStyle(.white)
-                            Spacer()
-                            Text(String(format: "%.0f°", house.degree))
-                                .font(.system(size: 9))
-                                .foregroundStyle(.white.opacity(0.4))
-                        }
+                // 2 sütunlu kompakt grid
+                let columns = Array(repeating: GridItem(.flexible(), spacing: 6), count: 2)
+                LazyVGrid(columns: columns, spacing: 6) {
+                    ForEach(chart.houses) { house in
+                        VStack(alignment: .leading, spacing: 3) {
+                            HStack(spacing: 4) {
+                                Text(house.sign.glyph)
+                                    .font(.system(size: 13))
+                                Text("\(house.id). Ev")
+                                    .font(.system(size: 9, weight: .bold))
+                                    .foregroundStyle(.white)
+                                Text("— \(house.sign.name)")
+                                    .font(.system(size: 9, weight: .medium))
+                                    .foregroundStyle(.white.opacity(0.7))
+                                Spacer()
+                                Text(String(format: "%.0f°", house.degree))
+                                    .font(.system(size: 8))
+                                    .foregroundStyle(.white.opacity(0.35))
+                            }
 
-                        // Evdeki gezegenler
-                        if !house.planets.isEmpty {
-                            HStack(spacing: 8) {
-                                ForEach(house.planets) { planet in
-                                    Text("\(planet.planet.name)")
-                                        .font(.system(size: 8))
-                                        .foregroundStyle(accentColor.opacity(0.8))
-                                }
+                            if !house.planets.isEmpty {
+                                Text(house.planets.map { $0.planet.name }.joined(separator: ", "))
+                                    .font(.system(size: 7, weight: .medium))
+                                    .foregroundStyle(accentColor.opacity(0.8))
                             }
                         }
-
-                        // Ev yorumu
-                        if let entry = HouseSignInterpretation.interpretation(house: house.id, zodiacSign: house.sign) {
-                            Text(entry.description)
-                                .font(.system(size: 9))
-                                .foregroundStyle(.white.opacity(0.6))
-                                .lineSpacing(2)
-                        }
+                        .padding(6)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(Color.white.opacity(0.03), in: .rect(cornerRadius: 6))
                     }
-                    .padding(10)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(Color.white.opacity(0.03), in: .rect(cornerRadius: 8))
+                }
+            }
+        }
+    }
+
+    // MARK: - Ev Yorumları (Detay)
+
+    private var houseInterpretationsSection: some View {
+        pdfCard {
+            VStack(alignment: .leading, spacing: 6) {
+                sectionTitle("Ev Yorumları")
+
+                ForEach(chart.houses) { house in
+                    if let entry = HouseSignInterpretation.interpretation(house: house.id, zodiacSign: house.sign) {
+                        VStack(alignment: .leading, spacing: 2) {
+                            HStack(spacing: 3) {
+                                Text(house.sign.glyph)
+                                    .font(.system(size: 10))
+                                Text("\(house.id). Ev — \(house.sign.name)")
+                                    .font(.system(size: 8, weight: .bold))
+                                    .foregroundStyle(.white)
+                            }
+                            Text(entry.description)
+                                .font(.system(size: 7.5))
+                                .foregroundStyle(.white.opacity(0.6))
+                                .lineSpacing(1)
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
+                        .padding(6)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(Color.white.opacity(0.03), in: .rect(cornerRadius: 6))
+                    }
                 }
             }
         }
