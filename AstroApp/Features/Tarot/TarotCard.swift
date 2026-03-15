@@ -7,6 +7,8 @@ struct TarotCard: Identifiable, Codable, Sendable {
     let image: String
     let descriptions: Descriptions
 
+    var imageName: String { "tarot_\(id)" }
+
     enum Arcana: String, Codable, Sendable {
         case major
         case minor

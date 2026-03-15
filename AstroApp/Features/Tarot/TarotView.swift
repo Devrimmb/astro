@@ -331,16 +331,20 @@ struct TarotView: View {
 
                 // Ön yüz
                 if flipProgress >= 90, let card = vm.drawnCard {
-                    VStack(spacing: 12) {
-                        Text(card.image)
-                            .font(.system(size: 48))
+                    VStack(spacing: 0) {
+                        Image(card.imageName)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
 
                         Text(card.name)
-                            .font(.title3.weight(.bold))
+                            .font(.caption.weight(.bold))
                             .foregroundStyle(.white)
+                            .padding(.vertical, 8)
+                            .frame(maxWidth: .infinity)
+                            .background(AstroTheme.surface)
                     }
-                    .frame(width: 180, height: 260)
-                    .background(AstroTheme.surface, in: .rect(cornerRadius: 20))
+                    .frame(width: 180)
+                    .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
                     .overlay {
                         RoundedRectangle(cornerRadius: 20, style: .continuous)
                             .stroke(AstroTheme.cardBorder, lineWidth: 1)
@@ -392,21 +396,25 @@ struct TarotView: View {
                 .padding(.top, 8)
 
                 // Kart görseli
-                VStack(spacing: 12) {
-                    Text(card.image)
-                        .font(.system(size: 48))
+                VStack(spacing: 0) {
+                    Image(card.imageName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxWidth: .infinity)
 
                     Text(card.name)
                         .font(.title3.weight(.bold))
                         .foregroundStyle(.white)
+                        .padding(.vertical, 14)
+                        .frame(maxWidth: .infinity)
+                        .background(AstroTheme.surface)
                 }
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 20)
-                .background(AstroTheme.surface, in: .rect(cornerRadius: 20))
+                .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
                 .overlay {
                     RoundedRectangle(cornerRadius: 20, style: .continuous)
                         .stroke(AstroTheme.cardBorder, lineWidth: 1)
                 }
+                .shadow(color: AstroTheme.accent.opacity(0.2), radius: 15)
 
                 // Markdown yorum
                 if let interpretation = vm.interpretation {
