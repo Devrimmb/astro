@@ -6,13 +6,21 @@ struct TarotView: View {
     @State private var vm = TarotViewModel()
     @State private var isUnlockedByAd = false
 
-    // Yelpaze state
+    // Fan state
     @State private var selectedFanIndex: Int?
     @State private var flipProgress: Double = 0
 
+    // Animation states
+    @State private var cardsDealt = false
+    @State private var glowPhase: Double = 0
+    @State private var floatPhase: Double = 0
+    @State private var showSparkles = false
+    @State private var revealBurst = false
+    @State private var cardScale: CGFloat = 1.0
+    @State private var instructionOpacity: Double = 0
+
     private let fanCardCount = 7
 
-    /// Kullanıcı kart çekebilir mi?
     private var canDraw: Bool {
         entitlements.hasNatalChart || vm.hasFreeReadingToday || isUnlockedByAd
     }
@@ -63,17 +71,18 @@ struct TarotView: View {
         }
     }
 
-    /// Geri butonunun davranışı duruma göre değişir
     private func backAction() {
         withAnimation(.spring(duration: 0.4)) {
             if vm.drawnCard != nil {
-                // Flip aşamasında → yelpaze'ye dön
                 backToFan()
             } else {
-                // Yelpaze aşamasında → kategori seçimine dön
                 vm.reset()
                 selectedFanIndex = nil
                 flipProgress = 0
+                cardsDealt = false
+                glowPhase = 0
+                floatPhase = 0
+                instructionOpacity = 0
             }
         }
     }
@@ -83,6 +92,13 @@ struct TarotView: View {
         isUnlockedByAd = false
         selectedFanIndex = nil
         flipProgress = 0
+        cardsDealt = false
+        glowPhase = 0
+        floatPhase = 0
+        showSparkles = false
+        revealBurst = false
+        cardScale = 1.0
+        instructionOpacity = 0
     }
 
     private func backToFan() {
@@ -90,6 +106,14 @@ struct TarotView: View {
         vm.isRevealed = false
         selectedFanIndex = nil
         flipProgress = 0
+        showSparkles = false
+        revealBurst = false
+        cardScale = 1.0
+        // Re-deal
+        cardsDealt = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            dealCards()
+        }
     }
 
     // MARK: - Reklam Kapısı
@@ -178,7 +202,7 @@ struct TarotView: View {
     // MARK: - Yelpaze
 
     private var fanView: some View {
-        VStack(spacing: 28) {
+        VStack(spacing: 24) {
             Spacer().frame(height: 20)
 
             // Kategori etiketi
@@ -194,40 +218,107 @@ struct TarotView: View {
                 .background(AstroTheme.accent.opacity(0.12), in: .capsule)
             }
 
-            Text("✦")
-                .font(.system(size: 48))
-                .foregroundStyle(AstroTheme.accent)
+            // Animated star
+            VStack(spacing: 12) {
+                Text("✦")
+                    .font(.system(size: 56))
+                    .foregroundStyle(AstroTheme.accent)
+                    .shadow(color: AstroTheme.accent.opacity(0.6), radius: 20)
+                    .scaleEffect(1.0 + sin(glowPhase * 2) * 0.05)
 
-            VStack(spacing: 8) {
                 Text("Kartını Seç")
                     .font(.title2.weight(.bold))
                     .foregroundStyle(.white)
+
                 Text("Zihnini odakla ve bir kart seç")
                     .font(.subheadline)
                     .foregroundStyle(AstroTheme.textSecondary)
+                    .opacity(instructionOpacity)
             }
 
+            // Yelpaze
             ZStack {
+                // Glow base
+                Ellipse()
+                    .fill(
+                        RadialGradient(
+                            colors: [
+                                AstroTheme.accent.opacity(0.15 + sin(glowPhase) * 0.05),
+                                Color.clear
+                            ],
+                            center: .center,
+                            startRadius: 20,
+                            endRadius: 200
+                        )
+                    )
+                    .frame(width: 400, height: 200)
+                    .offset(y: 40)
+                    .blur(radius: 20)
+
                 ForEach(0..<fanCardCount, id: \.self) { index in
                     fanCard(at: index)
                 }
             }
-            .frame(height: 280)
+            .frame(height: 300)
             .padding(.top, 8)
+        }
+        .onAppear {
+            dealCards()
+        }
+    }
+
+    private func dealCards() {
+        for i in 0..<fanCardCount {
+            withAnimation(
+                .spring(duration: 0.7, bounce: 0.3)
+                .delay(Double(i) * 0.08)
+            ) {
+                cardsDealt = true
+            }
+        }
+
+        withAnimation(.easeIn(duration: 0.6).delay(0.8)) {
+            instructionOpacity = 1.0
+        }
+
+        withAnimation(.linear(duration: 3).repeatForever(autoreverses: false)) {
+            glowPhase = .pi * 2
+        }
+        withAnimation(.easeInOut(duration: 2.5).repeatForever(autoreverses: true)) {
+            floatPhase = 1.0
         }
     }
 
     private func fanCard(at index: Int) -> some View {
         let isSelected = selectedFanIndex == index
         let hasSelection = selectedFanIndex != nil
+        let floatOffset = sin(floatPhase * .pi + Double(index) * 0.3) * 3
 
         return ZStack {
+            // Glow efekti
             RoundedRectangle(cornerRadius: 14, style: .continuous)
                 .fill(
                     LinearGradient(
                         colors: [
-                            Color(red: 0.25, green: 0.15, blue: 0.45),
-                            Color(red: 0.15, green: 0.08, blue: 0.3)
+                            AstroTheme.accent.opacity(0.4),
+                            AstroTheme.accentSecondary.opacity(0.2)
+                        ],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                )
+                .blur(radius: 8)
+                .scaleEffect(1.1)
+                .opacity(0.5 + sin(glowPhase + Double(index) * 0.9) * 0.3)
+
+            // Kart
+            RoundedRectangle(cornerRadius: 14, style: .continuous)
+                .fill(
+                    LinearGradient(
+                        colors: [
+                            Color(red: 0.3, green: 0.18, blue: 0.55),
+                            Color(red: 0.18, green: 0.1, blue: 0.38),
+                            Color(red: 0.12, green: 0.06, blue: 0.28)
                         ],
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
@@ -235,31 +326,84 @@ struct TarotView: View {
                 )
                 .overlay {
                     RoundedRectangle(cornerRadius: 14, style: .continuous)
-                        .stroke(Color(red: 0.45, green: 0.3, blue: 0.7).opacity(0.5), lineWidth: 1)
+                        .stroke(
+                            LinearGradient(
+                                colors: [
+                                    AstroTheme.accent.opacity(0.6),
+                                    AstroTheme.accent.opacity(0.2),
+                                    AstroTheme.accent.opacity(0.6)
+                                ],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            ),
+                            lineWidth: 1.5
+                        )
                 }
 
-            Text("✦")
-                .font(.system(size: 20, weight: .light))
-                .foregroundStyle(Color(red: 0.6, green: 0.4, blue: 0.9).opacity(0.5))
+            // Desen
+            VStack(spacing: 6) {
+                Image(systemName: "sparkle")
+                    .font(.system(size: 14, weight: .light))
+                    .foregroundStyle(AstroTheme.accent.opacity(0.5))
+
+                Text("✦")
+                    .font(.system(size: 22, weight: .light))
+                    .foregroundStyle(
+                        LinearGradient(
+                            colors: [
+                                AstroTheme.accent.opacity(0.8),
+                                AstroTheme.accentSecondary.opacity(0.5)
+                            ],
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                    )
+
+                Image(systemName: "sparkle")
+                    .font(.system(size: 14, weight: .light))
+                    .foregroundStyle(AstroTheme.accent.opacity(0.5))
+            }
         }
-        .frame(width: 70, height: 110)
-        .shadow(color: .black.opacity(0.4), radius: 4, x: 1, y: 2)
+        .frame(width: 72, height: 115)
+        .shadow(color: AstroTheme.accent.opacity(0.3), radius: 8, x: 0, y: 4)
+        .shadow(color: .black.opacity(0.5), radius: 4, x: 1, y: 2)
         .rotationEffect(
             .degrees(isSelected ? 0 : fanAngle(for: index)),
             anchor: .bottom
         )
-        .offset(y: isSelected ? -30 : fanYOffset(for: index))
-        .scaleEffect(isSelected ? 1.3 : (hasSelection ? 0.7 : 1.0))
-        .opacity(hasSelection && !isSelected ? 0 : 1)
+        .offset(y: cardsDealt
+            ? (isSelected ? -40 : fanYOffset(for: index) + floatOffset)
+            : 300
+        )
+        .scaleEffect(isSelected ? 1.4 : (hasSelection ? 0.6 : 1.0))
+        .opacity(cardsDealt ? (hasSelection && !isSelected ? 0 : 1) : 0)
+        .blur(radius: hasSelection && !isSelected ? 2 : 0)
         .zIndex(isSelected ? 10 : Double(index))
+        .animation(
+            .spring(duration: 0.6, bounce: 0.25),
+            value: selectedFanIndex
+        )
         .onTapGesture {
-            guard selectedFanIndex == nil else { return }
-            withAnimation(.spring(duration: 0.5, bounce: 0.2)) {
-                selectedFanIndex = index
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
-                vm.drawCard()
-            }
+            selectCard(at: index)
+        }
+    }
+
+    private func selectCard(at index: Int) {
+        guard selectedFanIndex == nil else { return }
+
+        let impact = UIImpactFeedbackGenerator(style: .medium)
+        impact.impactOccurred()
+
+        withAnimation(.spring(duration: 0.6, bounce: 0.2)) {
+            selectedFanIndex = index
+        }
+
+        withAnimation(.easeIn(duration: 0.3).delay(0.3)) {
+            showSparkles = true
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+            vm.drawCard()
         }
     }
 
@@ -291,79 +435,56 @@ struct TarotView: View {
             }
 
             Text(flipProgress < 90 ? "Kartına dokun ve aç" : "")
-                .font(.subheadline)
+                .font(.subheadline.weight(.medium))
                 .foregroundStyle(AstroTheme.textSecondary)
-                .animation(.none, value: flipProgress)
+                .animation(.easeInOut(duration: 0.3), value: flipProgress)
+                .opacity(flipProgress < 90 ? 1 : 0)
 
             ZStack {
+                // Glow
+                Circle()
+                    .fill(
+                        RadialGradient(
+                            colors: [
+                                AstroTheme.accent.opacity(revealBurst ? 0.5 : 0.1),
+                                Color.clear
+                            ],
+                            center: .center,
+                            startRadius: 10,
+                            endRadius: revealBurst ? 250 : 100
+                        )
+                    )
+                    .frame(width: 400, height: 400)
+                    .scaleEffect(revealBurst ? 1.5 : 1.0)
+
+                // Sparkles
+                if showSparkles || revealBurst {
+                    TarotSparkleField(burst: revealBurst)
+                }
+
                 // Arka yüz
                 if flipProgress < 90 {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 20, style: .continuous)
-                            .fill(
-                                LinearGradient(
-                                    colors: [AstroTheme.accent.opacity(0.6), AstroTheme.accentSecondary.opacity(0.3)],
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                )
-                            )
-                            .overlay {
-                                RoundedRectangle(cornerRadius: 20, style: .continuous)
-                                    .stroke(AstroTheme.cardBorder, lineWidth: 1)
-                            }
-
-                        VStack(spacing: 12) {
-                            Text("✦")
-                                .font(.system(size: 48))
-                                .foregroundStyle(.white.opacity(0.3))
-                            Text("Dokun ve Aç")
-                                .font(.caption.weight(.semibold))
-                                .foregroundStyle(.white.opacity(0.4))
-                        }
-                    }
-                    .frame(width: 180, height: 260)
-                    .rotation3DEffect(
-                        .degrees(flipProgress),
-                        axis: (x: 0, y: 1, z: 0),
-                        perspective: 0.5
-                    )
+                    tarotCardBackFace
+                        .rotation3DEffect(
+                            .degrees(flipProgress),
+                            axis: (x: 0, y: 1, z: 0),
+                            perspective: 0.4
+                        )
                 }
 
                 // Ön yüz
                 if flipProgress >= 90, let card = vm.drawnCard {
-                    VStack(spacing: 0) {
-                        Image(card.imageName)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-
-                        Text(card.name)
-                            .font(.caption.weight(.bold))
-                            .foregroundStyle(.white)
-                            .padding(.vertical, 8)
-                            .frame(maxWidth: .infinity)
-                            .background(AstroTheme.surface)
-                    }
-                    .frame(width: 180)
-                    .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-                    .overlay {
-                        RoundedRectangle(cornerRadius: 20, style: .continuous)
-                            .stroke(AstroTheme.cardBorder, lineWidth: 1)
-                    }
-                    .rotation3DEffect(
-                        .degrees(flipProgress - 180),
-                        axis: (x: 0, y: 1, z: 0),
-                        perspective: 0.5
-                    )
+                    tarotCardFrontFace(card: card)
+                        .rotation3DEffect(
+                            .degrees(flipProgress - 180),
+                            axis: (x: 0, y: 1, z: 0),
+                            perspective: 0.4
+                        )
+                        .scaleEffect(cardScale)
                 }
             }
             .onTapGesture {
-                guard flipProgress == 0 else { return }
-                withAnimation(.spring(duration: 0.6, bounce: 0.15)) {
-                    flipProgress = 180
-                }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-                    vm.revealCard()
-                }
+                flipCard()
             }
 
             if flipProgress == 0 {
@@ -377,7 +498,145 @@ struct TarotView: View {
                         .foregroundStyle(AstroTheme.textSecondary)
                 }
                 .padding(.top, 8)
+                .transition(.opacity.combined(with: .scale))
             }
+        }
+        .onAppear {
+            withAnimation(.easeInOut(duration: 1.5).repeatForever(autoreverses: true)) {
+                showSparkles = true
+            }
+        }
+    }
+
+    private var tarotCardBackFace: some View {
+        ZStack {
+            // Shadow
+            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                .fill(Color.black.opacity(0.3))
+                .blur(radius: 15)
+                .offset(y: 8)
+
+            // Main card
+            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                .fill(
+                    LinearGradient(
+                        colors: [
+                            Color(red: 0.35, green: 0.2, blue: 0.6),
+                            Color(red: 0.22, green: 0.12, blue: 0.45),
+                            Color(red: 0.15, green: 0.08, blue: 0.3)
+                        ],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                )
+                .overlay {
+                    RoundedRectangle(cornerRadius: 20, style: .continuous)
+                        .strokeBorder(
+                            LinearGradient(
+                                colors: [
+                                    AstroTheme.accent.opacity(0.7),
+                                    AstroTheme.accentSecondary.opacity(0.3),
+                                    AstroTheme.accent.opacity(0.7)
+                                ],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            ),
+                            lineWidth: 2
+                        )
+                }
+                .overlay {
+                    RoundedRectangle(cornerRadius: 14, style: .continuous)
+                        .strokeBorder(
+                            AstroTheme.accent.opacity(0.2),
+                            lineWidth: 1
+                        )
+                        .padding(8)
+                }
+
+            VStack(spacing: 16) {
+                Image(systemName: "sparkle")
+                    .font(.system(size: 16))
+                    .foregroundStyle(AstroTheme.accent.opacity(0.6))
+
+                Text("✦")
+                    .font(.system(size: 52))
+                    .foregroundStyle(AstroTheme.accent.opacity(0.4))
+                    .shadow(color: AstroTheme.accent.opacity(0.5), radius: 10)
+
+                Text("Dokun ve Aç")
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(AstroTheme.accent.opacity(0.5))
+                    .tracking(2)
+
+                Image(systemName: "sparkle")
+                    .font(.system(size: 16))
+                    .foregroundStyle(AstroTheme.accent.opacity(0.6))
+            }
+        }
+        .frame(width: 190, height: 280)
+    }
+
+    private func tarotCardFrontFace(card: TarotCard) -> some View {
+        VStack(spacing: 0) {
+            Image(card.imageName)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+
+            Text(card.name)
+                .font(.caption.weight(.bold))
+                .foregroundStyle(.white)
+                .padding(.vertical, 8)
+                .frame(maxWidth: .infinity)
+                .background(AstroTheme.surface)
+        }
+        .frame(width: 190)
+        .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+        .overlay {
+            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                .stroke(
+                    LinearGradient(
+                        colors: [
+                            AstroTheme.accent.opacity(0.5),
+                            AstroTheme.accent.opacity(0.1),
+                            AstroTheme.accent.opacity(0.5)
+                        ],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    ),
+                    lineWidth: 1.5
+                )
+        }
+        .shadow(color: AstroTheme.accent.opacity(0.3), radius: 20)
+    }
+
+    private func flipCard() {
+        guard flipProgress == 0 else { return }
+
+        let impact = UIImpactFeedbackGenerator(style: .heavy)
+        impact.impactOccurred()
+
+        withAnimation(.spring(duration: 0.7, bounce: 0.12)) {
+            flipProgress = 180
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            withAnimation(.easeOut(duration: 0.5)) {
+                revealBurst = true
+            }
+
+            withAnimation(.spring(duration: 0.4, bounce: 0.3).delay(0.1)) {
+                cardScale = 1.08
+            }
+            withAnimation(.spring(duration: 0.3).delay(0.4)) {
+                cardScale = 1.0
+            }
+
+            let notif = UINotificationFeedbackGenerator()
+            notif.notificationOccurred(.success)
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+            vm.revealCard()
         }
     }
 
@@ -415,6 +674,7 @@ struct TarotView: View {
                         .stroke(AstroTheme.cardBorder, lineWidth: 1)
                 }
                 .shadow(color: AstroTheme.accent.opacity(0.2), radius: 15)
+                .transition(.scale(scale: 0.9).combined(with: .opacity))
 
                 // Markdown yorum
                 if let interpretation = vm.interpretation {
@@ -439,8 +699,9 @@ struct TarotView: View {
                     }
                     .glassButton()
                 }
+                .transition(.scale.combined(with: .opacity))
 
-                // Tekrar kart çek → kategori seçimine dön
+                // Tekrar kart çek
                 Button {
                     withAnimation(.spring(duration: 0.4)) {
                         isUnlockedByAd = false
@@ -457,7 +718,63 @@ struct TarotView: View {
                             Capsule().stroke(AstroTheme.cardBorder, lineWidth: 1)
                         }
                 }
+                .transition(.opacity)
+            }
+        }
+        .animation(.spring(duration: 0.6, bounce: 0.2), value: vm.isRevealed)
+    }
+}
+
+// MARK: - Tarot Sparkle Particles
+
+private struct TarotSparkleField: View {
+    let burst: Bool
+    @State private var particles: [TarotSparkleParticle] = (0..<12).map { _ in TarotSparkleParticle() }
+
+    var body: some View {
+        ZStack {
+            ForEach(particles) { particle in
+                Image(systemName: "sparkle")
+                    .font(.system(size: particle.size))
+                    .foregroundStyle(particle.color)
+                    .offset(
+                        x: burst ? particle.burstX : particle.x,
+                        y: burst ? particle.burstY : particle.y
+                    )
+                    .opacity(particle.opacity)
+                    .scaleEffect(burst ? particle.burstScale : particle.scale)
+            }
+        }
+        .animation(.easeOut(duration: 0.8), value: burst)
+        .onAppear {
+            animateParticles()
+        }
+    }
+
+    private func animateParticles() {
+        withAnimation(.easeInOut(duration: 2).repeatForever(autoreverses: true)) {
+            for i in particles.indices {
+                particles[i].opacity = Double.random(in: 0.3...0.8)
+                particles[i].scale = CGFloat.random(in: 0.6...1.2)
             }
         }
     }
+}
+
+private struct TarotSparkleParticle: Identifiable {
+    let id = UUID()
+    let size: CGFloat = .random(in: 6...14)
+    let color: Color = [
+        Color(red: 0.56, green: 0.44, blue: 1.0),
+        Color(red: 0.35, green: 0.78, blue: 0.98),
+        Color(red: 0.7, green: 0.55, blue: 1.0),
+        Color.white
+    ].randomElement()!
+    let x: CGFloat = .random(in: -80...80)
+    let y: CGFloat = .random(in: -120...120)
+    let burstX: CGFloat = .random(in: -160...160)
+    let burstY: CGFloat = .random(in: -200...200)
+    let burstScale: CGFloat = .random(in: 0.3...1.5)
+    var opacity: Double = .random(in: 0.2...0.7)
+    var scale: CGFloat = 1.0
 }
