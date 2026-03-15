@@ -186,11 +186,12 @@ struct ChartWheelView: View {
         let aspectRadius = houseRingInner - 2
 
         for aspect in chart.aspects {
-            guard let pos1 = chart.planets.first(where: { $0.planet == aspect.planet1 }),
-                  let pos2 = chart.planets.first(where: { $0.planet == aspect.planet2 }) else { continue }
+            // ChartPoint'ten longitude çöz
+            guard let lon1 = longitude(for: aspect.point1),
+                  let lon2 = longitude(for: aspect.point2) else { continue }
 
-            let angle1 = chartAngle(pos1.longitude)
-            let angle2 = chartAngle(pos2.longitude)
+            let angle1 = chartAngle(lon1)
+            let angle2 = chartAngle(lon2)
             let point1 = pointOnCircle(center: center, radius: aspectRadius, angle: angle1)
             let point2 = pointOnCircle(center: center, radius: aspectRadius, angle: angle2)
 
@@ -204,11 +205,28 @@ struct ChartWheelView: View {
             case .notr: .blue
             }
 
-            let style = StrokeStyle(
-                lineWidth: aspect.type == .conjunction ? 1.0 : 0.6,
-                dash: aspect.type == .sextile ? [4, 3] : []
-            )
-            context.stroke(path, with: .color(color.opacity(0.4)), style: style)
+            let lineWidth: CGFloat = aspect.type.isMajor ? (aspect.type == .conjunction ? 1.0 : 0.6) : 0.4
+            let dash: [CGFloat] = switch aspect.type {
+            case .sextile: [4, 3]
+            case .semiSextile, .quincunx: [2, 2]
+            case .semiSquare, .sesquiquadrate: [1, 2]
+            default: []
+            }
+
+            let style = StrokeStyle(lineWidth: lineWidth, dash: dash)
+            context.stroke(path, with: .color(color.opacity(aspect.type.isMajor ? 0.4 : 0.25)), style: style)
+        }
+    }
+
+    /// ChartPoint'ten longitude değerini çözer
+    private func longitude(for point: ChartPoint) -> Double? {
+        switch point {
+        case .planet(let p):
+            return chart.planets.first(where: { $0.planet == p })?.longitude
+        case .ascendant:
+            return chart.houses.first(where: { $0.id == 1 })?.cusp
+        case .midheaven:
+            return chart.houses.first(where: { $0.id == 10 })?.cusp
         }
     }
 

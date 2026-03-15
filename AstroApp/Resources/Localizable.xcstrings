@@ -2148,6 +2148,9 @@
         }
       }
     },
+    "Grid" : {
+
+    },
     "Güçlü Uyum" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3686,6 +3689,9 @@
           }
         }
       }
+    },
+    "Liste" : {
+
     },
     "mag %@" : {
 

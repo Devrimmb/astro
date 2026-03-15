@@ -5,6 +5,7 @@ struct BirthChartResultView: View {
     let chart: BirthChart
     let personName: String
     @State private var selectedHouse: House?
+    @State private var showAspectGrid = false
 
     var body: some View {
         ZStack {
@@ -310,24 +311,48 @@ struct BirthChartResultView: View {
 
     private var aspectsCard: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Açılar")
-                .font(.headline)
-                .foregroundStyle(.white)
-                .padding(.bottom, 4)
+            // Başlık + görünüm toggle
+            HStack {
+                Text("Açılar")
+                    .font(.headline)
+                    .foregroundStyle(.white)
+                Spacer()
+                Button {
+                    withAnimation(.easeInOut(duration: 0.2)) {
+                        showAspectGrid.toggle()
+                    }
+                } label: {
+                    HStack(spacing: 4) {
+                        Image(systemName: showAspectGrid ? "list.bullet" : "grid")
+                            .font(.caption2)
+                        Text(showAspectGrid ? "Liste" : "Grid")
+                            .font(.caption2)
+                    }
+                    .foregroundStyle(AstroTheme.accent)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 5)
+                    .background(AstroTheme.surface, in: .capsule)
+                }
+            }
+            .padding(.bottom, 4)
 
             if chart.aspects.isEmpty {
                 Text("Açı bulunamadı")
                     .foregroundStyle(AstroTheme.textSecondary)
                     .font(.subheadline)
+            } else if showAspectGrid {
+                // Grid görünümü
+                AspectGridView(chart: chart)
             } else {
+                // Liste görünümü
                 ForEach(Array(chart.aspects.enumerated()), id: \.offset) { _, aspect in
                     HStack {
-                        Text(aspect.planet1.name)
+                        Text(aspect.point1.name)
                             .font(.caption)
                             .frame(width: 65, alignment: .leading)
-                        Text(aspectSymbol(aspect.type))
+                        Text(aspect.type.symbol)
                             .font(.caption)
-                        Text(aspect.planet2.name)
+                        Text(aspect.point2.name)
                             .font(.caption)
                             .frame(width: 65, alignment: .leading)
                         Spacer()
@@ -383,16 +408,6 @@ struct BirthChartResultView: View {
     }
 
     // MARK: - Yardımcılar
-
-    private func aspectSymbol(_ type: AspectType) -> String {
-        switch type {
-        case .conjunction: "☌"
-        case .sextile: "⚹"
-        case .square: "□"
-        case .trine: "△"
-        case .opposition: "☍"
-        }
-    }
 
     private func aspectNatureColor(_ nature: AspectType.Nature) -> Color {
         switch nature {

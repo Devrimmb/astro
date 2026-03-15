@@ -51,7 +51,7 @@ struct AstronomicalCalculator: EphemerisCalculating, Sendable {
             ))
         }
 
-        let aspects = AspectCalculator.calculate(planets: planets)
+        let aspects = AspectCalculator.calculate(planets: planets, houses: houses)
 
         return BirthChart(
             birthDate: date,

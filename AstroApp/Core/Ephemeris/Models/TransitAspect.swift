@@ -46,6 +46,10 @@ extension AspectType {
         case .square: "Kare"
         case .trine: "Üçgen"
         case .opposition: "Karşıt"
+        case .semiSextile: "Yarı-Sekstil"
+        case .semiSquare: "Yarı-Kare"
+        case .sesquiquadrate: "Oturma-Kare"
+        case .quincunx: "Quincunx"
         }
     }
 
@@ -56,6 +60,10 @@ extension AspectType {
         case .square: "□"
         case .trine: "△"
         case .opposition: "☍"
+        case .semiSextile: "⚺"
+        case .semiSquare: "∠"
+        case .sesquiquadrate: "⚼"
+        case .quincunx: "⚻"
         }
     }
 }

@@ -125,7 +125,11 @@ final class InterpretationEngine {
     }
 
     func aspectInterpretation(_ aspect: Aspect) -> Interpretation? {
-        let key = "\(aspect.planet1.identifier)_\(aspect.planet2.identifier)"
+        // ASC/MC için yorum yok — sadece gezegen çiftleri
+        guard case .planet(let p1) = aspect.point1,
+              case .planet(let p2) = aspect.point2 else { return nil }
+
+        let key = "\(p1.identifier)_\(p2.identifier)"
         let aspectKey: String
         switch aspect.type {
         case .conjunction: aspectKey = "conjunction"
@@ -133,6 +137,11 @@ final class InterpretationEngine {
         case .square: aspectKey = "square"
         case .trine: aspectKey = "trine"
         case .opposition: aspectKey = "opposition"
+        // Minor aspect'ler için henüz JSON yorumu yok
+        case .semiSextile: aspectKey = "semi_sextile"
+        case .semiSquare: aspectKey = "semi_square"
+        case .sesquiquadrate: aspectKey = "sesquiquadrate"
+        case .quincunx: aspectKey = "quincunx"
         }
         return aspects[key]?[aspectKey]
     }

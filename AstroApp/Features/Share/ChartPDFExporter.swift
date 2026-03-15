@@ -392,29 +392,39 @@ private struct ChartPDFContentView: View {
         }
     }
 
-    // MARK: - Açılar
+    // MARK: - Açılar (Grid + Liste)
 
     @ViewBuilder
     private var aspectsSection: some View {
         if !chart.aspects.isEmpty {
+            // Açı Grid Matrisi
+            pdfCard {
+                VStack(alignment: .leading, spacing: 6) {
+                    sectionTitle("Açı Tablosu")
+                    pdfAspectGrid
+                }
+            }
+
+            // Açı Listesi
             pdfCard {
                 VStack(alignment: .leading, spacing: 6) {
                     sectionTitle("Açılar")
 
                     ForEach(Array(chart.aspects.enumerated()), id: \.offset) { _, aspect in
-                        HStack {
-                            Text(aspect.planet1.name)
-                                .frame(width: 72, alignment: .leading)
-                            Text(aspectSymbol(aspect.type))
+                        HStack(spacing: 0) {
+                            Text(aspect.point1.name)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            Text(aspect.type.symbol)
                                 .frame(width: 16)
-                            Text(aspect.planet2.name)
-                                .frame(width: 72, alignment: .leading)
-                            Spacer()
+                            Text(aspect.point2.name)
+                                .frame(maxWidth: .infinity, alignment: .leading)
                             Text(String(format: "%.1f°", aspect.orb))
                                 .foregroundStyle(.white.opacity(0.4))
+                                .frame(width: 36, alignment: .trailing)
                             Circle()
                                 .fill(aspectNatureColor(aspect.type.nature))
                                 .frame(width: 5, height: 5)
+                                .padding(.leading, 4)
                         }
                         .font(.system(size: 9))
                         .foregroundStyle(.white.opacity(0.7))
@@ -422,6 +432,101 @@ private struct ChartPDFContentView: View {
                 }
             }
         }
+    }
+
+    /// PDF için üçgen açı matrisi
+    private var pdfAspectGrid: some View {
+        let points = pdfGridPoints
+        let lookup = pdfAspectLookup
+
+        return VStack(alignment: .leading, spacing: 0) {
+            ForEach(1..<points.count, id: \.self) { row in
+                HStack(spacing: 0) {
+                    Text(points[row].glyph)
+                        .font(.system(size: 7, weight: .medium))
+                        .foregroundStyle(.white)
+                        .frame(width: 24, height: 20)
+
+                    ForEach(0..<row, id: \.self) { col in
+                        let key = "\(points[row])_\(points[col])"
+                        if let aspect = lookup[key] {
+                            pdfGridCell(aspect)
+                        } else {
+                            Color.clear
+                                .frame(width: 24, height: 20)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 2)
+                                        .stroke(.white.opacity(0.03), lineWidth: 0.3)
+                                )
+                        }
+                    }
+                }
+            }
+
+            // Alt sütun başlıkları
+            HStack(spacing: 0) {
+                Color.clear.frame(width: 24, height: 14)
+                ForEach(0..<(points.count - 1), id: \.self) { col in
+                    Text(points[col].glyph)
+                        .font(.system(size: 7, weight: .medium))
+                        .foregroundStyle(.white)
+                        .frame(width: 24, height: 14)
+                }
+            }
+        }
+    }
+
+    private func pdfGridCell(_ aspect: Aspect) -> some View {
+        let bgColor: Color = switch aspect.type.nature {
+        case .harmonik: Color(red: 0.30, green: 0.85, blue: 0.65)
+        case .zorlayici: Color(red: 1.0, green: 0.40, blue: 0.45)
+        case .notr: Color(red: 0.35, green: 0.78, blue: 0.98)
+        }
+
+        return VStack(spacing: 0) {
+            Text(aspect.type.symbol)
+                .font(.system(size: 7))
+                .foregroundStyle(bgColor)
+            Text(String(format: "%.0f", aspect.orb))
+                .font(.system(size: 5))
+                .foregroundStyle(.white.opacity(0.4))
+        }
+        .frame(width: 24, height: 20)
+        .background(bgColor.opacity(0.1), in: .rect(cornerRadius: 2))
+        .overlay(
+            RoundedRectangle(cornerRadius: 2)
+                .stroke(.white.opacity(0.06), lineWidth: 0.3)
+        )
+    }
+
+    private var pdfGridPoints: [ChartPoint] {
+        var result: [ChartPoint] = []
+        for planet in Planet.classicPlanets {
+            if chart.planets.contains(where: { $0.planet == planet }) {
+                result.append(.planet(planet))
+            }
+        }
+        for extra in [Planet.northNode, .chiron] {
+            if chart.planets.contains(where: { $0.planet == extra }) {
+                result.append(.planet(extra))
+            }
+        }
+        if chart.houses.contains(where: { $0.id == 1 }) {
+            result.append(.ascendant)
+        }
+        if chart.houses.contains(where: { $0.id == 10 }) {
+            result.append(.midheaven)
+        }
+        return result
+    }
+
+    private var pdfAspectLookup: [String: Aspect] {
+        var dict: [String: Aspect] = [:]
+        for aspect in chart.aspects {
+            dict["\(aspect.point1)_\(aspect.point2)"] = aspect
+            dict["\(aspect.point2)_\(aspect.point1)"] = aspect
+        }
+        return dict
     }
 
     // MARK: - Yorumlar
@@ -519,16 +624,6 @@ private struct ChartPDFContentView: View {
         formatter.locale = Locale(identifier: "tr_TR")
         formatter.dateFormat = "d MMMM yyyy, HH:mm"
         return formatter.string(from: chart.birthDate)
-    }
-
-    private func aspectSymbol(_ type: AspectType) -> String {
-        switch type {
-        case .conjunction: "☌"
-        case .sextile: "⚹"
-        case .square: "□"
-        case .trine: "△"
-        case .opposition: "☍"
-        }
     }
 
     private func aspectNatureColor(_ nature: AspectType.Nature) -> Color {
