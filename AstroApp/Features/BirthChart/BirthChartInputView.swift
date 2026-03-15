@@ -9,6 +9,7 @@ struct BirthChartInputView: View {
     @State private var isPurchasing = false
     @State private var showResult = false
     @State private var showPaymentRequired = false
+    @State private var pendingBirthData: BirthData?
 
     var body: some View {
         NavigationStack {
@@ -35,6 +36,9 @@ struct BirthChartInputView: View {
                             handleCalculateRequest(birthData)
                         }
                         .disabled(isCalculating || isPurchasing)
+
+                        // MARK: - Geçmiş Fallarınız
+                        pastReadingsSection
                     }
                     .padding(.horizontal)
                     .padding(.bottom, 40)
@@ -60,14 +64,105 @@ struct BirthChartInputView: View {
         }
     }
 
-    @State private var pendingBirthData: BirthData?
+    // MARK: - Geçmiş Fallar Bölümü
+
+    @ViewBuilder
+    private var pastReadingsSection: some View {
+        let readings = appState.chartReadingStore.readings
+        if !readings.isEmpty {
+            VStack(alignment: .leading, spacing: 12) {
+                HStack {
+                    Image(systemName: "clock.arrow.circlepath")
+                        .foregroundStyle(AstroTheme.accent)
+                    Text("Geçmiş Fallarınız")
+                        .font(.headline)
+                        .foregroundStyle(.white)
+                    Spacer()
+                    Text("\(readings.count) okuma")
+                        .font(.caption)
+                        .foregroundStyle(AstroTheme.textTertiary)
+                }
+
+                ForEach(readings.sorted(by: { $0.calculatedAt > $1.calculatedAt })) { reading in
+                    Button {
+                        calculatedChart = reading.chart
+                        showResult = true
+                    } label: {
+                        pastReadingRow(reading)
+                    }
+                }
+            }
+            .glassCard()
+        }
+    }
+
+    private func pastReadingRow(_ reading: SavedChartReading) -> some View {
+        HStack(spacing: 12) {
+            // Burç glifi
+            ZStack {
+                Circle()
+                    .fill(AstroTheme.accent.opacity(0.15))
+                    .frame(width: 44, height: 44)
+                Text(reading.chart.sunSign?.glyph ?? "⭐")
+                    .font(.title3)
+            }
+
+            VStack(alignment: .leading, spacing: 3) {
+                Text(reading.personName)
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.white)
+
+                HStack(spacing: 8) {
+                    if let sun = reading.chart.sunSign {
+                        Text("☉ \(sun.name)")
+                            .font(.caption2)
+                            .foregroundStyle(AstroTheme.textSecondary)
+                    }
+                    if let moon = reading.chart.moonSign {
+                        Text("☽ \(moon.name)")
+                            .font(.caption2)
+                            .foregroundStyle(AstroTheme.textSecondary)
+                    }
+                    if let asc = reading.chart.ascendant {
+                        Text("↑ \(asc.name)")
+                            .font(.caption2)
+                            .foregroundStyle(AstroTheme.textSecondary)
+                    }
+                }
+
+                Text(reading.calculatedAt.formatted(date: .abbreviated, time: .shortened))
+                    .font(.caption2)
+                    .foregroundStyle(AstroTheme.textTertiary)
+            }
+
+            Spacer()
+
+            Image(systemName: "chevron.right")
+                .font(.caption)
+                .foregroundStyle(AstroTheme.textTertiary)
+        }
+        .padding(12)
+        .background(AstroTheme.surface, in: .rect(cornerRadius: 12))
+    }
+
+    // MARK: - Hesaplama Mantığı
 
     private func handleCalculateRequest(_ data: BirthData) {
+        // Daha önce bu kişi için hesaplanmış harita var mı kontrol et
+        if let existingReading = appState.chartReadingStore.reading(forPersonID: data.id) {
+            // Aynı doğum verisi mi?
+            if existingReading.birthData == data {
+                // Birebir aynı → ücretsiz göster
+                calculatedChart = existingReading.chart
+                showResult = true
+                return
+            }
+            // Doğum verisi değişmiş → yeniden hesapla (ücretli)
+        }
+
         if entitlements.canCalculateChart {
-            // Hak var, direkt hesapla
             Task { await calculateChart(for: data) }
         } else {
-            // Hak yok, ödeme iste
             pendingBirthData = data
             showPaymentRequired = true
         }
@@ -90,6 +185,16 @@ struct BirthChartInputView: View {
             longitude: data.longitude,
             timeZone: tz
         )
+
+        // Hesaplanan haritayı kalıcı olarak kaydet
+        let reading = SavedChartReading(
+            personID: data.id,
+            personName: data.name,
+            birthData: data,
+            chart: chart
+        )
+        appState.chartReadingStore.saveReading(reading)
+
         calculatedChart = chart
         isCalculating = false
         showResult = true

@@ -169,6 +169,9 @@
     "%lld hesaplama hakkınız mevcut" : {
 
     },
+    "%lld okuma" : {
+
+    },
     "%lld." : {
 
     },
@@ -194,6 +197,9 @@
     "→" : {
 
     },
+    "↑ %@" : {
+
+    },
     "+%lld" : {
 
     },
@@ -203,7 +209,13 @@
     "★ %@" : {
 
     },
+    "☉ %@" : {
+
+    },
     "☌" : {
+
+    },
+    "☽ %@" : {
 
     },
     "⚡" : {
@@ -1938,6 +1950,9 @@
           }
         }
       }
+    },
+    "Geçmiş Fallarınız" : {
+
     },
     "Geçmiş, şimdi ve gelecek — 3 kart açılımı" : {
       "extractionState" : "manual",
