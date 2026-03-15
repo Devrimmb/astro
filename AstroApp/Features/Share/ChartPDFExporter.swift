@@ -242,28 +242,46 @@ private struct ChartPDFContentView: View {
 
     private var housesSection: some View {
         pdfCard {
-            VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading, spacing: 10) {
                 sectionTitle("Evler")
 
-                LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 4), spacing: 6) {
-                    ForEach(chart.houses) { house in
-                        VStack(spacing: 2) {
-                            Text("\(house.id). Ev")
-                                .font(.system(size: 8, weight: .medium))
-                                .foregroundStyle(.white.opacity(0.4))
+                ForEach(chart.houses) { house in
+                    VStack(alignment: .leading, spacing: 4) {
+                        // Ev başlığı
+                        HStack(spacing: 6) {
                             Text(house.sign.glyph)
-                                .font(.system(size: 18))
-                            Text(house.sign.name)
-                                .font(.system(size: 9, weight: .medium))
+                                .font(.system(size: 16))
+                            Text("\(house.id). Ev — \(house.sign.name)")
+                                .font(.system(size: 11, weight: .semibold))
                                 .foregroundStyle(.white)
+                            Spacer()
                             Text(String(format: "%.0f°", house.degree))
-                                .font(.system(size: 8))
+                                .font(.system(size: 9))
                                 .foregroundStyle(.white.opacity(0.4))
                         }
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 6)
-                        .background(Color.white.opacity(0.03), in: .rect(cornerRadius: 8))
+
+                        // Evdeki gezegenler
+                        if !house.planets.isEmpty {
+                            HStack(spacing: 8) {
+                                ForEach(house.planets) { planet in
+                                    Text("\(planet.planet.name)")
+                                        .font(.system(size: 8))
+                                        .foregroundStyle(accentColor.opacity(0.8))
+                                }
+                            }
+                        }
+
+                        // Ev yorumu
+                        if let entry = HouseSignInterpretation.interpretation(house: house.id, zodiacSign: house.sign) {
+                            Text(entry.description)
+                                .font(.system(size: 9))
+                                .foregroundStyle(.white.opacity(0.6))
+                                .lineSpacing(2)
+                        }
                     }
+                    .padding(10)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(Color.white.opacity(0.03), in: .rect(cornerRadius: 8))
                 }
             }
         }
