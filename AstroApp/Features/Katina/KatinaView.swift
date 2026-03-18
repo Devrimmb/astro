@@ -567,7 +567,7 @@ struct KatinaView: View {
                     Image(card.imageName)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: .infinity)
+                        .frame(maxHeight: 200)
 
                     Text(card.name)
                         .font(.title3.weight(.bold))
@@ -576,6 +576,7 @@ struct KatinaView: View {
                         .frame(maxWidth: .infinity)
                         .background(AstroTheme.surface)
                 }
+                .frame(maxWidth: 180)
                 .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
                 .overlay {
                     RoundedRectangle(cornerRadius: 20, style: .continuous)
