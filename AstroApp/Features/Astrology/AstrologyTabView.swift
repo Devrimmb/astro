@@ -21,6 +21,13 @@ struct AstrologyTabView: View {
                         ) { BirthChartInputView() }
 
                         featureCard(
+                            icon: "sunrise.fill",
+                            title: "Yükselen Burç Yorumu",
+                            description: "Yükselen burcun ve güneş burcunun birleşik etkisi",
+                            color: .orange
+                        ) { RisingSignView() }
+
+                        featureCard(
                             icon: "moon.fill",
                             title: "Ay Burcu Yorumu",
                             description: "Ay burcunun duygusal dünyandaki etkisini keşfet",

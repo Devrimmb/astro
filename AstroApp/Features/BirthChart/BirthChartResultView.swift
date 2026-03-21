@@ -16,6 +16,7 @@ struct BirthChartResultView: View {
                     chartWheelCard
                     bigThreeCard
                     elementBalanceCard
+                    elementInterpretationCard
                     planetPositionsCard
                     housesCard
                     aspectsCard
@@ -178,6 +179,89 @@ struct BirthChartResultView: View {
                             .foregroundStyle(.white)
                     }
                     .frame(maxWidth: .infinity)
+                }
+            }
+        }
+        .glassCard()
+    }
+
+    // MARK: - Element Yorumları
+
+    private var elementInterpretationCard: some View {
+        let elements = chart.elementBalance
+        let totalPlanets = chart.planets.count
+
+        // Baskın ve eksik elementleri bul
+        let sortedElements = ZodiacSign.Element.allCases.sorted {
+            (elements[$0, default: 0]) > (elements[$1, default: 0])
+        }
+
+        return VStack(alignment: .leading, spacing: 14) {
+            Text("Element Yorumları")
+                .font(.headline)
+                .foregroundStyle(.white)
+
+            ForEach(sortedElements, id: \.self) { element in
+                let count = elements[element, default: 0]
+                let status = ElementInterpretation.status(count: count, totalPlanets: totalPlanets)
+
+                if let entry = ElementInterpretation.entry(for: element) {
+                    let statusText: String = switch status {
+                    case .more: entry.more
+                    case .less: entry.less
+                    case .balance: entry.balance
+                    }
+
+                    let statusColor: Color = switch status {
+                    case .more: elementColor(element)
+                    case .less: AstroTheme.textTertiary
+                    case .balance: .green
+                    }
+
+                    VStack(alignment: .leading, spacing: 8) {
+                        HStack(spacing: 8) {
+                            Text(elementIcon(element))
+                                .font(.title3)
+                            Text(element.displayName)
+                                .font(.subheadline.weight(.bold))
+                                .foregroundStyle(.white)
+
+                            Spacer()
+
+                            HStack(spacing: 4) {
+                                Image(systemName: status.icon)
+                                    .font(.caption)
+                                Text(status.displayName)
+                                    .font(.caption.weight(.semibold))
+                            }
+                            .foregroundStyle(statusColor)
+                        }
+
+                        // Element tanımı
+                        Text("\(entry.name) elementi \(entry.description)")
+                            .font(.caption)
+                            .foregroundStyle(AstroTheme.textSecondary)
+                            .lineSpacing(3)
+
+                        Rectangle()
+                            .fill(.white.opacity(0.06))
+                            .frame(height: 1)
+
+                        // Durum yorumu
+                        Text(statusText)
+                            .font(.caption)
+                            .foregroundStyle(AstroTheme.textSecondary)
+                            .lineSpacing(3)
+                    }
+                    .padding(12)
+                    .background(AstroTheme.surface, in: .rect(cornerRadius: 14))
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 14, style: .continuous)
+                            .stroke(
+                                status == .balance ? AstroTheme.cardBorder : statusColor.opacity(0.3),
+                                lineWidth: 1
+                            )
+                    }
                 }
             }
         }

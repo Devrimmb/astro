@@ -85,6 +85,16 @@
     "%@ Elementi" : {
 
     },
+    "%@ elementi %@" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ elementi %2$@"
+          }
+        }
+      }
+    },
     "%@ Güneş Dönüşü" : {
 
     },
@@ -957,6 +967,9 @@
         }
       }
     },
+    "Bilgileri Manuel Gir" : {
+
+    },
     "Bir kategori seç ve kartını çek" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1038,6 +1051,9 @@
           }
         }
       }
+    },
+    "Bu kombinasyon için henüz yorum eklenmedi." : {
+
     },
     "Bu tarihte aktif transit bulunmuyor." : {
       "extractionState" : "manual",
@@ -1693,6 +1709,9 @@
         }
       }
     },
+    "Doğum saati yükselen burç hesabı için çok önemlidir" : {
+
+    },
     "Doğum Tarihi" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1851,6 +1870,9 @@
           }
         }
       }
+    },
+    "Element Yorumları" : {
+
     },
     "Erkek" : {
       "extractionState" : "stale",
@@ -2338,6 +2360,9 @@
         }
       }
     },
+    "Güneş: %@" : {
+
+    },
     "Günlük & Dönemsel" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2672,6 +2697,9 @@
           }
         }
       }
+    },
+    "Henüz kayıtlı kişi yok" : {
+
     },
     "Henüz kimse eklenmedi" : {
       "extractionState" : "manual",
@@ -3538,6 +3566,9 @@
           }
         }
       }
+    },
+    "Kişi Seç" : {
+
     },
     "Kişi Seçin" : {
       "extractionState" : "manual",
@@ -5868,6 +5899,24 @@
           }
         }
       }
+    },
+    "Yükselen Burç" : {
+
+    },
+    "Yükselen burç hesabı için doğum saati ve yeri gereklidir. Önce doğum haritanızı hesaplatın." : {
+
+    },
+    "Yükselen burç hesaplanamadı" : {
+
+    },
+    "Yükselen Burcun" : {
+
+    },
+    "Yükselen burcun dış dünyadaki izlenimini yansıtır" : {
+
+    },
+    "Yükselen Burcunu Hesapla" : {
+
     },
     "Zihnini odakla ve bir kart seç" : {
       "localizations" : {
