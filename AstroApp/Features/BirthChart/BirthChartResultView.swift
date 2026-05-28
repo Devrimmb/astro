@@ -555,10 +555,7 @@ private struct HouseInterpretationSheet: View {
                                     .font(.headline)
                                     .foregroundStyle(.white)
 
-                                Text(entry.description)
-                                    .font(.subheadline)
-                                    .foregroundStyle(AstroTheme.textSecondary)
-                                    .lineSpacing(4)
+                                MarkdownTextView(entry.description)
                             }
                             .glassCard()
                         } else {

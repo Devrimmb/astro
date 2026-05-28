@@ -90,7 +90,8 @@ final class EntitlementManager {
             "BF92A0DA-3782-415C-BF7F-4D9AC4AFD554",
             "0F3534D6-A8AC-4093-89E5-C616A9DA32F5",
             "426A7520-78A7-4BAE-9DC3-489C1BE842B0",
-            "A470F5C6-A9B1-4C09-9FA0-5FAE34154C4E"
+            "A470F5C6-A9B1-4C09-9FA0-5FAE34154C4E",
+            "41CB5742-7DB7-4B42-9940-F62C6E63E10A"
         ]
         guard let deviceID = UIDevice.current.identifierForVendor?.uuidString else {
             return false
