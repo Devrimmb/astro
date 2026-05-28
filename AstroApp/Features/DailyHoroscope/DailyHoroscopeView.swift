@@ -2,8 +2,22 @@ import SwiftUI
 
 struct DailyHoroscopeView: View {
     @Environment(AppState.self) private var appState
+    @Environment(EntitlementManager.self) private var entitlements
     @State private var selectedSign: ZodiacSign?
     @State private var horoscope: DailyHoroscope?
+    @State private var isUnlockedByAd = false
+    @State private var showAdGate = false
+
+    /// Kullanıcının kendi güneş burcu
+    private var userSign: ZodiacSign? {
+        appState.currentChart?.sunSign
+            ?? appState.birthDataStore.savedData.map { ZodiacSign.from(birthDate: $0.birthDate) }
+    }
+
+    /// Seçili burç kendi burcuysa veya Pro ise göster, değilse reklam gate
+    private var canViewSelected: Bool {
+        entitlements.hasNatalChart || isUnlockedByAd || selectedSign == userSign
+    }
 
     var body: some View {
         NavigationStack {
@@ -13,7 +27,9 @@ struct DailyHoroscopeView: View {
                 ScrollView {
                     VStack(spacing: 16) {
                         signSelector
-                        if let horoscope {
+                        if !canViewSelected {
+                            dailyAdGate
+                        } else if let horoscope {
                             horoscopeCard(horoscope)
                             moodCard(horoscope)
                             adviceCard(horoscope)
@@ -32,7 +48,10 @@ struct DailyHoroscopeView: View {
                 }
                 generateHoroscope()
             }
-            .onChange(of: selectedSign) { generateHoroscope() }
+            .onChange(of: selectedSign) {
+                isUnlockedByAd = false
+                generateHoroscope()
+            }
         }
     }
 
@@ -69,6 +88,35 @@ struct DailyHoroscopeView: View {
                 }
             }
             .padding(.horizontal, 4)
+        }
+    }
+
+    // MARK: - Reklam Kapısı (Diğer Burçlar)
+
+    private var dailyAdGate: some View {
+        VStack(spacing: 20) {
+            if let sign = selectedSign {
+                Text(sign.glyph)
+                    .font(.system(size: 48))
+
+                VStack(spacing: 8) {
+                    Text("\(sign.name) Yorumu")
+                        .font(.title3.weight(.bold))
+                        .foregroundStyle(.white)
+                    Text("Diğer burçların günlük yorumunu okumak için reklam izle veya Pro'ya geç.")
+                        .font(.caption)
+                        .foregroundStyle(AstroTheme.textSecondary)
+                        .multilineTextAlignment(.center)
+                }
+            }
+
+            AdGateView(
+                title: "Yorumu Aç",
+                description: "Kısa bir reklam izleyerek bu burcun günlük yorumunu oku."
+            ) {
+                isUnlockedByAd = true
+                generateHoroscope()
+            }
         }
     }
 
@@ -184,6 +232,10 @@ struct DailyHoroscopeView: View {
 
     private func generateHoroscope() {
         guard let sign = selectedSign else { return }
+        guard canViewSelected else {
+            horoscope = nil
+            return
+        }
         horoscope = DailyHoroscopeGenerator.generate(for: sign, date: .now)
     }
 }

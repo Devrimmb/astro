@@ -10,6 +10,9 @@ struct CardReadingTabView: View {
 
                 ScrollView {
                     VStack(spacing: 20) {
+                        // MARK: - Nasıl Çalışır
+                        cardReadingInfoBanner
+
                         // MARK: - Tarot
                         sectionHeader(title: "Tarot", icon: "sparkles", color: .purple)
 
@@ -61,6 +64,53 @@ struct CardReadingTabView: View {
             .navigationTitle("Kart Falı")
             .navigationBarTitleDisplayMode(.inline)
             .toolbarColorScheme(.dark, for: .navigationBar)
+        }
+    }
+
+    // MARK: - Bilgi Bandı
+
+    @AppStorage("card_reading_info_dismissed") private var infoDismissed = false
+
+    @ViewBuilder
+    private var cardReadingInfoBanner: some View {
+        if !infoDismissed {
+            VStack(alignment: .leading, spacing: 10) {
+                HStack {
+                    Image(systemName: "sparkle")
+                        .foregroundStyle(AstroTheme.accent)
+                    Text("Nasıl Çalışır?")
+                        .font(.subheadline.weight(.bold))
+                        .foregroundStyle(.white)
+                    Spacer()
+                    Button {
+                        withAnimation { infoDismissed = true }
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .foregroundStyle(AstroTheme.textTertiary)
+                    }
+                }
+
+                VStack(alignment: .leading, spacing: 6) {
+                    infoLine(icon: "hand.tap.fill", text: "Yelpazeden bir kart seç ve dokun")
+                    infoLine(icon: "arrow.triangle.2.circlepath", text: "Kartını çevir ve yorumunu oku")
+                    infoLine(icon: "gift.fill", text: "Her gün 1 ücretsiz hak, ekstra için reklam izle")
+                    infoLine(icon: "star.fill", text: "Her fal bakışında yıldız kazan!")
+                }
+            }
+            .glassCard()
+            .transition(.opacity.combined(with: .move(edge: .top)))
+        }
+    }
+
+    private func infoLine(icon: String, text: String) -> some View {
+        HStack(spacing: 8) {
+            Image(systemName: icon)
+                .font(.caption2)
+                .foregroundStyle(AstroTheme.accent)
+                .frame(width: 16)
+            Text(text)
+                .font(.caption)
+                .foregroundStyle(AstroTheme.textSecondary)
         }
     }
 

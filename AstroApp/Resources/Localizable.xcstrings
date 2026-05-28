@@ -101,6 +101,9 @@
     "%@ Retrograde" : {
 
     },
+    "%@ Yorumu" : {
+
+    },
     "%@, %@" : {
       "localizations" : {
         "tr" : {
@@ -173,6 +176,16 @@
     "%lld" : {
 
     },
+    "%lld ⭐ → %@" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld ⭐ → %2$@"
+          }
+        }
+      }
+    },
     "%lld cross-aspect analizi" : {
 
     },
@@ -200,6 +213,16 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "%1$lld. Ev — %2$@"
+          }
+        }
+      }
+    },
+    "%lld/%lld" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld/%2$lld"
           }
         }
       }
@@ -563,6 +586,9 @@
           }
         }
       }
+    },
+    "Astroloji Rehberi" : {
+
     },
     "Ateş" : {
       "localizations" : {
@@ -1571,6 +1597,9 @@
         }
       }
     },
+    "Diğer burçların günlük yorumunu okumak için reklam izle veya Pro'ya geç." : {
+
+    },
     "Dil" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2190,6 +2219,9 @@
         }
       }
     },
+    "gün" : {
+
+    },
     "Günaydın" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2396,6 +2428,9 @@
           }
         }
       }
+    },
+    "Günlük Görevler" : {
+
     },
     "Günlük tarot kartı çekin ve yorumunu okuyun" : {
       "extractionState" : "manual",
@@ -3865,6 +3900,9 @@
         }
       }
     },
+    "Nasıl Çalışır?" : {
+
+    },
     "Natal gezegenlerinize 1.5° içinde kavuşum yapan sabit yıldızlar:" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -4648,6 +4686,9 @@
           }
         }
       }
+    },
+    "Seviye %lld" : {
+
     },
     "Sil" : {
       "extractionState" : "manual",
@@ -5642,6 +5683,9 @@
           }
         }
       }
+    },
+    "yıldız" : {
+
     },
     "Yıldız Haritanı Keşfet" : {
       "localizations" : {

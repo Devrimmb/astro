@@ -2,7 +2,20 @@ import SwiftUI
 
 struct RisingSignView: View {
     @Environment(AppState.self) private var appState
+    @Environment(EntitlementManager.self) private var entitlements
     @State private var isCalculating = false
+    @State private var isUnlockedByAd = false
+
+    private static let lastFreeKey = "rising_sign_last_free_date"
+
+    private var hasFreeReadingToday: Bool {
+        guard let last = UserDefaults.standard.object(forKey: Self.lastFreeKey) as? Date else { return true }
+        return !Calendar.current.isDateInToday(last)
+    }
+
+    private var canCalculate: Bool {
+        entitlements.hasNatalChart || hasFreeReadingToday || isUnlockedByAd
+    }
 
     // Kaynak seçimi
     enum Source: Hashable {
@@ -34,7 +47,9 @@ struct RisingSignView: View {
 
             ScrollView {
                 VStack(spacing: 20) {
-                    if !showResult {
+                    if !canCalculate && !showResult {
+                        adGateSection
+                    } else if !showResult {
                         inputSection
                     } else {
                         resultSection
@@ -51,6 +66,34 @@ struct RisingSignView: View {
             // Varsayılan olarak aktif kişiyi seç
             if selectedSource == nil, let active = appState.birthDataStore.activePerson {
                 selectedSource = .person(active.id)
+            }
+        }
+    }
+
+    // MARK: - Reklam Kapısı
+
+    private var adGateSection: some View {
+        VStack(spacing: 24) {
+            Spacer().frame(height: 60)
+
+            Image(systemName: "sunrise.fill")
+                .font(.system(size: 48))
+                .foregroundStyle(.orange.opacity(0.8))
+
+            VStack(spacing: 8) {
+                Text("Yükselen Burç")
+                    .font(.largeTitle.weight(.bold))
+                    .foregroundStyle(.white)
+                Text("Bugünkü ücretsiz hakkını kullandın")
+                    .font(.subheadline)
+                    .foregroundStyle(AstroTheme.textSecondary)
+            }
+
+            AdGateView(
+                title: "Tekrar Hesapla",
+                description: "Yükselen burcunu tekrar hesaplamak için kısa bir reklam izle veya Pro'ya geç."
+            ) {
+                isUnlockedByAd = true
             }
         }
     }
@@ -445,6 +488,12 @@ struct RisingSignView: View {
         risingSign = ascendant
         sunSign = sun
         interpretation = RisingSignInterpretation.interpretation(rising: ascendant, sun: sun)
+
+        // Ücretsiz hakkı tüket
+        if hasFreeReadingToday {
+            UserDefaults.standard.set(Date.now, forKey: Self.lastFreeKey)
+        }
+
         withAnimation(.spring(duration: 0.5)) {
             showResult = true
         }

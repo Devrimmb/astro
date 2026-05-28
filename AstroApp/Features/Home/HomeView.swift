@@ -17,6 +17,7 @@ struct HomeView: View {
                 ScrollView {
                     VStack(spacing: 16) {
                         greetingSection
+                        streakBanner
                         if appState.currentChart != nil { bigThreeCard }
                         if let horoscope { dailySummaryCard(horoscope) }
                         todayCalendarCard
@@ -31,7 +32,10 @@ struct HomeView: View {
             .navigationTitle("AstroApp")
             .navigationBarTitleDisplayMode(.inline)
             .toolbarColorScheme(.dark, for: .navigationBar)
-            .onAppear { loadData() }
+            .onAppear {
+                loadData()
+                appState.gamification.dailyCheckIn()
+            }
             .onChange(of: appState.currentChart?.sunSign) { _, _ in
                 loadData()
             }
@@ -55,6 +59,92 @@ struct HomeView: View {
                 .foregroundStyle(AstroTheme.textTertiary)
         }
         .padding(.top, 8)
+    }
+
+    // MARK: - Streak Banner
+
+    private var streakBanner: some View {
+        let gm = appState.gamification
+
+        return HStack(spacing: 14) {
+            // Streak ateşi
+            VStack(spacing: 2) {
+                Image(systemName: "flame.fill")
+                    .font(.title2)
+                    .foregroundStyle(gm.currentStreak > 0 ? .orange : AstroTheme.textTertiary)
+                Text("\(gm.currentStreak)")
+                    .font(.title3.weight(.bold).monospacedDigit())
+                    .foregroundStyle(.white)
+                Text("gün")
+                    .font(.caption2)
+                    .foregroundStyle(AstroTheme.textTertiary)
+            }
+            .frame(width: 56)
+
+            // Seviye + yıldız
+            VStack(alignment: .leading, spacing: 6) {
+                HStack(spacing: 6) {
+                    Image(systemName: gm.currentLevel.icon)
+                        .font(.caption)
+                        .foregroundStyle(AstroTheme.accent)
+                    Text(gm.currentLevel.name)
+                        .font(.caption.weight(.bold))
+                        .foregroundStyle(.white)
+
+                    Spacer()
+
+                    HStack(spacing: 3) {
+                        Image(systemName: "star.fill")
+                            .font(.caption2)
+                            .foregroundStyle(.yellow)
+                        Text("\(gm.totalStars)")
+                            .font(.caption.weight(.bold).monospacedDigit())
+                            .foregroundStyle(.white)
+                        InfoTip(
+                            title: "Kozmik Yıldızlar",
+                            message: "Her gün uygulamayı açarak, fal bakarak ve sonuçları paylaşarak yıldız kazan! Yıldızlar seni yeni seviyelere taşır. Üst üste giriş yaptıkça bonus çarpanın artar."
+                        )
+                    }
+                }
+
+                // İlerleme çubuğu
+                if gm.nextLevel != nil {
+                    GeometryReader { geo in
+                        ZStack(alignment: .leading) {
+                            RoundedRectangle(cornerRadius: 3)
+                                .fill(.white.opacity(0.08))
+                            RoundedRectangle(cornerRadius: 3)
+                                .fill(
+                                    LinearGradient(
+                                        colors: [AstroTheme.accent, AstroTheme.accent.opacity(0.6)],
+                                        startPoint: .leading,
+                                        endPoint: .trailing
+                                    )
+                                )
+                                .frame(width: geo.size.width * gm.levelProgress)
+                        }
+                    }
+                    .frame(height: 6)
+                }
+
+                HStack {
+                    if let bonus = gm.streakBonusText {
+                        Text(bonus)
+                            .font(.caption2.weight(.semibold))
+                            .foregroundStyle(.orange)
+                    }
+
+                    Spacer()
+
+                    if let next = gm.nextLevel {
+                        Text("\(next.requiredStars - gm.totalStars) ⭐ → \(next.name)")
+                            .font(.caption2)
+                            .foregroundStyle(AstroTheme.textTertiary)
+                    }
+                }
+            }
+        }
+        .glassCard()
     }
 
     // MARK: - Günlük Burç Özeti
@@ -101,9 +191,15 @@ struct HomeView: View {
                 .frame(width: 44, height: 44)
 
             VStack(alignment: .leading, spacing: 4) {
-                Text("Ay Fazı")
-                    .font(.caption.bold())
-                    .foregroundStyle(AstroTheme.textTertiary)
+                HStack(spacing: 4) {
+                    Text("Ay Fazı")
+                        .font(.caption.bold())
+                        .foregroundStyle(AstroTheme.textTertiary)
+                    InfoTip(
+                        title: "Ay Fazları",
+                        message: "Ay'ın evresi duygularını ve enerjini etkiler. Yeni Ay yeni başlangıçlar, Dolunay ise sonuçlanma ve farkındalık zamanıdır."
+                    )
+                }
                 Text(moonPhase.phase.name)
                     .font(.headline)
                     .foregroundStyle(.white)
@@ -261,9 +357,15 @@ struct HomeView: View {
 
     private var bigThreeCard: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("Büyük Üçlün")
-                .font(.headline)
-                .foregroundStyle(.white)
+            HStack(spacing: 6) {
+                Text("Büyük Üçlün")
+                    .font(.headline)
+                    .foregroundStyle(.white)
+                InfoTip(
+                    title: "Büyük Üçlü",
+                    message: "Güneş burcun kişiliğini, Ay burcun duygularını, Yükselen burcun ise dış görünümünü temsil eder. Doğum haritandan hesaplanır."
+                )
+            }
 
             if let chart = appState.currentChart {
                 HStack(spacing: 0) {
@@ -388,9 +490,11 @@ struct HomeView: View {
             sign = .aries
         }
         horoscope = DailyHoroscopeGenerator.generate(for: sign, date: .now)
+        appState.gamification.earn(.viewDailyHoroscope)
 
         // Ay fazı
         moonPhase = MoonPhaseCalculator.currentPhase()
+        appState.gamification.earn(.checkMoonPhase)
 
         // Gezegen saati (İstanbul default)
         let lat = appState.birthDataStore.savedData?.latitude ?? 41.0082

@@ -2,9 +2,11 @@ import SwiftUI
 
 struct MoonSignView: View {
     @Environment(AppState.self) private var appState
+    @Environment(EntitlementManager.self) private var entitlements
     @State private var selectedGender: Gender = .women
     @State private var useManualEntry = false
     @State private var isCalculating = false
+    @State private var isUnlockedByAd = false
 
     // Manuel giriş
     @State private var manualName = ""
@@ -16,6 +18,17 @@ struct MoonSignView: View {
     @State private var moonSign: ZodiacSign?
     @State private var interpretation: MoonSignEntry?
     @State private var showResult = false
+
+    private static let lastFreeKey = "moon_sign_last_free_date"
+
+    private var hasFreeReadingToday: Bool {
+        guard let last = UserDefaults.standard.object(forKey: Self.lastFreeKey) as? Date else { return true }
+        return !Calendar.current.isDateInToday(last)
+    }
+
+    private var canCalculate: Bool {
+        entitlements.hasNatalChart || hasFreeReadingToday || isUnlockedByAd
+    }
 
     enum Gender: String, CaseIterable {
         case women = "women"
@@ -42,7 +55,9 @@ struct MoonSignView: View {
 
             ScrollView {
                 VStack(spacing: 20) {
-                    if !showResult {
+                    if !canCalculate && !showResult {
+                        adGateSection
+                    } else if !showResult {
                         inputSection
                     } else {
                         resultSection
@@ -55,6 +70,34 @@ struct MoonSignView: View {
         .navigationTitle("Ay Burcu")
         .navigationBarTitleDisplayMode(.inline)
         .toolbarColorScheme(.dark, for: .navigationBar)
+    }
+
+    // MARK: - Reklam Kapısı
+
+    private var adGateSection: some View {
+        VStack(spacing: 24) {
+            Spacer().frame(height: 60)
+
+            Image(systemName: "moon.fill")
+                .font(.system(size: 48))
+                .foregroundStyle(.yellow.opacity(0.8))
+
+            VStack(spacing: 8) {
+                Text("Ay Burcu")
+                    .font(.largeTitle.weight(.bold))
+                    .foregroundStyle(.white)
+                Text("Bugünkü ücretsiz hakkını kullandın")
+                    .font(.subheadline)
+                    .foregroundStyle(AstroTheme.textSecondary)
+            }
+
+            AdGateView(
+                title: "Tekrar Hesapla",
+                description: "Ay burcunu tekrar hesaplamak için kısa bir reklam izle veya Pro'ya geç."
+            ) {
+                isUnlockedByAd = true
+            }
+        }
     }
 
     // MARK: - Giriş
@@ -381,6 +424,12 @@ struct MoonSignView: View {
 
         moonSign = moonResult
         interpretation = MoonSignInterpretation.interpretation(sign: moonResult, gender: selectedGender.rawValue)
+
+        // Ücretsiz hakkı tüket
+        if hasFreeReadingToday {
+            UserDefaults.standard.set(Date.now, forKey: Self.lastFreeKey)
+        }
+
         withAnimation(.spring(duration: 0.5)) {
             showResult = true
         }

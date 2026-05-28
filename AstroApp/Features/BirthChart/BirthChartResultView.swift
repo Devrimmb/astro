@@ -26,6 +26,7 @@ struct BirthChartResultView: View {
                     HStack(spacing: 12) {
                         Button {
                             ShareImageRenderer.shareChart(chart: chart, ownerName: personName)
+                            appState.gamification.earn(.shareResult)
                         } label: {
                             HStack(spacing: 8) {
                                 Image(systemName: "square.and.arrow.up")

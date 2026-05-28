@@ -531,6 +531,7 @@ struct GodCardView: View {
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
             vm.revealCard()
+            appState.gamification.earn(.cardReading)
         }
     }
 
@@ -576,6 +577,7 @@ struct GodCardView: View {
                 // Paylaş
                 Button {
                     ShareImageRenderer.shareGodCard(card: card)
+                    appState.gamification.earn(.shareResult)
                 } label: {
                     HStack(spacing: 8) {
                         Image(systemName: "square.and.arrow.up")
