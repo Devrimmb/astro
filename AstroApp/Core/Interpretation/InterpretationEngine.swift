@@ -2,15 +2,11 @@ import Foundation
 
 @Observable
 final class InterpretationEngine {
-    private let planetsInSigns: [String: [String: Interpretation]]
-    private let planetsInHouses: [String: [String: Interpretation]]
     private let aspects: [String: [String: Interpretation]]
     private let elements: [String: Interpretation]
     private let modalities: [String: Interpretation]
 
     init() {
-        planetsInSigns = JSONLoader.load("planets_in_signs")
-        planetsInHouses = JSONLoader.load("planets_in_houses")
         aspects = JSONLoader.load("aspects")
         elements = JSONLoader.load("elements")
         modalities = JSONLoader.load("modalities")
@@ -18,54 +14,6 @@ final class InterpretationEngine {
 
     func interpret(chart: BirthChart) -> ChartInterpretation {
         var sections: [InterpretationSection] = []
-
-        // Büyük Üçlü: Güneş, Ay, Yükselen
-        for planet in [Planet.sun, .moon] {
-            if let position = chart.planets.first(where: { $0.planet == planet }),
-               let interp = planetInSign(planet, position.sign) {
-                let category: InterpretationCategory = .bigThree
-                sections.append(InterpretationSection(
-                    title: interp.title,
-                    body: interp.detailed,
-                    category: category
-                ))
-            }
-        }
-
-        if let ascSign = chart.ascendant {
-            let key = "ascendant"
-            if let signData = planetsInSigns[key],
-               let interp = signData[ascSign.identifier] {
-                sections.append(InterpretationSection(
-                    title: interp.title,
-                    body: interp.detailed,
-                    category: .bigThree
-                ))
-            }
-        }
-
-        // Gezegen-Burç yorumları
-        for position in chart.planets {
-            guard position.planet != .sun && position.planet != .moon else { continue }
-            if let interp = planetInSign(position.planet, position.sign) {
-                sections.append(InterpretationSection(
-                    title: interp.title,
-                    body: interp.detailed,
-                    category: .planetInSign
-                ))
-            }
-        }
-
-        // Gezegen-Ev yorumları
-        for position in chart.planets {
-            if let interp = planetInHouse(position.planet, position.house) {
-                sections.append(InterpretationSection(
-                    title: interp.title,
-                    body: interp.detailed,
-                    category: .planetInHouse
-                ))
-            }
-        }
 
         // Gezegen + Ev + Burç üçlü kombinasyon yorumları (yalnızca eşleşme varsa)
         for position in chart.planets {
@@ -131,19 +79,13 @@ final class InterpretationEngine {
         return ChartInterpretation(sections: sections)
     }
 
-    /// Tek bir gezegenle ilgili tüm yorumları toplar:
-    /// burç, ev, üçlü (ev+burç) kombinasyonu ve o gezegeni içeren açılar.
-    /// Gezegen pozisyon kartındaki detay panelinde kullanılır.
+    /// Tek bir gezegenle ilgili yorumları toplar: ev + burç üçlü kombinasyonu
+    /// (varsa) ve o gezegeni içeren açılar. Gezegen pozisyon kartındaki detay
+    /// panelinde kullanılır.
     func interpretations(forPlanet planet: Planet, in chart: BirthChart) -> [InterpretationSection] {
         guard let pos = chart.planets.first(where: { $0.planet == planet }) else { return [] }
         var out: [InterpretationSection] = []
 
-        if let i = planetInSign(planet, pos.sign) {
-            out.append(InterpretationSection(title: i.title, body: i.detailed, category: .planetInSign))
-        }
-        if let i = planetInHouse(planet, pos.house) {
-            out.append(InterpretationSection(title: i.title, body: i.detailed, category: .planetInHouse))
-        }
         if let e = PlanetHouseSignInterpretation.interpretation(planet: planet, house: pos.house, zodiacSign: pos.sign) {
             out.append(InterpretationSection(title: e.title, body: e.description, category: .planetInHouseSign))
         }
@@ -158,14 +100,6 @@ final class InterpretationEngine {
             }
         }
         return out
-    }
-
-    func planetInSign(_ planet: Planet, _ sign: ZodiacSign) -> Interpretation? {
-        planetsInSigns[planet.identifier]?[sign.identifier]
-    }
-
-    func planetInHouse(_ planet: Planet, _ house: Int) -> Interpretation? {
-        planetsInHouses[planet.identifier]?["house_\(house)"]
     }
 
     func aspectInterpretation(_ aspect: Aspect) -> Interpretation? {

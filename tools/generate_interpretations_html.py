@@ -23,8 +23,6 @@ OUTPUT = ROOT / "interpretations.html"
 
 # Kategori meta-bilgileri: dosya → görünür ad, ikon, kısa açıklama
 CATEGORIES = [
-    ("planets_in_signs.json", "Gezegenler / Burçlar", "🪐", "Gezegenlerin burçlardaki yorumları"),
-    ("planets_in_houses.json", "Gezegenler / Evler", "🏛️", "Gezegenlerin evlerdeki yorumları"),
     ("planet_house_sign.json", "Gezegenler / Ev + Burç", "🔭", "Gezegen + ev + burç üçlü kombinasyon yorumları"),
     ("house_signs.json", "Ev Burçları", "🏠", "12 evin 12 burçtaki yorumları"),
     ("aspects.json", "Açılar", "📐", "Gezegenler arası açı yorumları"),
@@ -226,6 +224,19 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
     font-family:inherit;
   }
   .filters .fp.active{background:rgba(196,181,253,0.15);color:var(--accent);border-color:var(--border-hi)}
+
+  /* Kapsam matrisi */
+  .cov-legend{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted);margin-bottom:18px}
+  .cov-block{margin-bottom:22px}
+  .cov-title{display:flex;align-items:baseline;gap:10px;margin-bottom:6px}
+  .cov-title b{font-size:14px;color:var(--text)}
+  .cov-stat{font-size:11px;color:var(--dim)}
+  .cov-grid{display:inline-block;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:10px;padding:8px}
+  .cov-row{display:flex;align-items:center}
+  .cov-rh{width:46px;font-size:10px;color:var(--dim);text-align:right;padding-right:8px;flex-shrink:0}
+  .cov-ch{width:22px;text-align:center;font-size:12px;color:var(--muted)}
+  .cov-cell{width:22px;height:18px;border-radius:3px;background:rgba(255,255,255,0.05);margin:1px;display:inline-block;flex-shrink:0;border:1px solid transparent}
+  .cov-cell.on{background:var(--accent-2);border-color:var(--accent)}
 </style>
 </head>
 <body>
@@ -280,6 +291,7 @@ function isLeafRecord(v){
   return leafKeys.some(k => k in v);
 }
 function countItems(file, data){
+  if(file === '__coverage__') return 0;  // sayma sekmesi, yorum sayısına katılmaz
   if(!data) return 0;
   if(Array.isArray(data)) return data.length;
   let n = 0;
@@ -295,12 +307,12 @@ function countItems(file, data){
 function renderCats(){
   const wrap = document.getElementById('cats');
   wrap.innerHTML = META.map(m => {
-    const ct = countItems(m.file, DATA[m.file]);
     const active = m.file === currentCat ? 'active' : '';
+    const ctHtml = m.file === '__coverage__' ? '' : `<div class="ct">${countItems(m.file, DATA[m.file])}</div>`;
     return `<div class="cat ${active}" data-file="${m.file}">
       <div class="ic">${m.icon}</div>
       <div class="nm">${escapeHtml(m.name)}</div>
-      <div class="ct">${ct}</div>
+      ${ctHtml}
     </div>`;
   }).join('');
   wrap.querySelectorAll('.cat').forEach(el => {
@@ -318,19 +330,7 @@ function flatList(file){
   if(!d) return [];
   const out = [];
 
-  if(file === 'planets_in_signs.json' || file === 'planets_in_houses.json'){
-    for(const p in d){
-      for(const k in d[p]){
-        const v = d[p][k];
-        out.push({
-          title: v.title || `${p} / ${k}`,
-          tags: [p, k.replace('house_', 'Ev ')],
-          short: v.short, detailed: v.detailed,
-          strengths: v.strengths, challenges: v.challenges, advice: v.advice
-        });
-      }
-    }
-  } else if(file === 'aspects.json'){
+  if(file === 'aspects.json'){
     for(const pair in d){
       for(const asp in d[pair]){
         const v = d[pair][asp];
@@ -488,7 +488,71 @@ function buildFilters(items, file){
   return `<div class="filters" data-role="filters">${all}${pills}</div>`;
 }
 
+// Kapsam matrisi için obje sırası ve TR adları
+const COV_PLANETS = [
+  ['sun','Güneş'],['moon','Ay'],['mercury','Merkür'],['venus','Venüs'],['mars','Mars'],
+  ['jupiter','Jüpiter'],['saturn','Satürn'],['uranus','Uranüs'],['neptune','Neptün'],
+  ['pluto','Plüton'],['north_node','Kuzey Düğüm'],['chiron','Chiron'],['lilith','Lilith'],
+  ['part_of_fortune','Talih Noktası'],['ceres','Ceres'],['pallas','Pallas'],['juno','Juno'],['vesta','Vesta']
+];
+const COV_SIGNS = ['Aries','Taurus','Gemini','Cancer','Leo','Virgo','Libra','Scorpio','Sagittarius','Capricorn','Aquarius','Pisces'];
+const COV_SIGNS_TR = ['Koç','Boğa','İkizler','Yengeç','Aslan','Başak','Terazi','Akrep','Yay','Oğlak','Kova','Balık'];
+const COV_SIGN_GLYPH = ['♈︎','♉︎','♊︎','♋︎','♌︎','♍︎','♎︎','♏︎','♐︎','♑︎','♒︎','♓︎'];
+
+function renderCoverage(){
+  const main = document.getElementById('main');
+  const data = DATA['planet_house_sign.json'] || [];
+  const have = new Set(data.map(e => `${e.planet}|${e.houseId}|${e.sign}`));
+  const TOTAL = COV_PLANETS.length * 12 * 12;
+  let filled = 0;
+  for(const [pk] of COV_PLANETS) for(let h=1;h<=12;h++) for(const s of COV_SIGNS) if(have.has(`${pk}|${h}|${s}`)) filled++;
+
+  const q = searchQuery.trim().toLowerCase();
+
+  let grids = '';
+  for(const [pk, pn] of COV_PLANETS){
+    if(q && !pn.toLowerCase().includes(q)) continue;
+    let cnt = 0;
+    let rows = '';
+    // başlık satırı (burç glyph'leri)
+    let head = '<div class="cov-row"><div class="cov-rh"></div>' +
+      COV_SIGNS.map((s,i)=>`<div class="cov-ch" title="${COV_SIGNS_TR[i]}">${COV_SIGN_GLYPH[i]}</div>`).join('') + '</div>';
+    for(let h=1;h<=12;h++){
+      let cells = '';
+      for(let si=0; si<12; si++){
+        const on = have.has(`${pk}|${h}|${COV_SIGNS[si]}`);
+        if(on) cnt++;
+        cells += `<div class="cov-cell ${on?'on':''}" title="${pn} ${h}. Ev ${COV_SIGNS_TR[si]}${on?' ✓':' (eksik)'}"></div>`;
+      }
+      rows += `<div class="cov-row"><div class="cov-rh">${h}. ev</div>${cells}</div>`;
+    }
+    const pct = Math.round(cnt/144*100);
+    grids += `<div class="cov-block">
+      <div class="cov-title"><b>${escapeHtml(pn)}</b><span class="cov-stat">${cnt}/144 · %${pct}</span></div>
+      <div class="cov-grid">${head}${rows}</div>
+    </div>`;
+  }
+
+  main.innerHTML = `
+    <div class="head">
+      <div class="crumb">📊 Kapsam Matrisi</div>
+      <h2>Kapsam Matrisi</h2>
+      <div class="desc">Her obje için 12 ev (satır) × 12 burç (sütun). Dolu hücre = yorum mevcut. Üzerine gelince hangi kombinasyon olduğu görünür.</div>
+      <div class="meta">
+        <span>Toplam <b>${filled}</b> / ${TOTAL} kombinasyon dolu</span>
+        <span><b>${TOTAL - filled}</b> eksik</span>
+      </div>
+    </div>
+    <div class="cov-legend">
+      <span class="cov-cell on"></span> dolu
+      <span class="cov-cell" style="margin-left:14px"></span> eksik
+    </div>
+    ${grids || '<div class="empty">Eşleşen obje yok.</div>'}
+  `;
+}
+
 function renderMain(){
+  if(currentCat === '__coverage__'){ renderCoverage(); return; }
   const meta = META.find(m => m.file === currentCat);
   const data = DATA[currentCat];
   const main = document.getElementById('main');
@@ -589,6 +653,16 @@ def main() -> None:
         {"file": f, "name": n, "icon": i, "desc": d}
         for (f, n, i, d) in CATEGORIES
     ]
+    # Kapsam matrisi sekmesi — gezegen × ev × burç doluluk haritası.
+    # planet_house_sign.json verisinden istemci tarafında türetilir.
+    if bundle.get("planet_house_sign.json"):
+        meta.insert(1, {
+            "file": "__coverage__",
+            "name": "Kapsam Matrisi",
+            "icon": "📊",
+            "desc": "Gezegen × ev × burç — hangi kombinasyonlar dolu, hangileri eksik",
+        })
+        bundle["__coverage__"] = "ok"  # null değil → 'veri yok' gösterme
     data_json = json.dumps(bundle, ensure_ascii=False, separators=(",", ":"))
     meta_json = json.dumps(meta, ensure_ascii=False, separators=(",", ":"))
     # Escape </script> to be safe inside <script> tag

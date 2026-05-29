@@ -488,8 +488,6 @@ struct BirthChartResultView: View {
     private func categoryDot(_ category: InterpretationCategory) -> some View {
         let color: Color = switch category {
         case .bigThree: .orange
-        case .planetInSign: AstroTheme.accent
-        case .planetInHouse: AstroTheme.accentSecondary
         case .planetInHouseSign: .purple
         case .houseInSign: .teal
         case .aspect: .orange
@@ -688,8 +686,6 @@ private struct PlanetInterpretationSheet: View {
 
     private func categoryLabel(_ category: InterpretationCategory) -> String {
         switch category {
-        case .planetInSign: "Burç"
-        case .planetInHouse: "Ev"
         case .planetInHouseSign: "Ev + Burç"
         case .aspect: "Açı"
         case .bigThree: "Temel"
@@ -701,8 +697,6 @@ private struct PlanetInterpretationSheet: View {
 
     private func categoryColor(_ category: InterpretationCategory) -> Color {
         switch category {
-        case .planetInSign: AstroTheme.accent
-        case .planetInHouse: AstroTheme.accentSecondary
         case .planetInHouseSign: .purple
         case .aspect: .orange
         case .bigThree: .orange

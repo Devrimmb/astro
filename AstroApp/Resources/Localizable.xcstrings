@@ -10,6 +10,9 @@
     "·" : {
 
     },
+    "· ℞" : {
+
+    },
     "(%@)" : {
 
     },
@@ -114,12 +117,12 @@
         }
       }
     },
-    "%@, %@, %@ derece, %lld. ev%@" : {
+    "%@, %@, %@ derece, %lld. ev%@. Yorum için dokun." : {
       "localizations" : {
         "tr" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "%1$@, %2$@, %3$@ derece, %4$lld. ev%5$@"
+            "value" : "%1$@, %2$@, %3$@ derece, %4$lld. ev%5$@. Yorum için dokun."
           }
         }
       }
@@ -1042,6 +1045,9 @@
 
     },
     "Bu Evdeki Gezegenler" : {
+
+    },
+    "Bu gezegen için henüz yorum eklenmedi." : {
 
     },
     "Bu haritalar arasında belirgin cross-aspect bulunmuyor." : {

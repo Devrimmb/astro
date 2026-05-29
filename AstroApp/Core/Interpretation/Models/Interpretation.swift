@@ -11,8 +11,6 @@ struct Interpretation: Codable, Sendable {
 
 enum InterpretationCategory: Sendable {
     case bigThree
-    case planetInSign
-    case planetInHouse
     case planetInHouseSign
     case houseInSign
     case aspect
