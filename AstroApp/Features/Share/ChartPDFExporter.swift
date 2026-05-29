@@ -639,6 +639,7 @@ private struct ChartPDFContentView: View {
         case .bigThree: .orange
         case .planetInSign: Color(red: 0.56, green: 0.44, blue: 1.0)
         case .planetInHouse: Color(red: 0.35, green: 0.78, blue: 0.98)
+        case .planetInHouseSign: .purple
         case .houseInSign: .teal
         case .aspect: .orange
         case .element: Color(red: 1.0, green: 0.40, blue: 0.45)

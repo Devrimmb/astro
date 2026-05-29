@@ -67,6 +67,21 @@ final class InterpretationEngine {
             }
         }
 
+        // Gezegen + Ev + Burç üçlü kombinasyon yorumları (yalnızca eşleşme varsa)
+        for position in chart.planets {
+            if let entry = PlanetHouseSignInterpretation.interpretation(
+                planet: position.planet,
+                house: position.house,
+                zodiacSign: position.sign
+            ) {
+                sections.append(InterpretationSection(
+                    title: entry.title,
+                    body: entry.description,
+                    category: .planetInHouseSign
+                ))
+            }
+        }
+
         // Açı yorumları
         for aspect in chart.aspects {
             if let interp = aspectInterpretation(aspect) {
@@ -114,6 +129,35 @@ final class InterpretationEngine {
         }
 
         return ChartInterpretation(sections: sections)
+    }
+
+    /// Tek bir gezegenle ilgili tüm yorumları toplar:
+    /// burç, ev, üçlü (ev+burç) kombinasyonu ve o gezegeni içeren açılar.
+    /// Gezegen pozisyon kartındaki detay panelinde kullanılır.
+    func interpretations(forPlanet planet: Planet, in chart: BirthChart) -> [InterpretationSection] {
+        guard let pos = chart.planets.first(where: { $0.planet == planet }) else { return [] }
+        var out: [InterpretationSection] = []
+
+        if let i = planetInSign(planet, pos.sign) {
+            out.append(InterpretationSection(title: i.title, body: i.detailed, category: .planetInSign))
+        }
+        if let i = planetInHouse(planet, pos.house) {
+            out.append(InterpretationSection(title: i.title, body: i.detailed, category: .planetInHouse))
+        }
+        if let e = PlanetHouseSignInterpretation.interpretation(planet: planet, house: pos.house, zodiacSign: pos.sign) {
+            out.append(InterpretationSection(title: e.title, body: e.description, category: .planetInHouseSign))
+        }
+        for aspect in chart.aspects {
+            let involves: Bool = {
+                if case .planet(let p) = aspect.point1, p == planet { return true }
+                if case .planet(let p) = aspect.point2, p == planet { return true }
+                return false
+            }()
+            if involves, let i = aspectInterpretation(aspect) {
+                out.append(InterpretationSection(title: i.title, body: i.detailed, category: .aspect))
+            }
+        }
+        return out
     }
 
     func planetInSign(_ planet: Planet, _ sign: ZodiacSign) -> Interpretation? {

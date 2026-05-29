@@ -25,6 +25,7 @@ OUTPUT = ROOT / "interpretations.html"
 CATEGORIES = [
     ("planets_in_signs.json", "Gezegenler / Burçlar", "🪐", "Gezegenlerin burçlardaki yorumları"),
     ("planets_in_houses.json", "Gezegenler / Evler", "🏛️", "Gezegenlerin evlerdeki yorumları"),
+    ("planet_house_sign.json", "Gezegenler / Ev + Burç", "🔭", "Gezegen + ev + burç üçlü kombinasyon yorumları"),
     ("house_signs.json", "Ev Burçları", "🏠", "12 evin 12 burçtaki yorumları"),
     ("aspects.json", "Açılar", "📐", "Gezegenler arası açı yorumları"),
     ("elements.json", "Elementler", "🔥", "Element baskınlık yorumları"),
@@ -410,6 +411,15 @@ function flatList(file){
     for(const v of d){
       out.push({ title: `${v.name} (#${v.id})`, body: v.description });
     }
+  } else if(file === 'planet_house_sign.json'){
+    for(const v of d){
+      out.push({
+        title: `${v.icon || ''} ${v.title}`.trim(),
+        tags: [v.planetName, `${v.houseId}. Ev`, v.signName],
+        filterKey: v.planet,
+        body: v.description
+      });
+    }
   }
   return out;
 }
@@ -464,6 +474,11 @@ function buildFilters(items, file){
   } else if(file === 'house_signs.json'){
     const ids = [...new Set(items.map(i=>i.filterKey))].sort((a,b)=>+a-+b);
     opts = ids.map(i => [i, `Ev ${i}`]); label = 'Ev';
+  } else if(file === 'planet_house_sign.json'){
+    // Gezegen bazlı filtre — her gezegenin görünür adıyla
+    const seen = new Map();
+    for(const it of items){ if(!seen.has(it.filterKey)) seen.set(it.filterKey, (it.tags||[])[0] || it.filterKey); }
+    opts = [...seen.entries()]; label = 'Gezegen';
   }
   if(!opts) return '';
   const pills = opts.map(([k,n]) =>
