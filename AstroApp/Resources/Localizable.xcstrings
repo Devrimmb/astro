@@ -62,6 +62,16 @@
         }
       }
     },
+    "%@ %@ %@, orb %@ derece. Yorum için dokun." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$@ %3$@, orb %4$@ derece. Yorum için dokun."
+          }
+        }
+      }
+    },
     "%@ %@°" : {
       "localizations" : {
         "tr" : {
@@ -325,6 +335,9 @@
           }
         }
       }
+    },
+    "Açı Yorumu" : {
+
     },
     "Açılar" : {
       "extractionState" : "manual",
@@ -878,6 +891,9 @@
       }
     },
     "Aydınlanma: %%%lld" : {
+
+    },
+    "Ayrılan" : {
 
     },
     "Balık" : {
@@ -4074,6 +4090,9 @@
         }
       }
     },
+    "Orb %@" : {
+
+    },
     "Orta" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -5469,6 +5488,9 @@
           }
         }
       }
+    },
+    "Uygulayan" : {
+
     },
     "Uyum & İlişkiler" : {
       "extractionState" : "manual",

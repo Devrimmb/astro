@@ -337,8 +337,7 @@ function flatList(file){
         out.push({
           title: v.title || `${pair} / ${asp}`,
           tags: [pair.replace('_',' / '), asp],
-          short: v.short, detailed: v.detailed,
-          strengths: v.strengths, challenges: v.challenges, advice: v.advice
+          short: v.short, detailed: v.detailed
         });
       }
     }

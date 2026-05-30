@@ -6,6 +6,7 @@ struct BirthChartResultView: View {
     let personName: String
     @State private var selectedHouse: House?
     @State private var selectedPlanet: PlanetPosition?
+    @State private var selectedAspect: SelectedAspectItem?
     @State private var showAspectGrid = false
 
     var body: some View {
@@ -422,6 +423,11 @@ struct BirthChartResultView: View {
                     .font(.headline)
                     .foregroundStyle(.white)
                 Spacer()
+                if !showAspectGrid {
+                    Text("Dokun → Yorum")
+                        .font(.caption2)
+                        .foregroundStyle(AstroTheme.textTertiary)
+                }
                 Button {
                     withAnimation(.easeInOut(duration: 0.2)) {
                         showAspectGrid.toggle()
@@ -451,28 +457,47 @@ struct BirthChartResultView: View {
             } else {
                 // Liste görünümü
                 ForEach(Array(chart.aspects.enumerated()), id: \.offset) { _, aspect in
-                    HStack {
-                        Text(aspect.point1.name)
-                            .font(.caption)
-                            .frame(width: 65, alignment: .leading)
-                        Text(aspect.type.symbol)
-                            .font(.caption)
-                        Text(aspect.point2.name)
-                            .font(.caption)
-                            .frame(width: 65, alignment: .leading)
-                        Spacer()
-                        Text(String(format: "%.1f°", aspect.orb))
-                            .font(.caption2)
-                            .foregroundStyle(AstroTheme.textTertiary)
-                        Circle()
-                            .fill(aspectNatureColor(aspect.type.nature))
-                            .frame(width: 6, height: 6)
+                    Button {
+                        selectedAspect = SelectedAspectItem(
+                            aspect: aspect,
+                            interpretation: appState.interpretation.aspectInterpretation(aspect)
+                        )
+                    } label: {
+                        HStack {
+                            Text(aspect.point1.name)
+                                .font(.caption)
+                                .frame(width: 65, alignment: .leading)
+                            Text(aspect.type.symbol)
+                                .font(.caption)
+                            Text(aspect.point2.name)
+                                .font(.caption)
+                                .frame(width: 65, alignment: .leading)
+                            Spacer()
+                            Text(String(format: "%.1f°", aspect.orb))
+                                .font(.caption2)
+                                .foregroundStyle(AstroTheme.textTertiary)
+                            Circle()
+                                .fill(aspectNatureColor(aspect.type.nature))
+                                .frame(width: 6, height: 6)
+                            Image(systemName: "chevron.right")
+                                .font(.caption2)
+                                .foregroundStyle(AstroTheme.textTertiary)
+                        }
                     }
+                    .buttonStyle(.plain)
                     .foregroundStyle(AstroTheme.textSecondary)
+                    .accessibilityElement(children: .combine)
+                    .accessibilityLabel("\(aspect.point1.name) \(aspect.type.turkishName) \(aspect.point2.name), orb \(String(format: "%.1f", aspect.orb)) derece. Yorum için dokun.")
                 }
             }
         }
         .glassCard()
+        .sheet(item: $selectedAspect) { item in
+            AspectInterpretationSheet(
+                aspect: item.aspect,
+                interpretation: item.interpretation
+            )
+        }
     }
 
     // MARK: - Yardımcılar
@@ -498,6 +523,12 @@ struct BirthChartResultView: View {
             .fill(color)
             .frame(width: 6, height: 6)
     }
+}
+
+private struct SelectedAspectItem: Identifiable {
+    let id = UUID()
+    let aspect: Aspect
+    let interpretation: Interpretation?
 }
 
 // MARK: - Ev Yorum Sheet
@@ -588,6 +619,87 @@ private struct HouseInterpretationSheet: View {
                 }
             }
             .navigationTitle("\(house.id). Ev")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbarColorScheme(.dark, for: .navigationBar)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Kapat") { dismiss() }
+                        .foregroundStyle(AstroTheme.textSecondary)
+                }
+            }
+        }
+        .presentationDetents([.large])
+    }
+}
+
+// MARK: - Açı Yorum Sheet
+
+private struct AspectInterpretationSheet: View {
+    @Environment(\.dismiss) private var dismiss
+    let aspect: Aspect
+    let interpretation: Interpretation?
+
+    private var aspectTitle: String {
+        "\(aspect.point1.name) \(aspect.type.symbol) \(aspect.point2.name)"
+    }
+
+    private var missingMessage: String {
+        if !aspect.type.isMajor {
+            return "Bu açı türü için henüz yorum eklenmedi."
+        }
+        return "Bu açı için henüz yorum eklenmedi."
+    }
+
+    var body: some View {
+        NavigationStack {
+            ZStack {
+                AstroTheme.background.ignoresSafeArea()
+
+                ScrollView {
+                    VStack(spacing: 16) {
+                        VStack(spacing: 8) {
+                            Text(aspect.type.symbol)
+                                .font(.system(size: 48))
+                                .foregroundStyle(.white)
+                            Text(aspectTitle)
+                                .font(.title3.weight(.bold))
+                                .foregroundStyle(.white)
+                                .multilineTextAlignment(.center)
+                            HStack(spacing: 6) {
+                                Text(aspect.type.turkishName)
+                                Text("·")
+                                Text("Orb \(String(format: "%.1f°", aspect.orb))")
+                                Text("·")
+                                Text(aspect.applying ? "Uygulayan" : "Ayrılan")
+                            }
+                            .font(.caption)
+                            .foregroundStyle(AstroTheme.textSecondary)
+                        }
+                        .padding(.top, 8)
+
+                        if let interpretation {
+                            VStack(alignment: .leading, spacing: 12) {
+                                MarkdownTextView(interpretation.detailed)
+                            }
+                            .glassCard()
+                        } else {
+                            VStack(spacing: 8) {
+                                Image(systemName: "text.badge.plus")
+                                    .font(.title2)
+                                    .foregroundStyle(AstroTheme.textTertiary)
+                                Text(missingMessage)
+                                    .font(.subheadline)
+                                    .foregroundStyle(AstroTheme.textTertiary)
+                                    .multilineTextAlignment(.center)
+                            }
+                            .padding(.top, 40)
+                        }
+                    }
+                    .padding()
+                    .padding(.bottom, 40)
+                }
+            }
+            .navigationTitle("Açı Yorumu")
             .navigationBarTitleDisplayMode(.inline)
             .toolbarColorScheme(.dark, for: .navigationBar)
             .toolbar {

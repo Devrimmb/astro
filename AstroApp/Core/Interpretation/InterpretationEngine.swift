@@ -103,11 +103,9 @@ final class InterpretationEngine {
     }
 
     func aspectInterpretation(_ aspect: Aspect) -> Interpretation? {
-        // ASC/MC için yorum yok — sadece gezegen çiftleri
-        guard case .planet(let p1) = aspect.point1,
-              case .planet(let p2) = aspect.point2 else { return nil }
+        guard let point1 = interpretationIdentifier(for: aspect.point1),
+              let point2 = interpretationIdentifier(for: aspect.point2) else { return nil }
 
-        let key = "\(p1.identifier)_\(p2.identifier)"
         let aspectKey: String
         switch aspect.type {
         case .conjunction: aspectKey = "conjunction"
@@ -121,6 +119,24 @@ final class InterpretationEngine {
         case .sesquiquadrate: aspectKey = "sesquiquadrate"
         case .quincunx: aspectKey = "quincunx"
         }
-        return aspects[key]?[aspectKey]
+
+        let directKey = "\(point1)_\(point2)"
+        if let interpretation = aspects[directKey]?[aspectKey] {
+            return interpretation
+        }
+
+        let reverseKey = "\(point2)_\(point1)"
+        return aspects[reverseKey]?[aspectKey]
+    }
+
+    private func interpretationIdentifier(for point: ChartPoint) -> String? {
+        switch point {
+        case .planet(let planet):
+            return planet.identifier
+        case .midheaven:
+            return "mc"
+        case .ascendant:
+            return "asc"
+        }
     }
 }
