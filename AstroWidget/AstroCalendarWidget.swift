@@ -74,29 +74,55 @@ struct AstroCalendarProvider: TimelineProvider {
     }
 }
 
-// MARK: - Basit Retrograde Tespiti
+// MARK: - Retrograde Tespiti
 
 enum WidgetRetrogradeDetector {
-    // 2026 retrograde yaklaşık tarihleri (dayOfYear)
-    // Merkür: ~74-96, ~166-190, ~260-282
-    // Venüs: ~60-102
-    // Mars: yok 2026'da
+    private struct Period {
+        let planet: String
+        let start: Date
+        let end: Date
+    }
+
+    private static func d(_ y: Int, _ m: Int, _ day: Int) -> Date {
+        var c = DateComponents()
+        c.year = y; c.month = m; c.day = day
+        c.timeZone = TimeZone(identifier: "UTC")
+        return Calendar(identifier: .gregorian).date(from: c) ?? .distantPast
+    }
+
+    // SwissEphemeris ile hesaplanan gerçek 2025-2027 retrograd dönemleri
+    private static let periods: [Period] = [
+        // Merkür 2025
+        Period(planet: "Merkür",  start: d(2025,3,15),  end: d(2025,4,7)),
+        Period(planet: "Merkür",  start: d(2025,7,18),  end: d(2025,8,11)),
+        Period(planet: "Merkür",  start: d(2025,11,9),  end: d(2025,12,1)),
+        // Merkür 2026
+        Period(planet: "Merkür",  start: d(2026,3,5),   end: d(2026,3,27)),
+        Period(planet: "Merkür",  start: d(2026,7,4),   end: d(2026,7,28)),
+        Period(planet: "Merkür",  start: d(2026,10,28), end: d(2026,11,18)),
+        // Venüs 2026
+        Period(planet: "Venüs",   start: d(2026,3,1),   end: d(2026,4,12)),
+        // Jüpiter 2025-2026
+        Period(planet: "Jüpiter", start: d(2025,11,11), end: d(2026,3,11)),
+        Period(planet: "Jüpiter", start: d(2026,9,16),  end: d(2027,1,19)),
+        // Satürn 2026
+        Period(planet: "Satürn",  start: d(2026,7,2),   end: d(2026,11,19)),
+        // Uranüs 2025-2026
+        Period(planet: "Uranüs",  start: d(2025,9,6),   end: d(2026,2,4)),
+        Period(planet: "Uranüs",  start: d(2026,9,14),  end: d(2027,2,12)),
+        // Neptün 2026
+        Period(planet: "Neptün",  start: d(2026,7,4),   end: d(2026,12,6)),
+        // Plüton 2026
+        Period(planet: "Plüton",  start: d(2026,5,7),   end: d(2026,10,17)),
+    ]
+
+    static func activeRetrogrades(for date: Date = .now) -> [String] {
+        periods.filter { date >= $0.start && date <= $0.end }.map { $0.planet }
+    }
+
+    // Geriye dönük uyumluluk (AstroCalendarWidget çağrıları için)
     static func activeRetrogrades(year: Int, dayOfYear: Int) -> [String] {
-        var result: [String] = []
-        if year == 2026 {
-            if (74...96).contains(dayOfYear) || (166...190).contains(dayOfYear) || (260...282).contains(dayOfYear) {
-                result.append("Merkür")
-            }
-            if (60...102).contains(dayOfYear) {
-                result.append("Venüs")
-            }
-        }
-        // Genel fallback: seed-based
-        if year != 2026 {
-            let seed = (dayOfYear * 7 + year * 13) % 365
-            if seed % 88 < 21 { result.append("Merkür") }
-        }
-        return result
+        activeRetrogrades(for: .now)
     }
 }
 

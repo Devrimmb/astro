@@ -11,9 +11,8 @@ import SwiftUI
 @main
 struct AstroWidgetBundle: WidgetBundle {
     var body: some Widget {
-        AstroSummaryWidget()
+        CosmicStatusWidget()
         MoonPhaseWidget()
-        DailyHoroscopeWidget()
         AstroCalendarWidget()
     }
 }

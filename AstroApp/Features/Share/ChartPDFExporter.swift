@@ -163,7 +163,7 @@ private struct ChartPDFContentView: View {
     private var elementModalitySection: some View {
         let elements = chart.elementBalance
         let modalities = chart.modalityBalance
-        let totalPlanets = chart.planets.count
+        let totalScore = elements.values.reduce(0, +)
 
         return pdfCard {
             VStack(spacing: 12) {
@@ -175,7 +175,7 @@ private struct ChartPDFContentView: View {
                 VStack(spacing: 6) {
                     ForEach(ZodiacSign.Element.allCases, id: \.self) { element in
                         let count = elements[element, default: 0]
-                        let ratio = totalPlanets > 0 ? Double(count) / Double(totalPlanets) : 0
+                        let ratio = totalScore > 0 ? count / totalScore : 0
 
                         HStack(spacing: 8) {
                             Text(pdfElementIcon(element))
@@ -199,10 +199,10 @@ private struct ChartPDFContentView: View {
                             }
                             .frame(height: 8)
 
-                            Text("\(count)")
+                            Text("%\(Int((ratio * 100).rounded()))")
                                 .font(.system(size: 11, weight: .bold).monospacedDigit())
                                 .foregroundStyle(pdfElementColor(element))
-                                .frame(width: 20, alignment: .trailing)
+                                .frame(width: 28, alignment: .trailing)
                         }
                     }
                 }

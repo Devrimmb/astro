@@ -25,17 +25,31 @@ struct BirthChart: Codable, Sendable {
         houses.first(where: { $0.id == 1 })?.sign
     }
 
-    var elementBalance: [ZodiacSign.Element: Int] {
-        var counts: [ZodiacSign.Element: Int] = [:]
+    private static let planetWeights: [Planet: Double] = [
+        .sun: 3, .moon: 3,
+        .mercury: 1.5, .venus: 1.5, .mars: 1.5,
+        .jupiter: 1, .saturn: 1,
+        .uranus: 0.5, .neptune: 0.5, .pluto: 0.5
+    ]
+
+    var elementBalance: [ZodiacSign.Element: Double] {
+        var scores: [ZodiacSign.Element: Double] = [:]
         for position in planets {
-            counts[position.sign.element, default: 0] += 1
+            guard let weight = BirthChart.planetWeights[position.planet] else { continue }
+            scores[position.sign.element, default: 0] += weight
         }
-        return counts
+        // Yükselen burç: 3 puan
+        if let ascCusp = houses.first(where: { $0.id == 1 })?.cusp {
+            let ascSign = ZodiacSign.from(longitude: ascCusp)
+            scores[ascSign.element, default: 0] += 3
+        }
+        return scores
     }
 
     var modalityBalance: [ZodiacSign.Modality: Int] {
         var counts: [ZodiacSign.Modality: Int] = [:]
         for position in planets {
+            guard BirthChart.planetWeights[position.planet] != nil else { continue }
             counts[position.sign.modality, default: 0] += 1
         }
         return counts

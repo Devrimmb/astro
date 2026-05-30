@@ -2,7 +2,6 @@ import SwiftUI
 
 struct HomeView: View {
     @Environment(AppState.self) private var appState
-    @State private var horoscope: DailyHoroscope?
     @State private var moonPhase = MoonPhaseCalculator.currentPhase()
     @State private var currentPlanetaryHour: PlanetaryHour?
     @State private var activeRetrogrades: [RetrogradeCalculator.RetrogradePeriod] = []
@@ -19,7 +18,6 @@ struct HomeView: View {
                         greetingSection
                         streakBanner
                         if appState.currentChart != nil { bigThreeCard }
-                        if let horoscope { dailySummaryCard(horoscope) }
                         todayCalendarCard
                         if !activeRetrogrades.isEmpty { retrogradeCard }
                         moonPhaseCard
@@ -142,40 +140,6 @@ struct HomeView: View {
                             .foregroundStyle(AstroTheme.textTertiary)
                     }
                 }
-            }
-        }
-        .glassCard()
-    }
-
-    // MARK: - Günlük Burç Özeti
-
-    private func dailySummaryCard(_ h: DailyHoroscope) -> some View {
-        VStack(alignment: .leading, spacing: 12) {
-            HStack(spacing: 8) {
-                Text(h.sign.glyph)
-                    .font(.title)
-                Text("Bugünün Yorumu")
-                    .font(.headline)
-                    .foregroundStyle(.white)
-                Spacer()
-                starRating(h.overallRating)
-            }
-
-            Text(h.sign.name)
-                .font(.caption.bold())
-                .foregroundStyle(AstroTheme.accent)
-
-            Text(h.generalText)
-                .font(.caption)
-                .foregroundStyle(AstroTheme.textSecondary)
-                .lineSpacing(3)
-                .lineLimit(4)
-
-            HStack(spacing: 0) {
-                miniMood(title: "Aşk", rating: h.loveRating, icon: "heart.fill", color: AstroTheme.zorlayici)
-                miniMood(title: "Kariyer", rating: h.careerRating, icon: "briefcase.fill", color: AstroTheme.accent)
-                miniMood(title: "Sağlık", rating: h.healthRating, icon: "leaf.fill", color: AstroTheme.harmonik)
-                miniMood(title: "Şans", rating: h.luckRating, icon: "star.fill", color: .orange)
             }
         }
         .glassCard()
@@ -481,17 +445,6 @@ struct HomeView: View {
 
     private func loadData() {
         // Günlük burç — chart yoksa doğum tarihinden hesapla
-        let sign: ZodiacSign
-        if let chartSign = appState.currentChart?.sunSign {
-            sign = chartSign
-        } else if let birthDate = appState.birthDataStore.savedData?.birthDate {
-            sign = ZodiacSign.from(birthDate: birthDate)
-        } else {
-            sign = .aries
-        }
-        horoscope = DailyHoroscopeGenerator.generate(for: sign, date: .now)
-        appState.gamification.earn(.viewDailyHoroscope)
-
         // Ay fazı
         moonPhase = MoonPhaseCalculator.currentPhase()
         appState.gamification.earn(.checkMoonPhase)

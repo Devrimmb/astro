@@ -157,12 +157,12 @@
         }
       }
     },
-    "%@: %lld gezegen" : {
+    "%@: %lf puan" : {
       "localizations" : {
         "tr" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "%1$@: %2$lld gezegen"
+            "value" : "%1$@: %2$lf puan"
           }
         }
       }

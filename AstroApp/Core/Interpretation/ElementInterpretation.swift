@@ -23,21 +23,21 @@ enum ElementInterpretation {
         return entries.first { $0.key == key }
     }
 
-    /// Element durumunu belirle (toplam gezegen sayısına göre)
-    static func status(count: Int, totalPlanets: Int) -> ElementStatus {
-        let average = Double(totalPlanets) / 4.0
-        if Double(count) <= average * 0.4 {
+    /// Element durumunu belirle (ağırlıklı toplam puana göre)
+    static func status(score: Double, totalScore: Double) -> ElementStatus {
+        let average = totalScore / 4.0
+        if score <= average * 0.4 {
             return .less
-        } else if Double(count) >= average * 1.6 {
+        } else if score >= average * 1.6 {
             return .more
         }
         return .balance
     }
 
     /// Element durumuna göre yorum metnini getir
-    static func interpretation(for element: ZodiacSign.Element, count: Int, totalPlanets: Int) -> String? {
+    static func interpretation(for element: ZodiacSign.Element, score: Double, totalScore: Double) -> String? {
         guard let entry = entry(for: element) else { return nil }
-        let status = status(count: count, totalPlanets: totalPlanets)
+        let status = status(score: score, totalScore: totalScore)
         switch status {
         case .less: return entry.less
         case .more: return entry.more

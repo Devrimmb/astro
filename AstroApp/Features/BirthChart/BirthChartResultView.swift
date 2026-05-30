@@ -118,7 +118,7 @@ struct BirthChartResultView: View {
     private var elementBalanceCard: some View {
         let elements = chart.elementBalance
         let modalities = chart.modalityBalance
-        let totalPlanets = chart.planets.count
+        let totalScore = elements.values.reduce(0, +)
 
         return VStack(spacing: 14) {
             Text("Element & Modalite Dengesi")
@@ -128,8 +128,8 @@ struct BirthChartResultView: View {
             // Elementler
             VStack(spacing: 8) {
                 ForEach(ZodiacSign.Element.allCases, id: \.self) { element in
-                    let count = elements[element, default: 0]
-                    let ratio = totalPlanets > 0 ? Double(count) / Double(totalPlanets) : 0
+                    let score = elements[element, default: 0]
+                    let ratio = totalScore > 0 ? score / totalScore : 0
 
                     HStack(spacing: 10) {
                         Text(elementIcon(element))
@@ -152,10 +152,10 @@ struct BirthChartResultView: View {
                         }
                         .frame(height: 10)
 
-                        Text("\(count)")
+                        Text("%\(Int((ratio * 100).rounded()))")
                             .font(.subheadline.weight(.bold).monospacedDigit())
                             .foregroundStyle(elementColor(element))
-                            .frame(width: 24, alignment: .trailing)
+                            .frame(width: 36, alignment: .trailing)
                     }
                 }
             }
@@ -191,7 +191,7 @@ struct BirthChartResultView: View {
 
     private var elementInterpretationCard: some View {
         let elements = chart.elementBalance
-        let totalPlanets = chart.planets.count
+        let totalScore = elements.values.reduce(0, +)
 
         // Baskın ve eksik elementleri bul
         let sortedElements = ZodiacSign.Element.allCases.sorted {
@@ -205,7 +205,7 @@ struct BirthChartResultView: View {
 
             ForEach(sortedElements, id: \.self) { element in
                 let count = elements[element, default: 0]
-                let status = ElementInterpretation.status(count: count, totalPlanets: totalPlanets)
+                let status = ElementInterpretation.status(score: count, totalScore: totalScore)
 
                 if let entry = ElementInterpretation.entry(for: element) {
                     let statusText: String = switch status {
@@ -268,6 +268,10 @@ struct BirthChartResultView: View {
             }
         }
         .glassCard()
+    }
+
+    private func formatScore(_ score: Double) -> String {
+        score.truncatingRemainder(dividingBy: 1) == 0 ? "\(Int(score))" : String(format: "%.1f", score)
     }
 
     private func elementIcon(_ element: ZodiacSign.Element) -> String {

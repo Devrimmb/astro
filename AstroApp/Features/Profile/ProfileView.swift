@@ -297,8 +297,8 @@ struct ProfileView: View {
             let total = max(balance.values.reduce(0, +), 1)
 
             ForEach(ZodiacSign.Element.allCases, id: \.self) { element in
-                let count = balance[element] ?? 0
-                let ratio = Double(count) / Double(total)
+                let score = balance[element] ?? 0
+                let ratio = score / total
 
                 HStack(spacing: 10) {
                     Text(element.displayName)
@@ -313,13 +313,13 @@ struct ProfileView: View {
                     }
                     .frame(height: 8)
 
-                    Text("\(count)")
+                    Text("%\(Int((ratio * 100).rounded()))")
                         .font(.caption2)
                         .foregroundStyle(AstroTheme.textTertiary)
-                        .frame(width: 16, alignment: .trailing)
+                        .frame(width: 28, alignment: .trailing)
                 }
                 .accessibilityElement(children: .combine)
-                .accessibilityLabel("\(element.displayName): \(count) gezegen")
+                .accessibilityLabel("\(element.displayName): \(score) puan")
             }
         }
         .glassCard()
