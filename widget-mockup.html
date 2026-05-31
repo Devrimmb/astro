@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AstroApp — Widget Tasarım Mockup</title>
+<style>
+  :root {
+    --bg:      #08091a;
+    --surf:    #131627;
+    --surf2:   #1a1e35;
+    --border:  rgba(255,255,255,0.07);
+    --acc:     #7c5cfc;
+    --acc2:    #4fc3f7;
+    --text:    #ffffff;
+    --t2:      #7e8baf;
+    --t3:      #3d4560;
+    --retro:   #ef5350;
+    --moon:    #f0c040;
+    --green:   #66bb6a;
+    --orange:  #ffa040;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:-apple-system,'SF Pro Display','Helvetica Neue',sans-serif;
+    padding:28px 24px 60px;
+  }
+  h1{font-size:20px;font-weight:700;margin-bottom:4px;
+    background:linear-gradient(120deg,#fff,#8b95b8);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .sub{font-size:12px;color:var(--t2);margin-bottom:28px;}
+
+  /* ── Tabs ── */
+  .tabs{display:flex;gap:4px;margin-bottom:28px;border-bottom:1px solid var(--border);}
+  .tab{padding:7px 16px;border-radius:8px 8px 0 0;font-size:13px;font-weight:600;
+    cursor:pointer;color:var(--t2);border:none;background:transparent;
+    border-bottom:2px solid transparent;transition:all .18s;}
+  .tab.active{color:var(--acc);border-bottom-color:var(--acc);}
+  .tab:hover:not(.active){color:var(--text);}
+  .pane{display:none;} .pane.active{display:block;}
+
+  /* ── Section ── */
+  .sec-label{font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--t3);
+    text-transform:uppercase;margin-bottom:12px;}
+  .row{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;margin-bottom:40px;}
+  .block{display:flex;flex-direction:column;gap:8px;align-items:center;}
+  .lbl{font-size:11px;color:var(--t2);text-align:center;max-width:260px;line-height:1.4;}
+
+  /* ── iOS Widget çerçeveleri ── */
+  /* Small 155×155 → 232×232 */
+  .ws{width:232px;height:232px;border-radius:26px;overflow:hidden;position:relative;
+    box-shadow:0 8px 32px rgba(0,0,0,.65),inset 0 0 0 1px var(--border);}
+  /* Medium 329×155 → 494×232 */
+  .wm{width:494px;height:232px;border-radius:26px;overflow:hidden;position:relative;
+    box-shadow:0 8px 32px rgba(0,0,0,.65),inset 0 0 0 1px var(--border);}
+
+  /* ── Widget arka plan ── */
+  .wbg{
+    background:linear-gradient(148deg,#0e1228 0%,#131728 55%,#0b0f1e 100%);
+    width:100%;height:100%;position:relative;
+  }
+  .wbg::before{content:'';position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse at 75% 20%,rgba(124,92,252,.11) 0%,transparent 55%),
+      radial-gradient(ellipse at 20% 85%,rgba(79,195,247,.07) 0%,transparent 50%);}
+
+  /* ── Ortak elemanlar ── */
+  .divv{background:var(--border);height:1px;margin:4px 0;}
+  .vline{background:var(--border);width:1px;align-self:stretch;flex-shrink:0;}
+
+  /* Planet glyphs colors */
+  .g-sun{color:#f0c040;} .g-moon{color:#4fc3f7;} .g-mer{color:#ccc;}
+  .g-ven{color:#f48fb1;} .g-mar{color:#ef5350;} .g-jup{color:#ffb300;}
+  .g-sat{color:#90a4ae;} .g-ura{color:#80cbc4;} .g-nep{color:#7986cb;}
+  .g-plu{color:#ce93d8;}
+
+  .retro-mark{color:var(--retro);font-size:8px;margin-left:2px;}
+  .badge{display:inline-flex;align-items:center;gap:2px;font-size:9px;font-weight:700;
+    padding:2px 6px;border-radius:100px;}
+  .b-retro{background:rgba(239,83,80,.16);color:var(--retro);}
+  .b-ok{background:rgba(102,187,106,.14);color:var(--green);}
+
+  /* Stars */
+  .stars{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
+  .star{position:absolute;border-radius:50%;background:#fff;opacity:.35;}
+</style>
+</head>
+<body>
+
+<h1>AstroApp Widget Mockup</h1>
+<p class="sub">Mevcut bilgiler (Ay fazı · Retrograd · Gezegen Saati) korunuyor + Bugünün Gezegen Pozisyonları ekleniyor</p>
+
+<div class="tabs">
+  <button class="tab active" onclick="show('small',this)">Kare (Small)</button>
+  <button class="tab" onclick="show('medium',this)">Dikdörtgen (Medium)</button>
+</div>
+
+<!-- ══════════════ SMALL ══════════════ -->
+<div id="pane-small" class="pane active">
+
+  <div class="sec-label">Mevcut Small Widget — değiştirilmiyor</div>
+  <div class="row">
+    <div class="block">
+      <div class="ws"><div class="wbg">
+        <div class="stars" id="ss0"></div>
+        <div style="position:relative;padding:12px 10px;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:space-between;">
+          <!-- Ay -->
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div style="font-size:46px;line-height:1;">🌛</div>
+            <div style="font-size:11px;font-weight:700;color:var(--text);">Hilal</div>
+            <div style="font-size:9px;color:var(--t2);">♈ Koç · %15</div>
+          </div>
+          <!-- Retrograd badge -->
+          <div style="display:flex;flex-wrap:wrap;gap:3px;justify-content:center;">
+            <span class="badge b-retro">↺ Ay ℞</span>
+            <span class="badge b-retro">↺ Plüton ℞</span>
+          </div>
+        </div>
+      </div></div>
+      <div class="lbl">Mevcut small widget<br>Ay fazı + retrograd</div>
+    </div>
+  </div>
+
+  <div class="sec-label">Small — Alternati̇f: İç Gezegenler Alt Sıra (Opsiyonel)</div>
+  <div class="row">
+    <div class="block">
+      <div class="ws"><div class="wbg">
+        <div class="stars" id="ss1"></div>
+        <div style="position:relative;padding:12px 10px;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:space-between;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div style="font-size:44px;line-height:1;">🌛</div>
+            <div style="font-size:11px;font-weight:700;color:var(--text);">Hilal</div>
+            <div style="font-size:9px;color:var(--t2);">♈ Koç · %15</div>
+          </div>
+          <div class="divv" style="width:100%;"></div>
+          <!-- 3 iç gezegen -->
+          <div style="display:flex;justify-content:space-between;width:100%;padding:0 4px;">
+            <div style="text-align:center;">
+              <div style="font-size:13px;" class="g-sun">☉</div>
+              <div style="font-size:9px;color:var(--t2);">♊ İkiz</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-size:13px;" class="g-mer">☿</div>
+              <div style="font-size:9px;color:var(--t2);">♊ İkiz</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-size:13px;" class="g-ven">♀</div>
+              <div style="font-size:9px;color:var(--t2);">♋ Yenç</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="font-size:13px;" class="g-mar">♂</div>
+              <div style="font-size:9px;color:var(--t2);">♉ Boğa</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:3px;justify-content:center;">
+            <span class="badge b-retro">Ay ℞</span>
+            <span class="badge b-retro">Plüton ℞</span>
+          </div>
+        </div>
+      </div></div>
+      <div class="lbl">Small + İç Gezegenler<br>(Güneş, Merkür, Venüs, Mars)</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════ MEDIUM ══════════════ -->
+<div id="pane-medium" class="pane">
+
+  <!-- ─── Mevcut widget (referans) ─── -->
+  <div class="sec-label">Mevcut Medium Widget — referans (değişmeden önce)</div>
+  <div class="row">
+    <div class="block">
+      <div class="wm"><div class="wbg">
+        <div class="stars" id="sm0"></div>
+        <div style="position:relative;height:100%;display:flex;padding:10px 8px;">
+
+          <!-- Sol: Ay -->
+          <div style="width:90px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;">
+            <div style="font-size:40px;line-height:1;">🌛</div>
+            <div style="font-size:10px;font-weight:700;color:var(--text);text-align:center;">Hilal</div>
+            <div style="font-size:9px;color:var(--t2);">♈ Koç</div>
+            <div style="font-size:8px;color:var(--t3);">%15 aydınlanma</div>
+          </div>
+
+          <div class="vline" style="margin:4px 8px;"></div>
+
+          <!-- Sağ: Tip + Retro + Saat -->
+          <div style="flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:4px;">
+            <!-- İpucu -->
+            <div style="display:flex;align-items:flex-start;gap:4px;">
+              <span style="font-size:9px;color:rgba(240,192,64,.7);">✦</span>
+              <div style="font-size:10px;color:rgba(255,255,255,.8);line-height:1.4;">Yeni fikirleri hayata geçir, enerji yükseliyor.</div>
+            </div>
+            <div class="divv"></div>
+            <!-- Retrogradlar -->
+            <div style="display:flex;flex-direction:column;gap:3px;">
+              <div style="display:flex;align-items:center;gap:4px;">
+                <span style="font-size:9px;color:rgba(239,83,80,.8);">↺</span>
+                <span style="font-size:9px;font-weight:600;color:var(--retro);">Ay ℞</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:4px;">
+                <span style="font-size:9px;color:rgba(239,83,80,.8);">↺</span>
+                <span style="font-size:9px;font-weight:600;color:var(--retro);">Plüton ℞</span>
+              </div>
+            </div>
+            <div style="flex:1;"></div>
+            <!-- Gezegen saati + tarih -->
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <div style="display:flex;align-items:center;gap:3px;">
+                <span style="font-size:11px;color:rgba(124,92,252,.8);">♄</span>
+                <span style="font-size:9px;color:rgba(255,255,255,.45);">Satürn</span>
+              </div>
+              <span style="font-size:8px;color:rgba(255,255,255,.25);">31 Mayıs, Cumartesi</span>
+            </div>
+          </div>
+        </div>
+      </div></div>
+      <div class="lbl">Mevcut widget — Ay · Tip · Retro · Gezegen Saati</div>
+    </div>
+  </div>
+
+  <!-- ─── Kombo A ─── -->
+  <div class="sec-label">Kombo A — Tip kaldırıldı → yerine iç gezegen snapshot</div>
+  <div class="row">
+    <div class="block">
+      <div class="wm"><div class="wbg">
+        <div class="stars" id="sm1"></div>
+        <div style="position:relative;height:100%;display:flex;padding:10px 8px;">
+
+          <!-- Sol: Ay (aynı) -->
+          <div style="width:90px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;">
+            <div style="font-size:40px;line-height:1;">🌛</div>
+            <div style="font-size:10px;font-weight:700;color:var(--text);text-align:center;">Hilal</div>
+            <div style="font-size:9px;color:var(--t2);">♈ Koç</div>
+            <div style="font-size:8px;color:var(--t3);">%15 aydınlanma</div>
+          </div>
+
+          <div class="vline" style="margin:4px 8px;"></div>
+
+          <!-- Sağ: Gezegen snapshot + Retro + Saat -->
+          <div style="flex:1;display:flex;flex-direction:column;justify-content:space-between;">
+
+            <!-- 4 iç gezegen kompakt -->
+            <div style="display:flex;flex-direction:column;gap:3px;">
+              <div style="font-size:9px;font-weight:700;color:var(--t3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:1px;">Gezegenler</div>
+              <div style="display:flex;align-items:center;gap:4px;">
+                <span style="font-size:12px;" class="g-sun">☉</span>
+                <span style="font-size:9px;font-weight:600;color:var(--text);">Güneş</span>
+                <span style="font-size:9px;color:var(--t2);">♊ İkizler</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:4px;">
+                <span style="font-size:12px;" class="g-mer">☿</span>
+                <span style="font-size:9px;font-weight:600;color:var(--text);">Merkür</span>
+                <span style="font-size:9px;color:var(--t2);">♊ İkizler</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:4px;">
+                <span style="font-size:12px;" class="g-ven">♀</span>
+                <span style="font-size:9px;font-weight:600;color:var(--text);">Venüs</span>
+                <span style="font-size:9px;color:var(--t2);">♋ Yengeç</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:4px;">
+                <span style="font-size:12px;" class="g-mar">♂</span>
+                <span style="font-size:9px;font-weight:600;color:var(--text);">Mars</span>
+                <span style="font-size:9px;color:var(--t2);">♉ Boğa</span>
+              </div>
+            </div>
+
+            <div class="divv"></div>
+
+            <!-- Retro + Saat -->
+            <div style="display:flex;justify-content:space-between;align-items:flex-end;">
+              <div style="display:flex;flex-direction:column;gap:2px;">
+                <span class="badge b-retro">↺ Ay ℞</span>
+                <span class="badge b-retro">↺ Plüton ℞</span>
+              </div>
+              <div style="text-align:right;">
+                <div style="display:flex;align-items:center;gap:3px;justify-content:flex-end;">
+                  <span style="font-size:11px;color:rgba(124,92,252,.8);">♄</span>
+                  <span style="font-size:8px;color:var(--t2);">Satürn saati</span>
+                </div>
+                <div style="font-size:7px;color:rgba(255,255,255,.2);margin-top:1px;">31 May · Cumartesi</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div></div>
+      <div class="lbl">A — Sol: Ay fazı | Sağ: 4 iç gezegen + retro badge + gezegen saati</div>
+    </div>
+  </div>
+
+  <!-- ─── Kombo B ─── -->
+  <div class="sec-label">Kombo B — Üç sütun: Ay · Retro+Saat · Gezegenler</div>
+  <div class="row">
+    <div class="block">
+      <div class="wm"><div class="wbg">
+        <div class="stars" id="sm2"></div>
+        <div style="position:relative;height:100%;display:flex;padding:10px 8px;gap:0;">
+
+          <!-- Sütun 1: Ay -->
+          <div style="width:88px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;flex-shrink:0;">
+            <div style="font-size:40px;line-height:1;">🌛</div>
+            <div style="font-size:10px;font-weight:700;color:var(--text);text-align:center;line-height:1.3;">Hilal</div>
+            <div style="font-size:9px;color:var(--t2);">♈ Koç</div>
+            <div style="font-size:8px;color:var(--t3);">%15 aydın.</div>
+          </div>
+
+          <div class="vline" style="margin:4px 8px;"></div>
+
+          <!-- Sütun 2: Retro + Gezegen saati -->
+          <div style="width:110px;flex-shrink:0;display:flex;flex-direction:column;justify-content:space-between;gap:4px;">
+            <div>
+              <div style="font-size:9px;font-weight:700;color:var(--t3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px;">Retrograd</div>
+              <div style="display:flex;flex-direction:column;gap:3px;">
+                <div style="display:flex;align-items:center;gap:3px;">
+                  <span style="font-size:9px;color:var(--retro);">↺</span>
+                  <span style="font-size:9px;font-weight:600;color:var(--retro);">Ay ℞</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:3px;">
+                  <span style="font-size:9px;color:var(--retro);">↺</span>
+                  <span style="font-size:9px;font-weight:600;color:var(--retro);">Plüton ℞</span>
+                </div>
+              </div>
+            </div>
+            <div class="divv"></div>
+            <div>
+              <div style="font-size:9px;font-weight:700;color:var(--t3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px;">Gezegen Saati</div>
+              <div style="display:flex;align-items:center;gap:3px;">
+                <span style="font-size:13px;color:rgba(124,92,252,.85);">♄</span>
+                <span style="font-size:10px;font-weight:600;color:var(--text);">Satürn</span>
+              </div>
+              <div style="font-size:8px;color:var(--t2);margin-top:1px;">10:00 – 11:00</div>
+            </div>
+            <div style="font-size:7px;color:rgba(255,255,255,.18);">31 Mayıs · Cmt</div>
+          </div>
+
+          <div class="vline" style="margin:4px 8px;"></div>
+
+          <!-- Sütun 3: Tüm gezegenler kompakt -->
+          <div style="flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:2px;">
+            <div style="font-size:9px;font-weight:700;color:var(--t3);letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px;">Gökyüzü</div>
+            <div style="display:flex;align-items:center;gap:3px;"><span class="g-sun" style="font-size:11px;width:13px;">☉</span><span style="font-size:9px;font-weight:600;color:var(--text);flex:1;">Güneş</span><span style="font-size:9px;color:var(--t2);">♊ İkiz</span></div>
+            <div style="display:flex;align-items:center;gap:3px;"><span class="g-mer" style="font-size:11px;width:13px;">☿</span><span style="font-size:9px;font-weight:600;color:var(--text);flex:1;">Merkür</span><span style="font-size:9px;color:var(--t2);">♊ İkiz</span></div>
+            <div style="display:flex;align-items:center;gap:3px;"><span class="g-ven" style="font-size:11px;width:13px;">♀</span><span style="font-size:9px;font-weight:600;color:var(--text);flex:1;">Venüs</span><span style="font-size:9px;color:var(--t2);">♋ Yenç</span></div>
+            <div style="display:flex;align-items:center;gap:3px;"><span class="g-mar" style="font-size:11px;width:13px;">♂</span><span style="font-size:9px;font-weight:600;color:var(--text);flex:1;">Mars</span><span style="font-size:9px;color:var(--t2);">♉ Boğa</span></div>
+            <div style="display:flex;align-items:center;gap:3px;"><span class="g-jup" style="font-size:11px;width:13px;">♃</span><span style="font-size:9px;font-weight:600;color:var(--text);flex:1;">Jüpiter</span><span style="font-size:9px;color:var(--t2);">♋ Yenç</span></div>
+            <div style="display:flex;align-items:center;gap:3px;"><span class="g-sat" style="font-size:11px;width:13px;">♄</span><span style="font-size:9px;font-weight:600;color:var(--text);flex:1;">Satürn</span><span style="font-size:9px;color:var(--t2);">♈ Koç</span></div>
+            <div style="display:flex;align-items:center;gap:3px;"><span class="g-ura" style="font-size:11px;width:13px;">⛢</span><span style="font-size:9px;font-weight:600;color:var(--text);flex:1;">Uranüs</span><span style="font-size:9px;color:var(--t2);">♊ İkiz</span></div>
+            <div style="display:flex;align-items:center;gap:3px;"><span class="g-nep" style="font-size:11px;width:13px;">♆</span><span style="font-size:9px;font-weight:600;color:var(--text);flex:1;">Neptün</span><span style="font-size:9px;color:var(--t2);">♈ Koç</span></div>
+            <div style="display:flex;align-items:center;gap:3px;"><span class="g-plu" style="font-size:11px;width:13px;">♇</span><span style="font-size:9px;font-weight:600;color:var(--text);flex:1;">Plüton</span><span style="font-size:9px;color:var(--t2);">♒ Kova</span><span class="retro-mark">℞</span></div>
+          </div>
+
+        </div>
+      </div></div>
+      <div class="lbl">B — 3 sütun: Ay fazı | Retro + Gezegen Saati | Tüm 9 gezegen</div>
+    </div>
+  </div>
+
+  <!-- ─── Kombo C ─── -->
+  <div class="sec-label">Kombo C — Üst şerit (Ay+Retro+Saat) + Alt gezegen ızgarası</div>
+  <div class="row">
+    <div class="block">
+      <div class="wm"><div class="wbg">
+        <div class="stars" id="sm3"></div>
+        <div style="position:relative;height:100%;display:flex;flex-direction:column;padding:10px 12px;gap:8px;">
+
+          <!-- Üst şerit -->
+          <div style="display:flex;align-items:center;gap:8px;">
+            <!-- Ay -->
+            <div style="display:flex;align-items:center;gap:6px;">
+              <span style="font-size:30px;line-height:1;">🌛</span>
+              <div>
+                <div style="font-size:10px;font-weight:700;color:var(--text);">Hilal</div>
+                <div style="font-size:8px;color:var(--t2);">♈ Koç · %15</div>
+              </div>
+            </div>
+
+            <div class="vline" style="height:32px;margin:0 4px;"></div>
+
+            <!-- Retrogradlar -->
+            <div style="display:flex;flex-direction:column;gap:2px;">
+              <span class="badge b-retro">↺ Ay ℞</span>
+              <span class="badge b-retro">↺ Plüton ℞</span>
+            </div>
+
+            <div style="flex:1;"></div>
+
+            <!-- Gezegen saati + tarih -->
+            <div style="text-align:right;">
+              <div style="display:flex;align-items:center;gap:2px;justify-content:flex-end;">
+                <span style="font-size:12px;color:rgba(124,92,252,.8);">♄</span>
+                <span style="font-size:9px;color:var(--t2);">Satürn saati</span>
+              </div>
+              <div style="font-size:7px;color:var(--t3);margin-top:1px;">31 Mayıs · Cumartesi</div>
+            </div>
+          </div>
+
+          <div class="divv"></div>
+
+          <!-- Alt: Gezegen ızgarası (5×2) -->
+          <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:4px;flex:1;">
+
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:rgba(255,255,255,.04);border-radius:8px;padding:4px 2px;">
+              <span class="g-sun" style="font-size:14px;">☉</span>
+              <span style="font-size:8px;font-weight:600;color:var(--text);">Güneş</span>
+              <span style="font-size:8px;color:var(--t2);">♊ İkiz</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:rgba(255,255,255,.04);border-radius:8px;padding:4px 2px;">
+              <span class="g-mer" style="font-size:14px;">☿</span>
+              <span style="font-size:8px;font-weight:600;color:var(--text);">Merkür</span>
+              <span style="font-size:8px;color:var(--t2);">♊ İkiz</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:rgba(255,255,255,.04);border-radius:8px;padding:4px 2px;">
+              <span class="g-ven" style="font-size:14px;">♀</span>
+              <span style="font-size:8px;font-weight:600;color:var(--text);">Venüs</span>
+              <span style="font-size:8px;color:var(--t2);">♋ Yenç</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:rgba(255,255,255,.04);border-radius:8px;padding:4px 2px;">
+              <span class="g-mar" style="font-size:14px;">♂</span>
+              <span style="font-size:8px;font-weight:600;color:var(--text);">Mars</span>
+              <span style="font-size:8px;color:var(--t2);">♉ Boğa</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:rgba(255,255,255,.04);border-radius:8px;padding:4px 2px;">
+              <span class="g-jup" style="font-size:14px;">♃</span>
+              <span style="font-size:8px;font-weight:600;color:var(--text);">Jüpiter</span>
+              <span style="font-size:8px;color:var(--t2);">♋ Yenç</span>
+            </div>
+
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:rgba(255,255,255,.04);border-radius:8px;padding:4px 2px;">
+              <span class="g-sat" style="font-size:14px;">♄</span>
+              <span style="font-size:8px;font-weight:600;color:var(--text);">Satürn</span>
+              <span style="font-size:8px;color:var(--t2);">♈ Koç</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:rgba(255,255,255,.04);border-radius:8px;padding:4px 2px;">
+              <span class="g-ura" style="font-size:14px;">⛢</span>
+              <span style="font-size:8px;font-weight:600;color:var(--text);">Uranüs</span>
+              <span style="font-size:8px;color:var(--t2);">♊ İkiz</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:rgba(255,255,255,.04);border-radius:8px;padding:4px 2px;">
+              <span class="g-nep" style="font-size:14px;">♆</span>
+              <span style="font-size:8px;font-weight:600;color:var(--text);">Neptün</span>
+              <span style="font-size:8px;color:var(--t2);">♈ Koç</span>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:rgba(239,83,80,.07);border:1px solid rgba(239,83,80,.2);border-radius:8px;padding:4px 2px;">
+              <span class="g-plu" style="font-size:14px;">♇</span>
+              <span style="font-size:8px;font-weight:600;color:var(--text);">Plüton</span>
+              <span style="font-size:8px;color:var(--retro);">♒ Kova ℞</span>
+            </div>
+            <!-- 10. slot: boş veya Kuzey Düğüm -->
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:rgba(255,255,255,.02);border-radius:8px;padding:4px 2px;opacity:0.4;">
+              <span style="font-size:14px;color:var(--t2);">☊</span>
+              <span style="font-size:8px;font-weight:600;color:var(--t2);">K. Düğüm</span>
+              <span style="font-size:8px;color:var(--t3);">♓ Balık</span>
+            </div>
+
+          </div>
+
+        </div>
+      </div></div>
+      <div class="lbl">C — Üst şerit: Ay + Retro + Saat | Alt: 5×2 gezegen ızgarası (tüm gezegenler)</div>
+    </div>
+  </div>
+
+  <!-- ─── Kombo D ─── -->
+  <div class="sec-label">Kombo D — Ay büyük sol + Sağ: Retro/Saat üstte, Gezegenler altta</div>
+  <div class="row">
+    <div class="block">
+      <div class="wm"><div class="wbg">
+        <div class="stars" id="sm4"></div>
+        <div style="position:relative;height:100%;display:flex;padding:10px 8px;">
+
+          <!-- Sol: Ay büyük -->
+          <div style="width:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;flex-shrink:0;">
+            <span style="font-size:42px;line-height:1;">🌛</span>
+            <span style="font-size:10px;font-weight:700;color:var(--text);text-align:center;">Hilal</span>
+            <span style="font-size:8px;color:var(--t2);">♈ Koç</span>
+            <span style="font-size:7px;color:var(--t3);">%15 aydın.</span>
+          </div>
+
+          <div class="vline" style="margin:4px 8px;"></div>
+
+          <!-- Sağ: üst (retro+saat) + ayırıcı + alt (gezegenler 2 sütun) -->
+          <div style="flex:1;display:flex;flex-direction:column;gap:6px;">
+
+            <!-- Üst: Retro + Gezegen saati -->
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <div style="display:flex;gap:4px;flex-wrap:wrap;">
+                <span class="badge b-retro">↺ Ay ℞</span>
+                <span class="badge b-retro">↺ Plüton ℞</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:3px;">
+                <span style="font-size:12px;color:rgba(124,92,252,.8);">♄</span>
+                <span style="font-size:9px;color:var(--t2);">Satürn saati</span>
+              </div>
+            </div>
+
+            <div class="divv"></div>
+
+            <!-- Alt: Gezegenler 2 sütun -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px 8px;flex:1;align-content:start;">
+              <div style="display:flex;align-items:center;gap:3px;"><span class="g-sun" style="font-size:11px;width:12px;">☉</span><span style="font-size:9px;color:var(--text);font-weight:600;flex:1;min-width:0;white-space:nowrap;overflow:hidden;">Güneş</span><span style="font-size:9px;color:var(--t2);">♊</span></div>
+              <div style="display:flex;align-items:center;gap:3px;"><span class="g-jup" style="font-size:11px;width:12px;">♃</span><span style="font-size:9px;color:var(--text);font-weight:600;flex:1;min-width:0;white-space:nowrap;overflow:hidden;">Jüpiter</span><span style="font-size:9px;color:var(--t2);">♋</span></div>
+              <div style="display:flex;align-items:center;gap:3px;"><span class="g-mer" style="font-size:11px;width:12px;">☿</span><span style="font-size:9px;color:var(--text);font-weight:600;flex:1;min-width:0;white-space:nowrap;overflow:hidden;">Merkür</span><span style="font-size:9px;color:var(--t2);">♊</span></div>
+              <div style="display:flex;align-items:center;gap:3px;"><span class="g-sat" style="font-size:11px;width:12px;">♄</span><span style="font-size:9px;color:var(--text);font-weight:600;flex:1;min-width:0;white-space:nowrap;overflow:hidden;">Satürn</span><span style="font-size:9px;color:var(--t2);">♈</span></div>
+              <div style="display:flex;align-items:center;gap:3px;"><span class="g-ven" style="font-size:11px;width:12px;">♀</span><span style="font-size:9px;color:var(--text);font-weight:600;flex:1;min-width:0;white-space:nowrap;overflow:hidden;">Venüs</span><span style="font-size:9px;color:var(--t2);">♋</span></div>
+              <div style="display:flex;align-items:center;gap:3px;"><span class="g-ura" style="font-size:11px;width:12px;">⛢</span><span style="font-size:9px;color:var(--text);font-weight:600;flex:1;min-width:0;white-space:nowrap;overflow:hidden;">Uranüs</span><span style="font-size:9px;color:var(--t2);">♊</span></div>
+              <div style="display:flex;align-items:center;gap:3px;"><span class="g-mar" style="font-size:11px;width:12px;">♂</span><span style="font-size:9px;color:var(--text);font-weight:600;flex:1;min-width:0;white-space:nowrap;overflow:hidden;">Mars</span><span style="font-size:9px;color:var(--t2);">♉</span></div>
+              <div style="display:flex;align-items:center;gap:3px;"><span class="g-nep" style="font-size:11px;width:12px;">♆</span><span style="font-size:9px;color:var(--text);font-weight:600;flex:1;min-width:0;white-space:nowrap;overflow:hidden;">Neptün</span><span style="font-size:9px;color:var(--t2);">♈</span></div>
+              <div style="display:flex;align-items:center;gap:3px;"><span class="g-plu" style="font-size:11px;width:12px;">♇</span><span style="font-size:9px;color:var(--text);font-weight:600;flex:1;min-width:0;white-space:nowrap;overflow:hidden;">Plüton</span><span style="font-size:9px;color:var(--retro);">♒ ℞</span></div>
+            </div>
+
+            <div style="font-size:7px;color:rgba(255,255,255,.18);text-align:right;">31 Mayıs · Cumartesi</div>
+          </div>
+
+        </div>
+      </div></div>
+      <div class="lbl">D — Sol: Ay büyük | Sağ üst: Retro + Gezegen Saati | Sağ alt: 9 gezegen 2 sütun</div>
+    </div>
+  </div>
+
+</div><!-- /pane-medium -->
+
+<script>
+  function show(name, btn) {
+    document.querySelectorAll('.pane').forEach(e => e.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(e => e.classList.remove('active'));
+    document.getElementById('pane-' + name).classList.add('active');
+    btn.classList.add('active');
+  }
+  function addStars(id, n) {
+    const c = document.getElementById(id);
+    if (!c) return;
+    for (let i = 0; i < n; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      const sz = Math.random() * 1.4 + 0.5;
+      s.style.cssText = `width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;animation:twinkle ${2+Math.random()*2}s ${Math.random()*3}s ease-in-out infinite;`;
+      c.appendChild(s);
+    }
+  }
+  ['ss0','ss1','sm0','sm1','sm2','sm3','sm4'].forEach(id => addStars(id, 16));
+</script>
+<style>
+@keyframes twinkle { 0%,100%{opacity:.25} 50%{opacity:.75} }
+</style>
+</body>
+</html>

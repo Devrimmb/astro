@@ -41,6 +41,7 @@ struct HomeView: View {
                     TransitCalculator.calculatePositions(for: .now)
                 }.value
                 todayPlanets = positions
+                SharedDefaults.saveTodayPlanets(from: positions)
             }
             .onChange(of: appState.currentChart?.sunSign) { _, _ in
                 loadData()

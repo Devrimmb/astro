@@ -81,4 +81,21 @@ enum Planet: String, CaseIterable, Codable, Sendable {
     static var asteroids: [Planet] {
         [.ceres, .pallas, .juno, .vesta]
     }
+
+    /// Widget ve UI'da kullanilan metin sembolu (emoji degil, Unicode text)
+    var widgetSymbol: String {
+        switch self {
+        case .sun:     "☉"
+        case .moon:    "☽"
+        case .mercury: "☿"
+        case .venus:   "♀"
+        case .mars:    "♂"
+        case .jupiter: "♃"
+        case .saturn:  "♄"
+        case .uranus:  "⛢"
+        case .neptune: "♆"
+        case .pluto:   "♇"
+        default:       "·"
+        }
+    }
 }

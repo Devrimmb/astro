@@ -166,6 +166,43 @@ enum WidgetMoonCalculator {
     }
 }
 
+// MARK: - Bugünün Gezegen Pozisyonları (App Group'tan okunur)
+
+struct WidgetPlanetInfo: Codable {
+    let name: String
+    let symbol: String
+    let signName: String
+    let signGlyph: String
+    let isRetrograde: Bool
+
+    // 10 klasik gezegenin kısa sembol rengi
+    var symbolColor: String {
+        switch symbol {
+        case "☉": return "sun"
+        case "☽": return "moon"
+        case "♀": return "venus"
+        case "♂": return "mars"
+        case "♃": return "jupiter"
+        case "♄": return "saturn"
+        case "⛢": return "uranus"
+        case "♆": return "neptune"
+        case "♇": return "pluto"
+        default:  return "neutral"
+        }
+    }
+}
+
+enum WidgetPlanetStore {
+    private static let key = "widget_today_planets"
+
+    static func load() -> [WidgetPlanetInfo] {
+        guard let data = WidgetSharedDefaults.shared.data(forKey: key),
+              let planets = try? JSONDecoder().decode([WidgetPlanetInfo].self, from: data)
+        else { return [] }
+        return planets
+    }
+}
+
 // MARK: - Gezegen Saati Hesaplama
 
 struct WidgetPlanetaryHour {
