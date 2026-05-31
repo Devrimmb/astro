@@ -188,6 +188,8 @@ struct BirthChartResultView: View {
             (elements[$0, default: 0]) > (elements[$1, default: 0])
         }
 
+        let dominantExpression = chart.dominantSignExpression
+
         return VStack(alignment: .leading, spacing: 10) {
             Text("Element Yorumları")
                 .font(.headline)
@@ -280,6 +282,30 @@ struct BirthChartResultView: View {
                                     .fill(.white.opacity(0.06))
                                     .frame(height: 1)
                                     .padding(.horizontal, 12)
+
+                                // Burç yansıması (sadece BASKIN ve koşul sağlanırsa)
+                                if status == .more,
+                                   let expr = dominantExpression,
+                                   expr.element == element {
+                                    HStack(spacing: 8) {
+                                        Image(systemName: "sparkles")
+                                            .font(.caption2)
+                                            .foregroundStyle(.yellow)
+                                        Text("\(element.displayName) elementiniz baskın ve \(expr.sign.name) burcu özelliği yansıtıyorsunuz.")
+                                            .font(.caption.weight(.medium))
+                                            .foregroundStyle(.white.opacity(0.9))
+                                            .lineSpacing(2)
+                                    }
+                                    .padding(.horizontal, 12)
+                                    .padding(.vertical, 8)
+                                    .background(statusColor.opacity(0.1), in: .rect(cornerRadius: 10))
+                                    .padding(.horizontal, 12)
+
+                                    Rectangle()
+                                        .fill(.white.opacity(0.06))
+                                        .frame(height: 1)
+                                        .padding(.horizontal, 12)
+                                }
 
                                 Text("\(entry.name) elementi \(entry.description)")
                                     .font(.caption)

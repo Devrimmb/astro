@@ -108,6 +108,16 @@
         }
       }
     },
+    "%@ elementiniz baskın ve %@ burcu özelliği yansıtıyorsunuz." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ elementiniz baskın ve %2$@ burcu özelliği yansıtıyorsunuz."
+          }
+        }
+      }
+    },
     "%@ Güneş Dönüşü" : {
 
     },

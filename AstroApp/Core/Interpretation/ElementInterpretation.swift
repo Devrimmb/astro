@@ -25,12 +25,12 @@ enum ElementInterpretation {
     }
 
     /// Element durumunu puana göre belirle
-    /// EKSİK: 0.00–1.50 | SINIRLI: 1.75–3.99 | DENGELİ: 4.00–7.99 | BASKIN: 8.00+
+    /// EKSİK: 0.0–1.0 | SINIRLI: 1.5–2.5 | DENGELİ: 3.0–5.5 | BASKIN: 6.0+
     static func status(score: Double, totalScore: Double) -> ElementStatus {
         switch score {
-        case ..<1.51:   return .less
-        case 1.51..<4.0: return .limited
-        case 4.0..<8.0:  return .balance
+        case ..<1.5:   return .less
+        case 1.5..<3.0: return .limited
+        case 3.0..<6.0:  return .balance
         default:         return .more
         }
     }
