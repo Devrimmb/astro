@@ -157,10 +157,13 @@ struct BirthChartResultView: View {
                 .foregroundStyle(.yellow)
 
             VStack(alignment: .leading, spacing: 3) {
-                Text("\(expr.element.displayName) elementiniz baskın ve \(expr.sign.name) burcu özelliği yansıtıyorsunuz.")
-                    .font(.subheadline.weight(.medium))
-                    .foregroundStyle(.white)
-                    .lineSpacing(2)
+                let elemColor = elementColor(expr.element)
+                (Text(expr.element.displayName).foregroundStyle(elemColor).bold()
+                + Text(" elementiniz baskın ve ").foregroundStyle(.white)
+                + Text(expr.sign.name).foregroundStyle(elemColor).bold()
+                + Text(" burcu özelliği yansıtıyorsunuz.").foregroundStyle(.white))
+                .font(.subheadline.weight(.medium))
+                .lineSpacing(2)
                 Text("\(expr.sign.glyph) \(expr.sign.name) · \(expr.element.displayName)")
                     .font(.caption2)
                     .foregroundStyle(AstroTheme.textSecondary)
@@ -186,8 +189,9 @@ struct BirthChartResultView: View {
                     let count = modalities[modality, default: 0]
 
                     VStack(spacing: 6) {
-                        Text(modalityIcon(modality))
+                        Image(systemName: modalityIcon(modality))
                             .font(.title3)
+                            .foregroundStyle(modalityColor(modality))
                         Text(modality.displayName)
                             .font(.caption2.weight(.medium))
                             .foregroundStyle(AstroTheme.textSecondary)
@@ -251,8 +255,9 @@ struct BirthChartResultView: View {
                         } label: {
                             VStack(spacing: 8) {
                                 HStack(spacing: 10) {
-                                    Text(elementIcon(element))
+                                    Image(systemName: elementIcon(element))
                                         .font(.title3)
+                                        .foregroundStyle(elementColor(element))
                                         .frame(width: 28)
 
                                     Text(element.displayName)
@@ -299,30 +304,12 @@ struct BirthChartResultView: View {
 
                         // — Açılır yorum bölümü —
                         if isExpanded {
-                            VStack(alignment: .leading, spacing: 8) {
-                                Rectangle()
-                                    .fill(.white.opacity(0.06))
-                                    .frame(height: 1)
-                                    .padding(.horizontal, 12)
-
-                                Text("\(entry.name) elementi \(entry.description)")
-                                    .font(.caption)
-                                    .foregroundStyle(AstroTheme.textSecondary)
-                                    .lineSpacing(3)
-                                    .padding(.horizontal, 12)
-
-                                Rectangle()
-                                    .fill(.white.opacity(0.06))
-                                    .frame(height: 1)
-                                    .padding(.horizontal, 12)
-
-                                Text(statusText)
-                                    .font(.caption)
-                                    .foregroundStyle(AstroTheme.textSecondary)
-                                    .lineSpacing(3)
-                                    .padding(.horizontal, 12)
-                                    .padding(.bottom, 12)
-                            }
+                            elementExpandedContent(
+                                entry: entry,
+                                status: status,
+                                statusText: statusText,
+                                statusColor: statusColor
+                            )
                             .transition(.opacity.combined(with: .move(edge: .top)))
                         }
                     }
@@ -341,16 +328,116 @@ struct BirthChartResultView: View {
         .glassCard()
     }
 
+    @ViewBuilder
+    private func elementExpandedContent(
+        entry: ElementEntry,
+        status: ElementInterpretation.ElementStatus,
+        statusText: String,
+        statusColor: Color
+    ) -> some View {
+        VStack(alignment: .leading, spacing: 0) {
+            dividerLine
+
+            // Element açıklaması
+            Text("\(entry.name) elementi \(entry.description)")
+                .font(.caption)
+                .foregroundStyle(AstroTheme.textSecondary)
+                .lineSpacing(3)
+                .padding(.horizontal, 12)
+                .padding(.vertical, 8)
+
+            dividerLine
+
+            // Durum metni
+            Text(statusText)
+                .font(.caption)
+                .foregroundStyle(AstroTheme.textSecondary)
+                .lineSpacing(3)
+                .padding(.horizontal, 12)
+                .padding(.top, 8)
+
+            // Renk / Taş / Koku desteği
+            if let support = entry.support(for: status) {
+                VStack(alignment: .leading, spacing: 6) {
+                    dividerLine.padding(.top, 8)
+
+                    if let colors = support.colors {
+                        supportRow(icon: "paintpalette.fill", label: "Renkler", value: colors, color: statusColor)
+                    }
+                    if let stones = support.stones, !stones.isEmpty {
+                        supportListRow(icon: "sparkle", label: "Faydalı Taşlar", items: stones, color: statusColor)
+                    }
+                    if let scents = support.scents, !scents.isEmpty {
+                        supportListRow(icon: "wind", label: "Aromatik Kokular", items: scents, color: statusColor)
+                    }
+                }
+            }
+
+            Spacer(minLength: 12)
+        }
+    }
+
+    private var dividerLine: some View {
+        Rectangle()
+            .fill(.white.opacity(0.06))
+            .frame(height: 1)
+            .padding(.horizontal, 12)
+    }
+
+    private func supportRow(icon: String, label: String, value: String, color: Color) -> some View {
+        HStack(alignment: .top, spacing: 8) {
+            Image(systemName: icon)
+                .font(.caption2)
+                .foregroundStyle(color.opacity(0.8))
+                .frame(width: 14)
+            Text(label + ":")
+                .font(.caption2.bold())
+                .foregroundStyle(color.opacity(0.9))
+            Text(value)
+                .font(.caption2)
+                .foregroundStyle(AstroTheme.textSecondary)
+        }
+        .padding(.horizontal, 12)
+    }
+
+    private func supportListRow(icon: String, label: String, items: [String], color: Color) -> some View {
+        VStack(alignment: .leading, spacing: 4) {
+            HStack(spacing: 6) {
+                Image(systemName: icon)
+                    .font(.caption2)
+                    .foregroundStyle(color.opacity(0.8))
+                Text(label)
+                    .font(.caption2.bold())
+                    .foregroundStyle(color.opacity(0.9))
+            }
+            .padding(.horizontal, 12)
+
+            VStack(alignment: .leading, spacing: 2) {
+                ForEach(items, id: \.self) { item in
+                    HStack(alignment: .top, spacing: 6) {
+                        Text("•")
+                            .font(.caption2)
+                            .foregroundStyle(color.opacity(0.6))
+                        Text(item)
+                            .font(.caption2)
+                            .foregroundStyle(AstroTheme.textSecondary)
+                    }
+                }
+            }
+            .padding(.horizontal, 20)
+        }
+    }
+
     private func formatScore(_ score: Double) -> String {
         score.truncatingRemainder(dividingBy: 1) == 0 ? "\(Int(score))" : String(format: "%.1f", score)
     }
 
     private func elementIcon(_ element: ZodiacSign.Element) -> String {
         switch element {
-        case .fire: "🔥"
-        case .earth: "🌍"
-        case .air: "💨"
-        case .water: "💧"
+        case .fire:  "flame.fill"
+        case .earth: "leaf.fill"
+        case .air:   "wind"
+        case .water: "drop.fill"
         }
     }
 
@@ -365,9 +452,64 @@ struct BirthChartResultView: View {
 
     private func modalityIcon(_ modality: ZodiacSign.Modality) -> String {
         switch modality {
-        case .cardinal: "⚡"
-        case .fixed: "🪨"
-        case .mutable: "🌀"
+        case .cardinal: "bolt.fill"
+        case .fixed:    "circle.fill"
+        case .mutable:  "arrow.triangle.2.circlepath"
+        }
+    }
+
+    private func modalityColor(_ modality: ZodiacSign.Modality) -> Color {
+        switch modality {
+        case .cardinal: .yellow
+        case .fixed:    .purple
+        case .mutable:  .cyan
+        }
+    }
+
+    @ViewBuilder
+    private func aspectPointLabel(_ point: ChartPoint) -> some View {
+        let glyph = point.glyph
+        let isSingleGlyph = glyph.count == 1
+        HStack(spacing: isSingleGlyph ? 3 : 0) {
+            if isSingleGlyph {
+                Text(glyph)
+                    .foregroundStyle(chartPointColor(point))
+                    .frame(width: 14)
+            }
+            Text(point.name)
+                .frame(width: isSingleGlyph ? 50 : 65, alignment: .leading)
+                .lineLimit(1)
+                .minimumScaleFactor(0.75)
+        }
+        .font(.caption)
+        .frame(width: 65, alignment: .leading)
+    }
+
+    private func chartPointColor(_ point: ChartPoint) -> Color {
+        switch point {
+        case .planet(let p):
+            switch p {
+            case .sun:          .orange
+            case .moon:         .white
+            case .mercury:      .cyan
+            case .venus:        .pink
+            case .mars:         .red
+            case .jupiter:      .purple
+            case .saturn:       .brown
+            case .uranus:       .teal
+            case .neptune:      .indigo
+            case .pluto:        .gray
+            case .northNode:    .mint
+            case .chiron:       .yellow
+            case .lilith:       Color(red: 0.7, green: 0.3, blue: 0.9)
+            case .partOfFortune: .green
+            case .ceres:        Color(red: 0.6, green: 0.4, blue: 0.2)
+            case .pallas:       Color(red: 0.5, green: 0.7, blue: 0.9)
+            case .juno:         Color(red: 0.8, green: 0.4, blue: 0.6)
+            case .vesta:        Color(red: 0.9, green: 0.5, blue: 0.2)
+            }
+        case .ascendant: .orange
+        case .midheaven: .orange
         }
     }
 
@@ -539,14 +681,10 @@ struct BirthChartResultView: View {
                         )
                     } label: {
                         HStack {
-                            Text(aspect.point1.name)
-                                .font(.caption)
-                                .frame(width: 65, alignment: .leading)
+                            aspectPointLabel(aspect.point1)
                             Text(aspect.type.symbol)
                                 .font(.caption)
-                            Text(aspect.point2.name)
-                                .font(.caption)
-                                .frame(width: 65, alignment: .leading)
+                            aspectPointLabel(aspect.point2)
                             Spacer()
                             Text(String(format: "%.1f°", aspect.orb))
                                 .font(.caption2)

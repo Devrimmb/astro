@@ -4,6 +4,12 @@
     "" : {
 
     },
+    " burcu özelliği yansıtıyorsunuz." : {
+
+    },
+    " elementiniz baskın ve " : {
+
+    },
     "— %@" : {
 
     },
@@ -120,16 +126,6 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "%1$@ elementi %2$@"
-          }
-        }
-      }
-    },
-    "%@ elementiniz baskın ve %@ burcu özelliği yansıtıyorsunuz." : {
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$@ elementiniz baskın ve %2$@ burcu özelliği yansıtıyorsunuz."
           }
         }
       }
@@ -267,6 +263,9 @@
       }
     },
     "%lld%%" : {
+
+    },
+    "•" : {
 
     },
     "℞" : {

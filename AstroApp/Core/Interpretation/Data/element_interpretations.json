@@ -3,36 +3,218 @@
     "key": "Fire",
     "name": "Ateş",
     "description": "dinamik, atılgan ve kendini gösteren bir enerjidir. Heyecan ve cesaret getirir. Canlılık, neşe ve harekete geçme hevesiyle doludur. Lider ve bağımsız güçtür.",
-    "less": "Özgüveniniz ve harekete geçme gücünüz engellenmiş durumda olabilir. Soğuktan kolay etkileniyor olabilirsiniz. Enerjiniz kendini toparlayamıyor ve olaylara atılamıyorsunuz. Hevesleriniz çabuk kırılabilir. Düşüncesiz insanlar karşısında şaşırıp kalıyorsunuz. Hırslarınız ve kendiniz için planladıklarınız yeterli alevi bulamıyor ve harekete geçemiyor. Ama sabırlı birisiniz. Planlarınızı ve sabrınızı dinamik enerjiye çevirmeniz gerekiyor.\n\nFiziksel aktiviteler, spor ve meditasyon oldukça faydalıdır. Düzenli olarak yapılması gerekir. Vücudun terlemesi; ateşin yükselmesini sağlar. Güneşli hava ile temasta olmak ve seyahatlere çıkmak çok iyi gelecektir. Özellikle ateş elementiyle canlı olarak temasta bulunmak; etrafta mum yakmak kamp ateşi, ateşi izlemek enerjiyi yükseltecektir.\n\nPozitif konuşmalar ve iyimser yaklaşımlara ihtiyacınız var. Korkulan konuların üzerine gidilmesi ve yeni şeyler deneyerek çözmeyi denemek ruh sağlığınız için gereklidir. Başkalarının hayatlarından çok kendi hayat planınıza odaklanmalısınız. Bunun yanı sıra kırmızı, turuncu ve sarı renkleri hayatınızda daha çok bulundurun. Kırmızı akik, sarı sitrin, kırmızı mercan ve yakut taşları bulundurmanız enerjiyi arttıracaktır.",
-    "limited": "bilgi gelecek",
-    "more": "Dünyanın kralı olabilirsiniz tabiki. Yönetmeye hazırsınız. Ama gururunuz ve imajınıza olması gerekenden biraz fazla önem veriyorsunuz. Sabırsızsınız ve dürtülerinize göre hareket ediyorsunuz. Bağımsız ve inatçı bir enerjiniz var. Bu sizi riskli durumlara sokabilir. Farkında olmasanız da kendinizi çok yorup tüketebilirsiniz. \n\nBelki sahip olduğunuz şeyleri kaybedene kadar fark etmiyorsunuz. Tehlikelerin içine düşünmeden dalabilirsiniz. Kendinizi yakabilirsiniz. Sakin ve durağan günler geçirmekten dolayı sıkılıp bunalıyorsunuz. Bunun için meditasyon ve sessizliği kucaklamanız gerekiyor.\n\nBu yüksek enerjinizi ve gücünüzü başkalarına yardım etmek için kullanırsanız, hayatınızdaki enerji dengelenecektir. Bu yardımı; adaleti sağlamak ve sizden daha zor durumda olan insanlar ve hayvanlar için kullanabilirsiniz. Öfke ve stresinizi sizin için verimli olacak işlere yönlendirebilir, etrafınızdaki kişilerin hayatlarıyla daha yakından ilgilenebilirsiniz. Hobiler ve yaratıcılıkla ilgili konulara yönelmek stresinizi azaltır. Aynı zamanda suyun olduğu bölgelerde bulunmanız içsel dengenizi yerine getirecektir.\n\nMavi rengin tonları ve akuamarin, firuze, amazonit taşlarının enerjisi su elementiyle bağdaştığından ateş fazlalığını dengelemede size yardımcı olacaktır.",
-    "balance": "Harekete geçirmek için güneş ile temasa geçebilir, yeni aktiviteler deneyebilirsiniz. Hareketli sporlara yönelebilirsiniz."
+    "less": "Düşük Motivasyon: Harekete geçmekte zorlanabilir, inisiyatif alma konusunda tereddüt yaşayabilirsiniz.\nEnerji Kaybı: Günlük yaşamda çabuk yorulma ve heves kaybı hissedebilirsiniz.\nTutku Eksikliği: Hayallerinize ve hedeflerinize karşı gereken o tutkulu \"kıvılcımı\" hissetmekte güçlük çekebilirsiniz.\nYaratıcı Blokaj: Yeni fikirleri hayata geçirme ve aksiyon alma süreçlerinde durgunluk gözlemlenebilir.\nLiderlik İsteği: Girişkenlik gerektiren durumlarda geri planda kalmayı tercih edebilir, liderlik etmekten kaçınabilirsiniz.\nFiziksel Metabolizma: Hareket enerjisi az olduğundan soğuğa karşı hassasiyet ve kilo kontrolünde zorlanma yaşanabilir.\nSavunmasızlık: Haksızlıklar karşısında gereken anlık tepkiyi vermekte veya kendi sınırlarınızı korumakta zorlanabilirsiniz.\n‍  Hareket Edin: Yürüyüş, egzersiz veya dansla bedensel enerjinizi aktive edin.\nTer Atın: Spor veya güneşlenme ile vücudun terlemesini sağlayarak içsel ısınızı yükseltin.\nDoğayla Buluşun: Güneş ışığından faydalanın ve yeni yerler keşfederek macera duygunuzu besleyin.\nOdaklanın: Kendi yaşam planınıza yönelin ve korkularınızın üzerine giderek cesaretinizi tazeleyin.\nİçsel Dengeyi Sağlayın: Meditasyon ve nefes çalışmalarıyla dinginliğinizi koruyun.\nRitüel Kullanın: Ateşle (mum, kamp ateşi) temas kurun; pozitif olumlamalarla motivasyonunuzu güçlendirin.\nRenkler: Kırmızı, Turuncu ve Sarı\nKırmızı Akik(Carnelian): Canlılık\nSarı Sitrin: Neşe, özgüven\nLal Taşı(Granet): Tutku ve cesaret\nYakut: Yaşam enerjisi\nGüneş Taşı (Sunstone): Pozitif enerji\nTarçın: Canlandırıcı\nKaranfil: Güçlü enerji\nZencefil: Harekete geçiren\nBiberiye: Zihinsel netlik",
+    "limited": "Ateş Elementiniz \"Sınırlı\" (Yedek Güç)\nBu element haritanızda sürekli yanan bir ateş değil; daha çok kriz anlarında ve ihtiyaç duyduğunuzda beliren güçlü bir alev gibidir\nDoğal Akış: Günlük hayatınızda bu elementin konularında (hareket, motivasyon, liderlik) çekingen veya pasif kalabilirsiniz. Ancak \"ihtiyaç anı\" dediğimiz krizlerde veya çok özel bir hedef belirlediğinizde, içinizden beklemediğiniz bir \"ateş\" çıkabilir.\nGizli Yetenek: Siz bu enerjiyi bir \"karakter özelliği\" olarak değil, bir \"araç/silah\" olarak kullanıyorsunuz. İhtiyaç duyduğunuzda bu enerjiyi tetiklemeyi öğrenmelisiniz.\nAteş elementini aktif  etmek için\nRitmik Hareket: Düzenli spor ve ritmik aktivitelerle enerjiyi uyandırın.\nKüçük Hedefler: Günlük mini amaçlarla hareket enerjinizi koruyun.\nYeni Keşifler: Seyahatle macera duygunuzu besleyin.\nSosyal Sorumluluk: Aldığınız sorumluluklarla enerjinizi anlamlandırın.\nDoğayla Bağ: Güneş ve açık hava temasını artırın.\nSembolik Temas: Ateş (mum, kamp ateşi) ile enerjiyi tazeleyin.\nRenkler: Turuncu, Açık kırmızı, Altın Sarısı\nSitrin :Motivasyon\nKırmızı akik: İstikrar için destek\nAmber: Yaşam enerjisi\nTarçın :Canlandırıcı\nBiberiye : Zihinsel odak için\nKakule :  Hareket enerjisi",
+    "more": "Kontrol ve Dominasyon: Duygusal tepkilerde aşırı kontrolcü olma ve çevrenize hükmetme eğilimi görülebilir.\nİmaj ve Gurur: Karar alma süreçlerinizde kişisel imajınız ve gururunuz baskın bir rol oynayabilir.\nDürtüsellik: Sabırsızlık ve ani gelişen dürtüsel davranışlar, riskli kararlar almanıza yol açabilir.\nİnatçılık: Bağımsızlık arzunuzun yüksekliği, çevrenizle inatlaşmanıza neden olabilir.\nZihinsel ve Fiziksel Yorgunluk: Sürekli bir şeyler yapma zorunluluğu, hem zihinsel yükü artırır hem de bedeni tükenişe sürükleyebilir.\nDuygusal Tahammülsüzlük: Durağanlıktan ve monotonluktan hoşlanmadığınız için öfke ve stres patlamalarına yatkınlık oluşabilir.\nFarkındalık İhtiyacı: Elinizdeki değerlerin kıymetini, onları kaybetme riskiyle karşı karşıya kalmadan fark etmekte zorlanabilirsiniz.\nFiziksel Yansımalar: İçsel ateşin yoğunluğu; tansiyon, iltihaplanma veya cilt hassasiyeti gibi fiziksel belirtilerle kendini gösterebilir.\nZihinsel Dinginlik: Meditasyon ve sessizlik pratikleri ile içsel ateşinizi yumuşatın.\nŞefkatli Eylem: Hayvanlara veya ihtiyaç sahiplerine destek vererek enerjinizi şefkat odaklı bir kanala yönlendirin.\nAdalet Bilinci: Başkalarının haklarını savunmak ve adil bir duruş sergilemek, içsel dengenizi güçlendirir.\nYaratıcı Dönüşüm: Hobilerinize ve sanatsal uğraşlara (resim, yazı, müzik) odaklanarak, öfke ve stresinizi sağlıklı bir yaratıcılığa dönüştürün.\nSu İle Temas: Deniz, göl veya havuz gibi su kenarlarında vakit geçirerek fazla ateş enerjinizi nötrleyin.\nEmpati ve Yavaşlama: İlişkilerinizde yavaşlamayı seçin; olaylara empati merceğinden bakarak aceleci tavrınızı törpüleyin.\nRenkler: Mavi ve tonları (turkuaz, lacivert)\nAkuamarin: Sakinlik ve iletişim\nFiruze: Denge\nMavi Akik: Sakinleştirici\nAmazonit: Sezgisel farkındalık\nYasemin: Yatıştırıcı\nYlang Ylang: Duygusal rahatlama\nGül: Huzur hissi\nLavanta: Sakinlik",
+    "balance": "Yaratıcı Üretim: Projeler geliştirin; organizasyon, sahne sanatları, müzik veya topluluk önünde konuşma gibi alanlarda yaratıcılığınızı sergileyerek enerjinizi aktif kılın.\nGüneşle Temas: Güneş ışığından verimli faydalanarak canlılığınızı destekleyin.\nSpontanite: Heyecan verici ve planlanmamış aktivitelerle yaşamınıza dinamizm katın.\nFiziksel Aktiviteler: Koşu, yüzme veya takım sporları gibi hareketli branşlarla ateş elementinin gücünü dışa vurun.\nDisiplinli Hareket: Dinamik yoga türleri ve dövüş sanatları ile ateş enerjinizi dengeli bir şekilde kullanın.",
+    "lessSupport": {
+      "colors": "Kırmızı, Turuncu ve Sarı",
+      "stones": [
+        "Kırmızı Akik (Carnelian): Canlılık",
+        "Sarı Sitrin: Neşe, özgüven",
+        "Lal Taşı (Granet): Tutku ve cesaret",
+        "Yakut: Yaşam enerjisi",
+        "Güneş Taşı (Sunstone): Pozitif enerji"
+      ],
+      "scents": [
+        "Tarçın: Canlandırıcı",
+        "Karanfil: Güçlü enerji",
+        "Zencefil: Harekete geçiren",
+        "Biberiye: Zihinsel netlik"
+      ]
+    },
+    "limitedSupport": {
+      "colors": "Turuncu, Açık kırmızı, Altın Sarısı",
+      "stones": [
+        "Sitrin: Motivasyon",
+        "Kırmızı Akik: İstikrar için destek",
+        "Amber: Yaşam enerjisi"
+      ],
+      "scents": [
+        "Tarçın: Canlandırıcı",
+        "Biberiye: Zihinsel odak",
+        "Kakule: Hareket enerjisi"
+      ]
+    },
+    "moreSupport": {
+      "colors": "Mavi ve tonları (turkuaz, lacivert)",
+      "stones": [
+        "Akuamarin: Sakinlik ve iletişim",
+        "Firuze: Denge",
+        "Mavi Akik: Sakinleştirici",
+        "Amazonit: Sezgisel farkındalık"
+      ],
+      "scents": [
+        "Yasemin: Yatıştırıcı",
+        "Ylang Ylang: Duygusal rahatlama",
+        "Gül: Huzur hissi",
+        "Lavanta: Sakinlik"
+      ]
+    },
+    "balanceSupport": null
   },
   {
     "key": "Water",
     "name": "Su",
     "description": "duygusallığın, gizemin ve uyumun enerjisidir. Yardımsever, sahiplenici ve sezgisel güçtür. Yaşamı hisleriyle yönlendirme hevesiyle doludur. Nazik ve duyarlıdır.",
-    "less": "Duygusal olarak kendinizi tam olarak mutlu hissedemiyorsunuz. Hislerinizi karşı tarafa aktarmakta güçlük çekiyor olabilirsiniz. Sezgilerinizi kullanma konusunda engellenmiş olabilirsiniz. Ruhsal ve fiziksel olarak kendinizi iyileştirmek uzun sürebilir. Boşluk hissi ile zorlanabilirsiniz\n\nSu elementi eksikliği fiziksel sağlığı olumsuz etkiler. Uyku bozukluklarından, cilt hastalıklarına, eklem ve kas sertleşmesinden, cinsel sağlık problemlerine kadar gidebilir. Susuz beden zehirleneceğinden ötürü öncelikli olarak bol su ve sınırı aşmayacak şekilde tuzlu öğünler tüketilmelidir.\n\nDeniz ürünleri deneyebilirsiniz. Bununla birlikte deniz, göl kenarı, hamam ve benzeri yerlerde daha çok bulunmalı su ile temas halinde olmalısınız. Karpuz kavun gibi sulu meyveler yiyin. Vücudunuz için düzenli olarak yağ ve krem kullanın. Suyun sesini dinleyin.\n\nRuhunuz için ise rahatlatan müzikler dinlemelisiniz. Duygularınızı paylaşmalısınız. Hobi ve sanatsal aktiviteler ile ilgilenin. Kan dolaşımını hızlandıracak egzersizler yapın. Ay taşı, akuamarin, turkuaz ve safir taşlarını kullanın. Mavi ve tonlarını hayatınıza daha çok ekleyin.",
-    "limited": "bilgi gelecek",
-    "more": "Sizi diğerlerine göre daha hassas, küskün ve endişeli bir hale getirebilir. Başkaları sizin iyi niyetinizden faydalanmaya çalışabilir. Takıntılarınız size zarar verebilir. Duygu değişimlerini hızlı yaşayabilirsiniz. Güven ve sevgi ihtiyacınız yeteri kadar karşılanmıyor diye düşünebilirsiniz.\n\nÇünkü fedakar bir yapınız var ve verdiğiniz değerin karşılığını alma konusunda sıkıntılar yaşanabilir. Gidenleri ve aldatanları geride bırakın. Ama en ufak hatada insanları silmeyin. Üzüldüğünüzde insanlara kendilerini açıklamaları için şans verin. Kendi beklentilerinizi gösterin. İçinize kapanmayın.\n\nAktif olun. Dinamik sporlar yapın, hareketli hobiler edinin. Endişe ve korkular yüzünden kendinizi kapatmayın. Planlarınızı mantıkla düşünün ve hayata geçirin. Kimsenin sizi anlamadığını düşünüyorsanız, bu duyguları paylaşmayı deneyin. İçinize atıp, kuruntu yapmayın.\n\nEnerjik müzikler dinleyin. Ödem yapan yiyeceklerden uzak durun. Kuru gıdalarla daha sık beslenin. Detoks sıvılar tüketin. Toprak tonları kullanabilirsiniz. Bitkilerle ilgilenerek toprak elementi ile bu fazlalığı dengelemeyi deneyebilirsiniz. Kaplan gözü ve yeşim taşı faydalı olacaktır.",
-    "balance": "Harekete geçirmek için, duygusal ve sezgisel paylaşımlarda bulunabilir; deniz, göl, nehir gibi yerlerde su ile temasa geçebilirsiniz. Romantik yönünüzü açığa çıkarabilirsiniz."
+    "less": "Duygusal dengesizlik: Nedensiz hüzün, ani duygu değişimleri ve duygusal zorlanmalar yaşanabilir.\nİfade ve empati sorunu: Hisleri dışa vurmakta güçlük çekilebilir; empati yeteneği zayıflayabilir.\nSezgi zayıflığı: İçgüdülerin kullanımında ve sezgisel kararlarda zorlanılabilir.\nYaratıcılık kaybı: Hayal gücünde azalma, ilham eksikliği ve sanatsal üretimde durgunluk hissedilebilir.\nDışa bağımlılık: Kendiyle baş başa kalmakta zorlanıldığı için sürekli dış uyarıcı veya oyalayıcı aranabilir.\nBedensel yansımalar: Sıvı dengesizliği, böbrek-bağırsak problemleri, cilt kuruluğu ve kas-eklem sertliği gibi fiziksel sorunlar oluşabilir.\nBağlanma güçlüğü: Güven duyma, duygusal bağ kurma ve derin ilişkilere girmekte isteksizlik görülebilir.\nYüzeysellik: İç dünyayla olan bağ zayıflayarak hayatın genelinde yüzeysel bir yaşam hissi oluşabilir.\nSu ile temas kurun: Deniz, göl, hamam, duş gibi alanlarda vakit geçirin.\nSulu meyveler (karpuz, kavun), çorba ve sulu yemekler tüketin.\nBol su için ve bedenin susuz kalmasına izin vermeyin.\nCildinize düzenli olarak yağ veya nemlendirici uygulayın.\nRahatlatıcı müzikler dinleyin, doğa sesleri (yağmur, su şırıltısı).\nManevi temalı kitaplar okuyun. Geçmiş duyguları affedin.\nYaratıcı hobilere yönelin; günlük yazın, resim, el işi üretin).\n‍ Meditasyon, yoga ve yüzme sporu ruhsal denge sağlar.\nEmpati pratikleri: Başkalarının hikayelerini dinlemeye odaklanıp \"dinleyici\" konumunda olun.\nKan dolaşımını hızlandıracak hafif egzersizler yapın.\nGece uyumadan önce sakinleştirici bitki çayları tüketin.\nRenkler: Mavi ve tonları (lacivert, turkuaz, açık mavi)\nAy Taşı: Duygusal denge\nAkuamarin: Zihinsel sakinlik\nTurkuaz: Koruyucu\nSafir: Bilgelik\nYasemin: Yatıştırıcı\nYlang Ylang: İlham\nItır (Geranium): Duygusal denge\nLimon Otu (Lemongrass): Tazeleyici",
+    "limited": "Bu element haritanızda sürekli akan bir nehir gibi aktif değil, ihtiyaç duyduğunuzda ulaşabildiğiniz gizli bir kuyu gibidir.\nDoğal Akış: Günlük hayatınızda duygularınızı ifade etmekte mesafeli veya kontrollü davranabilirsiniz. Ancak güçlü bir bağ kurduğunuzda, önemli bir olay yaşadığınızda veya gerçekten güvende hissettiğinizde derin duygularınız ortaya çıkabilir.\nGizli Yetenek: Sezgileriniz ve duygusal farkındalığınız tamamen uzakta değildir; sadece sürekli aktif değildir. Mantık ön planda çalışırken, ihtiyaç anlarında güçlü bir iç görü ve empati devreye girebilir.\nSu elementini aktif etmek için\nDuygularınızı yazıya dökmek, günlük tutmak\nEmpati kurarak sosyal iletişime geçmek\nDeniz, göl, nehir gibi su kaynaklarıyla temas kurmak\nMeditasyon, nefes çalışmaları ve iç dünya ile bağlantıya geçmek\nMüzik, resim, şiir gibi yaratıcı faaliyetlere zaman ayırmak\nDuyguları bastırmak yerine fark edip isimlendirmek\nRenkler: Açık mavi, turkuaz, gümüş tonları\nAy Taşı: Sezgisel farkındalık\nAkuamarin: Duygusal akış\nMavi Kalsedon: İfade kolaylığı\nİnci: İç huzur\nYasemin: Duygusal açılım\nLavanta: İç huzur\nLotus: Ruhsal farkındalık\nItır (Geranium): Duygusal denge",
+    "more": "Dinamik hareket: Hareketli sporlar yaparak enerjinizi dışa vurun.\nSanatsal ifade: Tiyatro veya atölye gibi sanatsal hobilerle kendinizi ifade edin.\nDuygusal paylaşım: İçinize atmak yerine, güvendiğiniz biriyle duygularınızı paylaşın.\nAteş enerjisi: Güneş ışığından faydalanın ve mum yakarak ateş enerjisini besleyin.\nTopraklanma: Bitkilerle ilgilenerek veya doğayla bağ kurarak topraklanın.\nSıcak ortamlar: Kamp yapmak veya ateş başında bulunmak gibi kuru ve sıcak ortamları tercih edin.\nHedef odaklılık: Mantıklı planlar oluşturun ve hedef odaklı projelere başlayın.\nEnerjik müzikler: Modunuzu yükseltecek hareketli parçalar dinleyin.\nBeslenme düzeni: Detoks içecekleri ve hafif kuru gıdalarla beslenmeye özen gösterin.\nZihinsel boşalma: Duygularınızı günlük tutarak yazın ve zihninizi boşaltın.\nTer atma: Bol yürüyüş yaparak vücudunuzu harekete geçirin ve ter atın.\nRenkler: Toprak tonları (bej, kahverengi, hardal), sıcak sarı, turuncu\nYeşim Taşı: İç huzur\nJasper: Topraklanma\nRodonit: Pozitif enerji\nDumanlı Kuvars: Temizleyici.\nAdaçayı: Arındırıcı.\nSedir Ağacı: Topraklayıcı\nVanilya: Yatıştırıcı\nLavanta: Sakinleştirici",
+    "balance": "İç dünyanızı ifade edin: Duygusal yönünüzü açığa çıkararak; romantik, derin sohbetler ve sürprizler ile iç dünyanızı yansıtabilirsiniz.\nSuyla temas edin: Deniz, göl veya nehir gibi su kaynaklarında vakit geçirerek suyun şifa enerjisinden beslenebilirsiniz.\nBedensel bakım yapın: Aromaterapi yağları ve besleyici kremler ile vücudunuzu nemlendirip masaj yaparak su elementinin dengesini koruyabilirsiniz.\nYaratıcılığınızı kullanın: Müzik, şiir, konuşma, yazı veya resim gibi sanatsal ve yaratıcı aktivitelere yönelerek su enerjinizden faydalanabilirsiniz.\nRahatlatıcı uygulamalar: Hamam, sauna, buhar odası veya rahatlatıcı banyolar ile suyun sakinleştirici etkisini deneyimleyebilirsiniz.\nEmpati Çalışmaları: Başkalarının hikayelerine odaklanarak, \"dinleyici\" konumunda kalıp empati yeteneğinizi besleyebilirsiniz.",
+    "lessSupport": {
+      "colors": "Mavi ve tonları (lacivert, turkuaz, açık mavi)",
+      "stones": [
+        "Ay Taşı: Duygusal denge",
+        "Akuamarin: Zihinsel sakinlik",
+        "Turkuaz: Koruyucu",
+        "Safir: Bilgelik"
+      ],
+      "scents": [
+        "Yasemin: Yatıştırıcı",
+        "Ylang Ylang: İlham",
+        "Itır (Geranium): Duygusal denge",
+        "Limon Otu (Lemongrass): Tazeleyici"
+      ]
+    },
+    "limitedSupport": {
+      "colors": "Açık mavi, turkuaz, gümüş tonları",
+      "stones": [
+        "Ay Taşı: Sezgisel farkındalık",
+        "Akuamarin: Duygusal akış",
+        "Mavi Kalsedon: İfade kolaylığı",
+        "İnci: İç huzur"
+      ],
+      "scents": [
+        "Yasemin: Duygusal açılım",
+        "Lavanta: İç huzur",
+        "Lotus: Ruhsal farkındalık",
+        "Itır (Geranium): Duygusal denge"
+      ]
+    },
+    "moreSupport": {
+      "colors": "Toprak tonları (bej, kahverengi, hardal), sıcak sarı, turuncu",
+      "stones": [
+        "Yeşim Taşı: İç huzur",
+        "Jasper: Topraklanma",
+        "Kaplan Gözü: Güç ve berraklık"
+      ],
+      "scents": [
+        "Adaçayı: Arındırıcı",
+        "Sedir Ağacı: Topraklayıcı",
+        "Vanilya: Yatıştırıcı",
+        "Lavanta: Sakinleştirici"
+      ]
+    },
+    "balanceSupport": null
   },
   {
     "key": "Earth",
     "name": "Toprak",
     "description": "kişiyi maddi manevi dünyadaki güzelliklere bağlar. Azimli, gerçekçi ve sabırlı bir enerji verir. Düzenli, uyumlu bir istikrar gücüdür. Her anlamda güvende hissetmek ve birikim yapma hevesiyle doludur.",
-    "less": "Planlarınızı hayata geçirmekte zorlanıyor olabilirsiniz. Kafanız fazla dağınık, iş verimsiz, organizasyon bozukluğu olabilir. Dünyada nereye ait olduğunuzu sorguluyor olabilirsiniz. Maddi ve somut şeyleri hep zor elde ediyorum diye düşünebilirsiniz.\n\nVücudunuzun ihtiyaçlarını duymuyorsunuz. Kendinize daha iyi bakmanız gerekiyor. Güvensizlik duygusu sizi sarmış olabilir. Mal, mülk ve eşya konusunda dikkatsiz savurgan ve ya ters etkiyle bu konuda daha takıntılı hale gelmiş olabilirsiniz.\n\nBedeninizdeki stres ve elektriği azaltmak için toprak ile temasta bulunmanız gereklidir. Her türlü çiçek ve bitki yetiştirmek, kil heykel ile uğraşmak toprak enerjisini dengelemek için yararlı olur. Ağaçlık alanlara, bahçelere gitmek yeşil alanlarda gezmek, dokunarak temasa geçmek daha iyi hissetmenizi sağlayacaktır. \n\nBeslenme biçiminizi sebze ve yeşil bitkilere yönelik bir şekilde değiştirirseniz vücudunuz daha rahat ve enerjik olacaktır. Evinizde ve üzerinizde yeşilin tonları ve toprak tonları olan renkler kullanmanız faydalı olacaktır. Yemek yapın, el becerilerinizle bir ürün üretin. Birikim ve koleksiyon yapın, mutlaka çimen ile temasta olun. Yeşim taşı, malahit, peridot ve zümrüt taşları size iyi gelir.",
-    "limited": "bilgi gelecek",
-    "more": "Bedeninize ağırlık çöküyor olabilir. Tek yönlülük ve hareketsizlik, temel enerjinizi bloke edebilir. Katı, aşırı kontrolcü, iş ve kariyer konularında fazla takıntılı ve risk almayan bir yapınız olabilir. Değişime karşı daha açık olmalı ve yeni fikirlere şans vermelisiniz. \n\nİş hakkında fazla düşünmek ve hayatta harekete geçememekten dolayı bedeniniz stres altına girebilir. Hayal gücünüz ve duygularınız baskı altında gizlenmekte. Eklem ve kas ağrıları görülebilir. Daha fazla suya, sıcak buhara ihtiyacınız olacak. Hafif beslenme ve renkli meyveler size sağlık verecek. Sıvı beslenme diyetleri durumunuzu düzeltmede yardımcı olacaktır.\n\nHayallerinizi çeşitlendirin, boş zamanlarınızda hareketli faaliyetler yapın. Doğada huzur bulun. Aromatik yağlar ve masaj enerjinizi dengeleyecektir. Maddi ve manevi paylaşımlar toprak elementini dengeler. Paylaşın, dertleşin. \n\nBu noktada toprağın su ile birleştiği alanlarda bulunmak ve su ile temasa geçmek içinizdeki kuruluğu ve tıkanıklığı gidermenize yardımcı olacaktır. Özellikle turkuaz ve mavi tonlarındaki taşlar bulundurmanız daha rahat hissetmenizi sağlar. Mavi tonları giymeniz de faydalı olacaktır.",
-    "balance": "Harekete geçirmek için doğa ile temasa geçebilirsiniz. Bitki ve çiçek yetiştirebilirsiniz. Birikim planlaması yapabilirsiniz."
+    "less": "Uygulama Zorluğu: Planları hayata geçirmekte zorlanabilir, projeleri bitirme noktasında motivasyon kaybı yaşayabilirsiniz.\nAnlık Beklentiler: Sabırsızlık eğilimi nedeniyle uzun vadeli süreçleri yönetmek yerine, hızlı sonuçlar alma arayışına girebilirsiniz.\nOdak ve Düzen Sorunları: Zihinsel dağınıklık ve düzensiz yaşam tarzı, zaman yönetiminizi ve üretkenliğinizi olumsuz etkileyebilir.\nMaddi Dengeler: Finansal konularda savurganlık veya aşırı kaygıya dayalı tutucu yaklaşımlar arasında gidip gelebilirsiniz.\nBedensel İhmal: Fiziksel ihtiyaçlara (beslenme, dinlenme) karşı duyarsızlaşma, beraberinde yorgunluk ve unutkanlık getirebilir.\nBaşlangıç Kaygısı: \"Nereden başlamalıyım?\" düşüncesi, sizi hareketsizliğe ve verimsizliğe sürükleyebilir.\nDoğayla Bağ Kurun: Yeşil alanlarda vakit geçirin, bitki yetiştirin ve doğayla fiziksel temasınızı artırın.\nSomut Üretim: El becerilerinize odaklanın; yemek yapmak, kil ile çalışmak veya el işi projeleri geliştirmek topraklanmanızı sağlar.\nRutinler Oluşturun: Günlük küçük alışkanlıklar edinerek hayatınıza bir düzen getirin.\nBeslenme Dengesi: Sebze ağırlıklı, özellikle yeşil yapraklı gıdalara yönelerek bedensel dengenizi destekleyin.\nKöklenme Pratikleri: Defter tutmak veya koleksiyon yapmak gibi \"biriktirme\" eylemleri ile aidiyet ve süreklilik hissini geliştirin.\nSabır ve Süreç: Hızlı sonuç alma arzusundan uzaklaşarak, sağlam temeller atmanın getirdiği sürece odaklanın.\nBedensel Disiplin: Yoga, Pilates ve ağırlık antrenmanları gibi zihni sakinleştiren ve bedeni güçlendiren fiziksel aktivitelere zaman ayırın.\nRenkler: Yeşil ve toprak rengi tonları\nYeşim: Huzur ve uyum\nAkik (Kahverengi): Topraklanma ile güvenlik\nKaplan Gözü : Cesaret ve güven.\nSiyah Turmalin: Koruma\nMalahit: Enerji akışı\nAromatik kokular:\nSandal Ağacı: Topraklayıcı\nPaçuli: Toprakla bağlantı\nVetiver: Derinlik\nFındık: Huzur enerjisi",
+    "limited": "Bu element haritanızda gündelik yaşamın aktif bir kökü gibi değil; ihtiyaç duyduğunuzda devreye giren bir ağaç gölgesidir.\nDoğal Akış: Gündelik hayatınızın her anında planlı veya maddiyatçı olmayabilirsiniz. Ancak \"ayağınızın yere sağlam basması gereken\" bir durumla karşılaştığınızda, doğal bir  \"pratiklik ve soğukkanlılık\" devreye girebilir.\nGizli Yetenek: Siz toprak enerjisini bir \"yaşam biçimi\" olarak değil, bir \"kriz yönetimi aracı\" olarak kullanıyorsunuz. Toprak elementini uyandırmak için net bir hedefe ihtiyacınız vardır.\nGünlük kısa yürüyüşler: Özellikle aynı rota üzerinde yapılan yürüyüşler istikrar sağlar.\nBasit rutinler: Sabah veya akşamları uygulanan küçük ritüeller, zihni sakinleştirir.\nBitki bakımı: Küçük sorumluluklar almak, toprak enerjisini besler.\nDoğa ile temas: Doğada vakit geçirmek topraklanmayı kolaylaştırır.\nEv düzenini oluşturmak: Yaşam alanınızda düzen kurmak, pratik enerjinizi harekete geçirir.\nFinansal planlama: Küçük bütçe alışkanlıkları geliştirmek, somut dünyaya olan bağınızı güçlendirir.\nRenkler: Yeşil (açık tonlar), Bej, Açık kahverengi\nYeşim: İstikrar\nAkik: DEnge\nAmazonit: Odaklanma\nSandal ağacı : Topraklanma\nPaçuli : Denge enerjisi\nVetiver : Köklenme desteği",
+    "more": "Duygusal İhmal: Ruhsal ve duygusal ihtiyaçlar, pratik kaygıların gölgesinde ihmal edilebilir.\nMükemmeliyetçilik ve Kontrol: Aşırı kontrolcülük ve iş odaklılık, esnekliğinizi sınırlayabilir.\nBaskılanan Yaratıcılık: Hayal gücü ve duygusal ifade, somut gerçeklik arayışı içinde baskılanabilir.\nİletişim ve İlişkiler: Kendini ifade etme güçlüğü, sosyal ilişkilerde kopukluk yaratabilir.\nHareketsizlik: Fiziksel düzeyde bedensel bir ağırlık ve atalet hissi baskın gelebilir.\nDeğişime Direnç: Yeni fikirlere karşı mesafeli duruş ve alışkanlıklara katı bağlılık görülebilir.\nFiziksel Belirtiler: Eklem ve kas ağrıları gibi somatik (bedensel) rahatsızlıklar ortaya çıkabilir.\nRiskten Kaçınma: Güvenli alanı koruma arzusu, risk alma kapasitenizi düşürebilir.\nTakıntılı Rutinler: Günlük pratikler, zamanla esnemeyen takıntılı davranış kalıplarına dönüşebilir.\nDinamik Hareket: Dans veya düzenli egzersiz gibi hareketli aktivitelerle, bedendeki durağanlığı ve ağırlık hissini kırabilirsiniz.\nZihinsel Esneklik: Meditasyon ve nefes çalışmaları, zihni sakinleştirerek takıntılı düşünce kalıplarından uzaklaşmanıza yardımcı olur.\nDuygusal Dışavurum: Resim veya yazı gibi yaratıcı hobiler, baskılanan duygularınızı ifade etmeniz için güvenli alanlar oluşturur.\nDoğal Denge: Doğada toprağın suyla buluştuğu (örneğin nehir veya göl kenarı gibi) bölgelerde vakit geçirmek, su ile temas etmek etkilidir.\nBeslenme Düzeni: Çorbalar, sulu meyveler ve hafif sebzeler gibi su oranı yüksek gıdalarla bedeninizi daha hafif ve akışkan tutabilirsiniz.\nSosyal ve Maddi Paylaşım: Maddi ve manevi kaynaklarınızı paylaşmak, aşırı kontrolcülük eğilimini yumuşatır.\nVizyon Genişletme: Yeni fikirlere ve bakış açılarına kapı açmak, değişime karşı olan direncinizi kırar ve sizi canlı tutar.\nRenkler: Mavi ve tonları (turkuaz, açık mavi, lacivert)\nAkuamarin: Sakinlik, berraklık\nMavi Akik: Sakinleştirici etki\nAmazonit: Duygusal denge\nAmetist: Zihinsel dinginlik\nTatlı portakal: Hareket enerjisi\nLimon: Canlandırıcı\nBergamot: Hafif ve ferahlatıcı.\nGül: Huzur enerjisi",
+    "balance": "Doğada yürüyüş yaparak, ağaç ve kök ile temas kurarak toprak elementin dengesini destekleyebilirsiniz.\nSebze, meyve, bitki ve çiçek yetiştirip, toprağa dokunarak, elementi aktifleştirebilirsiniz.\nMaddi istikrar için adımlar atabilirsiniz. Finansal hedefler belirleyip, birikim ve bütçe planlaması yaparak toprak elementini aktifleştirirsiniz.\nEl sanatlarıyla( kil, seramik, ahşap, heykel, taş vb.) ile uğraşarak, yaratıcılığınızı, toprak elementi ile canlandırabilirsiniz.\nYürüyüş, tırmanış, kampçılık gibi aktiviteler ile toprak enerjisini aktif eder ve ondan faydalanabilirsiniz.",
+    "lessSupport": {
+      "colors": "Yeşil ve toprak rengi tonları",
+      "stones": [
+        "Yeşim: Huzur ve uyum",
+        "Akik (Kahverengi): Topraklanma ile güvenlik",
+        "Kaplan Gözü: Cesaret ve güven",
+        "Siyah Turmalin: Koruma",
+        "Malahit: Enerji akışı"
+      ],
+      "scents": [
+        "Sandal Ağacı: Topraklayıcı",
+        "Paçuli: Toprakla bağlantı",
+        "Vetiver: Derinlik",
+        "Fındık: Huzur enerjisi"
+      ]
+    },
+    "limitedSupport": {
+      "colors": "Yeşil (açık tonlar), Bej, Açık kahverengi",
+      "stones": [
+        "Yeşim: İstikrar",
+        "Akik: Denge",
+        "Amazonit: Odaklanma"
+      ],
+      "scents": [
+        "Sandal Ağacı: Topraklanma",
+        "Paçuli: Denge enerjisi",
+        "Vetiver: Köklenme desteği"
+      ]
+    },
+    "moreSupport": {
+      "colors": "Mavi ve tonları (turkuaz, açık mavi, lacivert)",
+      "stones": [
+        "Akuamarin: Sakinlik, berraklık",
+        "Mavi Akik: Sakinleştirici etki",
+        "Amazonit: Duygusal denge",
+        "Ametist: Zihinsel dinginlik"
+      ],
+      "scents": [
+        "Tatlı Portakal: Hareket enerjisi",
+        "Limon: Canlandırıcı",
+        "Bergamot: Hafif ve ferahlatıcı",
+        "Gül: Huzur enerjisi"
+      ]
+    },
+    "balanceSupport": null
   },
   {
     "key": "Air",
     "name": "Hava",
-    "description": "iletişim, paylaşım ve düşünce gücüdür. Sorgulayan, araştıran özgür ruhu temsil eder.Akılcı, yenilikçi, keşifçidir. Adalet ve işbirliği hevesiyle doludur.",
-    "less": "İlişki kurmakta, kendinizi ifade etmekte zorluk çekiyor olabilirsiniz. Yeni gelişmeler ve olaylara yetişemiyor olabilirsiniz. Etrafınızda yaşananları geç görebilirsiniz. Yanlış anlaşılma korkusu, grup çalışmalarından uzaklaşma durumunuz olabilir.\n\nİlişkileri uzun vadeli yapabilmek için, sakince düşünmek için kendinize zaman ayırın. Sosyal aktivitelere daha aktif bir şekilde katılmalısınız. Zihninizi genişletmek için çeşitli filmler izlemek, tiyatro, konser gibi etkinlikleri daha sık gerçekleştirmelisiniz. Kitaplara şans verin.\n\nTabiki hava elementiyle etkileşime geçmek için, her gün oksijen almak ve nefesinizi açmanız gereklidir. Bunun için yeşil alanlarda yürüyüş yapmalısınız. Daha kalabalık alanlarda bulunmalı ve fikir alış verişlerine açık olmalısınız. Felsefe ve psikolojiye yönelin.\n\nSıcak ve buharda pişen yiyecekleri tercih etmelisiniz. Ekşi, tatlı, acı soslar deneyebilirsiniz. Buhar banyoları faydalı olacaktır. Ametist, ay taşı, kristal kuvars içerisindeki mineraller ile hava elementini dengeleyecektir. Hayatınızda parlak renkler kullanın. ",
-    "limited": "bilgi gelecek",
-    "more": "Hayallerinizi ve planlarınız hayata geçirmede zorluk yaşıyor olabilirsiniz. Bağımsız ve dışadönük ruhunuz odaklanma ve bağlanma sorunu yaşayabilir. Zihninizdeki onlarca düşünce ve fikir zamanınızı tüketiyor olabilir. Sinir sisteminiz yara alıyor olabilir.\n\nÖncelikle gürültülü ve kalabalık yerlerde daha az bulunmayı deneyin. Uyku düzeni bilhassa sizin için çok önemlidir. Planlarınız için ajanda tutun ve sırasıyla ilerleyin. Aklınıza gelenleri not edin. Huzur bulmak için sessizlik ve odaklanma temalı meditasyonlar uygulayabilirsiniz. Terapi yöntemleri ve kişisel gelişim kitapları okuyabilirsiniz.\n\nSağlıklı uyuma yönteminizi bulun. Tatlı, tuzlu atıştırmalıklar, zeytinyağlı öğünler tüketebilirsiniz. Tartışmalardan ve sizi anlamayan insanlardan uzak durun. Yeni ortamlardan çok size güven veren insanlar ile birlikte vakit geçirin. Gün içinde derin nefes alıp verme egzersizi yapın.\n\nAmetist hava elementini dengelemek için yararlı bir taştır. Obsidyen sinir sisteminize iyi gelir. Pembe kuvars stresi azaltmada size yardımcı olur. Koyu tonlar ve mor rengi tercih edebilirsiniz. ",
-    "balance": "Harekete geçirmek için fikirlerinizi paylaşarak bilgi alışverişi yapabilirsiniz. Açık havada topluca vakit geçirebilir, aktivitelere katılabilirsiniz."
+    "description": "iletişim, paylaşım ve düşünce gücüdür. Sorgulayan, araştıran özgür ruhu temsil eder. Akılcı, yenilikçi, keşifçidir. Adalet ve işbirliği hevesiyle doludur.",
+    "less": "İfade zorluğu: Kendini anlatmakta ve bağ kurmakta güçlük yaşanabilir.\nYavaş algı: Olayları kavramada ve tepki vermede yavaşlık görülebilir.\nMerak eksikliği: Öğrenmeye ve keşfetmeye karşı isteksizlik oluşabilir.\nSosyal mesafe: İçe kapanma, grup çalışmasından kaçınma eğilimi artabilir.\nZihinsel katılık: Fikir üretmekte ve esneklikte zorlanılabilir.\nYüzeysellik: İletişimde anlam derinliği kaybolabilir.\n‍ Derin nefes egzersizleri: Zihni ve bedeni açar, oksijeni arttırır.\nDoğa yürüyüşleri: Açık havada zaman geçirmek, zihinsel berraklığı ve enerjiyi artırır.\nSosyal aktivitelere katılmak: Tiyatro, konser, sergi gibi aktivitelere katılın.\nKitap okumak: Özellikle düşünsel gelişimi destekleyen içeriklere yönelin.\nGrup sohbetleri: Tartışmalara katılarak zihinsel etkileşimi ve iletişimi artırın.\nFelsefe, psikoloji gibi konuları araştırmak: Zihinsel derinliği artırır ve düşünce yapısını genişletir.\nBuharda pişen hafif yiyecekler tüketmek: Ekşi, acı ve tatlı soslar da deneyin.\nBuhar banyoları: Zihinsel berraklık sağlar ve rahatlamaya yardımcı olur.\nYalnız kalmaktan kaçınmak: Sosyal etkileşim ve fikir alışverişi önemlidir.\nRenkler: Parlak ve açık tonlar (beyaz, açık mavi, lavanta)\nAmetist: Sakinleştirici\nKristal Kuvars: Odaklanma\nLapis Lazuli: Zihinsel netlik\nSodalit: Mantık enerjisi\nPortakal: Canlandırıcı\nOkaliptüs: Temizleyici\nLimon: Tazeleyici\nNane: Ferahlatıcı",
+    "limited": "Bu element haritanızda sürekli çalışan bir frekans gibi değil, ihtiyaç duyduğunuzda açılan özel bir iletişim kanalı gibidir.\nDoğal Akış: Günlük yaşamda çok konuşkan, meraklı veya sosyal görünmeyebilirsiniz. Ancak ilginizi çeken bir konu ortaya çıktığında ya da doğru kişilerle bir araya geldiğinizde zihinsel canlılığınız ve iletişim becerileriniz belirgin şekilde ortaya çıkabilir.\nGizli Yetenek: Hızlı düşünme, analiz etme kapasiteniz mevcut; ancak bu enerji sürekli çalışmaz. Gerektiğinde oldukça yaratıcı fikirler üretebilir ve farklı bakış açılarını kolayca görebilirsiniz.\nHava elementini aktif etmek için\nYeni konular öğrenmek ve araştırmalar yapmak\nKitap, makale ve belgesellerle zihni beslemek\nSosyal etkinlikler ve yeni yerler keşfetmek\nFikir alışverişi yapabileceğiniz insanlarla iletişim kurmak\nGünlük tutmak, yazı yazmak veya düşünceleri not almak\nNefes egzersizleri ve açık hava aktiviteleri\nRenkler: Açık mavi, beyaz, lavanta, gümüş\nAmetist: Zihinsel denge\nSodalit: Mantıklı düşünme\nLapis Lazuli: İfade gücü\nKristal Kuvars: Zihinsel berraklık\nNane: Zihinsel canlılık\nLimon: Tazelik ve odak\nOkaliptüs: Ferahlık\nPortakal: Enerji ve neşe",
+    "more": "Uygulama güçlüğü: Hayalleri ve planları gerçeğe dönüştürmekte zorlanılabilir.\nOdaklanma sorunu: Bağımsız ve dışadönük ruh hali, bir konuya bağlanmayı zorlaştırabilir.\nZihinsel yoğunluk: Aşırı düşünce ve detay, zamanın verimli kullanımını engelleyebilir.\nSinirsel gerginlik: Sinir sistemi üzerindeki yük artabilir.\nUyku düzensizliği: Dinlenme süreçleri bozuk ve değişken bir seyir izleyebilir.\nYorgunluk ve kararsızlık: Sürekli analiz hali, zihinsel yorgunluğa ve kararsızlığa yol açabilir.\nHuzursuzluk: Gelecek kaygısı ve içsel bir huzursuzluk hissedilebilir.\nİhmal: Duygusal ihtiyaçlardan uzaklaşıp kişinin kendini ihmal etmesi söz konusu olabilir.\n‍ Gürültülü ve kalabalık yerlerden uzak durmaya çalışın.\nHava ile doğada sakince zaman geçirin. (yürüyüş ve yoga)\nMutlaka yaratıcılığınızı dışa vuracak hobiler edinin. (Resim, Yazı, El sanatı, Müzik gibi)\nBu hobilerden eserler üretin ve zihninizin yoğunluğunu azaltın.\nGüvendiğiniz kişiler ile duygusal paylaşımlar yapın.\nUykunuzu düzenleyin. (Rahatlatıcı çay, masaj, banyo)\nPlanlarınızı ajandaya kaydedin ve sırasıyla uygulayın.\nHuzur için; Sessizlik ve odaklanma meditasyonları yapın.\nSağlıklı uyku için uygun yöntemler bulun.(Göz bandı, uygun yastık, sessizlik)\nTatlı, tuzlu atıştırmalıklar ve zeytinyağlı öğünler tüketin.\nGün içinde derin nefes alıp verme egzersizi yapın.\nRenkler: Koyu tonlar ve Mor tonları\nSiyah Turmalin: Koruma\nObsidyen: Yatıştırıcı\nPembe Kuvars: Duygusal şifa\nDumanlı Kuvars: Temizleyici.\nBonus:  Ametist, hava elementinin hem eksikliğinde ve hem fazlalığında, zihinsel karmaşayı düzenlemek ve hafifletmek için yatıştırıcıdır.\nPapatya: Rahatlatıcı\nVanilya: Pozitif enerji\nSedir Ağacı: Sakinleştirici\nHindistan Cevizi: Huzur etkisi",
+    "balance": "Fikirlerinizi paylaşıp bilgi alışverişinde bulunup ve entelektüel tartışmalara katılarak hava elementini harekete geçirebilirsiniz.\nAçık havada topluca vakit geçirip, sosyal aktivitelere katılıp ve yeni insanlarla tanışarak, hava elementini canlandırabilirsiniz.\nZihinsel uyarım sağlayan kitaplar okuyup, belgeseller izleyip veya kurslara katılarak hava elementini aktif tutabilirsiniz.\nSeyahat edip, yeni yerler keşfederek ve farklı kültürler deneyimleyerek, keşif ve özgürlük duygusunu geliştirebilirsiniz.\nDerin nefes egzersizleri yaparak, meditasyon veya yoga gibi zihni ve bedeni dengeleyen uygulamalar ile hava elementini destekleyebilirsiniz.\nDüşüncelerinizi yazarak veya tasarlayarak somut eserlere dönüştürmek, hava akışını dengeleyip yaratıcılığınızı kalıcı kılabilir.",
+    "lessSupport": {
+      "colors": "Parlak ve açık tonlar (beyaz, açık mavi, lavanta)",
+      "stones": [
+        "Ametist: Sakinleştirici",
+        "Kristal Kuvars: Odaklanma",
+        "Lapis Lazuli: Zihinsel netlik",
+        "Sodalit: Mantık enerjisi"
+      ],
+      "scents": [
+        "Portakal: Canlandırıcı",
+        "Okaliptüs: Temizleyici",
+        "Limon: Tazeleyici",
+        "Nane: Ferahlatıcı"
+      ]
+    },
+    "limitedSupport": {
+      "colors": "Açık mavi, beyaz, lavanta, gümüş",
+      "stones": [
+        "Ametist: Zihinsel denge",
+        "Sodalit: Mantıklı düşünme",
+        "Lapis Lazuli: İfade gücü",
+        "Kristal Kuvars: Zihinsel berraklık"
+      ],
+      "scents": [
+        "Nane: Zihinsel canlılık",
+        "Limon: Tazelik ve odak",
+        "Okaliptüs: Ferahlık",
+        "Portakal: Enerji ve neşe"
+      ]
+    },
+    "moreSupport": {
+      "colors": "Koyu tonlar ve Mor tonları",
+      "stones": [
+        "Siyah Turmalin: Koruma",
+        "Obsidyen: Yatıştırıcı",
+        "Pembe Kuvars: Duygusal şifa",
+        "Dumanlı Kuvars: Temizleyici",
+        "Ametist: Zihinsel karmaşayı düzenler"
+      ],
+      "scents": [
+        "Papatya: Rahatlatıcı",
+        "Vanilya: Pozitif enerji",
+        "Sedir Ağacı: Sakinleştirici",
+        "Hindistan Cevizi: Huzur etkisi"
+      ]
+    },
+    "balanceSupport": null
   }
 ]

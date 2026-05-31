@@ -1,5 +1,11 @@
 import Foundation
 
+struct ElementSupport: Codable, Sendable {
+    let colors: String?
+    let stones: [String]?
+    let scents: [String]?
+}
+
 struct ElementEntry: Codable, Sendable, Identifiable {
     var id: String { key }
     let key: String
@@ -9,6 +15,20 @@ struct ElementEntry: Codable, Sendable, Identifiable {
     let limited: String
     let more: String
     let balance: String
+    // Renk / taş / koku desteği — her durum için ayrı
+    let lessSupport: ElementSupport?
+    let limitedSupport: ElementSupport?
+    let moreSupport: ElementSupport?
+    let balanceSupport: ElementSupport?
+
+    func support(for status: ElementInterpretation.ElementStatus) -> ElementSupport? {
+        switch status {
+        case .less:    return lessSupport
+        case .limited: return limitedSupport
+        case .more:    return moreSupport
+        case .balance: return balanceSupport
+        }
+    }
 }
 
 /// Element yorum veritabanı — eksik / fazla / dengeli durumlarına göre yorum.
@@ -25,13 +45,13 @@ enum ElementInterpretation {
     }
 
     /// Element durumunu puana göre belirle
-    /// EKSİK: 0.0–1.0 | SINIRLI: 1.5–2.5 | DENGELİ: 3.0–5.5 | BASKIN: 6.0+
+    /// EKSİK: <1.5 | SINIRLI: 1.5–3.0 | DENGELİ: 3.0–6.0 | BASKIN: 6.0+
     static func status(score: Double, totalScore: Double) -> ElementStatus {
         switch score {
-        case ..<1.5:   return .less
+        case ..<1.5:    return .less
         case 1.5..<3.0: return .limited
-        case 3.0..<6.0:  return .balance
-        default:         return .more
+        case 3.0..<6.0: return .balance
+        default:        return .more
         }
     }
 
@@ -71,9 +91,9 @@ enum ElementInterpretation {
 
     private static func elementKey(_ element: ZodiacSign.Element) -> String {
         switch element {
-        case .fire: "Fire"
+        case .fire:  "Fire"
         case .earth: "Earth"
-        case .air: "Air"
+        case .air:   "Air"
         case .water: "Water"
         }
     }
