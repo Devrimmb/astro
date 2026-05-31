@@ -342,13 +342,17 @@ struct CompositeChartView: View {
     private func calculateFromPeople() async {
         guard let p1 = selectedPerson1, let p2 = selectedPerson2 else { return }
         isLoading = true
+        let coords1 = WorldCityStore.coordinates(for: p1.cityName, countryCode: "")
+        let coords2 = WorldCityStore.coordinates(for: p2.cityName, countryCode: "")
+        let tz1 = TimeZone(identifier: coords1.tz) ?? TimeZone(identifier: "Europe/Istanbul")!
+        let tz2 = TimeZone(identifier: coords2.tz) ?? TimeZone(identifier: "Europe/Istanbul")!
         async let chart1 = appState.ephemeris.calculateBirthChart(
             date: p1.birthDate, latitude: p1.latitude, longitude: p1.longitude,
-            timeZone: TimeZone(identifier: "Europe/Istanbul")!
+            timeZone: tz1
         )
         async let chart2 = appState.ephemeris.calculateBirthChart(
             date: p2.birthDate, latitude: p2.latitude, longitude: p2.longitude,
-            timeZone: TimeZone(identifier: "Europe/Istanbul")!
+            timeZone: tz2
         )
         compositeChart = CompositeChartCalculator.calculate(chart1: await chart1, chart2: await chart2)
         isLoading = false

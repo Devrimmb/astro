@@ -11,60 +11,56 @@ struct SynastryView: View {
     @State private var useManualEntry = false
     @State private var partnerName = ""
     @State private var partnerBirthDate = Date(timeIntervalSince1970: 757_382_400)
+    @State private var partnerCountryCode = "TR"
     @State private var partnerCity = "İstanbul"
-    @State private var partnerLatitude = 41.0082
-    @State private var partnerLongitude = 28.9784
 
     private var hasSavedPeople: Bool {
         appState.birthDataStore.people.count >= 2
     }
 
     var body: some View {
-        NavigationStack {
-            ZStack {
-                SubtleStarsBackground()
+        ZStack {
+            SubtleStarsBackground()
 
-                ScrollView {
-                    VStack(spacing: 16) {
-                        if hasSavedPeople && !useManualEntry {
-                            peoplePickerCard
-                        } else {
-                            partnerInputCard
-                        }
-
-                        if hasSavedPeople {
-                            toggleModeButton
-                        }
-
-                        if isLoading {
-                            ProgressView("Harita hesaplanıyor...")
-                                .tint(AstroTheme.accent)
-                                .foregroundStyle(AstroTheme.textSecondary)
-                                .padding(.top, 20)
-                        } else if let result = synastryResult {
-                            relationshipScoreCard(result)
-                            scoreCard(result)
-                            categoriesCard(result)
-                            breakdownCard(result)
-                            keyAspectsCard(result)
-                            synastryShareButton(result)
-                        }
+            ScrollView {
+                VStack(spacing: 16) {
+                    if hasSavedPeople && !useManualEntry {
+                        peoplePickerCard
+                    } else {
+                        partnerInputCard
                     }
-                    .padding()
-                    .padding(.bottom, 40)
+
+                    if hasSavedPeople {
+                        toggleModeButton
+                    }
+
+                    if isLoading {
+                        ProgressView("Harita hesaplanıyor...")
+                            .tint(AstroTheme.accent)
+                            .foregroundStyle(AstroTheme.textSecondary)
+                            .padding(.top, 20)
+                    } else if let result = synastryResult {
+                        relationshipScoreCard(result)
+                        scoreCard(result)
+                        categoriesCard(result)
+                        breakdownCard(result)
+                        keyAspectsCard(result)
+                        synastryShareButton(result)
+                    }
                 }
+                .padding()
+                .padding(.bottom, 40)
             }
-            .navigationTitle("Synastry Analizi")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbarColorScheme(.dark, for: .navigationBar)
-            .onAppear {
-                // Varsayılan seçimleri ayarla
-                if selectedPerson1 == nil {
-                    selectedPerson1 = appState.birthDataStore.ownerPerson
-                }
-                if selectedPerson2 == nil {
-                    selectedPerson2 = appState.birthDataStore.people.first(where: { !$0.isOwner })
-                }
+        }
+        .navigationTitle("Synastry Analizi")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarColorScheme(.dark, for: .navigationBar)
+        .onAppear {
+            if selectedPerson1 == nil {
+                selectedPerson1 = appState.birthDataStore.ownerPerson
+            }
+            if selectedPerson2 == nil {
+                selectedPerson2 = appState.birthDataStore.people.first(where: { !$0.isOwner })
             }
         }
     }
@@ -205,12 +201,10 @@ struct SynastryView: View {
                 .foregroundStyle(.white)
                 .colorScheme(.dark)
 
-            TextField("Şehir", text: $partnerCity)
-                .textFieldStyle(.plain)
-                .font(.subheadline)
-                .foregroundStyle(.white)
-                .padding(10)
-                .background(AstroTheme.surface, in: .rect(cornerRadius: 10))
+            LocationPickerView(
+                selectedCountryCode: $partnerCountryCode,
+                selectedCity: $partnerCity
+            )
 
             Button {
                 Task { await calculateManual() }
@@ -552,17 +546,22 @@ struct SynastryView: View {
         guard let p1 = selectedPerson1, let p2 = selectedPerson2 else { return }
         isLoading = true
 
+        let coords1 = WorldCityStore.coordinates(for: p1.cityName, countryCode: "")
+        let coords2 = WorldCityStore.coordinates(for: p2.cityName, countryCode: "")
+        let tz1 = TimeZone(identifier: coords1.tz) ?? TimeZone(identifier: "Europe/Istanbul")!
+        let tz2 = TimeZone(identifier: coords2.tz) ?? TimeZone(identifier: "Europe/Istanbul")!
+
         async let chart1 = appState.ephemeris.calculateBirthChart(
             date: p1.birthDate,
             latitude: p1.latitude,
             longitude: p1.longitude,
-            timeZone: TimeZone(identifier: "Europe/Istanbul")!
+            timeZone: tz1
         )
         async let chart2 = appState.ephemeris.calculateBirthChart(
             date: p2.birthDate,
             latitude: p2.latitude,
             longitude: p2.longitude,
-            timeZone: TimeZone(identifier: "Europe/Istanbul")!
+            timeZone: tz2
         )
 
         let c1 = await chart1
@@ -576,11 +575,14 @@ struct SynastryView: View {
         guard let myChart = appState.currentChart else { return }
         isLoading = true
 
+        let coords = WorldCityStore.coordinates(for: partnerCity, countryCode: partnerCountryCode)
+        let tz = TimeZone(identifier: coords.tz) ?? TimeZone(identifier: "Europe/Istanbul")!
+
         let pChart = await appState.ephemeris.calculateBirthChart(
             date: partnerBirthDate,
-            latitude: partnerLatitude,
-            longitude: partnerLongitude,
-            timeZone: TimeZone(identifier: "Europe/Istanbul")!
+            latitude: coords.lat,
+            longitude: coords.lon,
+            timeZone: tz
         )
         synastryResult = appState.ephemeris.calculateSynastry(chart1: myChart, chart2: pChart)
         isLoading = false

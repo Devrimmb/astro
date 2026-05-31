@@ -36,13 +36,18 @@ struct SynastryCalculator: Sendable {
                 for aspectType in AspectType.allCases {
                     let orb = abs(diff - aspectType.rawValue)
                     if orb <= aspectType.orb {
-                        let speedDiff = p1.speed - p2.speed
-                        let applying: Bool
-                        if p1.longitude < p2.longitude {
-                            applying = speedDiff > 0
-                        } else {
-                            applying = speedDiff < 0
-                        }
+                        // İmzalı açısal ayrım (-180..180), gezegenin gerçek yönünü korur
+                        var signedSep = p1.longitude - p2.longitude
+                        if signedSep > 180 { signedSep -= 360 }
+                        if signedSep < -180 { signedSep += 360 }
+                        let relativeSpeed = p1.speed - p2.speed
+                        let aspectAngle = aspectType.rawValue
+                        // Hedef açıya (pozitif veya negatif) hangisi daha yakınsa onu seç
+                        let targetAngle: Double = aspectAngle == 0
+                            ? 0
+                            : (abs(signedSep - aspectAngle) <= abs(signedSep + aspectAngle) ? aspectAngle : -aspectAngle)
+                        // signedSep, targetAngle'a doğru yaklaşıyorsa applying
+                        let applying = (signedSep < targetAngle) == (relativeSpeed > 0)
 
                         aspects.append(SynastryAspect(
                             planet1: p1.planet,
