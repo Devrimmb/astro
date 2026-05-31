@@ -1222,6 +1222,9 @@
         }
       }
     },
+    "Bugünün Gökyüzü" : {
+
+    },
     "Bugünün Takvimi" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3884,6 +3887,9 @@
           }
         }
       }
+    },
+    "Modalite Dengesi" : {
+
     },
     "Mükemmel Uyum" : {
       "extractionState" : "manual",

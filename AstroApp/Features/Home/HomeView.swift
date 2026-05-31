@@ -7,6 +7,7 @@ struct HomeView: View {
     @State private var activeRetrogrades: [RetrogradeCalculator.RetrogradePeriod] = []
     @State private var dailyTip: String?
     @State private var todayEvents: [CalendarEvent] = []
+    @State private var todayPlanets: [PlanetPosition] = []
 
     var body: some View {
         NavigationStack {
@@ -18,6 +19,7 @@ struct HomeView: View {
                         greetingSection
                         streakBanner
                         if appState.currentChart != nil { bigThreeCard }
+                        todayPlanetsCard
                         todayCalendarCard
                         if !activeRetrogrades.isEmpty { retrogradeCard }
                         moonPhaseCard
@@ -33,6 +35,12 @@ struct HomeView: View {
             .onAppear {
                 loadData()
                 appState.gamification.dailyCheckIn()
+            }
+            .task {
+                let positions = await Task.detached(priority: .userInitiated) {
+                    TransitCalculator.calculatePositions(for: .now)
+                }.value
+                todayPlanets = positions
             }
             .onChange(of: appState.currentChart?.sunSign) { _, _ in
                 loadData()
@@ -280,6 +288,85 @@ struct HomeView: View {
             Spacer()
         }
         .glassCard()
+    }
+
+    // MARK: - Bugünün Gezegenleri
+
+    private var todayPlanetsCard: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack(spacing: 6) {
+                Image(systemName: "sparkles")
+                    .foregroundStyle(.yellow)
+                Text("Bugünün Gökyüzü")
+                    .font(.headline)
+                    .foregroundStyle(.white)
+            }
+
+            if todayPlanets.isEmpty {
+                HStack {
+                    Spacer()
+                    ProgressView().tint(.white)
+                    Spacer()
+                }
+                .padding(.vertical, 8)
+            } else {
+                LazyVGrid(
+                    columns: [GridItem(.flexible()), GridItem(.flexible())],
+                    spacing: 8
+                ) {
+                    ForEach(todayPlanets) { pos in
+                        HStack(spacing: 6) {
+                            Text(planetGlyph(pos.planet))
+                                .font(.system(size: 14))
+                                .frame(width: 20, alignment: .center)
+
+                            VStack(alignment: .leading, spacing: 2) {
+                                HStack(spacing: 3) {
+                                    Text(pos.planet.name)
+                                        .font(.caption.weight(.semibold))
+                                        .foregroundStyle(.white)
+                                        .lineLimit(1)
+                                    if pos.isRetrograde {
+                                        Text("℞")
+                                            .font(.caption2)
+                                            .foregroundStyle(.red)
+                                    }
+                                }
+                                HStack(spacing: 3) {
+                                    Text(pos.sign.glyph)
+                                    Text(pos.sign.name)
+                                        .lineLimit(1)
+                                }
+                                .font(.caption2)
+                                .foregroundStyle(AstroTheme.textSecondary)
+                            }
+
+                            Spacer(minLength: 0)
+                        }
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 6)
+                        .background(AstroTheme.surface, in: .rect(cornerRadius: 10))
+                    }
+                }
+            }
+        }
+        .glassCard()
+    }
+
+    private func planetGlyph(_ planet: Planet) -> String {
+        switch planet {
+        case .sun:     "☉"
+        case .moon:    "☽"
+        case .mercury: "☿"
+        case .venus:   "♀"
+        case .mars:    "♂"
+        case .jupiter: "♃"
+        case .saturn:  "♄"
+        case .uranus:  "⛢"
+        case .neptune: "♆"
+        case .pluto:   "♇"
+        default:       "·"
+        }
     }
 
     // MARK: - Retrograde Durumu

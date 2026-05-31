@@ -8,6 +8,7 @@ struct BirthChartResultView: View {
     @State private var selectedPlanet: PlanetPosition?
     @State private var selectedAspect: SelectedAspectItem?
     @State private var showAspectGrid = false
+    @State private var expandedElements: Set<ZodiacSign.Element> = []
 
     var body: some View {
         ZStack {
@@ -15,10 +16,11 @@ struct BirthChartResultView: View {
 
             ScrollView {
                 VStack(spacing: 16) {
+                    personHeaderBar
                     chartWheelCard
                     bigThreeCard
-                    elementBalanceCard
                     elementInterpretationCard
+                    modalityCard
                     planetPositionsCard
                     housesCard
                     aspectsCard
@@ -59,6 +61,38 @@ struct BirthChartResultView: View {
         .navigationTitle("Doğum Haritanız")
         .navigationBarTitleDisplayMode(.inline)
         .toolbarColorScheme(.dark, for: .navigationBar)
+    }
+
+    // MARK: - Kişi Başlık Çubuğu
+
+    private var personHeaderBar: some View {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d MMM yyyy"
+        dateFormatter.locale = Locale(identifier: "tr_TR")
+
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "HH:mm"
+
+        let dateStr = dateFormatter.string(from: chart.birthDate)
+        let timeStr = timeFormatter.string(from: chart.birthDate)
+
+        return HStack(spacing: 6) {
+            Text(personName)
+                .font(.subheadline.weight(.semibold))
+                .foregroundStyle(.white)
+            Text("·")
+                .foregroundStyle(AstroTheme.textTertiary)
+            Text(dateStr)
+                .font(.caption)
+                .foregroundStyle(AstroTheme.textSecondary)
+            Text("·")
+                .foregroundStyle(AstroTheme.textTertiary)
+            Text(timeStr)
+                .font(.caption)
+                .foregroundStyle(AstroTheme.textSecondary)
+        }
+        .frame(maxWidth: .infinity, alignment: .center)
+        .glassCard()
     }
 
     // MARK: - Chart Wheel
@@ -113,59 +147,16 @@ struct BirthChartResultView: View {
         .accessibilityLabel("\(label): \(sign?.name ?? "bilinmiyor")")
     }
 
-    // MARK: - Element & Modalite Dengesi
+    // MARK: - Modalite Dengesi
 
-    private var elementBalanceCard: some View {
-        let elements = chart.elementBalance
+    private var modalityCard: some View {
         let modalities = chart.modalityBalance
-        let totalScore = elements.values.reduce(0, +)
 
         return VStack(spacing: 14) {
-            Text("Element & Modalite Dengesi")
+            Text("Modalite Dengesi")
                 .font(.headline)
                 .foregroundStyle(.white)
 
-            // Elementler
-            VStack(spacing: 8) {
-                ForEach(ZodiacSign.Element.allCases, id: \.self) { element in
-                    let score = elements[element, default: 0]
-                    let ratio = totalScore > 0 ? score / totalScore : 0
-
-                    HStack(spacing: 10) {
-                        Text(elementIcon(element))
-                            .font(.title3)
-                            .frame(width: 28)
-
-                        Text(element.displayName)
-                            .font(.subheadline.weight(.medium))
-                            .foregroundStyle(.white)
-                            .frame(width: 55, alignment: .leading)
-
-                        GeometryReader { geo in
-                            ZStack(alignment: .leading) {
-                                RoundedRectangle(cornerRadius: 4)
-                                    .fill(.white.opacity(0.08))
-                                RoundedRectangle(cornerRadius: 4)
-                                    .fill(elementColor(element))
-                                    .frame(width: geo.size.width * ratio)
-                            }
-                        }
-                        .frame(height: 10)
-
-                        Text("%\(Int((ratio * 100).rounded()))")
-                            .font(.subheadline.weight(.bold).monospacedDigit())
-                            .foregroundStyle(elementColor(element))
-                            .frame(width: 36, alignment: .trailing)
-                    }
-                }
-            }
-
-            Rectangle()
-                .fill(.white.opacity(0.06))
-                .frame(height: 1)
-                .padding(.horizontal, 8)
-
-            // Modaliteler
             HStack(spacing: 0) {
                 ForEach(ZodiacSign.Modality.allCases, id: \.self) { modality in
                     let count = modalities[modality, default: 0]
@@ -193,77 +184,133 @@ struct BirthChartResultView: View {
         let elements = chart.elementBalance
         let totalScore = elements.values.reduce(0, +)
 
-        // Baskın ve eksik elementleri bul
         let sortedElements = ZodiacSign.Element.allCases.sorted {
             (elements[$0, default: 0]) > (elements[$1, default: 0])
         }
 
-        return VStack(alignment: .leading, spacing: 14) {
+        return VStack(alignment: .leading, spacing: 10) {
             Text("Element Yorumları")
                 .font(.headline)
                 .foregroundStyle(.white)
 
             ForEach(sortedElements, id: \.self) { element in
-                let count = elements[element, default: 0]
-                let status = ElementInterpretation.status(score: count, totalScore: totalScore)
+                let score = elements[element, default: 0]
+                let ratio = totalScore > 0 ? score / totalScore : 0
+                let status = ElementInterpretation.status(score: score, totalScore: totalScore)
+                let isExpanded = expandedElements.contains(element)
 
                 if let entry = ElementInterpretation.entry(for: element) {
                     let statusText: String = switch status {
-                    case .more: entry.more
-                    case .less: entry.less
+                    case .more:    entry.more
+                    case .less:    entry.less
+                    case .limited: entry.limited
                     case .balance: entry.balance
                     }
 
                     let statusColor: Color = switch status {
-                    case .more: elementColor(element)
-                    case .less: AstroTheme.textTertiary
+                    case .more:    elementColor(element)
+                    case .less:    AstroTheme.textTertiary
+                    case .limited: .orange
                     case .balance: .green
                     }
 
-                    VStack(alignment: .leading, spacing: 8) {
-                        HStack(spacing: 8) {
-                            Text(elementIcon(element))
-                                .font(.title3)
-                            Text(element.displayName)
-                                .font(.subheadline.weight(.bold))
-                                .foregroundStyle(.white)
-
-                            Spacer()
-
-                            HStack(spacing: 4) {
-                                Image(systemName: status.icon)
-                                    .font(.caption)
-                                Text(status.displayName)
-                                    .font(.caption.weight(.semibold))
+                    VStack(alignment: .leading, spacing: 0) {
+                        // — Kapalı satır (her zaman görünür) —
+                        Button {
+                            withAnimation(.easeInOut(duration: 0.25)) {
+                                if isExpanded {
+                                    expandedElements.remove(element)
+                                } else {
+                                    expandedElements.insert(element)
+                                }
                             }
-                            .foregroundStyle(statusColor)
+                        } label: {
+                            VStack(spacing: 8) {
+                                HStack(spacing: 10) {
+                                    Text(elementIcon(element))
+                                        .font(.title3)
+                                        .frame(width: 28)
+
+                                    Text(element.displayName)
+                                        .font(.subheadline.weight(.bold))
+                                        .foregroundStyle(.white)
+
+                                    Spacer()
+
+                                    Text("%\(Int((ratio * 100).rounded()))")
+                                        .font(.subheadline.weight(.bold).monospacedDigit())
+                                        .foregroundStyle(elementColor(element))
+
+                                    HStack(spacing: 3) {
+                                        Image(systemName: status.icon)
+                                            .font(.caption2)
+                                        Text(status.displayName)
+                                            .font(.caption.weight(.semibold))
+                                    }
+                                    .foregroundStyle(statusColor)
+                                    .padding(.horizontal, 7)
+                                    .padding(.vertical, 3)
+                                    .background(statusColor.opacity(0.12), in: .capsule)
+
+                                    Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
+                                        .font(.caption2)
+                                        .foregroundStyle(AstroTheme.textTertiary)
+                                }
+
+                                GeometryReader { geo in
+                                    ZStack(alignment: .leading) {
+                                        RoundedRectangle(cornerRadius: 3)
+                                            .fill(.white.opacity(0.08))
+                                        RoundedRectangle(cornerRadius: 3)
+                                            .fill(elementColor(element))
+                                            .frame(width: geo.size.width * ratio)
+                                    }
+                                }
+                                .frame(height: 6)
+                            }
+                            .padding(12)
+                            .contentShape(.rect)
                         }
+                        .buttonStyle(.plain)
 
-                        // Element tanımı
-                        Text("\(entry.name) elementi \(entry.description)")
-                            .font(.caption)
-                            .foregroundStyle(AstroTheme.textSecondary)
-                            .lineSpacing(3)
+                        // — Açılır yorum bölümü —
+                        if isExpanded {
+                            VStack(alignment: .leading, spacing: 8) {
+                                Rectangle()
+                                    .fill(.white.opacity(0.06))
+                                    .frame(height: 1)
+                                    .padding(.horizontal, 12)
 
-                        Rectangle()
-                            .fill(.white.opacity(0.06))
-                            .frame(height: 1)
+                                Text("\(entry.name) elementi \(entry.description)")
+                                    .font(.caption)
+                                    .foregroundStyle(AstroTheme.textSecondary)
+                                    .lineSpacing(3)
+                                    .padding(.horizontal, 12)
 
-                        // Durum yorumu
-                        Text(statusText)
-                            .font(.caption)
-                            .foregroundStyle(AstroTheme.textSecondary)
-                            .lineSpacing(3)
+                                Rectangle()
+                                    .fill(.white.opacity(0.06))
+                                    .frame(height: 1)
+                                    .padding(.horizontal, 12)
+
+                                Text(statusText)
+                                    .font(.caption)
+                                    .foregroundStyle(AstroTheme.textSecondary)
+                                    .lineSpacing(3)
+                                    .padding(.horizontal, 12)
+                                    .padding(.bottom, 12)
+                            }
+                            .transition(.opacity.combined(with: .move(edge: .top)))
+                        }
                     }
-                    .padding(12)
                     .background(AstroTheme.surface, in: .rect(cornerRadius: 14))
                     .overlay {
                         RoundedRectangle(cornerRadius: 14, style: .continuous)
                             .stroke(
-                                status == .balance ? AstroTheme.cardBorder : statusColor.opacity(0.3),
+                                (status == .balance || status == .limited) ? AstroTheme.cardBorder : statusColor.opacity(0.3),
                                 lineWidth: 1
                             )
                     }
+                    .clipped()
                 }
             }
         }

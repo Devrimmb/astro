@@ -27,9 +27,9 @@ struct BirthChart: Codable, Sendable {
 
     private static let planetWeights: [Planet: Double] = [
         .sun: 3, .moon: 3,
-        .mercury: 1.5, .venus: 1.5, .mars: 1.5,
-        .jupiter: 1, .saturn: 1,
-        .uranus: 0.5, .neptune: 0.5, .pluto: 0.5
+        .mercury: 1.75, .venus: 1.75, .mars: 1.75,
+        .jupiter: 1.5, .saturn: 1.5,
+        .uranus: 1, .neptune: 1, .pluto: 1
     ]
 
     var elementBalance: [ZodiacSign.Element: Double] {
