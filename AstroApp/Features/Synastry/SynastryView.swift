@@ -42,6 +42,7 @@ struct SynastryView: View {
                     } else if let result = synastryResult {
                         relationshipScoreCard(result)
                         scoreCard(result)
+                        biWheelCard(result)
                         categoriesCard(result)
                         breakdownCard(result)
                         keyAspectsCard(result)
@@ -477,6 +478,66 @@ struct SynastryView: View {
             }
         }
         .glassCard()
+    }
+
+    // MARK: - Bi-Wheel Harita
+
+    private func biWheelCard(_ result: SynastryResult) -> some View {
+        let name1 = selectedPerson1?.name.isEmpty == false ? selectedPerson1!.name : "Kişi 1"
+        let name2 = useManualEntry
+            ? (partnerName.isEmpty ? "Partner" : partnerName)
+            : (selectedPerson2?.name.isEmpty == false ? selectedPerson2!.name : "Kişi 2")
+
+        return VStack(alignment: .leading, spacing: 10) {
+            HStack(spacing: 6) {
+                Image(systemName: "circle.circle.fill")
+                    .foregroundStyle(AstroTheme.accent)
+                Text("Sinastri Haritası")
+                    .font(.headline)
+                    .foregroundStyle(.white)
+            }
+
+            // Kişi etiketleri
+            HStack {
+                Label(name1, systemImage: "person.fill")
+                    .font(.caption2)
+                    .foregroundStyle(.white)
+                Text("(iç halka)")
+                    .font(.caption2)
+                    .foregroundStyle(AstroTheme.textTertiary)
+                Spacer()
+                Label(name2, systemImage: "person")
+                    .font(.caption2)
+                    .foregroundStyle(.white.opacity(0.7))
+                Text("(dış halka)")
+                    .font(.caption2)
+                    .foregroundStyle(AstroTheme.textTertiary)
+            }
+
+            SynastryBiWheelView(
+                chart1: result.chart1,
+                chart2: result.chart2,
+                crossAspects: result.crossAspects,
+                size: 320
+            )
+            .frame(maxWidth: .infinity)
+
+            // Açıklama
+            HStack(spacing: 12) {
+                legendDot(.green,  "Harmonik")
+                legendDot(.red,    "Zorlayıcı")
+                legendDot(.blue,   "Nötr")
+            }
+            .frame(maxWidth: .infinity)
+        }
+        .glassCard()
+    }
+
+    private func legendDot(_ color: Color, _ label: String) -> some View {
+        HStack(spacing: 4) {
+            Circle().fill(color.opacity(0.7)).frame(width: 7, height: 7)
+            Text(label).font(.system(size: 9)).foregroundStyle(AstroTheme.textTertiary)
+        }
     }
 
     // MARK: - Paylaşım

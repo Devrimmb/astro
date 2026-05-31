@@ -16,6 +16,12 @@
     "(%@)" : {
 
     },
+    "(dış halka)" : {
+
+    },
+    "(iç halka)" : {
+
+    },
     "/ 100" : {
 
     },
@@ -4774,6 +4780,9 @@
           }
         }
       }
+    },
+    "Sinastri Haritası" : {
+
     },
     "Şişkin Ay (Büyüyen)" : {
       "extractionState" : "stale",
