@@ -47,6 +47,7 @@ struct CompositeChartView: View {
                         ChartWheelView(chart: composite.asBirthChart, size: 340)
                             .glassCard()
                         bigThreeCard(composite)
+                        elementBalanceCard(composite)
                         planetsCard(composite)
                         aspectsCard(composite)
 
@@ -334,6 +335,64 @@ struct CompositeChartView: View {
         case .harmonik: AstroTheme.harmonik
         case .zorlayici: AstroTheme.zorlayici
         case .notr: AstroTheme.accent
+        }
+    }
+
+    // MARK: - Element Dengesi
+
+    private func elementBalanceCard(_ chart: CompositeChart) -> some View {
+        let balance = chart.asBirthChart.elementBalance
+        let total = balance.values.reduce(0, +)
+
+        return VStack(alignment: .leading, spacing: 10) {
+            HStack(spacing: 6) {
+                Image(systemName: "circle.grid.2x2.fill")
+                    .foregroundStyle(AstroTheme.accent)
+                Text("Element Dengesi")
+                    .font(.headline)
+                    .foregroundStyle(.white)
+            }
+
+            ForEach(ZodiacSign.Element.allCases, id: \.self) { element in
+                let value = balance[element] ?? 0
+                let pct = total > 0 ? value / total : 0
+                HStack(spacing: 8) {
+                    Image(systemName: elementIcon(element))
+                        .font(.caption)
+                        .foregroundStyle(elementColor(element))
+                        .frame(width: 16)
+                    Text(element.displayName)
+                        .font(.caption)
+                        .foregroundStyle(.white)
+                        .frame(width: 52, alignment: .leading)
+                    ProgressView(value: pct)
+                        .tint(elementColor(element))
+                        .frame(maxWidth: .infinity)
+                    Text("\(Int(pct * 100))%")
+                        .font(.caption.bold())
+                        .foregroundStyle(elementColor(element))
+                        .frame(width: 32, alignment: .trailing)
+                }
+            }
+        }
+        .glassCard()
+    }
+
+    private func elementColor(_ element: ZodiacSign.Element) -> Color {
+        switch element {
+        case .fire:  .red
+        case .earth: .green
+        case .air:   .yellow
+        case .water: .blue
+        }
+    }
+
+    private func elementIcon(_ element: ZodiacSign.Element) -> String {
+        switch element {
+        case .fire:  "flame.fill"
+        case .earth: "leaf.fill"
+        case .air:   "wind"
+        case .water: "drop.fill"
         }
     }
 

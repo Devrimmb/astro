@@ -182,6 +182,9 @@ struct TransitView: View {
                             }
                         }
                         Spacer()
+                        Text("\(pos.house). ev")
+                            .font(.caption2)
+                            .foregroundStyle(AstroTheme.textTertiary)
                     }
                     .padding(.vertical, 4)
                 }

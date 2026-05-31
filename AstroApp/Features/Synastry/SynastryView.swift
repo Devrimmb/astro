@@ -464,6 +464,10 @@ struct SynastryView: View {
 
                     Spacer()
 
+                    Image(systemName: aspect.applying ? "arrow.right" : "arrow.left")
+                        .font(.system(size: 8))
+                        .foregroundStyle(aspect.applying ? AstroTheme.harmonik : AstroTheme.textTertiary)
+
                     Text(aspect.type.turkishName)
                         .font(.caption2)
                         .foregroundStyle(aspectNatureColor(aspect.type))

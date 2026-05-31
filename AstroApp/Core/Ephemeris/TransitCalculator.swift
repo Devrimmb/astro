@@ -9,12 +9,17 @@ struct TransitCalculator: Sendable {
         natalChart: BirthChart,
         transitDate: Date
     ) -> TransitReport {
-        // Transit gezegen pozisyonlarini hesapla
         JPLFileManager.setEphemerisPath()
 
-        let transitPositions = calculatePositions(for: transitDate)
+        var transitPositions = calculatePositions(for: transitDate)
 
-        // Transit-natal cross aspects
+        // Transit gezegenlerini natal ev sistemine göre ata
+        for i in 0..<transitPositions.count {
+            transitPositions[i].house = houseForLongitude(
+                transitPositions[i].longitude, houses: natalChart.houses
+            )
+        }
+
         let aspects = calculateCrossAspects(
             transitPlanets: transitPositions,
             natalPlanets: natalChart.planets
@@ -26,6 +31,21 @@ struct TransitCalculator: Sendable {
             aspects: aspects,
             natalChart: natalChart
         )
+    }
+
+    private static func houseForLongitude(_ longitude: Double, houses: [House]) -> Int {
+        for i in 0..<houses.count {
+            let current = houses[i].cusp
+            let next = i + 1 < houses.count ? houses[i + 1].cusp : houses[0].cusp + 360
+            var adjustedNext = next
+            if adjustedNext < current { adjustedNext += 360 }
+            var adjustedLon = longitude
+            if adjustedLon < current { adjustedLon += 360 }
+            if adjustedLon >= current && adjustedLon < adjustedNext {
+                return houses[i].id
+            }
+        }
+        return 1
     }
 
     /// Belirli bir tarih icin gezegen pozisyonlarini hesapla

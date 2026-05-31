@@ -266,6 +266,9 @@
         }
       }
     },
+    "%lld%%" : {
+
+    },
     "℞" : {
 
     },
@@ -276,6 +279,9 @@
 
     },
     "+%lld" : {
+
+    },
+    "☀️ Güneş Dönüşü" : {
 
     },
     "★" : {
@@ -306,6 +312,9 @@
 
     },
     "✦ UYUM ANALİZİ ✦" : {
+
+    },
+    "🌙 Ay Dönüşü" : {
 
     },
     "🔮" : {
@@ -763,6 +772,9 @@
         }
       }
     },
+    "Ay Dönüşü" : {
+
+    },
     "Ay Enerjisi" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -830,6 +842,9 @@
           }
         }
       }
+    },
+    "Ay natal konumuna geri dönüyor — yeni bir aylık döngü başlıyor." : {
+
     },
     "Ay şu an boşlukta değil." : {
       "extractionState" : "manual",
@@ -917,6 +932,9 @@
       }
     },
     "Aydınlanma: %%%lld" : {
+
+    },
+    "Aylık Büyük Üçlü" : {
 
     },
     "Ayrılan" : {
@@ -1090,6 +1108,9 @@
 
     },
     "Bu gezegen için henüz yorum eklenmedi." : {
+
+    },
+    "Bu haritada hesaplanmış açı bulunmuyor." : {
 
     },
     "Bu haritalar arasında belirgin cross-aspect bulunmuyor." : {
@@ -2391,6 +2412,9 @@
           }
         }
       }
+    },
+    "Güneş & Ay Dönüşü" : {
+
     },
     "Güneş Dönüşü" : {
       "extractionState" : "manual",
@@ -3957,6 +3981,9 @@
     "Nasıl Çalışır?" : {
 
     },
+    "Natal" : {
+
+    },
     "Natal gezegenlerinize 1.5° içinde kavuşum yapan sabit yıldızlar:" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -4885,6 +4912,15 @@
           }
         }
       }
+    },
+    "SR & Natal Karşılaştırma" : {
+
+    },
+    "SR %lld" : {
+
+    },
+    "SR Açıları (%lld)" : {
+
     },
     "SR Ay" : {
       "extractionState" : "manual",
@@ -5918,6 +5954,9 @@
           }
         }
       }
+    },
+    "Yıllık Solar ve aylık Lunar Return haritaları" : {
+
     },
     "Yorum" : {
 

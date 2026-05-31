@@ -53,10 +53,10 @@ struct SynastryBiWheelView: View {
             path.closeSubpath()
 
             let color: Color = switch sign.element {
-            case .fire:  .red.opacity(0.25)
-            case .earth: .green.opacity(0.2)
-            case .air:   .yellow.opacity(0.2)
-            case .water: .blue.opacity(0.25)
+            case .fire:  .red.opacity(0.13)
+            case .earth: .green.opacity(0.10)
+            case .air:   .yellow.opacity(0.10)
+            case .water: .blue.opacity(0.13)
             }
             context.fill(path, with: .color(color))
             context.stroke(path, with: .color(.white.opacity(0.4)), lineWidth: 0.5)
