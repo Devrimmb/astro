@@ -211,16 +211,6 @@
     "%lld" : {
 
     },
-    "%lld ⭐ → %@" : {
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$lld ⭐ → %2$@"
-          }
-        }
-      }
-    },
     "%lld cross-aspect analizi" : {
 
     },
@@ -248,16 +238,6 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "%1$lld. Ev — %2$@"
-          }
-        }
-      }
-    },
-    "%lld/%lld" : {
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$lld/%2$lld"
           }
         }
       }
@@ -2290,9 +2270,6 @@
         }
       }
     },
-    "gün" : {
-
-    },
     "Günaydın" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2502,9 +2479,6 @@
           }
         }
       }
-    },
-    "Günlük Görevler" : {
-
     },
     "Günlük tarot kartı çekin ve yorumunu okuyun" : {
       "extractionState" : "manual",
@@ -4770,9 +4744,6 @@
         }
       }
     },
-    "Seviye %lld" : {
-
-    },
     "Sil" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -5781,9 +5752,6 @@
           }
         }
       }
-    },
-    "yıldız" : {
-
     },
     "Yıldız Haritanı Keşfet" : {
       "localizations" : {

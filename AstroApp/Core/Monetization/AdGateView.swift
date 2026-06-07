@@ -43,7 +43,6 @@ struct AdGateView: View {
         .onChange(of: appState.adManager.rewardEarned) {
             if appState.adManager.rewardEarned {
                 appState.adManager.resetReward()
-                appState.gamification.earn(.watchAd)
                 onUnlock()
             }
         }

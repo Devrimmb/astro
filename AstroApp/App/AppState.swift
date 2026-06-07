@@ -11,7 +11,6 @@ class AppState {
     let birthDataStore: BirthDataStore
     let chartReadingStore: ChartReadingStore
     let adManager: AdManager
-    let gamification: GamificationManager
 
     init(
         ephemeris: EphemerisManager = EphemerisManager(),
@@ -25,7 +24,6 @@ class AppState {
         self.birthDataStore = BirthDataStore()
         self.chartReadingStore = ChartReadingStore()
         self.adManager = AdManager()
-        self.gamification = GamificationManager()
         self.adManager.configure()
         self.adManager.loadRewardedAd()
     }

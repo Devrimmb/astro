@@ -539,7 +539,6 @@ struct RuneView: View {
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
             vm.revealCard()
-            appState.gamification.earn(.cardReading)
         }
     }
 
@@ -581,7 +580,6 @@ struct RuneView: View {
                 // Paylaş
                 Button {
                     ShareImageRenderer.shareRune(card: card)
-                    appState.gamification.earn(.shareResult)
                 } label: {
                     HStack(spacing: 8) {
                         Image(systemName: "square.and.arrow.up")
