@@ -7,6 +7,11 @@ struct CompositeChartView: View {
     @State private var compositeChart: CompositeChart?
     @State private var isLoading = false
 
+    // Sonuç sayfasına geçiş
+    @State private var showResult = false
+    @State private var resultName1 = ""
+    @State private var resultName2 = ""
+
     // Manuel giriş fallback
     @State private var useManualEntry = false
     @State private var person1Name = ""
@@ -28,6 +33,8 @@ struct CompositeChartView: View {
 
             ScrollView {
                 VStack(spacing: 16) {
+                    introCard
+
                     if hasSavedPeople && !useManualEntry {
                         peoplePickerCard
                     } else {
@@ -43,30 +50,6 @@ struct CompositeChartView: View {
                             .tint(AstroTheme.accent)
                             .foregroundStyle(AstroTheme.textSecondary)
                             .padding(.top, 20)
-                    } else if let composite = compositeChart {
-                        ChartWheelView(chart: composite.asBirthChart, size: 340)
-                            .glassCard()
-                        bigThreeCard(composite)
-                        elementBalanceCard(composite)
-                        planetsCard(composite)
-                        aspectsCard(composite)
-
-                        // Paylaş
-                        Button {
-                            let name1 = useManualEntry ? person1Name : (selectedPerson1?.name ?? "Kişi 1")
-                            let name2 = useManualEntry ? person2Name : (selectedPerson2?.name ?? "Kişi 2")
-                            ShareImageRenderer.shareComposite(
-                                person1Name: name1,
-                                person2Name: name2,
-                                composite: composite
-                            )
-                        } label: {
-                            HStack(spacing: 8) {
-                                Image(systemName: "square.and.arrow.up")
-                                Text("Paylaş")
-                            }
-                            .glassButton()
-                        }
                     }
                 }
                 .padding()
@@ -76,6 +59,15 @@ struct CompositeChartView: View {
         .navigationTitle("Composite Harita")
         .navigationBarTitleDisplayMode(.inline)
         .toolbarColorScheme(.dark, for: .navigationBar)
+        .navigationDestination(isPresented: $showResult) {
+            if let composite = compositeChart {
+                CompositeChartResultView(
+                    composite: composite,
+                    name1: resultName1,
+                    name2: resultName2
+                )
+            }
+        }
         .onAppear {
             if selectedPerson1 == nil {
                 selectedPerson1 = appState.birthDataStore.ownerPerson
@@ -84,6 +76,27 @@ struct CompositeChartView: View {
                 selectedPerson2 = appState.birthDataStore.people.first(where: { !$0.isOwner })
             }
         }
+    }
+
+    // MARK: - Intro
+
+    private var introCard: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack(spacing: 8) {
+                Image(systemName: "arrow.triangle.merge")
+                    .font(.title2)
+                    .foregroundStyle(.mint)
+                Text("Composite Harita")
+                    .font(.headline)
+                    .foregroundStyle(.white)
+            }
+            Text("İki kişinin haritasının orta noktalarından oluşan, ilişkinizi kendi başına bir varlık olarak gösteren harita. İki kişiyi seçip hesaplayın.")
+                .font(.caption)
+                .foregroundStyle(AstroTheme.textSecondary)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .glassCard()
     }
 
     // MARK: - People Picker
@@ -235,6 +248,124 @@ struct CompositeChartView: View {
         }
     }
 
+    // MARK: - Calculation
+
+    private func calculateFromPeople() async {
+        guard let p1 = selectedPerson1, let p2 = selectedPerson2 else { return }
+        isLoading = true
+        let coords1 = WorldCityStore.coordinates(for: p1.cityName, countryCode: "")
+        let coords2 = WorldCityStore.coordinates(for: p2.cityName, countryCode: "")
+        let tz1 = TimeZone(identifier: coords1.tz) ?? TimeZone(identifier: "Europe/Istanbul")!
+        let tz2 = TimeZone(identifier: coords2.tz) ?? TimeZone(identifier: "Europe/Istanbul")!
+        async let chart1 = appState.ephemeris.calculateBirthChart(
+            date: p1.birthDate, latitude: p1.latitude, longitude: p1.longitude,
+            timeZone: tz1
+        )
+        async let chart2 = appState.ephemeris.calculateBirthChart(
+            date: p2.birthDate, latitude: p2.latitude, longitude: p2.longitude,
+            timeZone: tz2
+        )
+        let result = CompositeChartCalculator.calculate(chart1: await chart1, chart2: await chart2)
+        compositeChart = result
+        resultName1 = p1.name.isEmpty ? "Kişi 1" : p1.name
+        resultName2 = p2.name.isEmpty ? "Kişi 2" : p2.name
+        isLoading = false
+        showResult = true
+    }
+
+    private func calculateFromManual() async {
+        let coords1 = WorldCityStore.coordinates(for: person1City, countryCode: person1CountryCode)
+        let coords2 = WorldCityStore.coordinates(for: person2City, countryCode: person2CountryCode)
+        isLoading = true
+        let tz1 = TimeZone(identifier: coords1.tz) ?? TimeZone(identifier: "Europe/Istanbul")!
+        let tz2 = TimeZone(identifier: coords2.tz) ?? TimeZone(identifier: "Europe/Istanbul")!
+        async let chart1 = appState.ephemeris.calculateBirthChart(
+            date: person1BirthDate, latitude: coords1.lat, longitude: coords1.lon,
+            timeZone: tz1
+        )
+        async let chart2 = appState.ephemeris.calculateBirthChart(
+            date: person2BirthDate, latitude: coords2.lat, longitude: coords2.lon,
+            timeZone: tz2
+        )
+        let result = CompositeChartCalculator.calculate(chart1: await chart1, chart2: await chart2)
+        compositeChart = result
+        resultName1 = person1Name.isEmpty ? "Kişi 1" : person1Name
+        resultName2 = person2Name.isEmpty ? "Kişi 2" : person2Name
+        isLoading = false
+        showResult = true
+    }
+}
+
+// MARK: - Sonuç Sayfası
+
+struct CompositeChartResultView: View {
+    let composite: CompositeChart
+    let name1: String
+    let name2: String
+
+    var body: some View {
+        ZStack {
+            SubtleStarsBackground()
+
+            ScrollView {
+                VStack(spacing: 16) {
+                    coupleHeader
+
+                    ChartWheelView(chart: composite.asBirthChart, size: 340)
+                        .glassCard()
+                    bigThreeCard(composite)
+                    elementBalanceCard(composite)
+                    planetsCard(composite)
+                    aspectsCard(composite)
+                    interpretationsCard(composite)
+
+                    // Paylaş
+                    Button {
+                        ShareImageRenderer.shareComposite(
+                            person1Name: name1,
+                            person2Name: name2,
+                            composite: composite
+                        )
+                    } label: {
+                        HStack(spacing: 8) {
+                            Image(systemName: "square.and.arrow.up")
+                            Text("Paylaş")
+                        }
+                        .glassButton()
+                    }
+                }
+                .padding()
+                .padding(.bottom, 40)
+            }
+        }
+        .navigationTitle("Composite Harita")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarColorScheme(.dark, for: .navigationBar)
+    }
+
+    // MARK: - Çift Başlığı
+
+    private var coupleHeader: some View {
+        VStack(spacing: 4) {
+            HStack(spacing: 8) {
+                Text(name1)
+                    .font(.headline)
+                    .foregroundStyle(.white)
+                Image(systemName: "arrow.triangle.merge")
+                    .font(.caption)
+                    .foregroundStyle(.mint)
+                Text(name2)
+                    .font(.headline)
+                    .foregroundStyle(.white)
+            }
+            Text("İlişki Haritası")
+                .font(.caption2)
+                .foregroundStyle(AstroTheme.textTertiary)
+        }
+        .frame(maxWidth: .infinity)
+        .glassCard()
+    }
+
     // MARK: - Result Cards
 
     private func bigThreeCard(_ chart: CompositeChart) -> some View {
@@ -306,28 +437,49 @@ struct CompositeChartView: View {
                 .font(.headline)
                 .foregroundStyle(.white)
 
-            ForEach(Array(chart.aspects.prefix(15).enumerated()), id: \.offset) { _, aspect in
+            let shown = Array(chart.aspects.prefix(15).enumerated())
+            ForEach(shown, id: \.offset) { index, aspect in
                 HStack(spacing: 6) {
-                    Text(aspect.planet1.rawValue)
+                    Text(aspect.point1.name)
                         .font(.caption2)
                         .foregroundStyle(.white)
                     Text(aspect.type.symbol)
                         .font(.caption2)
                         .foregroundStyle(aspectColor(aspect.type))
-                    Text(aspect.planet2.rawValue)
+                    Text(aspect.point2.name)
                         .font(.caption2)
                         .foregroundStyle(.white)
                     Spacer()
                     Text(aspect.type.turkishName)
                         .font(.caption2)
                         .foregroundStyle(aspectColor(aspect.type))
-                    Text(String(format: "%.1f°", aspect.orb))
-                        .font(.caption2)
-                        .foregroundStyle(AstroTheme.textTertiary)
+                }
+                .padding(.vertical, 3)
+                if index != shown.count - 1 {
+                    Divider().overlay(AstroTheme.cardBorder)
                 }
             }
         }
         .glassCard()
+    }
+
+    // MARK: - Yorumlar (bütüncül sentez)
+
+    private func interpretationsCard(_ chart: CompositeChart) -> some View {
+        let majors = chart.aspects.filter { $0.type.isMajor }
+        let guidances = majors.map { asp in
+            ChartSynthesizer.WeightedGuidance(
+                item: ChartAspectInterpreter.interpretation(asp, context: .composite),
+                weight: ChartSynthesizer.weight(asp),
+                planets: ChartSynthesizer.planets(in: asp)
+            )
+        }
+        let synth = ChartSynthesizer.synthesize(
+            guidances,
+            structure: ChartSynthesizer.ChartStructure(planets: chart.planets, aspects: chart.aspects),
+            context: .composite
+        )
+        return ChartSynthesisSection(synthesis: synth)
     }
 
     private func aspectColor(_ type: AspectType) -> Color {
@@ -394,44 +546,5 @@ struct CompositeChartView: View {
         case .air:   "wind"
         case .water: "drop.fill"
         }
-    }
-
-    // MARK: - Calculation
-
-    private func calculateFromPeople() async {
-        guard let p1 = selectedPerson1, let p2 = selectedPerson2 else { return }
-        isLoading = true
-        let coords1 = WorldCityStore.coordinates(for: p1.cityName, countryCode: "")
-        let coords2 = WorldCityStore.coordinates(for: p2.cityName, countryCode: "")
-        let tz1 = TimeZone(identifier: coords1.tz) ?? TimeZone(identifier: "Europe/Istanbul")!
-        let tz2 = TimeZone(identifier: coords2.tz) ?? TimeZone(identifier: "Europe/Istanbul")!
-        async let chart1 = appState.ephemeris.calculateBirthChart(
-            date: p1.birthDate, latitude: p1.latitude, longitude: p1.longitude,
-            timeZone: tz1
-        )
-        async let chart2 = appState.ephemeris.calculateBirthChart(
-            date: p2.birthDate, latitude: p2.latitude, longitude: p2.longitude,
-            timeZone: tz2
-        )
-        compositeChart = CompositeChartCalculator.calculate(chart1: await chart1, chart2: await chart2)
-        isLoading = false
-    }
-
-    private func calculateFromManual() async {
-        let coords1 = WorldCityStore.coordinates(for: person1City, countryCode: person1CountryCode)
-        let coords2 = WorldCityStore.coordinates(for: person2City, countryCode: person2CountryCode)
-        isLoading = true
-        let tz1 = TimeZone(identifier: coords1.tz) ?? TimeZone(identifier: "Europe/Istanbul")!
-        let tz2 = TimeZone(identifier: coords2.tz) ?? TimeZone(identifier: "Europe/Istanbul")!
-        async let chart1 = appState.ephemeris.calculateBirthChart(
-            date: person1BirthDate, latitude: coords1.lat, longitude: coords1.lon,
-            timeZone: tz1
-        )
-        async let chart2 = appState.ephemeris.calculateBirthChart(
-            date: person2BirthDate, latitude: coords2.lat, longitude: coords2.lon,
-            timeZone: tz2
-        )
-        compositeChart = CompositeChartCalculator.calculate(chart1: await chart1, chart2: await chart2)
-        isLoading = false
     }
 }

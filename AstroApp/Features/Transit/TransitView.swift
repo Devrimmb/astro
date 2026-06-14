@@ -7,6 +7,12 @@ struct TransitView: View {
     @State private var selectedDate: Date = .now
     @State private var isLoading = false
     @State private var personName = ""
+    @State private var expandedAspects: Set<UUID> = []
+    @State private var expandedPlanets: Set<Planet> = []
+
+    private var isToday: Bool {
+        Calendar.current.isDateInToday(selectedDate)
+    }
 
     var body: some View {
         NavigationStack {
@@ -146,51 +152,81 @@ struct TransitView: View {
     // MARK: - Current Positions
 
     private func currentPositionsCard(_ report: TransitReport) -> some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 6) {
             HStack(spacing: 6) {
                 Image(systemName: "globe.americas")
                     .foregroundStyle(AstroTheme.accent)
                 Text("Güncel Gezegen Konumları")
                     .font(.headline)
                     .foregroundStyle(.white)
+                Spacer()
+                Text("Ev geçişi için dokun")
+                    .font(.caption2)
+                    .foregroundStyle(AstroTheme.textTertiary)
             }
+            .padding(.bottom, 4)
 
-            LazyVGrid(columns: [
-                GridItem(.flexible()),
-                GridItem(.flexible()),
-            ], spacing: 8) {
-                ForEach(report.transitPositions, id: \.planet) { pos in
-                    HStack(spacing: 6) {
-                        Text(planetGlyph(pos.planet))
-                            .font(.caption)
-                            .frame(width: 20)
-                        VStack(alignment: .leading, spacing: 1) {
-                            Text(pos.planet.rawValue)
-                                .font(.caption2)
-                                .foregroundStyle(AstroTheme.textSecondary)
-                            HStack(spacing: 3) {
-                                Text(pos.sign.glyph)
-                                    .font(.caption2)
-                                Text("\(pos.sign.name) \(String(format: "%.0f", pos.degree))°")
-                                    .font(.caption2.bold())
-                                    .foregroundStyle(.white)
-                                if pos.isRetrograde {
-                                    Text("℞")
-                                        .font(.caption2)
-                                        .foregroundStyle(.red)
-                                }
-                            }
-                        }
-                        Spacer()
-                        Text("\(pos.house). ev")
-                            .font(.caption2)
-                            .foregroundStyle(AstroTheme.textTertiary)
-                    }
-                    .padding(.vertical, 4)
+            ForEach(report.transitPositions, id: \.planet) { pos in
+                positionRow(pos)
+                if pos.planet != report.transitPositions.last?.planet {
+                    Divider().overlay(AstroTheme.cardBorder)
                 }
             }
         }
         .glassCard()
+    }
+
+    private func positionRow(_ pos: PlanetPosition) -> some View {
+        let isExpanded = expandedPlanets.contains(pos.planet)
+        return VStack(alignment: .leading, spacing: 6) {
+            HStack(spacing: 8) {
+                Text(planetGlyph(pos.planet))
+                    .font(.callout)
+                    .frame(width: 20)
+                Text(pos.planet.rawValue)
+                    .font(.caption.weight(.medium))
+                    .foregroundStyle(.white)
+                    .frame(width: 60, alignment: .leading)
+                HStack(spacing: 3) {
+                    Text(pos.sign.glyph)
+                        .font(.caption2)
+                    Text("\(pos.sign.name) \(String(format: "%.0f", pos.degree))°")
+                        .font(.caption2.bold())
+                        .foregroundStyle(.white)
+                    if pos.isRetrograde {
+                        Text("℞")
+                            .font(.caption2)
+                            .foregroundStyle(.red)
+                    }
+                }
+                Spacer()
+                Text("\(pos.house). ev")
+                    .font(.caption2)
+                    .foregroundStyle(AstroTheme.textTertiary)
+                Image(systemName: "chevron.down")
+                    .font(.caption2)
+                    .foregroundStyle(AstroTheme.textTertiary)
+                    .rotationEffect(.degrees(isExpanded ? 180 : 0))
+            }
+
+            if isExpanded,
+               let interp = DailyCosmicCoach.houseTransitInterpretation(planet: pos.planet, house: pos.house) {
+                Text(interp.message)
+                    .font(.caption2)
+                    .foregroundStyle(AstroTheme.textSecondary)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding(.leading, 28)
+                    .transition(.opacity.combined(with: .move(edge: .top)))
+            }
+        }
+        .padding(.vertical, 4)
+        .contentShape(Rectangle())
+        .onTapGesture {
+            withAnimation(.easeInOut(duration: 0.2)) {
+                if isExpanded { expandedPlanets.remove(pos.planet) }
+                else { expandedPlanets.insert(pos.planet) }
+            }
+        }
     }
 
     // MARK: - Significant Transits
@@ -269,36 +305,56 @@ struct TransitView: View {
     }
 
     private func transitRow(_ aspect: TransitAspect) -> some View {
-        HStack(spacing: 8) {
-            Text(planetGlyph(aspect.transitPlanet))
-                .font(.caption)
-                .frame(width: 18)
+        let isExpanded = expandedAspects.contains(aspect.id)
+        return VStack(alignment: .leading, spacing: 6) {
+            HStack(spacing: 8) {
+                Text(planetGlyph(aspect.transitPlanet))
+                    .font(.caption)
+                    .frame(width: 18)
 
-            Text(aspect.type.symbol)
-                .font(.caption)
-                .foregroundStyle(aspectColor(aspect.type))
-                .frame(width: 18)
+                Text(aspect.type.symbol)
+                    .font(.caption)
+                    .foregroundStyle(aspectColor(aspect.type))
+                    .frame(width: 18)
 
-            Text(planetGlyph(aspect.natalPlanet))
-                .font(.caption)
-                .frame(width: 18)
+                Text(planetGlyph(aspect.natalPlanet))
+                    .font(.caption)
+                    .frame(width: 18)
 
-            VStack(alignment: .leading, spacing: 1) {
-                Text("T.\(aspect.transitPlanet.rawValue) \(aspect.type.turkishName) N.\(aspect.natalPlanet.rawValue)")
-                    .font(.caption2)
-                    .foregroundStyle(.white)
-                Text("\(aspect.applying ? "Yaklaşan" : "Ayrılan") · \(String(format: "%.1f", aspect.orb))° orb")
+                VStack(alignment: .leading, spacing: 1) {
+                    Text("T.\(aspect.transitPlanet.rawValue) \(aspect.type.turkishName) N.\(aspect.natalPlanet.rawValue)")
+                        .font(.caption2)
+                        .foregroundStyle(.white)
+                    Text("\(aspect.applying ? "Yaklaşan" : "Ayrılan") · \(String(format: "%.1f", aspect.orb))° orb")
+                        .font(.caption2)
+                        .foregroundStyle(AstroTheme.textTertiary)
+                }
+
+                Spacer()
+
+                Image(systemName: "chevron.down")
                     .font(.caption2)
                     .foregroundStyle(AstroTheme.textTertiary)
+                    .rotationEffect(.degrees(isExpanded ? 180 : 0))
             }
 
-            Spacer()
-
-            Circle()
-                .fill(aspectColor(aspect.type))
-                .frame(width: 6, height: 6)
+            if isExpanded {
+                Text(DailyCosmicCoach.aspectInterpretation(aspect, today: isToday).message)
+                    .font(.caption2)
+                    .foregroundStyle(AstroTheme.textSecondary)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding(.leading, 62)
+                    .transition(.opacity.combined(with: .move(edge: .top)))
+            }
         }
-        .padding(.vertical, 2)
+        .padding(.vertical, 4)
+        .contentShape(Rectangle())
+        .onTapGesture {
+            withAnimation(.easeInOut(duration: 0.2)) {
+                if isExpanded { expandedAspects.remove(aspect.id) }
+                else { expandedAspects.insert(aspect.id) }
+            }
+        }
     }
 
     private func aspectColor(_ type: AspectType) -> Color {

@@ -1,0 +1,1784 @@
+{
+  "sun_moon": {
+    "conjunction": {
+      "title": "Güneş - Ay Kavuşumu",
+      "short": "İlişkinizde, kimlik ve irade ile duygular ve ihtiyaçlar arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile duygular ve ihtiyaçlar arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Güneş - Ay Sekstili",
+      "short": "İlişkinizde, kimlik ve irade ile duygular ve ihtiyaçlar arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile duygular ve ihtiyaçlar arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Güneş - Ay Karesi",
+      "short": "İlişkinizde, kimlik ve irade ile duygular ve ihtiyaçlar arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile duygular ve ihtiyaçlar arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Güneş - Ay Üçgeni",
+      "short": "İlişkinizde, kimlik ve irade ile duygular ve ihtiyaçlar arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile duygular ve ihtiyaçlar arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Güneş - Ay Karşıtlığı",
+      "short": "İlişkinizde, kimlik ve irade ile duygular ve ihtiyaçlar arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile duygular ve ihtiyaçlar arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "sun_mercury": {
+    "conjunction": {
+      "title": "Güneş - Merkür Kavuşumu",
+      "short": "İlişkinizde, kimlik ve irade ile iletişim ve düşünce arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile iletişim ve düşünce arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Güneş - Merkür Sekstili",
+      "short": "İlişkinizde, kimlik ve irade ile iletişim ve düşünce arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile iletişim ve düşünce arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Güneş - Merkür Karesi",
+      "short": "İlişkinizde, kimlik ve irade ile iletişim ve düşünce arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile iletişim ve düşünce arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Güneş - Merkür Üçgeni",
+      "short": "İlişkinizde, kimlik ve irade ile iletişim ve düşünce arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile iletişim ve düşünce arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Güneş - Merkür Karşıtlığı",
+      "short": "İlişkinizde, kimlik ve irade ile iletişim ve düşünce arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile iletişim ve düşünce arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "sun_venus": {
+    "conjunction": {
+      "title": "Güneş - Venüs Kavuşumu",
+      "short": "İlişkinizde, kimlik ve irade ile sevgi ve uyum arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile sevgi ve uyum arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Güneş - Venüs Sekstili",
+      "short": "İlişkinizde, kimlik ve irade ile sevgi ve uyum arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile sevgi ve uyum arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Güneş - Venüs Karesi",
+      "short": "İlişkinizde, kimlik ve irade ile sevgi ve uyum arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile sevgi ve uyum arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Güneş - Venüs Üçgeni",
+      "short": "İlişkinizde, kimlik ve irade ile sevgi ve uyum arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile sevgi ve uyum arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Güneş - Venüs Karşıtlığı",
+      "short": "İlişkinizde, kimlik ve irade ile sevgi ve uyum arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile sevgi ve uyum arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "sun_mars": {
+    "conjunction": {
+      "title": "Güneş - Mars Kavuşumu",
+      "short": "İlişkinizde, kimlik ve irade ile eylem ve enerji arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile eylem ve enerji arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Güneş - Mars Sekstili",
+      "short": "İlişkinizde, kimlik ve irade ile eylem ve enerji arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile eylem ve enerji arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Güneş - Mars Karesi",
+      "short": "İlişkinizde, kimlik ve irade ile eylem ve enerji arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile eylem ve enerji arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Güneş - Mars Üçgeni",
+      "short": "İlişkinizde, kimlik ve irade ile eylem ve enerji arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile eylem ve enerji arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Güneş - Mars Karşıtlığı",
+      "short": "İlişkinizde, kimlik ve irade ile eylem ve enerji arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile eylem ve enerji arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "sun_jupiter": {
+    "conjunction": {
+      "title": "Güneş - Jüpiter Kavuşumu",
+      "short": "İlişkinizde, kimlik ve irade ile büyüme ve fırsat arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile büyüme ve fırsat arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Güneş - Jüpiter Sekstili",
+      "short": "İlişkinizde, kimlik ve irade ile büyüme ve fırsat arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile büyüme ve fırsat arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Güneş - Jüpiter Karesi",
+      "short": "İlişkinizde, kimlik ve irade ile büyüme ve fırsat arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile büyüme ve fırsat arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Güneş - Jüpiter Üçgeni",
+      "short": "İlişkinizde, kimlik ve irade ile büyüme ve fırsat arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile büyüme ve fırsat arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Güneş - Jüpiter Karşıtlığı",
+      "short": "İlişkinizde, kimlik ve irade ile büyüme ve fırsat arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile büyüme ve fırsat arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "sun_saturn": {
+    "conjunction": {
+      "title": "Güneş - Satürn Kavuşumu",
+      "short": "İlişkinizde, kimlik ve irade ile sorumluluk ve disiplin arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile sorumluluk ve disiplin arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Güneş - Satürn Sekstili",
+      "short": "İlişkinizde, kimlik ve irade ile sorumluluk ve disiplin arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile sorumluluk ve disiplin arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Güneş - Satürn Karesi",
+      "short": "İlişkinizde, kimlik ve irade ile sorumluluk ve disiplin arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile sorumluluk ve disiplin arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Güneş - Satürn Üçgeni",
+      "short": "İlişkinizde, kimlik ve irade ile sorumluluk ve disiplin arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile sorumluluk ve disiplin arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Güneş - Satürn Karşıtlığı",
+      "short": "İlişkinizde, kimlik ve irade ile sorumluluk ve disiplin arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile sorumluluk ve disiplin arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "sun_uranus": {
+    "conjunction": {
+      "title": "Güneş - Uranüs Kavuşumu",
+      "short": "İlişkinizde, kimlik ve irade ile değişim ve özgürlük arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile değişim ve özgürlük arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Güneş - Uranüs Sekstili",
+      "short": "İlişkinizde, kimlik ve irade ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Güneş - Uranüs Karesi",
+      "short": "İlişkinizde, kimlik ve irade ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Güneş - Uranüs Üçgeni",
+      "short": "İlişkinizde, kimlik ve irade ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Güneş - Uranüs Karşıtlığı",
+      "short": "İlişkinizde, kimlik ve irade ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "sun_neptune": {
+    "conjunction": {
+      "title": "Güneş - Neptün Kavuşumu",
+      "short": "İlişkinizde, kimlik ve irade ile hayal ve sezgi arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile hayal ve sezgi arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Güneş - Neptün Sekstili",
+      "short": "İlişkinizde, kimlik ve irade ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Güneş - Neptün Karesi",
+      "short": "İlişkinizde, kimlik ve irade ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Güneş - Neptün Üçgeni",
+      "short": "İlişkinizde, kimlik ve irade ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Güneş - Neptün Karşıtlığı",
+      "short": "İlişkinizde, kimlik ve irade ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "sun_pluto": {
+    "conjunction": {
+      "title": "Güneş - Plüton Kavuşumu",
+      "short": "İlişkinizde, kimlik ve irade ile dönüşüm ve güç arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile dönüşüm ve güç arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Güneş - Plüton Sekstili",
+      "short": "İlişkinizde, kimlik ve irade ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Güneş - Plüton Karesi",
+      "short": "İlişkinizde, kimlik ve irade ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Güneş - Plüton Üçgeni",
+      "short": "İlişkinizde, kimlik ve irade ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Güneş - Plüton Karşıtlığı",
+      "short": "İlişkinizde, kimlik ve irade ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "sun_asc": {
+    "conjunction": {
+      "title": "Güneş - Yükselen Kavuşumu",
+      "short": "İlişkinizde, kimlik ve irade ile dış görünüş ve hayata yaklaşım arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile dış görünüş ve hayata yaklaşım arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Güneş - Yükselen Sekstili",
+      "short": "İlişkinizde, kimlik ve irade ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Güneş - Yükselen Karesi",
+      "short": "İlişkinizde, kimlik ve irade ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Güneş - Yükselen Üçgeni",
+      "short": "İlişkinizde, kimlik ve irade ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Güneş - Yükselen Karşıtlığı",
+      "short": "İlişkinizde, kimlik ve irade ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "sun_mc": {
+    "conjunction": {
+      "title": "Güneş - MC Kavuşumu",
+      "short": "İlişkinizde, kimlik ve irade ile kariyer ve yaşam hedefleri arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile kariyer ve yaşam hedefleri arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Güneş - MC Sekstili",
+      "short": "İlişkinizde, kimlik ve irade ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Güneş - MC Karesi",
+      "short": "İlişkinizde, kimlik ve irade ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Güneş - MC Üçgeni",
+      "short": "İlişkinizde, kimlik ve irade ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Güneş - MC Karşıtlığı",
+      "short": "İlişkinizde, kimlik ve irade ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, kimlik ve irade ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "moon_mercury": {
+    "conjunction": {
+      "title": "Ay - Merkür Kavuşumu",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile iletişim ve düşünce arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile iletişim ve düşünce arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Ay - Merkür Sekstili",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile iletişim ve düşünce arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile iletişim ve düşünce arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Ay - Merkür Karesi",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile iletişim ve düşünce arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile iletişim ve düşünce arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Ay - Merkür Üçgeni",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile iletişim ve düşünce arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile iletişim ve düşünce arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Ay - Merkür Karşıtlığı",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile iletişim ve düşünce arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile iletişim ve düşünce arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "moon_venus": {
+    "conjunction": {
+      "title": "Ay - Venüs Kavuşumu",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile sevgi ve uyum arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile sevgi ve uyum arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Ay - Venüs Sekstili",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile sevgi ve uyum arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile sevgi ve uyum arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Ay - Venüs Karesi",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile sevgi ve uyum arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile sevgi ve uyum arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Ay - Venüs Üçgeni",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile sevgi ve uyum arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile sevgi ve uyum arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Ay - Venüs Karşıtlığı",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile sevgi ve uyum arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile sevgi ve uyum arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "moon_mars": {
+    "conjunction": {
+      "title": "Ay - Mars Kavuşumu",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile eylem ve enerji arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile eylem ve enerji arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Ay - Mars Sekstili",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile eylem ve enerji arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile eylem ve enerji arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Ay - Mars Karesi",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile eylem ve enerji arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile eylem ve enerji arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Ay - Mars Üçgeni",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile eylem ve enerji arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile eylem ve enerji arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Ay - Mars Karşıtlığı",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile eylem ve enerji arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile eylem ve enerji arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "moon_jupiter": {
+    "conjunction": {
+      "title": "Ay - Jüpiter Kavuşumu",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile büyüme ve fırsat arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile büyüme ve fırsat arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Ay - Jüpiter Sekstili",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile büyüme ve fırsat arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile büyüme ve fırsat arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Ay - Jüpiter Karesi",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile büyüme ve fırsat arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile büyüme ve fırsat arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Ay - Jüpiter Üçgeni",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile büyüme ve fırsat arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile büyüme ve fırsat arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Ay - Jüpiter Karşıtlığı",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile büyüme ve fırsat arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile büyüme ve fırsat arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "moon_saturn": {
+    "conjunction": {
+      "title": "Ay - Satürn Kavuşumu",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile sorumluluk ve disiplin arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile sorumluluk ve disiplin arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Ay - Satürn Sekstili",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile sorumluluk ve disiplin arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile sorumluluk ve disiplin arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Ay - Satürn Karesi",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile sorumluluk ve disiplin arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile sorumluluk ve disiplin arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Ay - Satürn Üçgeni",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile sorumluluk ve disiplin arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile sorumluluk ve disiplin arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Ay - Satürn Karşıtlığı",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile sorumluluk ve disiplin arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile sorumluluk ve disiplin arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "moon_uranus": {
+    "conjunction": {
+      "title": "Ay - Uranüs Kavuşumu",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile değişim ve özgürlük arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile değişim ve özgürlük arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Ay - Uranüs Sekstili",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Ay - Uranüs Karesi",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Ay - Uranüs Üçgeni",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Ay - Uranüs Karşıtlığı",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "moon_neptune": {
+    "conjunction": {
+      "title": "Ay - Neptün Kavuşumu",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile hayal ve sezgi arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile hayal ve sezgi arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Ay - Neptün Sekstili",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Ay - Neptün Karesi",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Ay - Neptün Üçgeni",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Ay - Neptün Karşıtlığı",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "moon_pluto": {
+    "conjunction": {
+      "title": "Ay - Plüton Kavuşumu",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile dönüşüm ve güç arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile dönüşüm ve güç arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Ay - Plüton Sekstili",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Ay - Plüton Karesi",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Ay - Plüton Üçgeni",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Ay - Plüton Karşıtlığı",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "moon_asc": {
+    "conjunction": {
+      "title": "Ay - Yükselen Kavuşumu",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile dış görünüş ve hayata yaklaşım arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile dış görünüş ve hayata yaklaşım arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Ay - Yükselen Sekstili",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Ay - Yükselen Karesi",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Ay - Yükselen Üçgeni",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Ay - Yükselen Karşıtlığı",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "moon_mc": {
+    "conjunction": {
+      "title": "Ay - MC Kavuşumu",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile kariyer ve yaşam hedefleri arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile kariyer ve yaşam hedefleri arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Ay - MC Sekstili",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Ay - MC Karesi",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Ay - MC Üçgeni",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Ay - MC Karşıtlığı",
+      "short": "İlişkinizde, duygular ve ihtiyaçlar ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, duygular ve ihtiyaçlar ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "mercury_venus": {
+    "conjunction": {
+      "title": "Merkür - Venüs Kavuşumu",
+      "short": "İlişkinizde, iletişim ve düşünce ile sevgi ve uyum arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile sevgi ve uyum arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Merkür - Venüs Sekstili",
+      "short": "İlişkinizde, iletişim ve düşünce ile sevgi ve uyum arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile sevgi ve uyum arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Merkür - Venüs Karesi",
+      "short": "İlişkinizde, iletişim ve düşünce ile sevgi ve uyum arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile sevgi ve uyum arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Merkür - Venüs Üçgeni",
+      "short": "İlişkinizde, iletişim ve düşünce ile sevgi ve uyum arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile sevgi ve uyum arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Merkür - Venüs Karşıtlığı",
+      "short": "İlişkinizde, iletişim ve düşünce ile sevgi ve uyum arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile sevgi ve uyum arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "mercury_mars": {
+    "conjunction": {
+      "title": "Merkür - Mars Kavuşumu",
+      "short": "İlişkinizde, iletişim ve düşünce ile eylem ve enerji arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile eylem ve enerji arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Merkür - Mars Sekstili",
+      "short": "İlişkinizde, iletişim ve düşünce ile eylem ve enerji arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile eylem ve enerji arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Merkür - Mars Karesi",
+      "short": "İlişkinizde, iletişim ve düşünce ile eylem ve enerji arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile eylem ve enerji arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Merkür - Mars Üçgeni",
+      "short": "İlişkinizde, iletişim ve düşünce ile eylem ve enerji arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile eylem ve enerji arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Merkür - Mars Karşıtlığı",
+      "short": "İlişkinizde, iletişim ve düşünce ile eylem ve enerji arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile eylem ve enerji arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "mercury_jupiter": {
+    "conjunction": {
+      "title": "Merkür - Jüpiter Kavuşumu",
+      "short": "İlişkinizde, iletişim ve düşünce ile büyüme ve fırsat arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile büyüme ve fırsat arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Merkür - Jüpiter Sekstili",
+      "short": "İlişkinizde, iletişim ve düşünce ile büyüme ve fırsat arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile büyüme ve fırsat arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Merkür - Jüpiter Karesi",
+      "short": "İlişkinizde, iletişim ve düşünce ile büyüme ve fırsat arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile büyüme ve fırsat arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Merkür - Jüpiter Üçgeni",
+      "short": "İlişkinizde, iletişim ve düşünce ile büyüme ve fırsat arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile büyüme ve fırsat arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Merkür - Jüpiter Karşıtlığı",
+      "short": "İlişkinizde, iletişim ve düşünce ile büyüme ve fırsat arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile büyüme ve fırsat arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "mercury_saturn": {
+    "conjunction": {
+      "title": "Merkür - Satürn Kavuşumu",
+      "short": "İlişkinizde, iletişim ve düşünce ile sorumluluk ve disiplin arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile sorumluluk ve disiplin arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Merkür - Satürn Sekstili",
+      "short": "İlişkinizde, iletişim ve düşünce ile sorumluluk ve disiplin arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile sorumluluk ve disiplin arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Merkür - Satürn Karesi",
+      "short": "İlişkinizde, iletişim ve düşünce ile sorumluluk ve disiplin arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile sorumluluk ve disiplin arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Merkür - Satürn Üçgeni",
+      "short": "İlişkinizde, iletişim ve düşünce ile sorumluluk ve disiplin arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile sorumluluk ve disiplin arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Merkür - Satürn Karşıtlığı",
+      "short": "İlişkinizde, iletişim ve düşünce ile sorumluluk ve disiplin arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile sorumluluk ve disiplin arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "mercury_uranus": {
+    "conjunction": {
+      "title": "Merkür - Uranüs Kavuşumu",
+      "short": "İlişkinizde, iletişim ve düşünce ile değişim ve özgürlük arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile değişim ve özgürlük arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Merkür - Uranüs Sekstili",
+      "short": "İlişkinizde, iletişim ve düşünce ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Merkür - Uranüs Karesi",
+      "short": "İlişkinizde, iletişim ve düşünce ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Merkür - Uranüs Üçgeni",
+      "short": "İlişkinizde, iletişim ve düşünce ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Merkür - Uranüs Karşıtlığı",
+      "short": "İlişkinizde, iletişim ve düşünce ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "mercury_neptune": {
+    "conjunction": {
+      "title": "Merkür - Neptün Kavuşumu",
+      "short": "İlişkinizde, iletişim ve düşünce ile hayal ve sezgi arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile hayal ve sezgi arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Merkür - Neptün Sekstili",
+      "short": "İlişkinizde, iletişim ve düşünce ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Merkür - Neptün Karesi",
+      "short": "İlişkinizde, iletişim ve düşünce ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Merkür - Neptün Üçgeni",
+      "short": "İlişkinizde, iletişim ve düşünce ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Merkür - Neptün Karşıtlığı",
+      "short": "İlişkinizde, iletişim ve düşünce ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "mercury_pluto": {
+    "conjunction": {
+      "title": "Merkür - Plüton Kavuşumu",
+      "short": "İlişkinizde, iletişim ve düşünce ile dönüşüm ve güç arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile dönüşüm ve güç arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Merkür - Plüton Sekstili",
+      "short": "İlişkinizde, iletişim ve düşünce ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Merkür - Plüton Karesi",
+      "short": "İlişkinizde, iletişim ve düşünce ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Merkür - Plüton Üçgeni",
+      "short": "İlişkinizde, iletişim ve düşünce ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Merkür - Plüton Karşıtlığı",
+      "short": "İlişkinizde, iletişim ve düşünce ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "mercury_asc": {
+    "conjunction": {
+      "title": "Merkür - Yükselen Kavuşumu",
+      "short": "İlişkinizde, iletişim ve düşünce ile dış görünüş ve hayata yaklaşım arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile dış görünüş ve hayata yaklaşım arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Merkür - Yükselen Sekstili",
+      "short": "İlişkinizde, iletişim ve düşünce ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Merkür - Yükselen Karesi",
+      "short": "İlişkinizde, iletişim ve düşünce ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Merkür - Yükselen Üçgeni",
+      "short": "İlişkinizde, iletişim ve düşünce ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Merkür - Yükselen Karşıtlığı",
+      "short": "İlişkinizde, iletişim ve düşünce ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "mercury_mc": {
+    "conjunction": {
+      "title": "Merkür - MC Kavuşumu",
+      "short": "İlişkinizde, iletişim ve düşünce ile kariyer ve yaşam hedefleri arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile kariyer ve yaşam hedefleri arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Merkür - MC Sekstili",
+      "short": "İlişkinizde, iletişim ve düşünce ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Merkür - MC Karesi",
+      "short": "İlişkinizde, iletişim ve düşünce ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Merkür - MC Üçgeni",
+      "short": "İlişkinizde, iletişim ve düşünce ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Merkür - MC Karşıtlığı",
+      "short": "İlişkinizde, iletişim ve düşünce ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, iletişim ve düşünce ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "venus_mars": {
+    "conjunction": {
+      "title": "Venüs - Mars Kavuşumu",
+      "short": "İlişkinizde, sevgi ve uyum ile eylem ve enerji arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile eylem ve enerji arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Venüs - Mars Sekstili",
+      "short": "İlişkinizde, sevgi ve uyum ile eylem ve enerji arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile eylem ve enerji arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Venüs - Mars Karesi",
+      "short": "İlişkinizde, sevgi ve uyum ile eylem ve enerji arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile eylem ve enerji arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Venüs - Mars Üçgeni",
+      "short": "İlişkinizde, sevgi ve uyum ile eylem ve enerji arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile eylem ve enerji arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Venüs - Mars Karşıtlığı",
+      "short": "İlişkinizde, sevgi ve uyum ile eylem ve enerji arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile eylem ve enerji arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "venus_jupiter": {
+    "conjunction": {
+      "title": "Venüs - Jüpiter Kavuşumu",
+      "short": "İlişkinizde, sevgi ve uyum ile büyüme ve fırsat arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile büyüme ve fırsat arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Venüs - Jüpiter Sekstili",
+      "short": "İlişkinizde, sevgi ve uyum ile büyüme ve fırsat arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile büyüme ve fırsat arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Venüs - Jüpiter Karesi",
+      "short": "İlişkinizde, sevgi ve uyum ile büyüme ve fırsat arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile büyüme ve fırsat arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Venüs - Jüpiter Üçgeni",
+      "short": "İlişkinizde, sevgi ve uyum ile büyüme ve fırsat arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile büyüme ve fırsat arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Venüs - Jüpiter Karşıtlığı",
+      "short": "İlişkinizde, sevgi ve uyum ile büyüme ve fırsat arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile büyüme ve fırsat arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "venus_saturn": {
+    "conjunction": {
+      "title": "Venüs - Satürn Kavuşumu",
+      "short": "İlişkinizde, sevgi ve uyum ile sorumluluk ve disiplin arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile sorumluluk ve disiplin arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Venüs - Satürn Sekstili",
+      "short": "İlişkinizde, sevgi ve uyum ile sorumluluk ve disiplin arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile sorumluluk ve disiplin arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Venüs - Satürn Karesi",
+      "short": "İlişkinizde, sevgi ve uyum ile sorumluluk ve disiplin arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile sorumluluk ve disiplin arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Venüs - Satürn Üçgeni",
+      "short": "İlişkinizde, sevgi ve uyum ile sorumluluk ve disiplin arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile sorumluluk ve disiplin arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Venüs - Satürn Karşıtlığı",
+      "short": "İlişkinizde, sevgi ve uyum ile sorumluluk ve disiplin arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile sorumluluk ve disiplin arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "venus_uranus": {
+    "conjunction": {
+      "title": "Venüs - Uranüs Kavuşumu",
+      "short": "İlişkinizde, sevgi ve uyum ile değişim ve özgürlük arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile değişim ve özgürlük arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Venüs - Uranüs Sekstili",
+      "short": "İlişkinizde, sevgi ve uyum ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Venüs - Uranüs Karesi",
+      "short": "İlişkinizde, sevgi ve uyum ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Venüs - Uranüs Üçgeni",
+      "short": "İlişkinizde, sevgi ve uyum ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Venüs - Uranüs Karşıtlığı",
+      "short": "İlişkinizde, sevgi ve uyum ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "venus_neptune": {
+    "conjunction": {
+      "title": "Venüs - Neptün Kavuşumu",
+      "short": "İlişkinizde, sevgi ve uyum ile hayal ve sezgi arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile hayal ve sezgi arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Venüs - Neptün Sekstili",
+      "short": "İlişkinizde, sevgi ve uyum ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Venüs - Neptün Karesi",
+      "short": "İlişkinizde, sevgi ve uyum ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Venüs - Neptün Üçgeni",
+      "short": "İlişkinizde, sevgi ve uyum ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Venüs - Neptün Karşıtlığı",
+      "short": "İlişkinizde, sevgi ve uyum ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "venus_pluto": {
+    "conjunction": {
+      "title": "Venüs - Plüton Kavuşumu",
+      "short": "İlişkinizde, sevgi ve uyum ile dönüşüm ve güç arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile dönüşüm ve güç arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Venüs - Plüton Sekstili",
+      "short": "İlişkinizde, sevgi ve uyum ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Venüs - Plüton Karesi",
+      "short": "İlişkinizde, sevgi ve uyum ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Venüs - Plüton Üçgeni",
+      "short": "İlişkinizde, sevgi ve uyum ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Venüs - Plüton Karşıtlığı",
+      "short": "İlişkinizde, sevgi ve uyum ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "venus_asc": {
+    "conjunction": {
+      "title": "Venüs - Yükselen Kavuşumu",
+      "short": "İlişkinizde, sevgi ve uyum ile dış görünüş ve hayata yaklaşım arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile dış görünüş ve hayata yaklaşım arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Venüs - Yükselen Sekstili",
+      "short": "İlişkinizde, sevgi ve uyum ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Venüs - Yükselen Karesi",
+      "short": "İlişkinizde, sevgi ve uyum ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Venüs - Yükselen Üçgeni",
+      "short": "İlişkinizde, sevgi ve uyum ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Venüs - Yükselen Karşıtlığı",
+      "short": "İlişkinizde, sevgi ve uyum ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "venus_mc": {
+    "conjunction": {
+      "title": "Venüs - MC Kavuşumu",
+      "short": "İlişkinizde, sevgi ve uyum ile kariyer ve yaşam hedefleri arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile kariyer ve yaşam hedefleri arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Venüs - MC Sekstili",
+      "short": "İlişkinizde, sevgi ve uyum ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Venüs - MC Karesi",
+      "short": "İlişkinizde, sevgi ve uyum ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Venüs - MC Üçgeni",
+      "short": "İlişkinizde, sevgi ve uyum ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Venüs - MC Karşıtlığı",
+      "short": "İlişkinizde, sevgi ve uyum ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, sevgi ve uyum ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "mars_jupiter": {
+    "conjunction": {
+      "title": "Mars - Jüpiter Kavuşumu",
+      "short": "İlişkinizde, eylem ve enerji ile büyüme ve fırsat arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile büyüme ve fırsat arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Mars - Jüpiter Sekstili",
+      "short": "İlişkinizde, eylem ve enerji ile büyüme ve fırsat arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile büyüme ve fırsat arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Mars - Jüpiter Karesi",
+      "short": "İlişkinizde, eylem ve enerji ile büyüme ve fırsat arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile büyüme ve fırsat arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Mars - Jüpiter Üçgeni",
+      "short": "İlişkinizde, eylem ve enerji ile büyüme ve fırsat arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile büyüme ve fırsat arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Mars - Jüpiter Karşıtlığı",
+      "short": "İlişkinizde, eylem ve enerji ile büyüme ve fırsat arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile büyüme ve fırsat arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "mars_saturn": {
+    "conjunction": {
+      "title": "Mars - Satürn Kavuşumu",
+      "short": "İlişkinizde, eylem ve enerji ile sorumluluk ve disiplin arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile sorumluluk ve disiplin arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Mars - Satürn Sekstili",
+      "short": "İlişkinizde, eylem ve enerji ile sorumluluk ve disiplin arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile sorumluluk ve disiplin arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Mars - Satürn Karesi",
+      "short": "İlişkinizde, eylem ve enerji ile sorumluluk ve disiplin arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile sorumluluk ve disiplin arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Mars - Satürn Üçgeni",
+      "short": "İlişkinizde, eylem ve enerji ile sorumluluk ve disiplin arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile sorumluluk ve disiplin arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Mars - Satürn Karşıtlığı",
+      "short": "İlişkinizde, eylem ve enerji ile sorumluluk ve disiplin arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile sorumluluk ve disiplin arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "mars_uranus": {
+    "conjunction": {
+      "title": "Mars - Uranüs Kavuşumu",
+      "short": "İlişkinizde, eylem ve enerji ile değişim ve özgürlük arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile değişim ve özgürlük arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Mars - Uranüs Sekstili",
+      "short": "İlişkinizde, eylem ve enerji ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Mars - Uranüs Karesi",
+      "short": "İlişkinizde, eylem ve enerji ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Mars - Uranüs Üçgeni",
+      "short": "İlişkinizde, eylem ve enerji ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Mars - Uranüs Karşıtlığı",
+      "short": "İlişkinizde, eylem ve enerji ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "mars_neptune": {
+    "conjunction": {
+      "title": "Mars - Neptün Kavuşumu",
+      "short": "İlişkinizde, eylem ve enerji ile hayal ve sezgi arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile hayal ve sezgi arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Mars - Neptün Sekstili",
+      "short": "İlişkinizde, eylem ve enerji ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Mars - Neptün Karesi",
+      "short": "İlişkinizde, eylem ve enerji ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Mars - Neptün Üçgeni",
+      "short": "İlişkinizde, eylem ve enerji ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Mars - Neptün Karşıtlığı",
+      "short": "İlişkinizde, eylem ve enerji ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "mars_pluto": {
+    "conjunction": {
+      "title": "Mars - Plüton Kavuşumu",
+      "short": "İlişkinizde, eylem ve enerji ile dönüşüm ve güç arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile dönüşüm ve güç arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Mars - Plüton Sekstili",
+      "short": "İlişkinizde, eylem ve enerji ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Mars - Plüton Karesi",
+      "short": "İlişkinizde, eylem ve enerji ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Mars - Plüton Üçgeni",
+      "short": "İlişkinizde, eylem ve enerji ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Mars - Plüton Karşıtlığı",
+      "short": "İlişkinizde, eylem ve enerji ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "mars_asc": {
+    "conjunction": {
+      "title": "Mars - Yükselen Kavuşumu",
+      "short": "İlişkinizde, eylem ve enerji ile dış görünüş ve hayata yaklaşım arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile dış görünüş ve hayata yaklaşım arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Mars - Yükselen Sekstili",
+      "short": "İlişkinizde, eylem ve enerji ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Mars - Yükselen Karesi",
+      "short": "İlişkinizde, eylem ve enerji ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Mars - Yükselen Üçgeni",
+      "short": "İlişkinizde, eylem ve enerji ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Mars - Yükselen Karşıtlığı",
+      "short": "İlişkinizde, eylem ve enerji ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "mars_mc": {
+    "conjunction": {
+      "title": "Mars - MC Kavuşumu",
+      "short": "İlişkinizde, eylem ve enerji ile kariyer ve yaşam hedefleri arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile kariyer ve yaşam hedefleri arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Mars - MC Sekstili",
+      "short": "İlişkinizde, eylem ve enerji ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Mars - MC Karesi",
+      "short": "İlişkinizde, eylem ve enerji ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Mars - MC Üçgeni",
+      "short": "İlişkinizde, eylem ve enerji ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Mars - MC Karşıtlığı",
+      "short": "İlişkinizde, eylem ve enerji ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, eylem ve enerji ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "jupiter_saturn": {
+    "conjunction": {
+      "title": "Jüpiter - Satürn Kavuşumu",
+      "short": "İlişkinizde, büyüme ve fırsat ile sorumluluk ve disiplin arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile sorumluluk ve disiplin arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Jüpiter - Satürn Sekstili",
+      "short": "İlişkinizde, büyüme ve fırsat ile sorumluluk ve disiplin arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile sorumluluk ve disiplin arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Jüpiter - Satürn Karesi",
+      "short": "İlişkinizde, büyüme ve fırsat ile sorumluluk ve disiplin arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile sorumluluk ve disiplin arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Jüpiter - Satürn Üçgeni",
+      "short": "İlişkinizde, büyüme ve fırsat ile sorumluluk ve disiplin arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile sorumluluk ve disiplin arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Jüpiter - Satürn Karşıtlığı",
+      "short": "İlişkinizde, büyüme ve fırsat ile sorumluluk ve disiplin arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile sorumluluk ve disiplin arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "jupiter_uranus": {
+    "conjunction": {
+      "title": "Jüpiter - Uranüs Kavuşumu",
+      "short": "İlişkinizde, büyüme ve fırsat ile değişim ve özgürlük arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile değişim ve özgürlük arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Jüpiter - Uranüs Sekstili",
+      "short": "İlişkinizde, büyüme ve fırsat ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Jüpiter - Uranüs Karesi",
+      "short": "İlişkinizde, büyüme ve fırsat ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Jüpiter - Uranüs Üçgeni",
+      "short": "İlişkinizde, büyüme ve fırsat ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Jüpiter - Uranüs Karşıtlığı",
+      "short": "İlişkinizde, büyüme ve fırsat ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "jupiter_neptune": {
+    "conjunction": {
+      "title": "Jüpiter - Neptün Kavuşumu",
+      "short": "İlişkinizde, büyüme ve fırsat ile hayal ve sezgi arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile hayal ve sezgi arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Jüpiter - Neptün Sekstili",
+      "short": "İlişkinizde, büyüme ve fırsat ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Jüpiter - Neptün Karesi",
+      "short": "İlişkinizde, büyüme ve fırsat ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Jüpiter - Neptün Üçgeni",
+      "short": "İlişkinizde, büyüme ve fırsat ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Jüpiter - Neptün Karşıtlığı",
+      "short": "İlişkinizde, büyüme ve fırsat ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "jupiter_pluto": {
+    "conjunction": {
+      "title": "Jüpiter - Plüton Kavuşumu",
+      "short": "İlişkinizde, büyüme ve fırsat ile dönüşüm ve güç arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile dönüşüm ve güç arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Jüpiter - Plüton Sekstili",
+      "short": "İlişkinizde, büyüme ve fırsat ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Jüpiter - Plüton Karesi",
+      "short": "İlişkinizde, büyüme ve fırsat ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Jüpiter - Plüton Üçgeni",
+      "short": "İlişkinizde, büyüme ve fırsat ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Jüpiter - Plüton Karşıtlığı",
+      "short": "İlişkinizde, büyüme ve fırsat ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "jupiter_asc": {
+    "conjunction": {
+      "title": "Jüpiter - Yükselen Kavuşumu",
+      "short": "İlişkinizde, büyüme ve fırsat ile dış görünüş ve hayata yaklaşım arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile dış görünüş ve hayata yaklaşım arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Jüpiter - Yükselen Sekstili",
+      "short": "İlişkinizde, büyüme ve fırsat ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Jüpiter - Yükselen Karesi",
+      "short": "İlişkinizde, büyüme ve fırsat ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Jüpiter - Yükselen Üçgeni",
+      "short": "İlişkinizde, büyüme ve fırsat ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Jüpiter - Yükselen Karşıtlığı",
+      "short": "İlişkinizde, büyüme ve fırsat ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "jupiter_mc": {
+    "conjunction": {
+      "title": "Jüpiter - MC Kavuşumu",
+      "short": "İlişkinizde, büyüme ve fırsat ile kariyer ve yaşam hedefleri arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile kariyer ve yaşam hedefleri arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Jüpiter - MC Sekstili",
+      "short": "İlişkinizde, büyüme ve fırsat ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Jüpiter - MC Karesi",
+      "short": "İlişkinizde, büyüme ve fırsat ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Jüpiter - MC Üçgeni",
+      "short": "İlişkinizde, büyüme ve fırsat ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Jüpiter - MC Karşıtlığı",
+      "short": "İlişkinizde, büyüme ve fırsat ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, büyüme ve fırsat ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "saturn_uranus": {
+    "conjunction": {
+      "title": "Satürn - Uranüs Kavuşumu",
+      "short": "İlişkinizde, sorumluluk ve disiplin ile değişim ve özgürlük arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, sorumluluk ve disiplin ile değişim ve özgürlük arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Satürn - Uranüs Sekstili",
+      "short": "İlişkinizde, sorumluluk ve disiplin ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, sorumluluk ve disiplin ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Satürn - Uranüs Karesi",
+      "short": "İlişkinizde, sorumluluk ve disiplin ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, sorumluluk ve disiplin ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Satürn - Uranüs Üçgeni",
+      "short": "İlişkinizde, sorumluluk ve disiplin ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, sorumluluk ve disiplin ile değişim ve özgürlük arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Satürn - Uranüs Karşıtlığı",
+      "short": "İlişkinizde, sorumluluk ve disiplin ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, sorumluluk ve disiplin ile değişim ve özgürlük arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "saturn_neptune": {
+    "conjunction": {
+      "title": "Satürn - Neptün Kavuşumu",
+      "short": "İlişkinizde, sorumluluk ve disiplin ile hayal ve sezgi arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, sorumluluk ve disiplin ile hayal ve sezgi arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Satürn - Neptün Sekstili",
+      "short": "İlişkinizde, sorumluluk ve disiplin ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, sorumluluk ve disiplin ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Satürn - Neptün Karesi",
+      "short": "İlişkinizde, sorumluluk ve disiplin ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, sorumluluk ve disiplin ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Satürn - Neptün Üçgeni",
+      "short": "İlişkinizde, sorumluluk ve disiplin ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, sorumluluk ve disiplin ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Satürn - Neptün Karşıtlığı",
+      "short": "İlişkinizde, sorumluluk ve disiplin ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, sorumluluk ve disiplin ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "saturn_pluto": {
+    "conjunction": {
+      "title": "Satürn - Plüton Kavuşumu",
+      "short": "İlişkinizde, sorumluluk ve disiplin ile dönüşüm ve güç arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, sorumluluk ve disiplin ile dönüşüm ve güç arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Satürn - Plüton Sekstili",
+      "short": "İlişkinizde, sorumluluk ve disiplin ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, sorumluluk ve disiplin ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Satürn - Plüton Karesi",
+      "short": "İlişkinizde, sorumluluk ve disiplin ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, sorumluluk ve disiplin ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Satürn - Plüton Üçgeni",
+      "short": "İlişkinizde, sorumluluk ve disiplin ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, sorumluluk ve disiplin ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Satürn - Plüton Karşıtlığı",
+      "short": "İlişkinizde, sorumluluk ve disiplin ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, sorumluluk ve disiplin ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "saturn_asc": {
+    "conjunction": {
+      "title": "Satürn - Yükselen Kavuşumu",
+      "short": "İlişkinizde, sorumluluk ve disiplin ile dış görünüş ve hayata yaklaşım arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, sorumluluk ve disiplin ile dış görünüş ve hayata yaklaşım arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Satürn - Yükselen Sekstili",
+      "short": "İlişkinizde, sorumluluk ve disiplin ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, sorumluluk ve disiplin ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Satürn - Yükselen Karesi",
+      "short": "İlişkinizde, sorumluluk ve disiplin ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, sorumluluk ve disiplin ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Satürn - Yükselen Üçgeni",
+      "short": "İlişkinizde, sorumluluk ve disiplin ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, sorumluluk ve disiplin ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Satürn - Yükselen Karşıtlığı",
+      "short": "İlişkinizde, sorumluluk ve disiplin ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, sorumluluk ve disiplin ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "saturn_mc": {
+    "conjunction": {
+      "title": "Satürn - MC Kavuşumu",
+      "short": "İlişkinizde, sorumluluk ve disiplin ile kariyer ve yaşam hedefleri arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, sorumluluk ve disiplin ile kariyer ve yaşam hedefleri arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Satürn - MC Sekstili",
+      "short": "İlişkinizde, sorumluluk ve disiplin ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, sorumluluk ve disiplin ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Satürn - MC Karesi",
+      "short": "İlişkinizde, sorumluluk ve disiplin ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, sorumluluk ve disiplin ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Satürn - MC Üçgeni",
+      "short": "İlişkinizde, sorumluluk ve disiplin ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, sorumluluk ve disiplin ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Satürn - MC Karşıtlığı",
+      "short": "İlişkinizde, sorumluluk ve disiplin ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, sorumluluk ve disiplin ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "uranus_neptune": {
+    "conjunction": {
+      "title": "Uranüs - Neptün Kavuşumu",
+      "short": "İlişkinizde, değişim ve özgürlük ile hayal ve sezgi arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, değişim ve özgürlük ile hayal ve sezgi arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Uranüs - Neptün Sekstili",
+      "short": "İlişkinizde, değişim ve özgürlük ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, değişim ve özgürlük ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Uranüs - Neptün Karesi",
+      "short": "İlişkinizde, değişim ve özgürlük ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, değişim ve özgürlük ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Uranüs - Neptün Üçgeni",
+      "short": "İlişkinizde, değişim ve özgürlük ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, değişim ve özgürlük ile hayal ve sezgi arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Uranüs - Neptün Karşıtlığı",
+      "short": "İlişkinizde, değişim ve özgürlük ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, değişim ve özgürlük ile hayal ve sezgi arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "uranus_pluto": {
+    "conjunction": {
+      "title": "Uranüs - Plüton Kavuşumu",
+      "short": "İlişkinizde, değişim ve özgürlük ile dönüşüm ve güç arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, değişim ve özgürlük ile dönüşüm ve güç arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Uranüs - Plüton Sekstili",
+      "short": "İlişkinizde, değişim ve özgürlük ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, değişim ve özgürlük ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Uranüs - Plüton Karesi",
+      "short": "İlişkinizde, değişim ve özgürlük ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, değişim ve özgürlük ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Uranüs - Plüton Üçgeni",
+      "short": "İlişkinizde, değişim ve özgürlük ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, değişim ve özgürlük ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Uranüs - Plüton Karşıtlığı",
+      "short": "İlişkinizde, değişim ve özgürlük ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, değişim ve özgürlük ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "uranus_asc": {
+    "conjunction": {
+      "title": "Uranüs - Yükselen Kavuşumu",
+      "short": "İlişkinizde, değişim ve özgürlük ile dış görünüş ve hayata yaklaşım arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, değişim ve özgürlük ile dış görünüş ve hayata yaklaşım arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Uranüs - Yükselen Sekstili",
+      "short": "İlişkinizde, değişim ve özgürlük ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, değişim ve özgürlük ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Uranüs - Yükselen Karesi",
+      "short": "İlişkinizde, değişim ve özgürlük ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, değişim ve özgürlük ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Uranüs - Yükselen Üçgeni",
+      "short": "İlişkinizde, değişim ve özgürlük ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, değişim ve özgürlük ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Uranüs - Yükselen Karşıtlığı",
+      "short": "İlişkinizde, değişim ve özgürlük ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, değişim ve özgürlük ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "uranus_mc": {
+    "conjunction": {
+      "title": "Uranüs - MC Kavuşumu",
+      "short": "İlişkinizde, değişim ve özgürlük ile kariyer ve yaşam hedefleri arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, değişim ve özgürlük ile kariyer ve yaşam hedefleri arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Uranüs - MC Sekstili",
+      "short": "İlişkinizde, değişim ve özgürlük ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, değişim ve özgürlük ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Uranüs - MC Karesi",
+      "short": "İlişkinizde, değişim ve özgürlük ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, değişim ve özgürlük ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Uranüs - MC Üçgeni",
+      "short": "İlişkinizde, değişim ve özgürlük ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, değişim ve özgürlük ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Uranüs - MC Karşıtlığı",
+      "short": "İlişkinizde, değişim ve özgürlük ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, değişim ve özgürlük ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "neptune_pluto": {
+    "conjunction": {
+      "title": "Neptün - Plüton Kavuşumu",
+      "short": "İlişkinizde, hayal ve sezgi ile dönüşüm ve güç arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, hayal ve sezgi ile dönüşüm ve güç arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Neptün - Plüton Sekstili",
+      "short": "İlişkinizde, hayal ve sezgi ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, hayal ve sezgi ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Neptün - Plüton Karesi",
+      "short": "İlişkinizde, hayal ve sezgi ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, hayal ve sezgi ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Neptün - Plüton Üçgeni",
+      "short": "İlişkinizde, hayal ve sezgi ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, hayal ve sezgi ile dönüşüm ve güç arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Neptün - Plüton Karşıtlığı",
+      "short": "İlişkinizde, hayal ve sezgi ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, hayal ve sezgi ile dönüşüm ve güç arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "neptune_asc": {
+    "conjunction": {
+      "title": "Neptün - Yükselen Kavuşumu",
+      "short": "İlişkinizde, hayal ve sezgi ile dış görünüş ve hayata yaklaşım arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, hayal ve sezgi ile dış görünüş ve hayata yaklaşım arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Neptün - Yükselen Sekstili",
+      "short": "İlişkinizde, hayal ve sezgi ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, hayal ve sezgi ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Neptün - Yükselen Karesi",
+      "short": "İlişkinizde, hayal ve sezgi ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, hayal ve sezgi ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Neptün - Yükselen Üçgeni",
+      "short": "İlişkinizde, hayal ve sezgi ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, hayal ve sezgi ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Neptün - Yükselen Karşıtlığı",
+      "short": "İlişkinizde, hayal ve sezgi ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, hayal ve sezgi ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "neptune_mc": {
+    "conjunction": {
+      "title": "Neptün - MC Kavuşumu",
+      "short": "İlişkinizde, hayal ve sezgi ile kariyer ve yaşam hedefleri arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, hayal ve sezgi ile kariyer ve yaşam hedefleri arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Neptün - MC Sekstili",
+      "short": "İlişkinizde, hayal ve sezgi ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, hayal ve sezgi ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Neptün - MC Karesi",
+      "short": "İlişkinizde, hayal ve sezgi ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, hayal ve sezgi ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Neptün - MC Üçgeni",
+      "short": "İlişkinizde, hayal ve sezgi ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, hayal ve sezgi ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Neptün - MC Karşıtlığı",
+      "short": "İlişkinizde, hayal ve sezgi ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, hayal ve sezgi ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "pluto_asc": {
+    "conjunction": {
+      "title": "Plüton - Yükselen Kavuşumu",
+      "short": "İlişkinizde, dönüşüm ve güç ile dış görünüş ve hayata yaklaşım arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, dönüşüm ve güç ile dış görünüş ve hayata yaklaşım arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Plüton - Yükselen Sekstili",
+      "short": "İlişkinizde, dönüşüm ve güç ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, dönüşüm ve güç ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Plüton - Yükselen Karesi",
+      "short": "İlişkinizde, dönüşüm ve güç ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, dönüşüm ve güç ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Plüton - Yükselen Üçgeni",
+      "short": "İlişkinizde, dönüşüm ve güç ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, dönüşüm ve güç ile dış görünüş ve hayata yaklaşım arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Plüton - Yükselen Karşıtlığı",
+      "short": "İlişkinizde, dönüşüm ve güç ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, dönüşüm ve güç ile dış görünüş ve hayata yaklaşım arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "pluto_mc": {
+    "conjunction": {
+      "title": "Plüton - MC Kavuşumu",
+      "short": "İlişkinizde, dönüşüm ve güç ile kariyer ve yaşam hedefleri arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, dönüşüm ve güç ile kariyer ve yaşam hedefleri arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Plüton - MC Sekstili",
+      "short": "İlişkinizde, dönüşüm ve güç ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, dönüşüm ve güç ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Plüton - MC Karesi",
+      "short": "İlişkinizde, dönüşüm ve güç ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, dönüşüm ve güç ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Plüton - MC Üçgeni",
+      "short": "İlişkinizde, dönüşüm ve güç ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, dönüşüm ve güç ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Plüton - MC Karşıtlığı",
+      "short": "İlişkinizde, dönüşüm ve güç ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, dönüşüm ve güç ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  },
+  "asc_mc": {
+    "conjunction": {
+      "title": "Yükselen - MC Kavuşumu",
+      "short": "İlişkinizde, dış görünüş ve hayata yaklaşım ile kariyer ve yaşam hedefleri arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor.",
+      "detailed": "İlişkinizde, dış görünüş ve hayata yaklaşım ile kariyer ve yaşam hedefleri arasında güçlü bir birleşme var; bu temalar belirgin biçimde öne çıkıyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "sextile": {
+      "title": "Yükselen - MC Sekstili",
+      "short": "İlişkinizde, dış görünüş ve hayata yaklaşım ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, dış görünüş ve hayata yaklaşım ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "square": {
+      "title": "Yükselen - MC Karesi",
+      "short": "İlişkinizde, dış görünüş ve hayata yaklaşım ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, dış görünüş ve hayata yaklaşım ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "trine": {
+      "title": "Yükselen - MC Üçgeni",
+      "short": "İlişkinizde, dış görünüş ve hayata yaklaşım ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor.",
+      "detailed": "İlişkinizde, dış görünüş ve hayata yaklaşım ile kariyer ve yaşam hedefleri arasında uyumlu bir akış var; bu iki alan birbirini destekliyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    },
+    "opposition": {
+      "title": "Yükselen - MC Karşıtlığı",
+      "short": "İlişkinizde, dış görünüş ve hayata yaklaşım ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor.",
+      "detailed": "İlişkinizde, dış görünüş ve hayata yaklaşım ile kariyer ve yaşam hedefleri arasında gerilim var; bu iki alan denge ve bilinçli çaba istiyor. (Composite: iki haritanın orta noktalarından oluşan ilişki haritasının iç açısı.)"
+    }
+  }
+}

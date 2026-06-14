@@ -51,6 +51,7 @@ struct SolarReturnView: View {
                                     }
                                     returnBigThreeCard(sr)
                                     returnAspectsCard(sr)
+                                    srInterpretations(sr)
                                     returnPlanetsCard(sr)
 
                                     Button {
@@ -321,24 +322,50 @@ struct SolarReturnView: View {
                     .font(.caption)
                     .foregroundStyle(AstroTheme.textSecondary)
             } else {
-                ForEach(Array(sr.chart.aspects.prefix(12).enumerated()), id: \.offset) { _, aspect in
-                    HStack(spacing: 6) {
-                        Text(aspect.planet1.rawValue)
-                            .font(.caption2).foregroundStyle(.white)
-                        Text(aspect.type.symbol)
-                            .font(.caption2).foregroundStyle(srAspectColor(aspect.type))
-                        Text(aspect.planet2.rawValue)
-                            .font(.caption2).foregroundStyle(.white)
-                        Spacer()
-                        Text(aspect.type.turkishName)
-                            .font(.caption2).foregroundStyle(srAspectColor(aspect.type))
-                        Text(String(format: "%.1f°", aspect.orb))
-                            .font(.caption2).foregroundStyle(AstroTheme.textTertiary)
+                let shown = Array(sr.chart.aspects.prefix(12).enumerated())
+                ForEach(shown, id: \.offset) { index, aspect in
+                    srAspectRow(aspect)
+                    if index != shown.count - 1 {
+                        Divider().overlay(AstroTheme.cardBorder)
                     }
                 }
             }
         }
         .glassCard()
+    }
+
+    private func srAspectRow(_ aspect: Aspect) -> some View {
+        HStack(spacing: 6) {
+            Text(aspect.point1.name)
+                .font(.caption2).foregroundStyle(.white)
+            Text(aspect.type.symbol)
+                .font(.caption2).foregroundStyle(srAspectColor(aspect.type))
+            Text(aspect.point2.name)
+                .font(.caption2).foregroundStyle(.white)
+            Spacer()
+            Text(aspect.type.turkishName)
+                .font(.caption2).foregroundStyle(srAspectColor(aspect.type))
+        }
+        .padding(.vertical, 3)
+    }
+
+    // MARK: - Bütüncül Yorum (sentez)
+
+    private func srInterpretations(_ sr: SolarReturn) -> some View {
+        let majors = sr.chart.aspects.filter { $0.type.isMajor }
+        let guidances = majors.map { asp in
+            ChartSynthesizer.WeightedGuidance(
+                item: ChartAspectInterpreter.interpretation(asp, context: .solarReturn),
+                weight: ChartSynthesizer.weight(asp),
+                planets: ChartSynthesizer.planets(in: asp)
+            )
+        }
+        let synth = ChartSynthesizer.synthesize(
+            guidances,
+            structure: ChartSynthesizer.ChartStructure(planets: sr.chart.planets, aspects: sr.chart.aspects),
+            context: .solarReturn
+        )
+        return ChartSynthesisSection(synthesis: synth)
     }
 
     private func returnPlanetsCard(_ sr: SolarReturn) -> some View {

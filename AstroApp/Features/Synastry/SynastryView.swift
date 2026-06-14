@@ -7,6 +7,16 @@ struct SynastryView: View {
     @State private var synastryResult: SynastryResult?
     @State private var isLoading = false
 
+    private var displayName1: String {
+        selectedPerson1?.name.isEmpty == false ? selectedPerson1!.name : "1. kişi"
+    }
+
+    private var displayName2: String {
+        useManualEntry
+            ? (partnerName.isEmpty ? "Partner" : partnerName)
+            : (selectedPerson2?.name.isEmpty == false ? selectedPerson2!.name : "2. kişi")
+    }
+
     // Manuel giriş fallback
     @State private var useManualEntry = false
     @State private var partnerName = ""
@@ -46,6 +56,7 @@ struct SynastryView: View {
                         categoriesCard(result)
                         breakdownCard(result)
                         keyAspectsCard(result)
+                        synastryInterpretations(result)
                         synastryShareButton(result)
                     }
                 }
@@ -453,26 +464,10 @@ struct SynastryView: View {
             }
 
             ForEach(result.keyAspects) { aspect in
-                HStack(spacing: 8) {
-                    Circle()
-                        .fill(aspectNatureColor(aspect.type))
-                        .frame(width: 6, height: 6)
-
-                    Text(aspect.description)
-                        .font(.caption)
-                        .foregroundStyle(.white)
-
-                    Spacer()
-
-                    Image(systemName: aspect.applying ? "arrow.right" : "arrow.left")
-                        .font(.system(size: 8))
-                        .foregroundStyle(aspect.applying ? AstroTheme.harmonik : AstroTheme.textTertiary)
-
-                    Text(aspect.type.turkishName)
-                        .font(.caption2)
-                        .foregroundStyle(aspectNatureColor(aspect.type))
+                synastryAspectRow(aspect)
+                if aspect.id != result.keyAspects.last?.id {
+                    Divider().overlay(AstroTheme.cardBorder)
                 }
-                .padding(.vertical, 2)
             }
 
             if result.keyAspects.isEmpty {
@@ -482,6 +477,41 @@ struct SynastryView: View {
             }
         }
         .glassCard()
+    }
+
+    private func synastryAspectRow(_ aspect: SynastryAspect) -> some View {
+        HStack(spacing: 8) {
+            Circle()
+                .fill(aspectNatureColor(aspect.type))
+                .frame(width: 6, height: 6)
+
+            Text(aspect.description)
+                .font(.caption)
+                .foregroundStyle(.white)
+
+            Spacer()
+
+            Text(aspect.type.turkishName)
+                .font(.caption2)
+                .foregroundStyle(aspectNatureColor(aspect.type))
+        }
+        .padding(.vertical, 3)
+    }
+
+    // MARK: - Bütüncül Yorum (sentez)
+
+    private func synastryInterpretations(_ result: SynastryResult) -> some View {
+        let guidances = result.crossAspects.map { asp in
+            ChartSynthesizer.WeightedGuidance(
+                item: SynastryInterpreter.interpretation(asp, name1: displayName1, name2: displayName2),
+                weight: asp.weight / (asp.orb + 0.5),
+                planets: [asp.planet1, asp.planet2]
+            )
+        }
+        // Synastry iki ayrı kişinin haritası — tek-harita pattern'i (stellium/T-kare)
+        // uygulanmaz; yalnız özet + tona göre gruplama.
+        let synth = ChartSynthesizer.synthesize(guidances, structure: nil, context: .synastry)
+        return ChartSynthesisSection(synthesis: synth)
     }
 
     // MARK: - Bi-Wheel Harita

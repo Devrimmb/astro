@@ -94,7 +94,7 @@ final class AstroCalendarViewModel {
                     type: .moonPhase,
                     title: moonPhase.phase.name,
                     subtitle: moonPhase.moonSign?.name ?? "",
-                    icon: moonPhase.phase.emoji
+                    icon: moonPhase.phase.symbolName
                 ))
             }
 

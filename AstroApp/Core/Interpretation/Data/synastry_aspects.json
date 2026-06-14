@@ -1,0 +1,1487 @@
+{
+  "sun_sun": {
+    "conjunction": {
+      "title": "Güneş - Güneş Kavuşumu",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile kimlik ve ego ifadesi yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile kimlik ve ego ifadesi yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Güneş - Güneş Sekstili",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile kimlik ve ego ifadesi uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile kimlik ve ego ifadesi uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Güneş - Güneş Karesi",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile kimlik ve ego ifadesi güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile kimlik ve ego ifadesi güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Güneş - Güneş Üçgeni",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile kimlik ve ego ifadesi uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile kimlik ve ego ifadesi uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Güneş - Güneş Karşıtlığı",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile kimlik ve ego ifadesi güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile kimlik ve ego ifadesi güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "sun_moon": {
+    "conjunction": {
+      "title": "Güneş - Ay Kavuşumu",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile duygusal ihtiyaçlar ve yakınlık yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile duygusal ihtiyaçlar ve yakınlık yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Güneş - Ay Sekstili",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile duygusal ihtiyaçlar ve yakınlık uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile duygusal ihtiyaçlar ve yakınlık uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Güneş - Ay Karesi",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile duygusal ihtiyaçlar ve yakınlık güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile duygusal ihtiyaçlar ve yakınlık güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Güneş - Ay Üçgeni",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile duygusal ihtiyaçlar ve yakınlık uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile duygusal ihtiyaçlar ve yakınlık uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Güneş - Ay Karşıtlığı",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile duygusal ihtiyaçlar ve yakınlık güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile duygusal ihtiyaçlar ve yakınlık güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "sun_mercury": {
+    "conjunction": {
+      "title": "Güneş - Merkür Kavuşumu",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile iletişim ve fikir alışverişi yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile iletişim ve fikir alışverişi yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Güneş - Merkür Sekstili",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile iletişim ve fikir alışverişi uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile iletişim ve fikir alışverişi uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Güneş - Merkür Karesi",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile iletişim ve fikir alışverişi güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile iletişim ve fikir alışverişi güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Güneş - Merkür Üçgeni",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile iletişim ve fikir alışverişi uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile iletişim ve fikir alışverişi uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Güneş - Merkür Karşıtlığı",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile iletişim ve fikir alışverişi güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile iletişim ve fikir alışverişi güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "sun_venus": {
+    "conjunction": {
+      "title": "Güneş - Venüs Kavuşumu",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile sevgi, çekim ve zevkler yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile sevgi, çekim ve zevkler yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Güneş - Venüs Sekstili",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile sevgi, çekim ve zevkler uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile sevgi, çekim ve zevkler uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Güneş - Venüs Karesi",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile sevgi, çekim ve zevkler güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile sevgi, çekim ve zevkler güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Güneş - Venüs Üçgeni",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile sevgi, çekim ve zevkler uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile sevgi, çekim ve zevkler uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Güneş - Venüs Karşıtlığı",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile sevgi, çekim ve zevkler güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile sevgi, çekim ve zevkler güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "sun_mars": {
+    "conjunction": {
+      "title": "Güneş - Mars Kavuşumu",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile tutku, arzu ve enerji yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile tutku, arzu ve enerji yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Güneş - Mars Sekstili",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile tutku, arzu ve enerji uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile tutku, arzu ve enerji uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Güneş - Mars Karesi",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile tutku, arzu ve enerji güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile tutku, arzu ve enerji güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Güneş - Mars Üçgeni",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile tutku, arzu ve enerji uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile tutku, arzu ve enerji uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Güneş - Mars Karşıtlığı",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile tutku, arzu ve enerji güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile tutku, arzu ve enerji güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "sun_jupiter": {
+    "conjunction": {
+      "title": "Güneş - Jüpiter Kavuşumu",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile büyüme, iyimserlik ve özgürlük arzusu yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile büyüme, iyimserlik ve özgürlük arzusu yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Güneş - Jüpiter Sekstili",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile büyüme, iyimserlik ve özgürlük arzusu uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile büyüme, iyimserlik ve özgürlük arzusu uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Güneş - Jüpiter Karesi",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile büyüme, iyimserlik ve özgürlük arzusu güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile büyüme, iyimserlik ve özgürlük arzusu güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Güneş - Jüpiter Üçgeni",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile büyüme, iyimserlik ve özgürlük arzusu uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile büyüme, iyimserlik ve özgürlük arzusu uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Güneş - Jüpiter Karşıtlığı",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile büyüme, iyimserlik ve özgürlük arzusu güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile büyüme, iyimserlik ve özgürlük arzusu güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "sun_saturn": {
+    "conjunction": {
+      "title": "Güneş - Satürn Kavuşumu",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile bağlılık, sorumluluk ve istikrar yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile bağlılık, sorumluluk ve istikrar yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Güneş - Satürn Sekstili",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Güneş - Satürn Karesi",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Güneş - Satürn Üçgeni",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Güneş - Satürn Karşıtlığı",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "sun_uranus": {
+    "conjunction": {
+      "title": "Güneş - Uranüs Kavuşumu",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile heyecan, özgürlük ve beklenmediklik yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile heyecan, özgürlük ve beklenmediklik yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Güneş - Uranüs Sekstili",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Güneş - Uranüs Karesi",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Güneş - Uranüs Üçgeni",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Güneş - Uranüs Karşıtlığı",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "sun_neptune": {
+    "conjunction": {
+      "title": "Güneş - Neptün Kavuşumu",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile romantik idealler ve ruhsal bağ yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile romantik idealler ve ruhsal bağ yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Güneş - Neptün Sekstili",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Güneş - Neptün Karesi",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Güneş - Neptün Üçgeni",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Güneş - Neptün Karşıtlığı",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "sun_pluto": {
+    "conjunction": {
+      "title": "Güneş - Plüton Kavuşumu",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile yoğunluk, güç ve dönüşüm yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile yoğunluk, güç ve dönüşüm yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Güneş - Plüton Sekstili",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Güneş - Plüton Karesi",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Güneş - Plüton Üçgeni",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Güneş - Plüton Karşıtlığı",
+      "short": "İki kişi arasında kimlik ve ego ifadesi ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında kimlik ve ego ifadesi ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "moon_moon": {
+    "conjunction": {
+      "title": "Ay - Ay Kavuşumu",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile duygusal ihtiyaçlar ve yakınlık yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile duygusal ihtiyaçlar ve yakınlık yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Ay - Ay Sekstili",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile duygusal ihtiyaçlar ve yakınlık uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile duygusal ihtiyaçlar ve yakınlık uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Ay - Ay Karesi",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile duygusal ihtiyaçlar ve yakınlık güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile duygusal ihtiyaçlar ve yakınlık güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Ay - Ay Üçgeni",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile duygusal ihtiyaçlar ve yakınlık uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile duygusal ihtiyaçlar ve yakınlık uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Ay - Ay Karşıtlığı",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile duygusal ihtiyaçlar ve yakınlık güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile duygusal ihtiyaçlar ve yakınlık güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "moon_mercury": {
+    "conjunction": {
+      "title": "Ay - Merkür Kavuşumu",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile iletişim ve fikir alışverişi yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile iletişim ve fikir alışverişi yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Ay - Merkür Sekstili",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile iletişim ve fikir alışverişi uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile iletişim ve fikir alışverişi uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Ay - Merkür Karesi",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile iletişim ve fikir alışverişi güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile iletişim ve fikir alışverişi güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Ay - Merkür Üçgeni",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile iletişim ve fikir alışverişi uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile iletişim ve fikir alışverişi uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Ay - Merkür Karşıtlığı",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile iletişim ve fikir alışverişi güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile iletişim ve fikir alışverişi güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "moon_venus": {
+    "conjunction": {
+      "title": "Ay - Venüs Kavuşumu",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile sevgi, çekim ve zevkler yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile sevgi, çekim ve zevkler yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Ay - Venüs Sekstili",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile sevgi, çekim ve zevkler uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile sevgi, çekim ve zevkler uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Ay - Venüs Karesi",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile sevgi, çekim ve zevkler güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile sevgi, çekim ve zevkler güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Ay - Venüs Üçgeni",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile sevgi, çekim ve zevkler uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile sevgi, çekim ve zevkler uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Ay - Venüs Karşıtlığı",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile sevgi, çekim ve zevkler güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile sevgi, çekim ve zevkler güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "moon_mars": {
+    "conjunction": {
+      "title": "Ay - Mars Kavuşumu",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile tutku, arzu ve enerji yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile tutku, arzu ve enerji yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Ay - Mars Sekstili",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile tutku, arzu ve enerji uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile tutku, arzu ve enerji uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Ay - Mars Karesi",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile tutku, arzu ve enerji güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile tutku, arzu ve enerji güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Ay - Mars Üçgeni",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile tutku, arzu ve enerji uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile tutku, arzu ve enerji uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Ay - Mars Karşıtlığı",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile tutku, arzu ve enerji güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile tutku, arzu ve enerji güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "moon_jupiter": {
+    "conjunction": {
+      "title": "Ay - Jüpiter Kavuşumu",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile büyüme, iyimserlik ve özgürlük arzusu yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile büyüme, iyimserlik ve özgürlük arzusu yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Ay - Jüpiter Sekstili",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile büyüme, iyimserlik ve özgürlük arzusu uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile büyüme, iyimserlik ve özgürlük arzusu uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Ay - Jüpiter Karesi",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile büyüme, iyimserlik ve özgürlük arzusu güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile büyüme, iyimserlik ve özgürlük arzusu güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Ay - Jüpiter Üçgeni",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile büyüme, iyimserlik ve özgürlük arzusu uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile büyüme, iyimserlik ve özgürlük arzusu uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Ay - Jüpiter Karşıtlığı",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile büyüme, iyimserlik ve özgürlük arzusu güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile büyüme, iyimserlik ve özgürlük arzusu güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "moon_saturn": {
+    "conjunction": {
+      "title": "Ay - Satürn Kavuşumu",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile bağlılık, sorumluluk ve istikrar yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile bağlılık, sorumluluk ve istikrar yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Ay - Satürn Sekstili",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Ay - Satürn Karesi",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Ay - Satürn Üçgeni",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Ay - Satürn Karşıtlığı",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "moon_uranus": {
+    "conjunction": {
+      "title": "Ay - Uranüs Kavuşumu",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile heyecan, özgürlük ve beklenmediklik yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile heyecan, özgürlük ve beklenmediklik yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Ay - Uranüs Sekstili",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Ay - Uranüs Karesi",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Ay - Uranüs Üçgeni",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Ay - Uranüs Karşıtlığı",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "moon_neptune": {
+    "conjunction": {
+      "title": "Ay - Neptün Kavuşumu",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile romantik idealler ve ruhsal bağ yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile romantik idealler ve ruhsal bağ yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Ay - Neptün Sekstili",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Ay - Neptün Karesi",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Ay - Neptün Üçgeni",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Ay - Neptün Karşıtlığı",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "moon_pluto": {
+    "conjunction": {
+      "title": "Ay - Plüton Kavuşumu",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile yoğunluk, güç ve dönüşüm yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile yoğunluk, güç ve dönüşüm yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Ay - Plüton Sekstili",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Ay - Plüton Karesi",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Ay - Plüton Üçgeni",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Ay - Plüton Karşıtlığı",
+      "short": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında duygusal ihtiyaçlar ve yakınlık ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "mercury_mercury": {
+    "conjunction": {
+      "title": "Merkür - Merkür Kavuşumu",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile iletişim ve fikir alışverişi yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile iletişim ve fikir alışverişi yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Merkür - Merkür Sekstili",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile iletişim ve fikir alışverişi uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile iletişim ve fikir alışverişi uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Merkür - Merkür Karesi",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile iletişim ve fikir alışverişi güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile iletişim ve fikir alışverişi güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Merkür - Merkür Üçgeni",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile iletişim ve fikir alışverişi uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile iletişim ve fikir alışverişi uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Merkür - Merkür Karşıtlığı",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile iletişim ve fikir alışverişi güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile iletişim ve fikir alışverişi güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "mercury_venus": {
+    "conjunction": {
+      "title": "Merkür - Venüs Kavuşumu",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile sevgi, çekim ve zevkler yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile sevgi, çekim ve zevkler yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Merkür - Venüs Sekstili",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile sevgi, çekim ve zevkler uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile sevgi, çekim ve zevkler uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Merkür - Venüs Karesi",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile sevgi, çekim ve zevkler güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile sevgi, çekim ve zevkler güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Merkür - Venüs Üçgeni",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile sevgi, çekim ve zevkler uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile sevgi, çekim ve zevkler uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Merkür - Venüs Karşıtlığı",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile sevgi, çekim ve zevkler güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile sevgi, çekim ve zevkler güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "mercury_mars": {
+    "conjunction": {
+      "title": "Merkür - Mars Kavuşumu",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile tutku, arzu ve enerji yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile tutku, arzu ve enerji yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Merkür - Mars Sekstili",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile tutku, arzu ve enerji uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile tutku, arzu ve enerji uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Merkür - Mars Karesi",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile tutku, arzu ve enerji güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile tutku, arzu ve enerji güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Merkür - Mars Üçgeni",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile tutku, arzu ve enerji uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile tutku, arzu ve enerji uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Merkür - Mars Karşıtlığı",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile tutku, arzu ve enerji güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile tutku, arzu ve enerji güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "mercury_jupiter": {
+    "conjunction": {
+      "title": "Merkür - Jüpiter Kavuşumu",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile büyüme, iyimserlik ve özgürlük arzusu yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile büyüme, iyimserlik ve özgürlük arzusu yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Merkür - Jüpiter Sekstili",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile büyüme, iyimserlik ve özgürlük arzusu uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile büyüme, iyimserlik ve özgürlük arzusu uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Merkür - Jüpiter Karesi",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile büyüme, iyimserlik ve özgürlük arzusu güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile büyüme, iyimserlik ve özgürlük arzusu güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Merkür - Jüpiter Üçgeni",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile büyüme, iyimserlik ve özgürlük arzusu uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile büyüme, iyimserlik ve özgürlük arzusu uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Merkür - Jüpiter Karşıtlığı",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile büyüme, iyimserlik ve özgürlük arzusu güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile büyüme, iyimserlik ve özgürlük arzusu güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "mercury_saturn": {
+    "conjunction": {
+      "title": "Merkür - Satürn Kavuşumu",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile bağlılık, sorumluluk ve istikrar yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile bağlılık, sorumluluk ve istikrar yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Merkür - Satürn Sekstili",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Merkür - Satürn Karesi",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Merkür - Satürn Üçgeni",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Merkür - Satürn Karşıtlığı",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "mercury_uranus": {
+    "conjunction": {
+      "title": "Merkür - Uranüs Kavuşumu",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile heyecan, özgürlük ve beklenmediklik yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile heyecan, özgürlük ve beklenmediklik yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Merkür - Uranüs Sekstili",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Merkür - Uranüs Karesi",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Merkür - Uranüs Üçgeni",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Merkür - Uranüs Karşıtlığı",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "mercury_neptune": {
+    "conjunction": {
+      "title": "Merkür - Neptün Kavuşumu",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile romantik idealler ve ruhsal bağ yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile romantik idealler ve ruhsal bağ yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Merkür - Neptün Sekstili",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Merkür - Neptün Karesi",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Merkür - Neptün Üçgeni",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Merkür - Neptün Karşıtlığı",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "mercury_pluto": {
+    "conjunction": {
+      "title": "Merkür - Plüton Kavuşumu",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile yoğunluk, güç ve dönüşüm yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile yoğunluk, güç ve dönüşüm yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Merkür - Plüton Sekstili",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Merkür - Plüton Karesi",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Merkür - Plüton Üçgeni",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Merkür - Plüton Karşıtlığı",
+      "short": "İki kişi arasında iletişim ve fikir alışverişi ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında iletişim ve fikir alışverişi ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "venus_venus": {
+    "conjunction": {
+      "title": "Venüs - Venüs Kavuşumu",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile sevgi, çekim ve zevkler yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile sevgi, çekim ve zevkler yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Venüs - Venüs Sekstili",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile sevgi, çekim ve zevkler uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile sevgi, çekim ve zevkler uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Venüs - Venüs Karesi",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile sevgi, çekim ve zevkler güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile sevgi, çekim ve zevkler güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Venüs - Venüs Üçgeni",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile sevgi, çekim ve zevkler uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile sevgi, çekim ve zevkler uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Venüs - Venüs Karşıtlığı",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile sevgi, çekim ve zevkler güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile sevgi, çekim ve zevkler güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "venus_mars": {
+    "conjunction": {
+      "title": "Venüs - Mars Kavuşumu",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile tutku, arzu ve enerji yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile tutku, arzu ve enerji yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Venüs - Mars Sekstili",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile tutku, arzu ve enerji uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile tutku, arzu ve enerji uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Venüs - Mars Karesi",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile tutku, arzu ve enerji güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile tutku, arzu ve enerji güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Venüs - Mars Üçgeni",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile tutku, arzu ve enerji uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile tutku, arzu ve enerji uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Venüs - Mars Karşıtlığı",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile tutku, arzu ve enerji güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile tutku, arzu ve enerji güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "venus_jupiter": {
+    "conjunction": {
+      "title": "Venüs - Jüpiter Kavuşumu",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile büyüme, iyimserlik ve özgürlük arzusu yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile büyüme, iyimserlik ve özgürlük arzusu yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Venüs - Jüpiter Sekstili",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile büyüme, iyimserlik ve özgürlük arzusu uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile büyüme, iyimserlik ve özgürlük arzusu uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Venüs - Jüpiter Karesi",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile büyüme, iyimserlik ve özgürlük arzusu güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile büyüme, iyimserlik ve özgürlük arzusu güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Venüs - Jüpiter Üçgeni",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile büyüme, iyimserlik ve özgürlük arzusu uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile büyüme, iyimserlik ve özgürlük arzusu uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Venüs - Jüpiter Karşıtlığı",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile büyüme, iyimserlik ve özgürlük arzusu güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile büyüme, iyimserlik ve özgürlük arzusu güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "venus_saturn": {
+    "conjunction": {
+      "title": "Venüs - Satürn Kavuşumu",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile bağlılık, sorumluluk ve istikrar yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile bağlılık, sorumluluk ve istikrar yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Venüs - Satürn Sekstili",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Venüs - Satürn Karesi",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Venüs - Satürn Üçgeni",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Venüs - Satürn Karşıtlığı",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "venus_uranus": {
+    "conjunction": {
+      "title": "Venüs - Uranüs Kavuşumu",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile heyecan, özgürlük ve beklenmediklik yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile heyecan, özgürlük ve beklenmediklik yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Venüs - Uranüs Sekstili",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Venüs - Uranüs Karesi",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Venüs - Uranüs Üçgeni",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Venüs - Uranüs Karşıtlığı",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "venus_neptune": {
+    "conjunction": {
+      "title": "Venüs - Neptün Kavuşumu",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile romantik idealler ve ruhsal bağ yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile romantik idealler ve ruhsal bağ yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Venüs - Neptün Sekstili",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Venüs - Neptün Karesi",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Venüs - Neptün Üçgeni",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Venüs - Neptün Karşıtlığı",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "venus_pluto": {
+    "conjunction": {
+      "title": "Venüs - Plüton Kavuşumu",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile yoğunluk, güç ve dönüşüm yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile yoğunluk, güç ve dönüşüm yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Venüs - Plüton Sekstili",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Venüs - Plüton Karesi",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Venüs - Plüton Üçgeni",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Venüs - Plüton Karşıtlığı",
+      "short": "İki kişi arasında sevgi, çekim ve zevkler ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında sevgi, çekim ve zevkler ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "mars_mars": {
+    "conjunction": {
+      "title": "Mars - Mars Kavuşumu",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile tutku, arzu ve enerji yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile tutku, arzu ve enerji yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Mars - Mars Sekstili",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile tutku, arzu ve enerji uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile tutku, arzu ve enerji uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Mars - Mars Karesi",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile tutku, arzu ve enerji güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile tutku, arzu ve enerji güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Mars - Mars Üçgeni",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile tutku, arzu ve enerji uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile tutku, arzu ve enerji uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Mars - Mars Karşıtlığı",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile tutku, arzu ve enerji güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile tutku, arzu ve enerji güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "mars_jupiter": {
+    "conjunction": {
+      "title": "Mars - Jüpiter Kavuşumu",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile büyüme, iyimserlik ve özgürlük arzusu yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile büyüme, iyimserlik ve özgürlük arzusu yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Mars - Jüpiter Sekstili",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile büyüme, iyimserlik ve özgürlük arzusu uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile büyüme, iyimserlik ve özgürlük arzusu uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Mars - Jüpiter Karesi",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile büyüme, iyimserlik ve özgürlük arzusu güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile büyüme, iyimserlik ve özgürlük arzusu güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Mars - Jüpiter Üçgeni",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile büyüme, iyimserlik ve özgürlük arzusu uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile büyüme, iyimserlik ve özgürlük arzusu uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Mars - Jüpiter Karşıtlığı",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile büyüme, iyimserlik ve özgürlük arzusu güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile büyüme, iyimserlik ve özgürlük arzusu güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "mars_saturn": {
+    "conjunction": {
+      "title": "Mars - Satürn Kavuşumu",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile bağlılık, sorumluluk ve istikrar yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile bağlılık, sorumluluk ve istikrar yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Mars - Satürn Sekstili",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Mars - Satürn Karesi",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Mars - Satürn Üçgeni",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Mars - Satürn Karşıtlığı",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "mars_uranus": {
+    "conjunction": {
+      "title": "Mars - Uranüs Kavuşumu",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile heyecan, özgürlük ve beklenmediklik yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile heyecan, özgürlük ve beklenmediklik yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Mars - Uranüs Sekstili",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Mars - Uranüs Karesi",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Mars - Uranüs Üçgeni",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Mars - Uranüs Karşıtlığı",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "mars_neptune": {
+    "conjunction": {
+      "title": "Mars - Neptün Kavuşumu",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile romantik idealler ve ruhsal bağ yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile romantik idealler ve ruhsal bağ yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Mars - Neptün Sekstili",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Mars - Neptün Karesi",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Mars - Neptün Üçgeni",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Mars - Neptün Karşıtlığı",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "mars_pluto": {
+    "conjunction": {
+      "title": "Mars - Plüton Kavuşumu",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile yoğunluk, güç ve dönüşüm yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile yoğunluk, güç ve dönüşüm yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Mars - Plüton Sekstili",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Mars - Plüton Karesi",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Mars - Plüton Üçgeni",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Mars - Plüton Karşıtlığı",
+      "short": "İki kişi arasında tutku, arzu ve enerji ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında tutku, arzu ve enerji ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "jupiter_jupiter": {
+    "conjunction": {
+      "title": "Jüpiter - Jüpiter Kavuşumu",
+      "short": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile büyüme, iyimserlik ve özgürlük arzusu yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile büyüme, iyimserlik ve özgürlük arzusu yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Jüpiter - Jüpiter Sekstili",
+      "short": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile büyüme, iyimserlik ve özgürlük arzusu uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile büyüme, iyimserlik ve özgürlük arzusu uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Jüpiter - Jüpiter Karesi",
+      "short": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile büyüme, iyimserlik ve özgürlük arzusu güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile büyüme, iyimserlik ve özgürlük arzusu güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Jüpiter - Jüpiter Üçgeni",
+      "short": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile büyüme, iyimserlik ve özgürlük arzusu uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile büyüme, iyimserlik ve özgürlük arzusu uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Jüpiter - Jüpiter Karşıtlığı",
+      "short": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile büyüme, iyimserlik ve özgürlük arzusu güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile büyüme, iyimserlik ve özgürlük arzusu güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "jupiter_saturn": {
+    "conjunction": {
+      "title": "Jüpiter - Satürn Kavuşumu",
+      "short": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile bağlılık, sorumluluk ve istikrar yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile bağlılık, sorumluluk ve istikrar yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Jüpiter - Satürn Sekstili",
+      "short": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Jüpiter - Satürn Karesi",
+      "short": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Jüpiter - Satürn Üçgeni",
+      "short": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Jüpiter - Satürn Karşıtlığı",
+      "short": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "jupiter_uranus": {
+    "conjunction": {
+      "title": "Jüpiter - Uranüs Kavuşumu",
+      "short": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile heyecan, özgürlük ve beklenmediklik yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile heyecan, özgürlük ve beklenmediklik yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Jüpiter - Uranüs Sekstili",
+      "short": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Jüpiter - Uranüs Karesi",
+      "short": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Jüpiter - Uranüs Üçgeni",
+      "short": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Jüpiter - Uranüs Karşıtlığı",
+      "short": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "jupiter_neptune": {
+    "conjunction": {
+      "title": "Jüpiter - Neptün Kavuşumu",
+      "short": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile romantik idealler ve ruhsal bağ yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile romantik idealler ve ruhsal bağ yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Jüpiter - Neptün Sekstili",
+      "short": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Jüpiter - Neptün Karesi",
+      "short": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Jüpiter - Neptün Üçgeni",
+      "short": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Jüpiter - Neptün Karşıtlığı",
+      "short": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "jupiter_pluto": {
+    "conjunction": {
+      "title": "Jüpiter - Plüton Kavuşumu",
+      "short": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile yoğunluk, güç ve dönüşüm yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile yoğunluk, güç ve dönüşüm yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Jüpiter - Plüton Sekstili",
+      "short": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Jüpiter - Plüton Karesi",
+      "short": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Jüpiter - Plüton Üçgeni",
+      "short": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Jüpiter - Plüton Karşıtlığı",
+      "short": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında büyüme, iyimserlik ve özgürlük arzusu ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "saturn_saturn": {
+    "conjunction": {
+      "title": "Satürn - Satürn Kavuşumu",
+      "short": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile bağlılık, sorumluluk ve istikrar yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile bağlılık, sorumluluk ve istikrar yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Satürn - Satürn Sekstili",
+      "short": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Satürn - Satürn Karesi",
+      "short": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Satürn - Satürn Üçgeni",
+      "short": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile bağlılık, sorumluluk ve istikrar uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Satürn - Satürn Karşıtlığı",
+      "short": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile bağlılık, sorumluluk ve istikrar güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "saturn_uranus": {
+    "conjunction": {
+      "title": "Satürn - Uranüs Kavuşumu",
+      "short": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile heyecan, özgürlük ve beklenmediklik yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile heyecan, özgürlük ve beklenmediklik yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Satürn - Uranüs Sekstili",
+      "short": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Satürn - Uranüs Karesi",
+      "short": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Satürn - Uranüs Üçgeni",
+      "short": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Satürn - Uranüs Karşıtlığı",
+      "short": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "saturn_neptune": {
+    "conjunction": {
+      "title": "Satürn - Neptün Kavuşumu",
+      "short": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile romantik idealler ve ruhsal bağ yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile romantik idealler ve ruhsal bağ yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Satürn - Neptün Sekstili",
+      "short": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Satürn - Neptün Karesi",
+      "short": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Satürn - Neptün Üçgeni",
+      "short": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Satürn - Neptün Karşıtlığı",
+      "short": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "saturn_pluto": {
+    "conjunction": {
+      "title": "Satürn - Plüton Kavuşumu",
+      "short": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile yoğunluk, güç ve dönüşüm yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile yoğunluk, güç ve dönüşüm yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Satürn - Plüton Sekstili",
+      "short": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Satürn - Plüton Karesi",
+      "short": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Satürn - Plüton Üçgeni",
+      "short": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Satürn - Plüton Karşıtlığı",
+      "short": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında bağlılık, sorumluluk ve istikrar ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "uranus_uranus": {
+    "conjunction": {
+      "title": "Uranüs - Uranüs Kavuşumu",
+      "short": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile heyecan, özgürlük ve beklenmediklik yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile heyecan, özgürlük ve beklenmediklik yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Uranüs - Uranüs Sekstili",
+      "short": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Uranüs - Uranüs Karesi",
+      "short": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Uranüs - Uranüs Üçgeni",
+      "short": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile heyecan, özgürlük ve beklenmediklik uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Uranüs - Uranüs Karşıtlığı",
+      "short": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile heyecan, özgürlük ve beklenmediklik güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "uranus_neptune": {
+    "conjunction": {
+      "title": "Uranüs - Neptün Kavuşumu",
+      "short": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile romantik idealler ve ruhsal bağ yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile romantik idealler ve ruhsal bağ yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Uranüs - Neptün Sekstili",
+      "short": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Uranüs - Neptün Karesi",
+      "short": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Uranüs - Neptün Üçgeni",
+      "short": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Uranüs - Neptün Karşıtlığı",
+      "short": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "uranus_pluto": {
+    "conjunction": {
+      "title": "Uranüs - Plüton Kavuşumu",
+      "short": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile yoğunluk, güç ve dönüşüm yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile yoğunluk, güç ve dönüşüm yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Uranüs - Plüton Sekstili",
+      "short": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Uranüs - Plüton Karesi",
+      "short": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Uranüs - Plüton Üçgeni",
+      "short": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Uranüs - Plüton Karşıtlığı",
+      "short": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında heyecan, özgürlük ve beklenmediklik ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "neptune_neptune": {
+    "conjunction": {
+      "title": "Neptün - Neptün Kavuşumu",
+      "short": "İki kişi arasında romantik idealler ve ruhsal bağ ile romantik idealler ve ruhsal bağ yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında romantik idealler ve ruhsal bağ ile romantik idealler ve ruhsal bağ yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Neptün - Neptün Sekstili",
+      "short": "İki kişi arasında romantik idealler ve ruhsal bağ ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında romantik idealler ve ruhsal bağ ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Neptün - Neptün Karesi",
+      "short": "İki kişi arasında romantik idealler ve ruhsal bağ ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında romantik idealler ve ruhsal bağ ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Neptün - Neptün Üçgeni",
+      "short": "İki kişi arasında romantik idealler ve ruhsal bağ ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında romantik idealler ve ruhsal bağ ile romantik idealler ve ruhsal bağ uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Neptün - Neptün Karşıtlığı",
+      "short": "İki kişi arasında romantik idealler ve ruhsal bağ ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında romantik idealler ve ruhsal bağ ile romantik idealler ve ruhsal bağ güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "neptune_pluto": {
+    "conjunction": {
+      "title": "Neptün - Plüton Kavuşumu",
+      "short": "İki kişi arasında romantik idealler ve ruhsal bağ ile yoğunluk, güç ve dönüşüm yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında romantik idealler ve ruhsal bağ ile yoğunluk, güç ve dönüşüm yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Neptün - Plüton Sekstili",
+      "short": "İki kişi arasında romantik idealler ve ruhsal bağ ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında romantik idealler ve ruhsal bağ ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Neptün - Plüton Karesi",
+      "short": "İki kişi arasında romantik idealler ve ruhsal bağ ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında romantik idealler ve ruhsal bağ ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Neptün - Plüton Üçgeni",
+      "short": "İki kişi arasında romantik idealler ve ruhsal bağ ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında romantik idealler ve ruhsal bağ ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Neptün - Plüton Karşıtlığı",
+      "short": "İki kişi arasında romantik idealler ve ruhsal bağ ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında romantik idealler ve ruhsal bağ ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  },
+  "pluto_pluto": {
+    "conjunction": {
+      "title": "Plüton - Plüton Kavuşumu",
+      "short": "İki kişi arasında yoğunluk, güç ve dönüşüm ile yoğunluk, güç ve dönüşüm yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın.",
+      "detailed": "İki kişi arasında yoğunluk, güç ve dönüşüm ile yoğunluk, güç ve dönüşüm yoğun biçimde birleşiyor; bu tema ilişkide çok belirgin ve baskın. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "sextile": {
+      "title": "Plüton - Plüton Sekstili",
+      "short": "İki kişi arasında yoğunluk, güç ve dönüşüm ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında yoğunluk, güç ve dönüşüm ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "square": {
+      "title": "Plüton - Plüton Karesi",
+      "short": "İki kişi arasında yoğunluk, güç ve dönüşüm ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında yoğunluk, güç ve dönüşüm ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "trine": {
+      "title": "Plüton - Plüton Üçgeni",
+      "short": "İki kişi arasında yoğunluk, güç ve dönüşüm ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı.",
+      "detailed": "İki kişi arasında yoğunluk, güç ve dönüşüm ile yoğunluk, güç ve dönüşüm uyumlu ve destekleyici biçimde akıyor; ilişkide doğal bir uyum kaynağı. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    },
+    "opposition": {
+      "title": "Plüton - Plüton Karşıtlığı",
+      "short": "İki kişi arasında yoğunluk, güç ve dönüşüm ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür.",
+      "detailed": "İki kişi arasında yoğunluk, güç ve dönüşüm ile yoğunluk, güç ve dönüşüm güçlü bir çekim yaratıyor ama sürtüşme ve gerilim de getirebilir; farkındalıkla büyüme fırsatına dönüşür. (Synastry: iki kişinin doğum haritası gezegenleri arasındaki etkileşim.)"
+    }
+  }
+}

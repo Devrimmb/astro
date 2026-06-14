@@ -1738,6 +1738,9 @@
         }
       }
     },
+    "Doğum haritanı oluştur, her gün sana özel transit rehberliği burada görünsün." : {
+
+    },
     "Doğum Haritanız" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1978,6 +1981,9 @@
 
     },
     "Ev %lld" : {
+
+    },
+    "Ev geçişi için dokun" : {
 
     },
     "Evet-Hayır" : {
@@ -2920,6 +2926,9 @@
         }
       }
     },
+    "İki kişinin haritasının orta noktalarından oluşan, ilişkinizi kendi başına bir varlık olarak gösteren harita. İki kişiyi seçip hesaplayın." : {
+
+    },
     "İkizler" : {
       "localizations" : {
         "de" : {
@@ -2952,6 +2961,9 @@
           }
         }
       }
+    },
+    "İlişki Haritası" : {
+
     },
     "İlişki Skoru" : {
       "extractionState" : "manual",
@@ -3756,6 +3768,9 @@
         }
       }
     },
+    "Kozmik Koçun" : {
+
+    },
     "Kullanıcı Modu" : {
       "localizations" : {
         "de" : {
@@ -4053,6 +4068,9 @@
           }
         }
       }
+    },
+    "Öne Çıkan Kalıplar" : {
+
     },
     "Önemli" : {
       "extractionState" : "manual",

@@ -36,6 +36,21 @@ enum MoonPhaseName: Sendable {
         }
     }
 
+    /// SF Symbol adı — `Image(systemName:)` ile kullanılacak yerlerde
+    /// emoji yerine bunu kullan (emoji geçerli bir SF Symbol değildir).
+    var symbolName: String {
+        switch self {
+        case .newMoon: "moonphase.new.moon"
+        case .waxingCrescent: "moonphase.waxing.crescent"
+        case .firstQuarter: "moonphase.first.quarter"
+        case .waxingGibbous: "moonphase.waxing.gibbous"
+        case .fullMoon: "moonphase.full.moon"
+        case .waningGibbous: "moonphase.waning.gibbous"
+        case .lastQuarter: "moonphase.last.quarter"
+        case .waningCrescent: "moonphase.waning.crescent"
+        }
+    }
+
     var description: String {
         switch self {
         case .newMoon:

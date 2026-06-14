@@ -26,6 +26,8 @@ CATEGORIES = [
     ("planet_house_sign.json", "Gezegenler / Ev + Burç", "🔭", "Gezegen + ev + burç üçlü kombinasyon yorumları"),
     ("house_signs.json", "Ev Burçları", "🏠", "12 evin 12 burçtaki yorumları"),
     ("aspects.json", "Açılar", "📐", "Gezegenler arası açı yorumları"),
+    ("synastry_aspects.json", "Synastry Açıları", "💞", "İki kişi arası ilişki açıları (kanonik üretim)"),
+    ("composite_aspects.json", "Composite Açıları", "🧬", "Composite ilişki haritası açıları (kanonik üretim)"),
     ("elements.json", "Elementler", "🔥", "Element baskınlık yorumları"),
     ("element_interpretations.json", "Element Yorumları", "🌊", "Element analizi metinleri"),
     ("modalities.json", "Modaliteler", "⚙️", "Öncü/Sabit/Değişken modalite yorumları"),
@@ -330,7 +332,7 @@ function flatList(file){
   if(!d) return [];
   const out = [];
 
-  if(file === 'aspects.json'){
+  if(file === 'aspects.json' || file === 'synastry_aspects.json' || file === 'composite_aspects.json'){
     for(const pair in d){
       for(const asp in d[pair]){
         const v = d[pair][asp];

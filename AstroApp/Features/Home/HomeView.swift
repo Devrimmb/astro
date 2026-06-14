@@ -8,6 +8,7 @@ struct HomeView: View {
     @State private var dailyTip: String?
     @State private var todayEvents: [CalendarEvent] = []
     @State private var todayPlanets: [PlanetPosition] = []
+    @State private var guidance: DailyCosmicCoach.DailyGuidance?
 
     var body: some View {
         NavigationStack {
@@ -17,6 +18,7 @@ struct HomeView: View {
                 ScrollView {
                     VStack(spacing: 16) {
                         greetingSection
+                        cosmicCoachCard
                         if appState.currentChart != nil { bigThreeCard }
                         todayPlanetsCard
                         todayCalendarCard
@@ -64,6 +66,115 @@ struct HomeView: View {
                 .foregroundStyle(AstroTheme.textTertiary)
         }
         .padding(.top, 8)
+    }
+
+    // MARK: - Kozmik Koç
+
+    private var cosmicCoachCard: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            HStack(spacing: 6) {
+                Image(systemName: "sparkles")
+                    .foregroundStyle(AstroTheme.accent)
+                Text("Kozmik Koçun")
+                    .font(.headline)
+                    .foregroundStyle(.white)
+                InfoTip(
+                    title: "Kozmik Koçun",
+                    message: "Her gün, bugünün gökyüzü ile senin doğum haritan karşılaştırılarak sana özel rehberlik üretilir. Genel gökyüzü durumu herkese aynıdır; 'Sana Özel' kısmı yalnızca senin haritana göredir."
+                )
+                Spacer()
+            }
+
+            if let g = guidance, !g.isEmpty {
+                // Bugünün Gökyüzü (genel)
+                if !g.cosmicWeather.isEmpty {
+                    sectionLabel("Bugünün Gökyüzü")
+                    ForEach(g.cosmicWeather) { item in
+                        guidanceRow(item)
+                    }
+                }
+
+                if let mood = g.moonMood {
+                    guidanceRow(mood)
+                }
+
+                // Sana Özel (kişisel transitler)
+                if appState.currentChart != nil {
+                    if !g.personalTransits.isEmpty {
+                        sectionLabel("Sana Özel")
+                        ForEach(g.personalTransits) { item in
+                            guidanceRow(item)
+                        }
+                    }
+                } else {
+                    personalTransitCTA
+                }
+            } else if appState.currentChart == nil {
+                personalTransitCTA
+            } else {
+                HStack {
+                    Spacer()
+                    ProgressView().tint(.white)
+                    Spacer()
+                }
+                .padding(.vertical, 8)
+            }
+        }
+        .glassCard()
+    }
+
+    private func sectionLabel(_ text: String) -> some View {
+        Text(text)
+            .font(.caption.weight(.bold))
+            .foregroundStyle(AstroTheme.textTertiary)
+            .textCase(.uppercase)
+            .padding(.top, 2)
+    }
+
+    private func guidanceRow(_ item: DailyCosmicCoach.GuidanceItem) -> some View {
+        HStack(alignment: .top, spacing: 10) {
+            Image(systemName: item.icon)
+                .font(.callout)
+                .foregroundStyle(toneColor(item.tone))
+                .frame(width: 22)
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text(item.title)
+                    .font(.caption.weight(.bold))
+                    .foregroundStyle(.white)
+                Text(item.message)
+                    .font(.caption)
+                    .foregroundStyle(AstroTheme.textSecondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+
+            Spacer(minLength: 0)
+        }
+    }
+
+    private var personalTransitCTA: some View {
+        VStack(spacing: 0) {
+            sectionLabel("Sana Özel")
+            HStack(alignment: .top, spacing: 10) {
+                Image(systemName: "person.crop.circle.badge.plus")
+                    .font(.callout)
+                    .foregroundStyle(AstroTheme.accent)
+                    .frame(width: 22)
+                Text("Doğum haritanı oluştur, her gün sana özel transit rehberliği burada görünsün.")
+                    .font(.caption)
+                    .foregroundStyle(AstroTheme.textSecondary)
+                    .fixedSize(horizontal: false, vertical: true)
+                Spacer(minLength: 0)
+            }
+        }
+    }
+
+    private func toneColor(_ tone: DailyCosmicCoach.Tone) -> Color {
+        switch tone {
+        case .harmonik: .green
+        case .zorlayici: .orange
+        case .notr: AstroTheme.accent
+        }
     }
 
     // MARK: - Ay Fazı
@@ -478,7 +589,7 @@ struct HomeView: View {
                 date: today, type: .moonPhase,
                 title: moonPhase.phase.name,
                 subtitle: moonPhase.moonSign?.name ?? "",
-                icon: moonPhase.phase.emoji
+                icon: moonPhase.phase.symbolName
             ))
         }
 
@@ -526,5 +637,24 @@ struct HomeView: View {
             activeRetrogrades: activeRetrogrades,
             hasEclipse: hasEclipse
         )
+
+        // Kişiselleştirilmiş günlük rehberlik (transit hesabı ağır → arka planda)
+        let chart = appState.currentChart
+        let phase = moonPhase
+        let retros = activeRetrogrades
+        let todayEclipses = eclipses.filter { calendar.isDate($0.date, inSameDayAs: today) }
+        Task {
+            let result = await Task.detached(priority: .userInitiated) {
+                DailyCosmicCoach.guidance(
+                    natalChart: chart,
+                    date: today,
+                    moonPhase: phase,
+                    activeRetrogrades: retros,
+                    isVOC: isVOC,
+                    todayEclipses: todayEclipses
+                )
+            }.value
+            guidance = result
+        }
     }
 }
