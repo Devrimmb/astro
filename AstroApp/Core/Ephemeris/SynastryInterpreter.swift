@@ -38,13 +38,15 @@ struct SynastryInterpreter: Sendable {
         let n1 = name1.isEmpty ? "1. kişi" : name1
         let n2 = name2.isEmpty ? "2. kişi" : name2
         let message = "\(n1) ve \(n2) arasında \(t1) ile \(t2) \(clause)"
-        let title = "\(a.planet1.name) \(a.type.symbol) \(a.planet2.name)"
+        let title = "\(a.planet1.name) \(a.type.turkishName) \(a.planet2.name)"
+        let glyphs = "\(ChartPoint.planet(a.planet1).glyph) \(a.type.symbol) \(ChartPoint.planet(a.planet2).glyph)"
 
         return DailyCosmicCoach.GuidanceItem(
             icon: icon,
             title: title,
             message: message,
-            tone: tone
+            tone: tone,
+            glyphs: glyphs
         )
     }
 

@@ -18,10 +18,11 @@ struct DailyCosmicCoach: Sendable {
 
     struct GuidanceItem: Identifiable, Sendable {
         let id = UUID()
-        let icon: String      // SF Symbol adı
-        let title: String     // kısa başlık (örn "Mars □ Güneş")
-        let message: String   // koçluk cümlesi
+        let icon: String       // SF Symbol adı
+        let title: String      // kısa başlık (örn "Mars Kare Güneş")
+        let message: String    // koçluk cümlesi
         let tone: Tone
+        var glyphs: String? = nil  // başlığın sağında gösterilecek glif kümesi (örn "♂ □ ☉")
     }
 
     struct DailyGuidance: Sendable {

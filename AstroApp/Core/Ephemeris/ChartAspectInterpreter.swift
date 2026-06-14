@@ -43,9 +43,10 @@ struct ChartAspectInterpreter: Sendable {
         }
 
         let message = "\(context.opener), \(t1) ile \(t2) arasında \(clauseBody)"
-        let title = "\(aspect.point1.name) \(aspect.type.symbol) \(aspect.point2.name)"
+        let title = "\(aspect.point1.name) \(aspect.type.turkishName) \(aspect.point2.name)"
+        let glyphs = "\(aspect.point1.glyph) \(aspect.type.symbol) \(aspect.point2.glyph)"
 
-        return DailyCosmicCoach.GuidanceItem(icon: icon, title: title, message: message, tone: tone)
+        return DailyCosmicCoach.GuidanceItem(icon: icon, title: title, message: message, tone: tone, glyphs: glyphs)
     }
 
     private static func theme(for point: ChartPoint) -> String {

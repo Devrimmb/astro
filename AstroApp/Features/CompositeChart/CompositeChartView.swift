@@ -444,31 +444,35 @@ struct CompositeChartResultView: View {
             }
 
             if showAspects {
-                let shown = Array(chart.aspects.prefix(15).enumerated())
-                ForEach(shown, id: \.offset) { index, aspect in
-                    HStack(spacing: 6) {
-                        Text(aspect.point1.name)
-                            .font(.caption2)
-                            .foregroundStyle(.white)
-                        Text(aspect.type.symbol)
-                            .font(.caption2)
-                            .foregroundStyle(aspectColor(aspect.type))
-                        Text(aspect.point2.name)
-                            .font(.caption2)
-                            .foregroundStyle(.white)
-                        Spacer()
-                        Text(aspect.type.turkishName)
-                            .font(.caption2)
-                            .foregroundStyle(aspectColor(aspect.type))
-                    }
-                    .padding(.vertical, 3)
-                    if index != shown.count - 1 {
-                        Divider().overlay(AstroTheme.cardBorder)
+                LazyVGrid(
+                    columns: Array(repeating: GridItem(.flexible(), spacing: 6), count: 3),
+                    spacing: 6
+                ) {
+                    ForEach(Array(chart.aspects.enumerated()), id: \.offset) { _, aspect in
+                        aspectGridCell(aspect)
                     }
                 }
             }
         }
         .glassCard()
+    }
+
+    /// Kompakt açı hücresi: gezegen glifi + açı sembolü (doğasına göre renkli) + gezegen glifi.
+    private func aspectGridCell(_ aspect: Aspect) -> some View {
+        HStack(spacing: 3) {
+            Text(aspect.point1.glyph)
+                .foregroundStyle(.white)
+            Text(aspect.type.symbol)
+                .foregroundStyle(aspectColor(aspect.type))
+            Text(aspect.point2.glyph)
+                .foregroundStyle(.white)
+        }
+        .font(.caption2)
+        .lineLimit(1)
+        .minimumScaleFactor(0.7)
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 7)
+        .background(AstroTheme.surface, in: .rect(cornerRadius: 8))
     }
 
     /// Katlanabilir kart başlığı — sağda gezegen/açı sayısı + dönen chevron.

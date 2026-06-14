@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Kozmik arka plan -->
+    <radialGradient id="bg" cx="50%" cy="42%" r="75%">
+      <stop offset="0%"  stop-color="#3A2A7A"/>
+      <stop offset="45%" stop-color="#1B1545"/>
+      <stop offset="100%" stop-color="#0A0D1F"/>
+    </radialGradient>
+    <!-- Köpeğin arkasındaki yumuşak hale -->
+    <radialGradient id="glow" cx="50%" cy="55%" r="50%">
+      <stop offset="0%"  stop-color="#8F70FF" stop-opacity="0.55"/>
+      <stop offset="60%" stop-color="#8F70FF" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#8F70FF" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Tüy gölgesi -->
+    <linearGradient id="fur" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#E7E2FA"/>
+    </linearGradient>
+    <linearGradient id="ear" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="#F1ECFF"/>
+      <stop offset="100%" stop-color="#D9D2F2"/>
+    </linearGradient>
+    <linearGradient id="bow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"  stop-color="#A98CFF"/>
+      <stop offset="100%" stop-color="#7B5BF0"/>
+    </linearGradient>
+    <radialGradient id="moon" cx="38%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#CFC6F5"/>
+    </radialGradient>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#05030F" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <!-- Arka plan -->
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+  <rect width="1024" height="1024" fill="url(#glow)"/>
+
+  <!-- Yıldızlar -->
+  <g fill="#FFFFFF">
+    <circle cx="150" cy="180" r="4" opacity="0.9"/>
+    <circle cx="250" cy="320" r="2.5" opacity="0.6"/>
+    <circle cx="120" cy="470" r="3" opacity="0.7"/>
+    <circle cx="880" cy="520" r="3.5" opacity="0.8"/>
+    <circle cx="820" cy="700" r="2.5" opacity="0.6"/>
+    <circle cx="700" cy="170" r="3" opacity="0.7"/>
+    <circle cx="500" cy="120" r="2.5" opacity="0.6"/>
+    <circle cx="930" cy="300" r="2.5" opacity="0.6"/>
+    <circle cx="180" cy="760" r="2.5" opacity="0.55"/>
+  </g>
+  <!-- Parıltılar (4 köşeli yıldız) -->
+  <g fill="#C9B8FF">
+    <path d="M300 150 l8 22 22 8 -22 8 -8 22 -8 -22 -22 -8 22 -8 z" opacity="0.9"/>
+    <path d="M820 420 l6 16 16 6 -16 6 -6 16 -6 -16 -16 -6 16 -6 z" opacity="0.8"/>
+    <path d="M760 800 l6 16 16 6 -16 6 -6 16 -6 -16 -16 -6 16 -6 z" opacity="0.7"/>
+  </g>
+
+  <!-- Hilal Ay (sağ üst) -->
+  <g transform="translate(815,205)">
+    <circle cx="0" cy="0" r="62" fill="url(#moon)"/>
+    <circle cx="26" cy="-12" r="58" fill="#0A0D1F" opacity="0.95"/>
+  </g>
+
+  <!-- ============ YAVRU MALTESE ============ -->
+  <g filter="url(#soft)">
+
+    <!-- Kulaklar (uzun, sarkık tüy lobları) -->
+    <g fill="url(#ear)">
+      <ellipse cx="300" cy="640" rx="118" ry="190" transform="rotate(-12 300 640)"/>
+      <ellipse cx="724" cy="640" rx="118" ry="190" transform="rotate(12 724 640)"/>
+    </g>
+
+    <!-- Kafa: tüylü bulut silüeti (çevre topakları + merkez) -->
+    <g fill="url(#fur)">
+      <circle cx="360" cy="430" r="92"/>
+      <circle cx="460" cy="380" r="98"/>
+      <circle cx="564" cy="380" r="98"/>
+      <circle cx="664" cy="430" r="92"/>
+      <circle cx="710" cy="520" r="92"/>
+      <circle cx="700" cy="620" r="92"/>
+      <circle cx="624" cy="690" r="96"/>
+      <circle cx="512" cy="720" r="100"/>
+      <circle cx="400" cy="690" r="96"/>
+      <circle cx="324" cy="620" r="92"/>
+      <circle cx="314" cy="520" r="92"/>
+      <ellipse cx="512" cy="540" rx="220" ry="210"/>
+    </g>
+
+    <!-- Yüz gölgesi (hafif derinlik) -->
+    <ellipse cx="512" cy="585" rx="180" ry="160" fill="#EFEAFB" opacity="0.5"/>
+
+    <!-- Yanak allığı -->
+    <ellipse cx="392" cy="610" rx="40" ry="26" fill="#FF9CC0" opacity="0.45"/>
+    <ellipse cx="632" cy="610" rx="40" ry="26" fill="#FF9CC0" opacity="0.45"/>
+
+    <!-- Gözler (iri, parlak) -->
+    <g>
+      <ellipse cx="430" cy="540" rx="46" ry="54" fill="#16122A"/>
+      <ellipse cx="594" cy="540" rx="46" ry="54" fill="#16122A"/>
+      <!-- ana parlama -->
+      <circle cx="446" cy="522" r="16" fill="#FFFFFF"/>
+      <circle cx="610" cy="522" r="16" fill="#FFFFFF"/>
+      <!-- küçük parlama -->
+      <circle cx="418" cy="556" r="7" fill="#FFFFFF" opacity="0.8"/>
+      <circle cx="582" cy="556" r="7" fill="#FFFFFF" opacity="0.8"/>
+    </g>
+
+    <!-- Burun -->
+    <path d="M512 600
+             q34 0 34 26
+             q0 24 -34 40
+             q-34 -16 -34 -40
+             q0 -26 34 -26 z" fill="#181425"/>
+    <ellipse cx="500" cy="616" rx="6" ry="4" fill="#4A4360" opacity="0.7"/>
+
+    <!-- Ağız -->
+    <path d="M512 666 q-26 30 -54 8" fill="none" stroke="#181425" stroke-width="7" stroke-linecap="round"/>
+    <path d="M512 666 q26 30 54 8"  fill="none" stroke="#181425" stroke-width="7" stroke-linecap="round"/>
+    <path d="M512 666 v14" stroke="#181425" stroke-width="7" stroke-linecap="round"/>
+  </g>
+
+  <!-- Tepe tutamı + fiyonk (accent mor) -->
+  <g filter="url(#soft)">
+    <circle cx="512" cy="332" r="40" fill="url(#fur)"/>
+    <!-- fiyonk -->
+    <path d="M512 326 l-66 -34 q-16 -8 -16 14 l0 44 q0 22 16 14 z" fill="url(#bow)"/>
+    <path d="M512 326 l66 -34 q16 -8 16 14 l0 44 q0 22 -16 14 z" fill="url(#bow)"/>
+    <circle cx="512" cy="326" r="18" fill="#8F70FF"/>
+    <!-- fiyonkta minik yıldız -->
+    <path d="M512 316 l4 11 11 4 -11 4 -4 11 -4 -11 -11 -4 11 -4 z" fill="#FFFFFF" opacity="0.95"/>
+  </g>
+
+</svg>

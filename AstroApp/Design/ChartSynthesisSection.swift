@@ -96,6 +96,12 @@ struct ChartSynthesisSection: View {
                 Text(item.title)
                     .font(.caption.weight(.semibold))
                     .foregroundStyle(.white)
+                if let glyphs = item.glyphs {
+                    Spacer()
+                    Text(glyphs)
+                        .font(.caption.weight(.medium))
+                        .foregroundStyle(toneColor(item.tone))
+                }
             }
             Text(item.message)
                 .font(.caption2)
