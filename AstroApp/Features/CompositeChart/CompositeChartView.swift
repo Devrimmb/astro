@@ -303,6 +303,10 @@ struct CompositeChartResultView: View {
     let name1: String
     let name2: String
 
+    // Olgusal veri kartları varsayılan kapalı (yorumlara hızlı ulaşım için)
+    @State private var showPlanets = false
+    @State private var showAspects = false
+
     var body: some View {
         ZStack {
             SubtleStarsBackground()
@@ -403,28 +407,30 @@ struct CompositeChartResultView: View {
 
     private func planetsCard(_ chart: CompositeChart) -> some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("Gezegen Konumları")
-                .font(.headline)
-                .foregroundStyle(.white)
+            collapsibleHeader(title: "Gezegen Konumları", subtitle: "\(chart.planets.count) gezegen", isExpanded: showPlanets) {
+                withAnimation(.easeInOut(duration: 0.2)) { showPlanets.toggle() }
+            }
 
-            ForEach(chart.planets, id: \.planet) { pos in
-                HStack(spacing: 8) {
-                    Text(pos.planet.rawValue)
-                        .font(.caption)
-                        .foregroundStyle(AstroTheme.textSecondary)
-                        .frame(width: 70, alignment: .leading)
-                    Text(pos.sign.glyph)
-                        .font(.caption)
-                    Text("\(pos.sign.name) \(String(format: "%.1f", pos.degree))°")
-                        .font(.caption.bold())
-                        .foregroundStyle(.white)
-                    Spacer()
-                    Text("\(pos.house). ev")
-                        .font(.caption2)
-                        .foregroundStyle(AstroTheme.textTertiary)
-                }
-                if pos.planet != chart.planets.last?.planet {
-                    Divider().overlay(AstroTheme.cardBorder)
+            if showPlanets {
+                ForEach(chart.planets, id: \.planet) { pos in
+                    HStack(spacing: 8) {
+                        Text(pos.planet.rawValue)
+                            .font(.caption)
+                            .foregroundStyle(AstroTheme.textSecondary)
+                            .frame(width: 70, alignment: .leading)
+                        Text(pos.sign.glyph)
+                            .font(.caption)
+                        Text("\(pos.sign.name) \(String(format: "%.1f", pos.degree))°")
+                            .font(.caption.bold())
+                            .foregroundStyle(.white)
+                        Spacer()
+                        Text("\(pos.house). ev")
+                            .font(.caption2)
+                            .foregroundStyle(AstroTheme.textTertiary)
+                    }
+                    if pos.planet != chart.planets.last?.planet {
+                        Divider().overlay(AstroTheme.cardBorder)
+                    }
                 }
             }
         }
@@ -433,34 +439,57 @@ struct CompositeChartResultView: View {
 
     private func aspectsCard(_ chart: CompositeChart) -> some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("Açılar (\(chart.aspects.count))")
-                .font(.headline)
-                .foregroundStyle(.white)
+            collapsibleHeader(title: "Açılar", subtitle: "\(chart.aspects.count)", isExpanded: showAspects) {
+                withAnimation(.easeInOut(duration: 0.2)) { showAspects.toggle() }
+            }
 
-            let shown = Array(chart.aspects.prefix(15).enumerated())
-            ForEach(shown, id: \.offset) { index, aspect in
-                HStack(spacing: 6) {
-                    Text(aspect.point1.name)
-                        .font(.caption2)
-                        .foregroundStyle(.white)
-                    Text(aspect.type.symbol)
-                        .font(.caption2)
-                        .foregroundStyle(aspectColor(aspect.type))
-                    Text(aspect.point2.name)
-                        .font(.caption2)
-                        .foregroundStyle(.white)
-                    Spacer()
-                    Text(aspect.type.turkishName)
-                        .font(.caption2)
-                        .foregroundStyle(aspectColor(aspect.type))
-                }
-                .padding(.vertical, 3)
-                if index != shown.count - 1 {
-                    Divider().overlay(AstroTheme.cardBorder)
+            if showAspects {
+                let shown = Array(chart.aspects.prefix(15).enumerated())
+                ForEach(shown, id: \.offset) { index, aspect in
+                    HStack(spacing: 6) {
+                        Text(aspect.point1.name)
+                            .font(.caption2)
+                            .foregroundStyle(.white)
+                        Text(aspect.type.symbol)
+                            .font(.caption2)
+                            .foregroundStyle(aspectColor(aspect.type))
+                        Text(aspect.point2.name)
+                            .font(.caption2)
+                            .foregroundStyle(.white)
+                        Spacer()
+                        Text(aspect.type.turkishName)
+                            .font(.caption2)
+                            .foregroundStyle(aspectColor(aspect.type))
+                    }
+                    .padding(.vertical, 3)
+                    if index != shown.count - 1 {
+                        Divider().overlay(AstroTheme.cardBorder)
+                    }
                 }
             }
         }
         .glassCard()
+    }
+
+    /// Katlanabilir kart başlığı — sağda gezegen/açı sayısı + dönen chevron.
+    private func collapsibleHeader(title: String, subtitle: String, isExpanded: Bool, toggle: @escaping () -> Void) -> some View {
+        Button(action: toggle) {
+            HStack(spacing: 6) {
+                Text(title)
+                    .font(.headline)
+                    .foregroundStyle(.white)
+                Spacer()
+                Text(subtitle)
+                    .font(.caption2)
+                    .foregroundStyle(AstroTheme.textTertiary)
+                Image(systemName: "chevron.down")
+                    .font(.caption)
+                    .foregroundStyle(AstroTheme.textTertiary)
+                    .rotationEffect(.degrees(isExpanded ? 180 : 0))
+            }
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
     }
 
     // MARK: - Yorumlar (bütüncül sentez)
