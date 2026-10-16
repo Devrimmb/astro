@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AstroApp — Liquid Glass Design 2026</title>
+<style>
+  :root{
+    /* AstroTheme eşlenikleri */
+    --bg:#0A0D1F; --bg2:#12102E; --bg3:#07060F;
+    --accent:#8F70FF; --accent2:#59C7FA;
+    --fire:#FF736B; --earth:#6BD185; --air:#FFD959; --water:#66ADFF;
+    --harmonik:#4DD9A6; --zorlayici:#FF6673; --notr:#8C8CFF;
+    /* Gezegen paleti (öneri) */
+    --sun:#FFB547; --moon:#E8ECFF; --mercury:#5AD8E6; --venus:#FF8AB8; --mars:#FF5F57;
+    --jupiter:#B98CFF; --saturn:#C9A27E; --uranus:#5EEAD4; --neptune:#7B8CFF; --pluto:#9CA3AF;
+    /* Metin */
+    --t1:rgba(255,255,255,0.94); --t2:rgba(255,255,255,0.58); --t3:rgba(255,255,255,0.34); --t4:rgba(255,255,255,0.18);
+    /* Cam */
+    --glass:rgba(255,255,255,0.06); --glass2:rgba(255,255,255,0.10); --stroke:rgba(255,255,255,0.09); --spec:rgba(255,255,255,0.22);
+    --serif:'New York', ui-serif, Georgia, 'Times New Roman', serif;
+    --sans:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:#05060E;color:var(--t1);min-height:100vh;-webkit-font-smoothing:antialiased}
+  body::before{content:"";position:fixed;inset:0;background:
+    radial-gradient(900px 500px at 15% -10%, rgba(143,112,255,0.14), transparent 60%),
+    radial-gradient(700px 500px at 95% 10%, rgba(89,199,250,0.08), transparent 60%);pointer-events:none;z-index:0}
+  .wrap{position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:40px 24px 120px}
+
+  /* ── Üst nav ── */
+  .nav{position:sticky;top:12px;z-index:50;display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:8px 10px;border-radius:999px;
+    background:rgba(10,13,31,0.72);backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);
+    border:1px solid var(--stroke);box-shadow:inset 0 1px 0 var(--spec),0 20px 60px rgba(0,0,0,0.45);margin-bottom:56px}
+  .nav b{font-size:12px;letter-spacing:0.08em;color:var(--t2);padding:6px 12px;font-weight:600}
+  .nav a{font-size:12px;color:var(--t2);text-decoration:none;padding:6px 12px;border-radius:999px;transition:all .2s}
+  .nav a:hover{background:var(--glass2);color:var(--t1)}
+
+  /* ── Hero ── */
+  .hero{margin-bottom:72px}
+  .eyebrow{font-size:11px;letter-spacing:0.18em;color:var(--accent);font-weight:600;margin-bottom:14px}
+  h1{font-family:var(--serif);font-weight:400;font-size:46px;line-height:1.08;letter-spacing:-0.01em;max-width:760px}
+  h1 em{font-style:italic;color:var(--accent2)}
+  .lead{margin-top:18px;font-size:16px;line-height:1.65;color:var(--t2);max-width:720px}
+  .lead code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;background:var(--glass);padding:2px 7px;border-radius:6px;border:1px solid var(--stroke);color:var(--t1)}
+  .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:32px}
+  .pillar{padding:18px;border-radius:20px;background:var(--glass);border:1px solid var(--stroke);box-shadow:inset 0 1px 0 var(--spec)}
+  .pillar .k{font-size:11px;letter-spacing:0.12em;color:var(--t3);margin-bottom:8px;font-weight:600}
+  .pillar .v{font-size:14px;line-height:1.5;color:var(--t1)}
+  .pillar .v small{display:block;margin-top:6px;color:var(--t3);font-size:12px}
+
+  /* ── Bölüm ── */
+  .section{margin-bottom:88px}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:8px}
+  .sec-num{font-family:var(--serif);font-size:13px;color:var(--t3);letter-spacing:0.1em}
+  .sec-title{font-size:24px;font-weight:600;letter-spacing:-0.01em}
+  .sec-note{font-size:13.5px;color:var(--t2);line-height:1.65;max-width:820px;margin-bottom:28px}
+  .sec-note b{color:var(--t1);font-weight:600}
+
+  /* ── Token grid ── */
+  .tokens{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+  .tok{border-radius:16px;overflow:hidden;border:1px solid var(--stroke);background:var(--glass)}
+  .tok .sw{height:58px}
+  .tok .m{padding:10px 12px}
+  .tok .n{font-size:12px;font-weight:600}
+  .tok .h{font-size:10.5px;color:var(--t3);font-family:ui-monospace,Menlo,monospace;margin-top:2px}
+  .tok .s{font-size:10.5px;color:var(--t3);margin-top:2px}
+
+  .type-table{width:100%;border-collapse:collapse;margin-top:8px}
+  .type-table td{padding:12px 10px;border-bottom:1px solid var(--stroke);vertical-align:middle}
+  .type-table td:first-child{width:46%}
+  .type-table .api{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:var(--accent2)}
+  .type-table .use{font-size:12px;color:var(--t3)}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  @media (max-width:900px){.two{grid-template-columns:1fr}}
+  .card{padding:22px;border-radius:24px;background:var(--glass);border:1px solid var(--stroke);box-shadow:inset 0 1px 0 var(--spec)}
+  .card h4{font-size:13px;letter-spacing:0.1em;color:var(--t3);font-weight:600;margin-bottom:14px}
+
+  /* ── Telefon ── */
+  .phones{display:flex;gap:28px;overflow-x:auto;padding:8px 4px 20px;align-items:flex-start;scroll-snap-type:x proximity}
+  .phones::-webkit-scrollbar{height:4px}
+  .phones::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.14);border-radius:2px}
+  .shot{flex-shrink:0;scroll-snap-align:start;width:272px}
+  .ph{position:relative;width:272px;height:588px;border-radius:44px;overflow:hidden;background:var(--bg);
+    border:1px solid rgba(255,255,255,0.14);box-shadow:0 0 0 6px #0B0B14,0 0 0 7px rgba(255,255,255,0.08),0 40px 80px rgba(0,0,0,0.6)}
+  .ph::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+    background:radial-gradient(240px 200px at 50% -40px, rgba(143,112,255,0.22), transparent 70%),
+               radial-gradient(200px 220px at 110% 70%, rgba(89,199,250,0.10), transparent 70%),
+               linear-gradient(180deg,#0A0D1F 0%,#12102E 55%,#0A0D1F 100%)}
+  .stars{position:absolute;inset:0;z-index:0;pointer-events:none}
+  .island{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:78px;height:22px;background:#000;border-radius:14px;z-index:5}
+  .sb{position:relative;z-index:2;display:flex;justify-content:space-between;padding:14px 24px 0;font-size:10px;font-weight:600;color:var(--t1)}
+  .sc{position:relative;z-index:2;height:100%;display:flex;flex-direction:column}
+  .body{flex:1;overflow:hidden;padding:0 14px}
+  .shot .lbl{text-align:center;margin-top:16px}
+  .shot .lbl .t{font-size:13px;font-weight:600;color:var(--t1)}
+  .shot .lbl .s{font-size:11.5px;color:var(--t3);margin-top:3px;line-height:1.5}
+  .shot .lbl .api{display:block;max-width:100%;overflow-wrap:anywhere;word-break:break-word;line-height:1.5;margin-top:8px;font-family:ui-monospace,Menlo,monospace;font-size:10.5px;color:var(--accent2);background:rgba(89,199,250,0.08);border:1px solid rgba(89,199,250,0.18);padding:3px 8px;border-radius:7px;text-align:left}
+
+  /* Uygulama bileşenleri (telefon içi) */
+  .navbar{display:flex;align-items:center;justify-content:space-between;padding:10px 2px 10px}
+  .navbar .ttl{font-size:13px;font-weight:600}
+  .navbar .back{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--accent)}
+  .navbar .back i{width:7px;height:7px;border-left:1.5px solid var(--accent);border-bottom:1.5px solid var(--accent);transform:rotate(45deg);display:inline-block}
+  .navbar .ic{width:28px;height:28px;border-radius:50%;background:var(--glass2);border:1px solid var(--stroke);display:grid;place-items:center;font-size:12px;box-shadow:inset 0 1px 0 var(--spec)}
+
+  .greet{padding:4px 2px 12px}
+  .greet .big{font-family:var(--serif);font-size:24px;line-height:1.1}
+  .greet .big em{font-style:italic;color:var(--accent2)}
+  .greet .sub{font-size:10.5px;color:var(--t3);margin-top:5px}
+
+  .g{position:relative;border-radius:20px;background:var(--glass);border:1px solid var(--stroke);box-shadow:inset 0 1px 0 var(--spec);padding:12px;margin-bottom:10px;
+     backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+  .g.hero{border-radius:24px;background:linear-gradient(160deg,rgba(143,112,255,0.18),rgba(255,255,255,0.04) 60%);border-color:rgba(143,112,255,0.3)}
+  .g.tint-pink{background:linear-gradient(160deg,rgba(255,138,184,0.16),rgba(255,255,255,0.04) 60%);border-color:rgba(255,138,184,0.26)}
+  .g.tint-cyan{background:linear-gradient(160deg,rgba(89,199,250,0.16),rgba(255,255,255,0.04) 60%);border-color:rgba(89,199,250,0.26)}
+  .g.tint-gold{background:linear-gradient(160deg,rgba(255,181,71,0.16),rgba(255,255,255,0.04) 60%);border-color:rgba(255,181,71,0.26)}
+  .g.compact{padding:10px 12px}
+  .gh{display:flex;align-items:center;gap:6px;margin-bottom:8px}
+  .gh .i{font-size:11px;color:var(--accent)}
+  .gh .t{font-size:11.5px;font-weight:600}
+  .gh .q{margin-left:auto;width:13px;height:13px;border-radius:50%;border:1px solid var(--t4);font-size:8px;display:grid;place-items:center;color:var(--t3)}
+  .gh .more{margin-left:auto;font-size:10px;color:var(--accent)}
+  .lab{font-size:8.5px;letter-spacing:0.12em;color:var(--t3);font-weight:700;margin:8px 0 5px}
+  .row{display:flex;align-items:flex-start;gap:8px;padding:5px 0}
+  .row + .row{border-top:1px solid rgba(255,255,255,0.05)}
+  .row .ic{width:18px;font-size:11px;text-align:center;flex-shrink:0;line-height:1.3}
+  .row .tx{flex:1;min-width:0}
+  .row .tt{font-size:10.5px;font-weight:600}
+  .row .ms{font-size:9.5px;color:var(--t2);line-height:1.45;margin-top:1px}
+  .pill{display:inline-block;font-size:8.5px;font-weight:600;padding:2px 7px;border-radius:999px;border:1px solid}
+  .pill.h{color:var(--harmonik);border-color:rgba(77,217,166,0.3);background:rgba(77,217,166,0.1)}
+  .pill.z{color:var(--zorlayici);border-color:rgba(255,102,115,0.3);background:rgba(255,102,115,0.1)}
+  .pill.n{color:var(--notr);border-color:rgba(140,140,255,0.3);background:rgba(140,140,255,0.1)}
+  .pill.a{color:var(--accent);border-color:rgba(143,112,255,0.35);background:rgba(143,112,255,0.12)}
+  .pill.pro{color:#FFD08A;border-color:rgba(255,181,71,0.35);background:rgba(255,181,71,0.12)}
+
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .bt{text-align:center;padding:10px 6px;border-radius:16px;background:rgba(255,255,255,0.04);border:1px solid var(--stroke)}
+  .bt .gl{font-family:var(--serif);font-size:22px;line-height:1}
+  .bt .k{font-size:8px;letter-spacing:0.1em;color:var(--t3);margin-top:6px;font-weight:700}
+  .bt .v{font-size:10.5px;font-weight:600;margin-top:2px}
+
+  .strip{display:flex;gap:6px;overflow:hidden;padding:2px 0}
+  .pl{min-width:46px;text-align:center;padding:7px 4px;border-radius:12px;background:rgba(255,255,255,0.04);border:1px solid var(--stroke)}
+  .pl .gl{font-size:14px;line-height:1}
+  .pl .s{font-size:8.5px;color:var(--t2);margin-top:4px}
+  .pl .rx{font-size:7.5px;color:var(--zorlayici);font-weight:700}
+
+  .tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .tile{padding:10px;border-radius:16px;background:var(--glass);border:1px solid var(--stroke);box-shadow:inset 0 1px 0 var(--spec)}
+  .tile .k{font-size:8.5px;letter-spacing:0.1em;color:var(--t3);font-weight:700}
+  .tile .v{font-size:12px;font-weight:600;margin-top:3px}
+  .tile .s{font-size:9px;color:var(--t2);margin-top:2px}
+
+  /* Liquid glass tab bar */
+  .tabbar{position:absolute;left:14px;right:14px;bottom:14px;z-index:4;display:flex;padding:6px;border-radius:999px;
+    background:rgba(20,22,45,0.62);backdrop-filter:blur(28px) saturate(170%);-webkit-backdrop-filter:blur(28px) saturate(170%);
+    border:1px solid rgba(255,255,255,0.14);box-shadow:inset 0 1px 0 rgba(255,255,255,0.28),0 16px 40px rgba(0,0,0,0.5)}
+  .tab{flex:1;text-align:center;padding:6px 0 5px;border-radius:999px;color:var(--t3)}
+  .tab .ti{font-size:13px;line-height:1}
+  .tab .tl{font-size:7.5px;margin-top:3px;font-weight:600}
+  .tab.act{color:#fff;background:linear-gradient(180deg,rgba(143,112,255,0.55),rgba(143,112,255,0.3));box-shadow:inset 0 1px 0 rgba(255,255,255,0.35),0 6px 18px rgba(143,112,255,0.35)}
+  .fade{position:absolute;left:0;right:0;bottom:0;height:96px;z-index:3;background:linear-gradient(180deg,rgba(10,13,31,0),rgba(10,13,31,0.9) 70%);pointer-events:none}
+
+  /* Segment */
+  .seg{display:flex;padding:3px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid var(--stroke);margin:6px 0 10px}
+  .seg div{flex:1;text-align:center;font-size:9.5px;color:var(--t3);padding:5px 0;border-radius:999px;font-weight:600}
+  .seg .on{color:#fff;background:rgba(255,255,255,0.12);box-shadow:inset 0 1px 0 var(--spec)}
+
+  /* Gezegen satırı */
+  .prow{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+  .prow:last-child{border-bottom:none}
+  .prow .gl{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:12px;font-family:var(--serif);background:rgba(255,255,255,0.05)}
+  .prow .nm{font-size:10.5px;font-weight:600;width:52px}
+  .prow .ps{font-size:10px;color:var(--t2);flex:1}
+  .prow .hs{font-size:8.5px;color:var(--t3);background:rgba(255,255,255,0.05);padding:2px 6px;border-radius:6px}
+
+  /* Açı satırı */
+  .arow{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+  .arow .pr{font-family:var(--serif);font-size:12px;width:40px;letter-spacing:2px}
+  .arow .nm{font-size:10px;flex:1}
+  .arow .nm small{display:block;color:var(--t3);font-size:8.5px;margin-top:1px}
+  .arow .orb{font-size:8.5px;font-weight:600;padding:2px 6px;border-radius:6px}
+
+  /* Grid matrisi */
+  .grid{display:grid;gap:2px}
+  .grid .c{aspect-ratio:1;border-radius:4px;background:rgba(255,255,255,0.03);display:grid;place-items:center;font-size:8px;font-family:var(--serif)}
+  .grid .hd{background:transparent;color:var(--t2);font-size:9px}
+
+  /* Dot meter */
+  .meter{display:flex;align-items:center;gap:8px;padding:5px 0}
+  .meter .k{font-size:10px;width:52px;color:var(--t2)}
+  .meter .dots{display:flex;gap:4px;flex:1}
+  .meter .dots i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.08)}
+  .meter .dots i.on{background:var(--accent);box-shadow:0 0 8px rgba(143,112,255,0.6)}
+  .meter .v{font-size:10px;color:var(--t3);width:22px;text-align:right}
+
+  /* Takvim */
+  .cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin:6px 0}
+  .cal .d{text-align:center;padding:5px 0 4px;border-radius:10px;font-size:10px;color:var(--t2)}
+  .cal .d small{display:block;font-size:7px;color:var(--t4);letter-spacing:0.08em;margin-bottom:2px}
+  .cal .d .dots{display:flex;justify-content:center;gap:2px;margin-top:3px;height:3px}
+  .cal .d .dots i{width:3px;height:3px;border-radius:50%}
+  .cal .d.today{background:linear-gradient(180deg,rgba(143,112,255,0.5),rgba(143,112,255,0.25));color:#fff;box-shadow:inset 0 1px 0 var(--spec)}
+
+  /* Butonlar */
+  .btn{display:block;text-align:center;font-size:11px;font-weight:600;padding:10px;border-radius:999px;color:#fff;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:inset 0 1px 0 rgba(255,255,255,0.35),0 10px 24px rgba(143,112,255,0.35)}
+  .btn.ghost{background:var(--glass2);border:1px solid var(--stroke);box-shadow:inset 0 1px 0 var(--spec);color:var(--t1)}
+  .btn.sm{font-size:10px;padding:7px 10px}
+
+  /* Kart yelpazesi */
+  .fan{position:relative;height:190px;margin:6px 0 36px}
+  .cardb{position:absolute;left:50%;bottom:0;width:78px;height:124px;margin-left:-39px;border-radius:10px;transform-origin:50% 140%;
+    background:linear-gradient(160deg,#2A2155,#141033);border:1px solid rgba(255,255,255,0.18);box-shadow:0 10px 30px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.2)}
+  .cardb::before{content:"";position:absolute;inset:6px;border-radius:7px;border:1px solid rgba(143,112,255,0.35);
+    background:radial-gradient(circle at 50% 50%, rgba(143,112,255,0.25), transparent 60%)}
+  .cardb::after{content:"✦";position:absolute;inset:0;display:grid;place-items:center;font-size:20px;color:rgba(255,255,255,0.7)}
+  .cardb.sel{border-color:rgba(255,255,255,0.5);box-shadow:0 0 0 2px rgba(143,112,255,0.6),0 18px 40px rgba(143,112,255,0.4)}
+  .cardf{width:150px;height:238px;margin:4px auto 0;border-radius:16px;position:relative;overflow:hidden;
+    background:linear-gradient(170deg,#3B2A7A 0%,#1A1440 60%,#0F0C26 100%);border:1px solid rgba(255,255,255,0.2);box-shadow:0 24px 60px rgba(0,0,0,0.6),inset 0 1px 0 rgba(255,255,255,0.3)}
+  .cardf .fr{position:absolute;inset:8px;border-radius:11px;border:1px solid rgba(255,217,89,0.35)}
+  .cardf .num{position:absolute;top:14px;left:0;right:0;text-align:center;font-family:var(--serif);font-size:11px;letter-spacing:0.3em;color:#FFD959}
+  .cardf .art{position:absolute;top:48px;left:50%;transform:translateX(-50%);width:84px;height:84px;border-radius:50%;
+    background:radial-gradient(circle,#FFE59A 0%,#FFB547 35%,rgba(255,181,71,0.15) 60%,transparent 70%);box-shadow:0 0 40px rgba(255,181,71,0.5)}
+  .cardf .art::after{content:"☉";position:absolute;inset:0;display:grid;place-items:center;font-size:36px;color:#3B2A1A;font-family:var(--serif)}
+  .cardf .nm{position:absolute;bottom:34px;left:0;right:0;text-align:center;font-family:var(--serif);font-size:17px}
+  .cardf .sb2{position:absolute;bottom:18px;left:0;right:0;text-align:center;font-size:8.5px;letter-spacing:0.18em;color:var(--t3)}
+
+  /* Fiyat kutuları */
+  .tier{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:16px;background:rgba(255,255,255,0.04);border:1px solid var(--stroke);margin-bottom:8px}
+  .tier.best{border-color:rgba(143,112,255,0.5);background:linear-gradient(160deg,rgba(143,112,255,0.2),rgba(255,255,255,0.03))}
+  .tier .n{font-size:11px;font-weight:600}
+  .tier .d{font-size:9px;color:var(--t2);margin-top:2px}
+  .tier .p{margin-left:auto;font-size:14px;font-weight:700;font-family:var(--serif)}
+  .tier .radio{width:14px;height:14px;border-radius:50%;border:1.5px solid var(--t3)}
+  .tier.best .radio{border-color:var(--accent);background:radial-gradient(circle,var(--accent) 45%,transparent 50%)}
+
+  /* Ayarlar */
+  .srow{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+  .srow:last-child{border-bottom:none}
+  .srow .ic{width:24px;height:24px;border-radius:7px;display:grid;place-items:center;font-size:11px}
+  .srow .t{font-size:10.5px;flex:1}
+  .srow .ch{color:var(--t4);font-size:11px}
+  .toggle{width:30px;height:18px;border-radius:999px;background:var(--harmonik);position:relative}
+  .toggle::after{content:"";position:absolute;top:2px;right:2px;width:14px;height:14px;border-radius:50%;background:#fff}
+
+  /* Bileşen galerisi */
+  .comps{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+  .comp{padding:18px;border-radius:22px;background:var(--glass);border:1px solid var(--stroke);box-shadow:inset 0 1px 0 var(--spec)}
+  .comp .cn{font-size:12px;font-weight:600;margin-bottom:4px}
+  .comp .ca{font-family:ui-monospace,Menlo,monospace;font-size:10.5px;color:var(--accent2);margin-bottom:14px;line-height:1.5}
+  .comp .demo{padding:12px;border-radius:16px;background:rgba(10,13,31,0.6);border:1px solid rgba(255,255,255,0.05)}
+  .comp .demo svg{flex-shrink:0}
+
+  /* Eşleme tablosu */
+  .map{width:100%;border-collapse:collapse;font-size:12.5px}
+  .map th{font-size:10.5px;letter-spacing:0.1em;color:var(--t3);text-align:left;padding:10px;border-bottom:1px solid var(--stroke);font-weight:600}
+  .map td{padding:12px 10px;border-bottom:1px solid rgba(255,255,255,0.05);vertical-align:top;line-height:1.55}
+  .map td:first-child{font-weight:600;white-space:nowrap}
+  .map code{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;color:var(--accent2)}
+  .map .note{color:var(--t2)}
+
+  .diff{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:800px){.diff{grid-template-columns:1fr}}
+  .diff .card ul{list-style:none}
+  .diff .card li{font-size:13px;line-height:1.6;color:var(--t2);padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;gap:10px}
+  .diff .card li:last-child{border-bottom:none}
+  .diff .card li b{color:var(--t1);font-weight:600}
+  .diff .card li .mk{flex-shrink:0;width:18px;color:var(--accent2)}
+
+  .foot{margin-top:60px;padding-top:24px;border-top:1px solid var(--stroke);font-size:12px;color:var(--t3);line-height:1.7}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="nav">
+  <b>ASTROAPP · 2026</b>
+  <a href="#dil">Tasarım Dili</a>
+  <a href="#token">Renk & Tipografi</a>
+  <a href="#comp">Bileşenler</a>
+  <a href="#home">Anasayfa</a>
+  <a href="#natal">Doğum Haritası</a>
+  <a href="#transit">Transit & Synastry</a>
+  <a href="#takvim">Takvim & Ay</a>
+  <a href="#kart">Kart Falı</a>
+  <a href="#para">Paywall & Ayarlar</a>
+  <a href="#swift">SwiftUI Eşlemesi</a>
+  <a href="#fark">Eski → Yeni</a>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<header class="hero">
+  <div class="eyebrow">TASARIM ÇALIŞMASI · v2 · LIQUID GLASS</div>
+  <h1>Gökyüzünü <em>camdan</em> okumak.<br>AstroApp için 2026 tasarım dili.</h1>
+  <p class="lead">
+    Bu doküman, uygulamanın bugünkü gerçek yapısı üzerine kurulu: 4 sekme (<code>Anasayfa</code>, <code>Astroloji</code>, <code>Kart Falı</code>, <code>Ayarlar</code>),
+    <code>AstroTheme</code> renkleri, <code>GlassCard</code>, Canvas tabanlı <code>ChartWheelView</code>, Kozmik Koç, Synastry skoru ve kart yelpazesi.
+    Her ekranın altında bire bir SwiftUI karşılığı yazıyor; önerilen her şey iOS 17+ ve iOS 26 Liquid Glass API'leriyle yapılabilir, özel kütüphane gerektirmez.
+  </p>
+  <div class="pillars">
+    <div class="pillar"><div class="k">01 · YÜZEY</div><div class="v">Katmanlı cam<small>Arka planda aurora ışıması, üstte yarı saydam kartlar, 1px üst parlama (specular). <code>glassEffect()</code> + <code>GlassEffectContainer</code>.</small></div></div>
+    <div class="pillar"><div class="k">02 · TİPOGRAFİ</div><div class="v">Serif başlık, sans gövde<small>Büyük başlıklar ve gezegen glifleri New York (<code>.fontDesign(.serif)</code>); okuma metni SF Pro. Mistik ama okunur.</small></div></div>
+    <div class="pillar"><div class="k">03 · RENK</div><div class="v">Lavanta + gök mavisi<small>Mevcut <code>AstroTheme.accent</code> korunur. Element ve ton renkleri tek bir anlam sistemine bağlanır; ekran başına keyfi renk yok.</small></div></div>
+    <div class="pillar"><div class="k">04 · HAREKET</div><div class="v">Az ama anlamlı<small>Kart çevirme, sayı geçişi, sembol nabzı. <code>.contentTransition(.numericText())</code>, <code>.symbolEffect</code>, <code>.sensoryFeedback</code>.</small></div></div>
+  </div>
+</header>
+
+<!-- ═══════════════ 1. TASARIM DİLİ ═══════════════ -->
+<section class="section" id="dil">
+  <div class="sec-head"><span class="sec-num">01</span><h2 class="sec-title">Tasarım dili — eskisinden ne farklı?</h2></div>
+  <p class="sec-note">
+    Eski çalışma (<b>Spatial Radial</b>) tamamen çark odaklıydı; neredeyse monokrom, çok küçük metinler, düz siyah yüzeyler. Yeni dil
+    uygulamanın tamamını kapsıyor ve üç kararla ayrışıyor: <b>(1)</b> yüzeyler düz değil, katmanlı cam; <b>(2)</b> her içerik tipinin kendi
+    rengi var (tonlar, elementler, gezegenler) ve bunlar ekranlar arasında değişmiyor; <b>(3)</b> tipografi iki sesli — serif ile "kehanet" tonu,
+    sans ile "bilgi" tonu. Aşağıdaki iki kart farkı yan yana gösterir.
+  </p>
+  <div class="two">
+    <div class="card">
+      <h4>ESKİ · SPATIAL RADIAL (2025)</h4>
+      <div style="padding:14px;border-radius:14px;background:#06030e;border:1px solid rgba(255,255,255,0.06)">
+        <div style="font-size:10px;color:rgba(255,255,255,0.3);margin-bottom:6px">Devrim · Doğum haritası · İkizler</div>
+        <div style="display:flex;gap:6px;padding:4px 0;border-bottom:0.5px solid rgba(255,255,255,0.05);font-size:9px"><span style="width:5px;height:5px;border-radius:50%;background:#fbbf24;margin-top:3px"></span><span style="color:rgba(255,255,255,0.25);width:40px">Güneş</span><span style="color:rgba(255,255,255,0.6)">♊ 2°14'</span><span style="margin-left:auto;color:rgba(255,255,255,0.2);font-size:7px">8. ev</span></div>
+        <div style="display:flex;gap:6px;padding:4px 0;font-size:9px"><span style="width:5px;height:5px;border-radius:50%;background:#818cf8;margin-top:3px"></span><span style="color:rgba(255,255,255,0.25);width:40px">Ay</span><span style="color:rgba(255,255,255,0.6)">♋ 18°33'</span><span style="margin-left:auto;color:rgba(255,255,255,0.2);font-size:7px">11. ev</span></div>
+        <div style="display:flex;gap:8px;margin-top:10px;font-size:7px;color:rgba(255,255,255,0.22)"><span style="color:#a78bfa">Harita</span><span>Yorum</span><span>Geçişler</span><span>Fal</span></div>
+      </div>
+      <p style="font-size:12px;color:var(--t3);margin-top:12px;line-height:1.6">Düz siyah yüzey · 7–9px metin · tek vurgu rengi · hiyerarşi yalnızca opaklıkla kuruluyor.</p>
+    </div>
+    <div class="card">
+      <h4>YENİ · LIQUID GLASS (2026)</h4>
+      <div style="padding:14px;border-radius:20px;background:linear-gradient(160deg,rgba(143,112,255,0.18),rgba(255,255,255,0.04) 60%);border:1px solid rgba(143,112,255,0.3);box-shadow:inset 0 1px 0 var(--spec)">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px"><span style="color:var(--accent);font-size:12px">✦</span><span style="font-size:12.5px;font-weight:600">Kozmik Koçun</span><span class="pill a" style="margin-left:auto">Sana özel</span></div>
+        <div class="prow"><div class="gl" style="color:var(--sun)">☉</div><div class="nm">Güneş</div><div class="ps">♊ İkizler 2°14′</div><div class="hs">8. ev</div></div>
+        <div class="prow"><div class="gl" style="color:var(--moon)">☽</div><div class="nm">Ay</div><div class="ps">♋ Yengeç 18°33′</div><div class="hs">11. ev</div></div>
+      </div>
+      <p style="font-size:12px;color:var(--t3);margin-top:12px;line-height:1.6">Tonlu cam · 10–13px okunur metin · gezegen renkleri · serif glif · üst parlama ile derinlik.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 2. TOKEN ═══════════════ -->
+<section class="section" id="token">
+  <div class="sec-head"><span class="sec-num">02</span><h2 class="sec-title">Renk & tipografi token'ları</h2></div>
+  <p class="sec-note">
+    İlk 10 renk zaten <code>AstroTheme</code>'de var; hex'ler birebir. Gezegen paleti <b>yeni öneri</b>: şu an <code>ChartWheelView.planetColor()</code> sistem renklerini
+    (<code>.orange</code>, <code>.brown</code>, <code>.gray</code>…) kullanıyor; bunlar koyu zeminde kirli duruyor. Önerilen palet aynı sırayla <code>AstroTheme.planet(_:)</code> olarak eklenir.
+  </p>
+  <div class="tokens">
+    <div class="tok"><div class="sw" style="background:#0A0D1F"></div><div class="m"><div class="n">background</div><div class="h">#0A0D1F</div><div class="s">mevcut</div></div></div>
+    <div class="tok"><div class="sw" style="background:#12102E"></div><div class="m"><div class="n">background mid</div><div class="h">#12102E</div><div class="s">gradient orta</div></div></div>
+    <div class="tok"><div class="sw" style="background:#8F70FF"></div><div class="m"><div class="n">accent</div><div class="h">#8F70FF</div><div class="s">lavanta · mevcut</div></div></div>
+    <div class="tok"><div class="sw" style="background:#59C7FA"></div><div class="m"><div class="n">accentSecondary</div><div class="h">#59C7FA</div><div class="s">gök mavisi · mevcut</div></div></div>
+    <div class="tok"><div class="sw" style="background:#4DD9A6"></div><div class="m"><div class="n">harmonik</div><div class="h">#4DD9A6</div><div class="s">üçgen / altıgen</div></div></div>
+    <div class="tok"><div class="sw" style="background:#FF6673"></div><div class="m"><div class="n">zorlayıcı</div><div class="h">#FF6673</div><div class="s">kare / karşıt</div></div></div>
+    <div class="tok"><div class="sw" style="background:#8C8CFF"></div><div class="m"><div class="n">nötr</div><div class="h">#8C8CFF</div><div class="s">kavuşum</div></div></div>
+    <div class="tok"><div class="sw" style="background:#FF736B"></div><div class="m"><div class="n">fire</div><div class="h">#FF736B</div><div class="s">♈ ♌ ♐</div></div></div>
+    <div class="tok"><div class="sw" style="background:#6BD185"></div><div class="m"><div class="n">earth</div><div class="h">#6BD185</div><div class="s">♉ ♍ ♑</div></div></div>
+    <div class="tok"><div class="sw" style="background:#FFD959"></div><div class="m"><div class="n">air</div><div class="h">#FFD959</div><div class="s">♊ ♎ ♒</div></div></div>
+    <div class="tok"><div class="sw" style="background:#66ADFF"></div><div class="m"><div class="n">water</div><div class="h">#66ADFF</div><div class="s">♋ ♏ ♓</div></div></div>
+    <div class="tok"><div class="sw" style="background:#FFB547"></div><div class="m"><div class="n">☉ sun</div><div class="h">#FFB547</div><div class="s">öneri</div></div></div>
+    <div class="tok"><div class="sw" style="background:#E8ECFF"></div><div class="m"><div class="n">☽ moon</div><div class="h">#E8ECFF</div><div class="s">öneri</div></div></div>
+    <div class="tok"><div class="sw" style="background:#5AD8E6"></div><div class="m"><div class="n">☿ mercury</div><div class="h">#5AD8E6</div><div class="s">öneri</div></div></div>
+    <div class="tok"><div class="sw" style="background:#FF8AB8"></div><div class="m"><div class="n">♀ venus</div><div class="h">#FF8AB8</div><div class="s">öneri</div></div></div>
+    <div class="tok"><div class="sw" style="background:#FF5F57"></div><div class="m"><div class="n">♂ mars</div><div class="h">#FF5F57</div><div class="s">öneri</div></div></div>
+    <div class="tok"><div class="sw" style="background:#B98CFF"></div><div class="m"><div class="n">♃ jupiter</div><div class="h">#B98CFF</div><div class="s">öneri</div></div></div>
+    <div class="tok"><div class="sw" style="background:#C9A27E"></div><div class="m"><div class="n">♄ saturn</div><div class="h">#C9A27E</div><div class="s">öneri</div></div></div>
+    <div class="tok"><div class="sw" style="background:#5EEAD4"></div><div class="m"><div class="n">♅ uranus</div><div class="h">#5EEAD4</div><div class="s">öneri</div></div></div>
+    <div class="tok"><div class="sw" style="background:#7B8CFF"></div><div class="m"><div class="n">♆ neptune</div><div class="h">#7B8CFF</div><div class="s">öneri</div></div></div>
+    <div class="tok"><div class="sw" style="background:#9CA3AF"></div><div class="m"><div class="n">♇ pluto</div><div class="h">#9CA3AF</div><div class="s">öneri</div></div></div>
+  </div>
+
+  <div class="two" style="margin-top:36px">
+    <div class="card">
+      <h4>TİPOGRAFİ ÖLÇEĞİ → SWIFTUI</h4>
+      <table class="type-table">
+        <tr><td style="font-family:var(--serif);font-size:30px;line-height:1.1">Günaydın, <em style="color:var(--accent2)">Devrim</em></td><td><div class="api">.largeTitle · .fontDesign(.serif)</div><div class="use">Ekran karşılaması, kart adı, paywall başlığı</div></td></tr>
+        <tr><td style="font-family:var(--serif);font-size:22px">Güneş · İkizler</td><td><div class="api">.title2 · .fontDesign(.serif)</div><div class="use">Detay sheet başlığı</div></td></tr>
+        <tr><td style="font-size:17px;font-weight:600">Kozmik Koçun</td><td><div class="api">.headline</div><div class="use">Kart başlığı (mevcut kullanım korunur)</div></td></tr>
+        <tr><td style="font-size:15px;color:var(--t1)">Kimlik ile duygular aynı noktada birleşir.</td><td><div class="api">.subheadline</div><div class="use">Yorum gövdesi — <b>caption yerine</b>; okunurluk için bir kademe büyütüldü</div></td></tr>
+        <tr><td style="font-size:12px;color:var(--t2)">Yaklaşan · 2.1° orb</td><td><div class="api">.caption</div><div class="use">Meta bilgi, ikincil satır</div></td></tr>
+        <tr><td style="font-size:11px;letter-spacing:0.12em;color:var(--t3);font-weight:700">BUGÜNÜN GÖKYÜZÜ</td><td><div class="api">.caption2.weight(.bold) · .textCase(.uppercase) · .kerning(1.2)</div><div class="use">Bölüm etiketi (mevcut <code>sectionLabel</code>)</div></td></tr>
+        <tr><td style="font-family:var(--serif);font-size:26px;letter-spacing:4px">☉ ☽ ♀</td><td><div class="api">Text(glyph).fontDesign(.serif)</div><div class="use">Glifler her yerde serif; Canvas'ta <code>Font.system(size:design:.serif)</code></div></td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h4>ŞEKİL · BOŞLUK · CAM KATMANLARI</h4>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px">
+        <div style="text-align:center"><div style="height:56px;border-radius:12px;background:var(--glass);border:1px solid var(--stroke)"></div><div style="font-size:10.5px;color:var(--t3);margin-top:6px">12 · iç öğe</div></div>
+        <div style="text-align:center"><div style="height:56px;border-radius:16px;background:var(--glass);border:1px solid var(--stroke)"></div><div style="font-size:10.5px;color:var(--t3);margin-top:6px">16 · tile</div></div>
+        <div style="text-align:center"><div style="height:56px;border-radius:20px;background:var(--glass);border:1px solid var(--stroke)"></div><div style="font-size:10.5px;color:var(--t3);margin-top:6px">20 · kart</div></div>
+        <div style="text-align:center"><div style="height:56px;border-radius:28px;background:var(--glass);border:1px solid var(--stroke)"></div><div style="font-size:10.5px;color:var(--t3);margin-top:6px">28 · hero</div></div>
+      </div>
+      <p style="font-size:12.5px;color:var(--t2);line-height:1.65">Tüm köşeler <code style="color:var(--accent2)">.continuous</code>. Boşluk ölçeği 4 · 8 · 12 · 16 · 20 · 24; kartlar arası 12, ekran kenarı 16.</p>
+      <div style="margin-top:18px;position:relative;height:120px;border-radius:20px;overflow:hidden;background:linear-gradient(180deg,#0A0D1F,#12102E)">
+        <div style="position:absolute;inset:0;background:radial-gradient(200px 120px at 30% 0%, rgba(143,112,255,0.35), transparent 70%),radial-gradient(160px 120px at 90% 100%, rgba(89,199,250,0.25), transparent 70%)"></div>
+        <div style="position:absolute;left:18px;top:22px;right:120px;height:76px;border-radius:18px;background:rgba(255,255,255,0.06);border:1px solid var(--stroke);box-shadow:inset 0 1px 0 var(--spec);backdrop-filter:blur(20px);padding:12px;font-size:11px;color:var(--t2)">Katman 2 · kart<br><span style="color:var(--t3);font-size:10px">glassEffect(.regular)</span></div>
+        <div style="position:absolute;right:18px;top:38px;width:90px;height:44px;border-radius:999px;background:rgba(143,112,255,0.4);border:1px solid rgba(255,255,255,0.25);box-shadow:inset 0 1px 0 rgba(255,255,255,0.4),0 8px 20px rgba(143,112,255,0.4);display:grid;place-items:center;font-size:10.5px;font-weight:600">Katman 3</div>
+      </div>
+      <p style="font-size:12px;color:var(--t3);margin-top:10px;line-height:1.6">Katman 1: aurora + yıldız arka planı (<code style="color:var(--accent2)">SubtleStarsBackground</code> korunur, üstüne 2 radial glow). Katman 2: içerik kartları. Katman 3: tonlu, etkileşimli cam — buton, tab bar, seçili chip.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 3. BİLEŞENLER ═══════════════ -->
+<section class="section" id="comp">
+  <div class="sec-head"><span class="sec-num">03</span><h2 class="sec-title">Bileşen kütüphanesi</h2></div>
+  <p class="sec-note">Mevcut <code>Design/</code> klasöründe <b>GlassCard, GlassButton, InfoTip, SectionHeaderWithInfo, PersonSelectionCard</b> var. Aşağıdakiler onlara eklenecek ya da onları güncelleyecek parçalar. Her birinin altında önerilen Swift imzası yazıyor.</p>
+  <div class="comps">
+    <div class="comp"><div class="cn">TonePill</div><div class="ca">TonePill(tone: .harmonik) · DailyCosmicCoach.Tone</div>
+      <div class="demo" style="display:flex;gap:8px;flex-wrap:wrap"><span class="pill h">△ Harmonik</span><span class="pill z">□ Zorlayıcı</span><span class="pill n">☌ Nötr</span><span class="pill a">Sana özel</span><span class="pill pro">✦ Pro</span></div>
+      <p style="font-size:11.5px;color:var(--t3);margin-top:10px;line-height:1.55">Ton renkleri tek kaynaktan: <code style="color:var(--accent2)">AstroTheme.harmonik / zorlayici / notr</code>. Bugün <code style="color:var(--accent2)">HomeView.toneColor</code> <code style="color:var(--accent2)">.green/.orange</code> döndürüyor — birleştirilmeli.</p></div>
+
+    <div class="comp"><div class="cn">PlanetRow</div><div class="ca">PlanetRow(placement:) · glif + burç + ev</div>
+      <div class="demo">
+        <div class="prow"><div class="gl" style="color:var(--sun);background:rgba(255,181,71,0.12)">☉</div><div class="nm">Güneş</div><div class="ps">♊ İkizler 2°14′</div><div class="hs">8. ev</div></div>
+        <div class="prow"><div class="gl" style="color:var(--venus);background:rgba(255,138,184,0.12)">♀</div><div class="nm">Venüs</div><div class="ps">♉ Boğa 24°09′</div><div class="hs">9. ev</div></div>
+        <div class="prow"><div class="gl" style="color:var(--mars);background:rgba(255,95,87,0.12)">♂</div><div class="nm">Mars <span class="pill z" style="font-size:7.5px;padding:1px 5px">℞</span></div><div class="ps">♓ Balık 11°47′</div><div class="hs">7. ev</div></div>
+      </div></div>
+
+    <div class="comp"><div class="cn">AspectRow</div><div class="ca">AspectRow(aspect:) · orb rengi tona göre</div>
+      <div class="demo">
+        <div class="arow"><div class="pr"><span style="color:var(--sun)">☉</span><span style="color:var(--moon)">☽</span></div><div class="nm">Güneş üçgen Ay<small>Yaklaşan · 120°</small></div><span class="orb" style="color:var(--harmonik);background:rgba(77,217,166,0.12)">2.1°</span></div>
+        <div class="arow"><div class="pr"><span style="color:var(--sun)">☉</span><span style="color:var(--mars)">♂</span></div><div class="nm">Güneş kare Mars<small>Ayrılan · 90°</small></div><span class="orb" style="color:var(--zorlayici);background:rgba(255,102,115,0.12)">3.2°</span></div>
+        <div class="arow" style="border:none"><div class="pr"><span style="color:var(--venus)">♀</span><span style="color:var(--jupiter)">♃</span></div><div class="nm">Venüs kavuşum Jüpiter<small>Yaklaşan · 0°</small></div><span class="orb" style="color:var(--notr);background:rgba(140,140,255,0.12)">0.8°</span></div>
+      </div></div>
+
+    <div class="comp"><div class="cn">DotMeter</div><div class="ca">DotMeter(value: 4, of: 5, tint:) · Gauge yerine özel</div>
+      <div class="demo">
+        <div class="meter"><div class="k">Aşk</div><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><div class="v">4/5</div></div>
+        <div class="meter"><div class="k">Kariyer</div><div class="dots"><i class="on" style="background:var(--air);box-shadow:0 0 8px rgba(255,217,89,0.5)"></i><i class="on" style="background:var(--air);box-shadow:0 0 8px rgba(255,217,89,0.5)"></i><i class="on" style="background:var(--air);box-shadow:0 0 8px rgba(255,217,89,0.5)"></i><i></i><i></i></div><div class="v">3/5</div></div>
+        <div class="meter"><div class="k">Sağlık</div><div class="dots"><i class="on" style="background:var(--harmonik);box-shadow:0 0 8px rgba(77,217,166,0.5)"></i><i class="on" style="background:var(--harmonik);box-shadow:0 0 8px rgba(77,217,166,0.5)"></i><i class="on" style="background:var(--harmonik);box-shadow:0 0 8px rgba(77,217,166,0.5)"></i><i class="on" style="background:var(--harmonik);box-shadow:0 0 8px rgba(77,217,166,0.5)"></i><i class="on" style="background:var(--harmonik);box-shadow:0 0 8px rgba(77,217,166,0.5)"></i></div><div class="v">5/5</div></div>
+      </div></div>
+
+    <div class="comp"><div class="cn">ScoreRing</div><div class="ca">ScoreRing(value: 72) · Gauge(.accessoryCircularCapacity) tabanlı</div>
+      <div class="demo" style="display:flex;align-items:center;gap:18px">
+        <svg width="92" height="92" viewBox="0 0 92 92"><circle cx="46" cy="46" r="38" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="7"/><circle cx="46" cy="46" r="38" fill="none" stroke="url(#rg)" stroke-width="7" stroke-linecap="round" stroke-dasharray="172 239" transform="rotate(-90 46 46)"/><defs><linearGradient id="rg" x1="0" x2="1"><stop offset="0" stop-color="#8F70FF"/><stop offset="1" stop-color="#59C7FA"/></linearGradient></defs><text x="46" y="50" text-anchor="middle" font-size="22" fill="#fff" font-family="New York,ui-serif,serif">72</text><text x="46" y="63" text-anchor="middle" font-size="7.5" fill="rgba(255,255,255,0.4)" letter-spacing="1">PUAN</text></svg>
+        <div style="font-size:11.5px;color:var(--t2);line-height:1.6">İlişki skoru, aspect uyumu, günlük enerji — tüm "tek sayı" göstergeleri aynı halka. Sayı <code style="color:var(--accent2)">.contentTransition(.numericText())</code> ile akar.</div>
+      </div></div>
+
+    <div class="comp"><div class="cn">GlassTabBar</div><div class="ca">TabView · .tabBarMinimizeBehavior(.onScrollDown) (iOS 26)</div>
+      <div class="demo" style="position:relative;height:70px;background:linear-gradient(180deg,#12102E,#0A0D1F);border-radius:16px">
+        <div class="tabbar" style="position:absolute;left:12px;right:12px;bottom:10px">
+          <div class="tab act"><div class="ti">⌂</div><div class="tl">Anasayfa</div></div>
+          <div class="tab"><div class="ti">✧</div><div class="tl">Astroloji</div></div>
+          <div class="tab"><div class="ti">✦</div><div class="tl">Kart Falı</div></div>
+          <div class="tab"><div class="ti">⚙</div><div class="tl">Ayarlar</div></div>
+        </div>
+      </div></div>
+
+    <div class="comp"><div class="cn">SegmentedGlass</div><div class="ca">Picker(.segmented) yerine özel · matchedGeometryEffect</div>
+      <div class="demo"><div class="seg" style="margin:0"><div class="on">Harita</div><div>Gezegenler</div><div>Açılar</div><div>Yorum</div></div></div>
+      <p style="font-size:11.5px;color:var(--t3);margin-top:10px;line-height:1.55">Doğum haritası sonuç ekranı 4 alt görünüme bölünür; şu an uzun tek scroll.</p></div>
+
+    <div class="comp"><div class="cn">Primary / Ghost Button</div><div class="ca">.buttonStyle(.glassProminent) · .buttonStyle(.glass)</div>
+      <div class="demo" style="display:grid;gap:8px"><span class="btn">Synastry Hesapla</span><span class="btn ghost">Sonucu Paylaş</span></div>
+      <p style="font-size:11.5px;color:var(--t3);margin-top:10px;line-height:1.55">iOS 26 altında mevcut <code style="color:var(--accent2)">GlassButton</code> modifier'ı (capsule + gradient) kullanılır; aynı görünüm.</p></div>
+
+    <div class="comp"><div class="cn">Pro Lock</div><div class="ca">.proGated(feature:) · EntitlementManager</div>
+      <div class="demo" style="position:relative;overflow:hidden;border-radius:14px">
+        <div style="filter:blur(3px);opacity:0.85"><div class="row"><div class="ic">♀</div><div class="tx"><div class="tt">Venüs 9. evde Boğa</div><div class="ms">Değerler ve estetik anlayışı uzak kültürlerle, felsefeyle beslenir…</div></div></div></div>
+        <div style="position:absolute;inset:0;display:grid;place-items:center"><span class="btn sm" style="padding:7px 14px">✦ Pro ile aç · veya reklam izle</span></div>
+      </div></div>
+  </div>
+</section>
+
+<!-- ═══════════════ 4. ANASAYFA ═══════════════ -->
+<section class="section" id="home">
+  <div class="sec-head"><span class="sec-num">04</span><h2 class="sec-title">Anasayfa — Kozmik Koç ve bugün</h2></div>
+  <p class="sec-note">
+    <code>HomeView</code>'ın mevcut sırası korunur: karşılama → Kozmik Koç → Büyük Üçlü → bugünün gezegenleri → takvim → retro → ay fazı → gezegen saati.
+    Değişen şey hiyerarşi: Koç kartı tonlu hero oluyor, Büyük Üçlü yatay üçlü tile, "ay fazı + gezegen saati" yan yana kompakt. Sekme çubuğu yüzen Liquid Glass hap; scroll'da küçülür.
+  </p>
+  <div class="phones">
+
+    <!-- ANASAYFA -->
+    <div class="shot">
+      <div class="ph"><canvas class="stars"></canvas><div class="island"></div>
+        <div class="sc">
+          <div class="sb"><span>09:41</span><span>●●● ⌔ ▮</span></div>
+          <div class="body">
+            <div class="navbar"><div class="ttl" style="font-family:var(--serif);font-weight:400;letter-spacing:0.08em">ASTROAPP</div><div class="ic">👤</div></div>
+            <div class="greet"><div class="big">Günaydın, <em>Devrim</em></div><div class="sub">16 Ekim 2026 · Cuma · Ay ♉ Boğa'da</div></div>
+
+            <div class="g hero">
+              <div class="gh"><span class="i">✦</span><span class="t">Kozmik Koçun</span><span class="q">?</span></div>
+              <div class="lab">BUGÜNÜN GÖKYÜZÜ</div>
+              <div class="row"><div class="ic" style="color:var(--air)">☿</div><div class="tx"><div class="tt">Merkür Akrep'te</div><div class="ms">Konuşmalar derinleşir; yüzeysel cevaplar tatmin etmez.</div></div></div>
+              <div class="row"><div class="ic" style="color:var(--moon)">☽</div><div class="tx"><div class="tt">Ay Boğa'da · sakin</div><div class="ms">Yavaşlamak için iyi bir gün. Beden ve konfor öne çıkar.</div></div></div>
+              <div class="lab">SANA ÖZEL</div>
+              <div class="row"><div class="ic" style="color:var(--jupiter)">♃</div><div class="tx"><div class="tt">Jüpiter üçgen natal Güneş <span class="pill h" style="margin-left:4px">△</span></div><div class="ms">Genişleme enerjisi kimliğini destekliyor; sahneye çık.</div></div></div>
+            </div>
+
+            <div class="three">
+              <div class="bt"><div class="gl" style="color:var(--sun)">☉</div><div class="k">GÜNEŞ</div><div class="v">İkizler</div></div>
+              <div class="bt"><div class="gl" style="color:var(--moon)">☽</div><div class="k">AY</div><div class="v">Yengeç</div></div>
+              <div class="bt"><div class="gl" style="color:var(--harmonik)">AC</div><div class="k">YÜKSELEN</div><div class="v">Başak</div></div>
+            </div>
+
+            <div class="g compact" style="margin-top:10px">
+              <div class="gh"><span class="i">◎</span><span class="t">Bugünün Gezegenleri</span><span class="more">Tümü ›</span></div>
+              <div class="strip">
+                <div class="pl"><div class="gl" style="color:var(--sun)">☉</div><div class="s">♎ 23°</div></div>
+                <div class="pl"><div class="gl" style="color:var(--moon)">☽</div><div class="s">♉ 8°</div></div>
+                <div class="pl"><div class="gl" style="color:var(--mercury)">☿</div><div class="s">♏ 10°</div></div>
+                <div class="pl"><div class="gl" style="color:var(--venus)">♀</div><div class="s">♏ 5°</div></div>
+                <div class="pl"><div class="gl" style="color:var(--mars)">♂</div><div class="s">♐ 2°</div></div>
+                <div class="pl"><div class="gl" style="color:var(--saturn)">♄</div><div class="s">♈ 1°</div><div class="rx">℞</div></div>
+              </div>
+            </div>
+
+            <div class="tiles">
+              <div class="tile"><div class="k">AY FAZI</div><div class="v">🌔 Şişkin Ay</div><div class="s">%68 aydınlık · ♉ Boğa</div></div>
+              <div class="tile"><div class="k">GEZEGEN SAATİ</div><div class="v" style="color:var(--venus)">♀ Venüs</div><div class="s">09:12 – 10:18</div></div>
+            </div>
+          </div>
+          <div class="fade"></div>
+          <div class="tabbar">
+            <div class="tab act"><div class="ti">⌂</div><div class="tl">Anasayfa</div></div>
+            <div class="tab"><div class="ti">✧</div><div class="tl">Astroloji</div></div>
+            <div class="tab"><div class="ti">✦</div><div class="tl">Kart Falı</div></div>
+            <div class="tab"><div class="ti">⚙</div><div class="tl">Ayarlar</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="lbl"><div class="t">Anasayfa</div><div class="s">Serif karşılama · hero Koç kartı · Büyük Üçlü tile'ları</div><div class="api">ScrollView + LazyVStack(spacing: 12) · .glassEffect(.regular.tint(accent.opacity(0.18)))</div></div>
+    </div>
+
+    <!-- ASTROLOJİ SEKMESİ -->
+    <div class="shot">
+      <div class="ph"><canvas class="stars"></canvas><div class="island"></div>
+        <div class="sc">
+          <div class="sb"><span>09:41</span><span>●●● ⌔ ▮</span></div>
+          <div class="body">
+            <div class="navbar"><div class="ttl">Astroloji</div><div class="ic">🔍</div></div>
+            <div class="g hero compact" style="display:flex;align-items:center;gap:10px">
+              <svg width="54" height="54" viewBox="0 0 54 54"><circle cx="27" cy="27" r="24" fill="none" stroke="rgba(255,255,255,0.12)"/><circle cx="27" cy="27" r="17" fill="none" stroke="rgba(255,255,255,0.08)"/><circle cx="27" cy="3" r="2.5" fill="#FFB547"/><circle cx="46" cy="38" r="2.2" fill="#E8ECFF"/><circle cx="10" cy="40" r="2" fill="#4DD9A6"/><text x="27" y="31" text-anchor="middle" font-size="13" fill="#fff" font-family="New York,ui-serif,serif">♊</text></svg>
+              <div style="flex:1"><div style="font-size:12px;font-weight:600">Doğum Haritan</div><div style="font-size:9.5px;color:var(--t2);margin-top:2px">Devrim · 12 Haz 1990 · İstanbul</div></div>
+              <div style="color:var(--accent);font-size:14px">›</div>
+            </div>
+
+            <div class="lab" style="margin-top:4px">DOĞUM HARİTASI</div>
+            <div class="tiles">
+              <div class="tile"><div style="font-size:16px;color:var(--harmonik)">☼</div><div class="v">Yükselen Yorumu</div><div class="s">Başak · Güneş İkizler</div></div>
+              <div class="tile"><div style="font-size:16px;color:var(--moon)">☽</div><div class="v">Ay Burcu Yorumu</div><div class="s">Yengeç · duygusal dünya</div></div>
+            </div>
+
+            <div class="lab">GÜNLÜK & DÖNEMSEL</div>
+            <div class="g compact">
+              <div class="row"><div class="ic" style="color:var(--sun)">☼</div><div class="tx"><div class="tt">Günlük Burç Yorumu</div><div class="ms">Bugünün enerjisi · 4/5</div></div><span class="pill h">Hazır</span></div>
+              <div class="row"><div class="ic" style="color:var(--accent)">⟳</div><div class="tx"><div class="tt">Transitler</div><div class="ms">3 önemli transit aktif</div></div><div style="color:var(--t4)">›</div></div>
+              <div class="row"><div class="ic" style="color:var(--air)">◉</div><div class="tx"><div class="tt">Güneş Dönüşü 2026</div><div class="ms">Yılın haritası</div></div><span class="pill pro">Pro</span></div>
+            </div>
+
+            <div class="lab">UYUM & İLİŞKİLER</div>
+            <div class="g compact tint-pink">
+              <div class="row"><div class="ic" style="color:var(--venus)">♡</div><div class="tx"><div class="tt">Synastry Analizi</div><div class="ms">İki harita, gerçek uyum</div></div><div style="color:var(--t4)">›</div></div>
+              <div class="row"><div class="ic" style="color:var(--harmonik)">⧖</div><div class="tx"><div class="tt">Composite Harita</div><div class="ms">İlişkinin kendi haritası</div></div><div style="color:var(--t4)">›</div></div>
+            </div>
+
+            <div class="lab">AY & GÖK OLAYLARI</div>
+            <div class="tiles">
+              <div class="tile"><div style="font-size:16px">🌔</div><div class="v">Ay Fazları</div></div>
+              <div class="tile"><div style="font-size:16px;color:var(--zorlayici)">℞</div><div class="v">Retrograde</div></div>
+            </div>
+          </div>
+          <div class="fade"></div>
+          <div class="tabbar">
+            <div class="tab"><div class="ti">⌂</div><div class="tl">Anasayfa</div></div>
+            <div class="tab act"><div class="ti">✧</div><div class="tl">Astroloji</div></div>
+            <div class="tab"><div class="ti">✦</div><div class="tl">Kart Falı</div></div>
+            <div class="tab"><div class="ti">⚙</div><div class="tl">Ayarlar</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="lbl"><div class="t">Astroloji sekmesi</div><div class="s">Uzun kart listesi yerine gruplanmış tile + satırlar; harita hero üstte</div><div class="api">Section başlıkları → .caption2 uppercase · tile'lar LazyVGrid(columns: 2) · Pro rozeti EntitlementManager</div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ 5. DOĞUM HARİTASI ═══════════════ -->
+<section class="section" id="natal">
+  <div class="sec-head"><span class="sec-num">05</span><h2 class="sec-title">Doğum haritası — çark, gezegenler, açılar, yorum</h2></div>
+  <p class="sec-note">
+    Çark <code>ChartWheelView</code>'daki Canvas mantığıyla aynı: Ascendant solda (180°), burç halkası dışta, ev halkası içte, açı çizgileri merkezde.
+    Yenilik: burç dilimleri <b>element rengiyle</b> hafifçe boyanır, gezegenler kendi renginde glif + ince tick, açı çizgileri tona göre renkli ve majör/minör kalınlıkta.
+    Sonuç ekranı 4 segmente ayrılır; gezegen detayı tam ekran yerine <b>yarım sheet</b> olarak açılır.
+  </p>
+  <div class="phones">
+
+    <!-- NATAL ÇARK -->
+    <div class="shot">
+      <div class="ph"><canvas class="stars"></canvas><div class="island"></div>
+        <div class="sc">
+          <div class="sb"><span>09:41</span><span>●●● ⌔ ▮</span></div>
+          <div class="body">
+            <div class="navbar"><div class="back"><i></i>Astroloji</div><div class="ttl">Devrim</div><div class="ic">⇪</div></div>
+            <div style="text-align:center;font-size:9.5px;color:var(--t3);margin-top:-4px">12 Haziran 1990 · 14:35 · İstanbul · Placidus</div>
+            <div style="padding:6px 4px 0"><svg class="wheel" data-kind="natal" width="100%" viewBox="0 0 240 240"></svg></div>
+            <div class="seg"><div class="on">Harita</div><div>Gezegenler</div><div>Açılar</div><div>Yorum</div></div>
+            <div class="g compact">
+              <div class="prow"><div class="gl" style="color:var(--sun);background:rgba(255,181,71,0.12)">☉</div><div class="nm">Güneş</div><div class="ps">♊ İkizler 2°14′</div><div class="hs">8. ev</div></div>
+              <div class="prow"><div class="gl" style="color:var(--moon);background:rgba(232,236,255,0.1)">☽</div><div class="nm">Ay</div><div class="ps">♋ Yengeç 18°33′</div><div class="hs">11. ev</div></div>
+              <div class="prow"><div class="gl" style="color:var(--mercury);background:rgba(90,216,230,0.12)">☿</div><div class="nm">Merkür</div><div class="ps">♊ İkizler 20°24′</div><div class="hs">9. ev</div></div>
+              <div class="prow"><div class="gl" style="color:var(--venus);background:rgba(255,138,184,0.12)">♀</div><div class="nm">Venüs</div><div class="ps">♉ Boğa 24°09′</div><div class="hs">9. ev</div></div>
+            </div>
+          </div>
+          <div class="fade"></div>
+        </div>
+      </div>
+      <div class="lbl"><div class="t">Doğum haritası · Harita</div><div class="s">Element boyalı burç halkası · renkli açı ağı · segment geçişi</div><div class="api">Canvas { } · burç dilimi: Path.addArc + element.opacity(0.12) · segment: @Namespace + matchedGeometryEffect</div></div>
+    </div>
+
+    <!-- GEZEGEN DETAY SHEET -->
+    <div class="shot">
+      <div class="ph"><canvas class="stars"></canvas><div class="island"></div>
+        <div class="sc">
+          <div class="sb" style="opacity:0.4"><span>09:41</span><span>●●● ⌔ ▮</span></div>
+          <div class="body" style="opacity:0.35;filter:blur(1px)">
+            <div class="navbar"><div class="back"><i></i>Astroloji</div><div class="ttl">Devrim</div><div class="ic">⇪</div></div>
+            <div style="padding:6px 24px 0"><svg class="wheel" data-kind="natal" width="100%" viewBox="0 0 240 240"></svg></div>
+          </div>
+          <div style="position:absolute;left:0;right:0;bottom:0;height:400px;z-index:6;border-radius:28px 28px 0 0;background:rgba(18,16,46,0.9);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border-top:1px solid rgba(255,255,255,0.18);box-shadow:inset 0 1px 0 rgba(255,255,255,0.25),0 -20px 60px rgba(0,0,0,0.5);padding:10px 14px">
+            <div style="width:36px;height:4px;border-radius:2px;background:rgba(255,255,255,0.25);margin:0 auto 12px"></div>
+            <div style="display:flex;align-items:center;gap:12px">
+              <div style="width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:28px;color:var(--sun);background:radial-gradient(circle,rgba(255,181,71,0.35),rgba(255,181,71,0.05) 70%);box-shadow:0 0 30px rgba(255,181,71,0.35)">☉</div>
+              <div><div style="font-family:var(--serif);font-size:19px;line-height:1.1">Güneş · İkizler</div><div style="font-size:10px;color:var(--t2);margin-top:4px">8. ev · 2°14′ · Direkt · Hava</div></div>
+            </div>
+            <div class="seg" style="margin-top:12px"><div class="on">Yorum</div><div>Açılar (4)</div><div>Transit (2)</div></div>
+            <div style="font-size:11px;line-height:1.6;color:var(--t1)">
+              <div style="font-size:8.5px;letter-spacing:0.12em;color:var(--t3);font-weight:700;margin-bottom:6px">🌌 GENEL ETKİ</div>
+              Kimlik ile duygular aynı noktada birleşir. Bu açı, bu iki konunun hayatta ayrı ayrı değil birlikte çalıştığını gösterir. Günlük hayatta kişi bir yandan kendini ortaya koymak ister…
+              <div style="font-size:8.5px;letter-spacing:0.12em;color:var(--harmonik);font-weight:700;margin:10px 0 6px">🌟 OLUMLU ETKİLER</div>
+              <div style="color:var(--t2)">• Kendini net ortaya koyabilme<br>• Duyguları fark edebilme<br>• Güçlü ve net etki bırakabilme</div>
+            </div>
+            <div style="position:absolute;left:0;right:0;bottom:0;height:70px;background:linear-gradient(180deg,rgba(18,16,46,0),rgba(18,16,46,1));border-radius:0 0 0 0"></div>
+          </div>
+        </div>
+      </div>
+      <div class="lbl"><div class="t">Gezegen detayı · sheet</div><div class="s">Çarka dokun → yarım sheet; yorum <code style="color:var(--accent2)">planet_house_sign.json</code>'dan</div><div class="api">.sheet · .presentationDetents([.fraction(0.68), .large]) · .presentationBackground(.ultraThinMaterial) · .presentationCornerRadius(28)</div></div>
+    </div>
+
+    <!-- AÇILAR GRID -->
+    <div class="shot">
+      <div class="ph"><canvas class="stars"></canvas><div class="island"></div>
+        <div class="sc">
+          <div class="sb"><span>09:41</span><span>●●● ⌔ ▮</span></div>
+          <div class="body">
+            <div class="navbar"><div class="back"><i></i>Astroloji</div><div class="ttl">Devrim</div><div class="ic">⇪</div></div>
+            <div class="seg"><div>Harita</div><div>Gezegenler</div><div class="on">Açılar</div><div>Yorum</div></div>
+            <div class="g compact">
+              <div class="gh"><span class="i">◬</span><span class="t">Açı Matrisi</span><span class="pill n" style="margin-left:auto">14 açı</span></div>
+              <div class="grid" id="aspgrid" style="grid-template-columns:repeat(8,1fr)"></div>
+              <div style="display:flex;gap:10px;margin-top:8px;font-size:8.5px;color:var(--t3)"><span><b style="color:var(--harmonik)">△</b> Üçgen</span><span><b style="color:var(--harmonik)">⚹</b> Altıgen</span><span><b style="color:var(--zorlayici)">□</b> Kare</span><span><b style="color:var(--zorlayici)">☍</b> Karşıt</span><span><b style="color:var(--notr)">☌</b> Kavuşum</span></div>
+            </div>
+            <div class="lab">EN GÜÇLÜ AÇILAR</div>
+            <div class="g compact">
+              <div class="arow"><div class="pr"><span style="color:var(--sun)">☉</span><span style="color:var(--venus)">♀</span></div><div class="nm">Güneş kavuşum Venüs<small>Yaklaşan · cazibe, estetik, uyum</small></div><span class="orb" style="color:var(--notr);background:rgba(140,140,255,0.12)">8.1°</span></div>
+              <div class="arow"><div class="pr"><span style="color:var(--sun)">☉</span><span style="color:var(--moon)">☽</span></div><div class="nm">Güneş altıgen Ay<small>Kimlik ve duygu dengede</small></div><span class="orb" style="color:var(--harmonik);background:rgba(77,217,166,0.12)">1.7°</span></div>
+              <div class="arow" style="border:none"><div class="pr"><span style="color:var(--venus)">♀</span><span style="color:var(--pluto)">♇</span></div><div class="nm">Venüs karşıt Plüton<small>Yoğun, dönüştürücü bağlar</small></div><span class="orb" style="color:var(--zorlayici);background:rgba(255,102,115,0.12)">1.4°</span></div>
+            </div>
+          </div>
+          <div class="fade"></div>
+        </div>
+      </div>
+      <div class="lbl"><div class="t">Açılar · matris + liste</div><div class="s">Mevcut <code style="color:var(--accent2)">AspectGridView</code> renklendirildi; hücreye dokun → açı yorumu (<code style="color:var(--accent2)">aspects.json</code>, 950 kayıt)</div><div class="api">Grid { GridRow } · hücre: RoundedRectangle(4).fill(tone.opacity(0.18)) · tap → sheet</div></div>
+    </div>
+
+    <!-- YORUM / SENTEZ -->
+    <div class="shot">
+      <div class="ph"><canvas class="stars"></canvas><div class="island"></div>
+        <div class="sc">
+          <div class="sb"><span>09:41</span><span>●●● ⌔ ▮</span></div>
+          <div class="body">
+            <div class="navbar"><div class="back"><i></i>Astroloji</div><div class="ttl">Devrim</div><div class="ic">⇪</div></div>
+            <div class="seg"><div>Harita</div><div>Gezegenler</div><div>Açılar</div><div class="on">Yorum</div></div>
+            <div class="g hero">
+              <div class="gh"><span class="i">✦</span><span class="t">Genel Değerlendirme</span></div>
+              <div style="font-size:11px;line-height:1.6;color:var(--t1)">Hava ağırlıklı, değişken bir harita. Zihin hızlı, iletişim güçlü; duygusal güvenlik Yengeç Ay'ı üzerinden aranır. Başak yükselen bu enerjiye düzen ve titizlik katar.</div>
+            </div>
+            <div class="g compact">
+              <div class="gh"><span class="i">◔</span><span class="t">Element Dengesi</span></div>
+              <div class="meter"><div class="k" style="color:var(--air)">Hava</div><div class="dots"><i class="on" style="background:var(--air)"></i><i class="on" style="background:var(--air)"></i><i class="on" style="background:var(--air)"></i><i class="on" style="background:var(--air)"></i><i></i></div><div class="v">%42</div></div>
+              <div class="meter"><div class="k" style="color:var(--water)">Su</div><div class="dots"><i class="on" style="background:var(--water)"></i><i class="on" style="background:var(--water)"></i><i class="on" style="background:var(--water)"></i><i></i><i></i></div><div class="v">%27</div></div>
+              <div class="meter"><div class="k" style="color:var(--earth)">Toprak</div><div class="dots"><i class="on" style="background:var(--earth)"></i><i class="on" style="background:var(--earth)"></i><i></i><i></i><i></i></div><div class="v">%19</div></div>
+              <div class="meter"><div class="k" style="color:var(--fire)">Ateş</div><div class="dots"><i class="on" style="background:var(--fire)"></i><i></i><i></i><i></i><i></i></div><div class="v">%12</div></div>
+            </div>
+            <div class="g compact">
+              <div class="gh"><span class="i" style="color:var(--harmonik)">✓</span><span class="t">Destekleyen Kalıplar</span></div>
+              <div class="row"><div class="ic" style="color:var(--harmonik)">△</div><div class="tx"><div class="tt">Büyük Üçgen (Hava)</div><div class="ms">Merkür – Ay – Uranüs: fikirler kolay akar.</div></div></div>
+            </div>
+            <div class="g compact">
+              <div class="gh"><span class="i" style="color:var(--zorlayici)">!</span><span class="t">Gerilim Noktaları</span></div>
+              <div class="row"><div class="ic" style="color:var(--zorlayici)">□</div><div class="tx"><div class="tt">T-Kare · Mars odaklı</div><div class="ms">Sabırsızlık; enerjiyi spora ya da projeye yönlendir.</div></div></div>
+            </div>
+          </div>
+          <div class="fade"></div>
+        </div>
+      </div>
+      <div class="lbl"><div class="t">Yorum · sentez</div><div class="s"><code style="color:var(--accent2)">ChartSynthesisSection</code> + element dengesi; ton gruplarının rengi ikonla tekrar eder</div><div class="api">ChartSynthesisSection(synthesis:) · Element bar → DotMeter · ToneGroup ikon rengi = AstroTheme ton rengi</div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ 6. TRANSIT & SYNASTRY ═══════════════ -->
+<section class="section" id="transit">
+  <div class="sec-head"><span class="sec-num">06</span><h2 class="sec-title">Transitler, Synastry ve Composite</h2></div>
+  <p class="sec-note">
+    Çift çark (bi-wheel) iki yerde kullanılır: transit (iç natal, dış bugün) ve synastry (iç A, dış B). Aynı Canvas bileşeni, farklı veri.
+    Dış halka gezegenleri daha küçük ve yarı saydam; iç–dış açı çizgileri yalnızca <b>seçili gezegen</b> için tam parlaklıkta çizilir, diğerleri soluk. Synastry'de skor halkası ilk ekranda tek "cevap" olarak durur.
+  </p>
+  <div class="phones">
+
+    <!-- TRANSIT -->
+    <div class="shot">
+      <div class="ph"><canvas class="stars"></canvas><div class="island"></div>
+        <div class="sc">
+          <div class="sb"><span>09:41</span><span>●●● ⌔ ▮</span></div>
+          <div class="body">
+            <div class="navbar"><div class="back"><i></i>Astroloji</div><div class="ttl">Transitler</div><div class="ic">⇪</div></div>
+            <div class="cal" style="margin-top:0">
+              <div class="d"><small>PZT</small>12</div><div class="d"><small>SAL</small>13</div><div class="d"><small>ÇAR</small>14</div><div class="d"><small>PER</small>15</div><div class="d today"><small>CUM</small>16</div><div class="d"><small>CMT</small>17</div><div class="d"><small>PAZ</small>18</div>
+            </div>
+            <div style="padding:0 10px"><svg class="wheel" data-kind="transit" width="100%" viewBox="0 0 240 240"></svg></div>
+            <div style="display:flex;justify-content:center;gap:12px;font-size:8.5px;color:var(--t3);margin:-2px 0 8px"><span><i style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#fff;margin-right:4px"></i>İç: natal</span><span><i style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent2);margin-right:4px"></i>Dış: 16 Ekim 2026</span></div>
+            <div class="lab">ÖNEMLİ TRANSİTLER</div>
+            <div class="g compact">
+              <div class="arow"><div class="pr"><span style="color:var(--jupiter)">♃</span><span style="color:var(--sun)">☉</span></div><div class="nm">T. Jüpiter üçgen N. Güneş<small>Yaklaşan · 1.3° · 3 hafta sürer</small></div><span class="orb" style="color:var(--harmonik);background:rgba(77,217,166,0.12)">△</span></div>
+              <div class="arow"><div class="pr"><span style="color:var(--saturn)">♄</span><span style="color:var(--moon)">☽</span></div><div class="nm">T. Satürn kare N. Ay <span class="pill z" style="font-size:7px;padding:0 4px">℞</span><small>Ayrılan · 2.8° · duygusal disiplin</small></div><span class="orb" style="color:var(--zorlayici);background:rgba(255,102,115,0.12)">□</span></div>
+              <div class="arow" style="border:none"><div class="pr"><span style="color:var(--venus)">♀</span><span style="color:var(--venus)">♀</span></div><div class="nm">T. Venüs karşıt N. Venüs<small>Yaklaşan · 0.9° · ilişkilerde ayna</small></div><span class="orb" style="color:var(--zorlayici);background:rgba(255,102,115,0.12)">☍</span></div>
+            </div>
+          </div>
+          <div class="fade"></div>
+        </div>
+      </div>
+      <div class="lbl"><div class="t">Transitler · bi-wheel</div><div class="s">Üstte hafta şeridi (tarih kaydır); dış halka günün gökyüzü</div><div class="api">TransitBiWheelView · ScrollView(.horizontal).scrollTargetBehavior(.viewAligned) · DatePicker yerine haftalık strip</div></div>
+    </div>
+
+    <!-- SYNASTRY -->
+    <div class="shot">
+      <div class="ph"><canvas class="stars"></canvas><div class="island"></div>
+        <div class="sc">
+          <div class="sb"><span>09:41</span><span>●●● ⌔ ▮</span></div>
+          <div class="body">
+            <div class="navbar"><div class="back"><i></i>Astroloji</div><div class="ttl">Synastry</div><div class="ic">⇪</div></div>
+            <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin:2px 0 10px">
+              <div style="text-align:center"><div style="width:40px;height:40px;border-radius:50%;margin:0 auto;display:grid;place-items:center;font-family:var(--serif);font-size:18px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2)">♊</div><div style="font-size:9.5px;margin-top:4px">Devrim</div></div>
+              <div style="font-size:14px;color:var(--venus)">♡</div>
+              <div style="text-align:center"><div style="width:40px;height:40px;border-radius:50%;margin:0 auto;display:grid;place-items:center;font-family:var(--serif);font-size:18px;background:rgba(89,199,250,0.12);border:1px solid rgba(89,199,250,0.4)">♌</div><div style="font-size:9.5px;margin-top:4px">Ayşe</div></div>
+            </div>
+            <div class="g hero tint-pink" style="text-align:center;padding:14px">
+              <svg width="112" height="112" viewBox="0 0 92 92" style="display:block;margin:0 auto"><circle cx="46" cy="46" r="38" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="7"/><circle cx="46" cy="46" r="38" fill="none" stroke="url(#rg2)" stroke-width="7" stroke-linecap="round" stroke-dasharray="186 239" transform="rotate(-90 46 46)"/><defs><linearGradient id="rg2" x1="0" x2="1"><stop offset="0" stop-color="#FF8AB8"/><stop offset="1" stop-color="#8F70FF"/></linearGradient></defs><text x="46" y="50" text-anchor="middle" font-size="24" fill="#fff" font-family="New York,ui-serif,serif">78</text><text x="46" y="63" text-anchor="middle" font-size="7.5" fill="rgba(255,255,255,0.45)" letter-spacing="1">PUAN</text></svg>
+              <div style="font-size:12px;font-weight:600;margin-top:8px">Güçlü çekim, büyüyen bağ</div>
+              <div style="font-size:9.5px;color:var(--t2);margin-top:3px">Discepolo metodu · 23 cross-aspect</div>
+            </div>
+            <div class="three" style="margin-bottom:10px">
+              <div class="bt"><div class="k" style="margin-top:0">AŞK</div><div class="v" style="color:var(--venus);font-family:var(--serif);font-size:16px">84</div></div>
+              <div class="bt"><div class="k" style="margin-top:0">İLETİŞİM</div><div class="v" style="color:var(--air);font-family:var(--serif);font-size:16px">71</div></div>
+              <div class="bt"><div class="k" style="margin-top:0">UZUN VADE</div><div class="v" style="color:var(--harmonik);font-family:var(--serif);font-size:16px">76</div></div>
+            </div>
+            <div class="g compact">
+              <div class="gh"><span class="i">◬</span><span class="t">Önemli Cross-Aspectler</span></div>
+              <div class="arow"><div class="pr"><span style="color:var(--venus)">♀</span><span style="color:var(--mars)">♂</span></div><div class="nm">Venüs (D) üçgen Mars (A)<small>Çekim ve tutku doğal akar</small></div><span class="orb" style="color:var(--harmonik);background:rgba(77,217,166,0.12)">1.1°</span></div>
+              <div class="arow" style="border:none"><div class="pr"><span style="color:var(--moon)">☽</span><span style="color:var(--saturn)">♄</span></div><div class="nm">Ay (D) kare Satürn (A)<small>Duygusal mesafe; güven zamanla</small></div><span class="orb" style="color:var(--zorlayici);background:rgba(255,102,115,0.12)">2.4°</span></div>
+            </div>
+          </div>
+          <div class="fade"></div>
+        </div>
+      </div>
+      <div class="lbl"><div class="t">Synastry · sonuç</div><div class="s">Skor halkası tek cevap; alt skorlar üçlü; çark ikinci segmentte</div><div class="api">ScoreRing · PersonSelectionCard (mevcut) · .navigationTransition(.zoom(sourceID:in:)) kart → detay</div></div>
+    </div>
+
+    <!-- COMPOSITE -->
+    <div class="shot">
+      <div class="ph"><canvas class="stars"></canvas><div class="island"></div>
+        <div class="sc">
+          <div class="sb"><span>09:41</span><span>●●● ⌔ ▮</span></div>
+          <div class="body">
+            <div class="navbar"><div class="back"><i></i>Astroloji</div><div class="ttl">Composite</div><div class="ic">⇪</div></div>
+            <div style="text-align:center;font-size:9.5px;color:var(--t3);margin-top:-4px">Devrim + Ayşe · orta nokta haritası</div>
+            <div style="padding:6px 4px 0"><svg class="wheel" data-kind="composite" width="100%" viewBox="0 0 240 240"></svg></div>
+            <div class="g hero" style="margin-top:4px">
+              <div class="gh"><span class="i">✦</span><span class="t">İlişkinin Kimliği</span></div>
+              <div style="font-size:11px;line-height:1.6">Composite Güneş 7. evde Yengeç: bu ilişki "biz" duygusunu yuva kurma ve birbirini kollama üzerinden tanımlar. Composite Ay Akrep'te derin bağ, kıskançlığa dikkat.</div>
+            </div>
+            <div class="g compact">
+              <div class="prow"><div class="gl" style="color:var(--sun);background:rgba(255,181,71,0.12)">☉</div><div class="nm">Güneş</div><div class="ps">♋ Yengeç 8°</div><div class="hs">7. ev</div></div>
+              <div class="prow"><div class="gl" style="color:var(--moon);background:rgba(232,236,255,0.1)">☽</div><div class="nm">Ay</div><div class="ps">♏ Akrep 25°</div><div class="hs">11. ev</div></div>
+              <div class="prow"><div class="gl" style="color:var(--venus);background:rgba(255,138,184,0.12)">♀</div><div class="nm">Venüs</div><div class="ps">♋ Yengeç 26°</div><div class="hs">7. ev</div></div>
+            </div>
+          </div>
+          <div class="fade"></div>
+        </div>
+      </div>
+      <div class="lbl"><div class="t">Composite harita</div><div class="s">Tek çark + "ilişkinin kimliği" hero; <code style="color:var(--accent2)">composite_aspects.json</code> yorumları</div><div class="api">ChartWheelView(chart: composite) · ChartSynthesisSection · CompositeShareCard (mevcut)</div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ 7. TAKVİM & AY ═══════════════ -->
+<section class="section" id="takvim">
+  <div class="sec-head"><span class="sec-num">07</span><h2 class="sec-title">Astro Takvim, Ay Fazları, Günlük Burç</h2></div>
+  <p class="sec-note">
+    Takvim dört olay türünü tek renk sistemiyle gösterir: ay fazı (beyaz), retrograde (zorlayıcı kırmızı), tutulma (lavanta), VOC (soluk mavi). Gün noktaları bu renklerde.
+    Ay fazı ekranında Ay <b>gerçekten çizilir</b> (Canvas ile aydınlanma maskesi), ikon değil. Günlük burç puanları DotMeter ile.
+  </p>
+  <div class="phones">
+
+    <!-- TAKVİM -->
+    <div class="shot">
+      <div class="ph"><canvas class="stars"></canvas><div class="island"></div>
+        <div class="sc">
+          <div class="sb"><span>09:41</span><span>●●● ⌔ ▮</span></div>
+          <div class="body">
+            <div class="navbar"><div class="back"><i></i>Astroloji</div><div class="ttl">Ekim 2026</div><div class="ic">☰</div></div>
+            <div class="cal" style="margin-top:0">
+              <div class="d"><small>PZT</small>12<div class="dots"></div></div>
+              <div class="d"><small>SAL</small>13<div class="dots"><i style="background:var(--water)"></i></div></div>
+              <div class="d"><small>ÇAR</small>14<div class="dots"></div></div>
+              <div class="d"><small>PER</small>15<div class="dots"><i style="background:var(--zorlayici)"></i></div></div>
+              <div class="d today"><small>CUM</small>16<div class="dots"><i style="background:#fff"></i><i style="background:var(--water)"></i></div></div>
+              <div class="d"><small>CMT</small>17<div class="dots"></div></div>
+              <div class="d"><small>PAZ</small>18<div class="dots"><i style="background:var(--accent)"></i></div></div>
+            </div>
+            <div class="cal">
+              <div class="d"><small>&nbsp;</small>19<div class="dots"></div></div>
+              <div class="d"><small>&nbsp;</small>20<div class="dots"><i style="background:var(--water)"></i></div></div>
+              <div class="d"><small>&nbsp;</small>21<div class="dots"></div></div>
+              <div class="d"><small>&nbsp;</small>22<div class="dots"><i style="background:#fff"></i></div></div>
+              <div class="d"><small>&nbsp;</small>23<div class="dots"></div></div>
+              <div class="d"><small>&nbsp;</small>24<div class="dots"><i style="background:var(--water)"></i></div></div>
+              <div class="d"><small>&nbsp;</small>25<div class="dots"></div></div>
+            </div>
+            <div class="lab">16 EKİM · CUMA</div>
+            <div class="g hero compact">
+              <div class="row"><div class="ic">🌔</div><div class="tx"><div class="tt">Şişkin Ay · ♉ Boğa</div><div class="ms">%68 aydınlık · Dolunay'a 6 gün</div></div></div>
+              <div class="row"><div class="ic" style="color:var(--water)">◌</div><div class="tx"><div class="tt">Ay Boşlukta (VOC)</div><div class="ms">14:20 – 19:05 · önemli karar erteleyin</div></div><span class="pill n">4s 45d</span></div>
+              <div class="row"><div class="ic" style="color:var(--zorlayici)">℞</div><div class="tx"><div class="tt">Satürn retro sürüyor</div><div class="ms">13 Tem – 28 Kas · sorumluluklar gözden geçirilir</div></div></div>
+            </div>
+            <div class="g compact">
+              <div class="gh"><span class="i">✦</span><span class="t">Günün Tavsiyesi</span></div>
+              <div style="font-size:10.5px;line-height:1.55;color:var(--t1)">Boğa Ay'ı ile sabah saatleri planlama ve bütçe için verimli. Öğleden sonra VOC'ta başlatma, bitir.</div>
+            </div>
+          </div>
+          <div class="fade"></div>
+        </div>
+      </div>
+      <div class="lbl"><div class="t">Astro Takvim</div><div class="s">Hafta ızgarası + gün detayı tek ekranda; renk noktaları olay türü</div><div class="api">AstroCalendarView · LazyVGrid(7) · gün seçimi .sensoryFeedback(.selection) · CalendarDayDetailView inline</div></div>
+    </div>
+
+    <!-- AY FAZI -->
+    <div class="shot">
+      <div class="ph"><canvas class="stars"></canvas><div class="island"></div>
+        <div class="sc">
+          <div class="sb"><span>09:41</span><span>●●● ⌔ ▮</span></div>
+          <div class="body">
+            <div class="navbar"><div class="back"><i></i>Astroloji</div><div class="ttl">Ay Fazları</div><div class="ic">⇪</div></div>
+            <div style="text-align:center;padding:10px 0 4px">
+              <svg width="150" height="150" viewBox="0 0 150 150">
+                <defs>
+                  <radialGradient id="mglow" cx="50%" cy="50%" r="50%"><stop offset="60%" stop-color="rgba(232,236,255,0.25)"/><stop offset="100%" stop-color="rgba(232,236,255,0)"/></radialGradient>
+                  <radialGradient id="msurf" cx="40%" cy="38%" r="70%"><stop offset="0" stop-color="#FFFFFF"/><stop offset="60%" stop-color="#D9DEF5"/><stop offset="100%" stop-color="#A9B0CF"/></radialGradient>
+                  <mask id="mmask"><rect width="150" height="150" fill="#fff"/><ellipse cx="60" cy="75" rx="24" ry="56" fill="#000"/><rect x="0" y="0" width="60" height="150" fill="#000"/></mask>
+                </defs>
+                <circle cx="75" cy="75" r="74" fill="url(#mglow)"/>
+                <circle cx="75" cy="75" r="56" fill="#141733"/>
+                <circle cx="75" cy="75" r="56" fill="url(#msurf)" mask="url(#mmask)"/>
+                <circle cx="88" cy="58" r="6" fill="rgba(0,0,0,0.08)"/><circle cx="100" cy="88" r="9" fill="rgba(0,0,0,0.07)"/><circle cx="78" cy="100" r="4" fill="rgba(0,0,0,0.08)"/>
+              </svg>
+              <div style="font-family:var(--serif);font-size:22px;margin-top:4px">Şişkin Ay</div>
+              <div style="font-size:10px;color:var(--t2);margin-top:4px">%68 aydınlık · Ay şu anda <span style="color:var(--accent2)">♉ Boğa</span> burcunda</div>
+            </div>
+            <div class="g hero compact" style="margin-top:8px">
+              <div class="gh"><span class="i">✦</span><span class="t">Ay Enerjisi</span></div>
+              <div style="font-size:10.5px;line-height:1.55">Büyüyen Ay'ın son evresi. Başladığın işleri tamamlamaya, ayrıntıları yerine oturtmaya uygun. Boğa'da beden, para ve konfor konuları öne çıkar.</div>
+            </div>
+            <div class="lab">YAKLAŞAN EVRELER</div>
+            <div class="g compact">
+              <div class="row"><div class="ic">🌕</div><div class="tx"><div class="tt">Dolunay · ♈ Koç</div><div class="ms">22 Ekim · 00:14</div></div><span class="pill a">6 gün</span></div>
+              <div class="row"><div class="ic">🌗</div><div class="tx"><div class="tt">Son Dördün</div><div class="ms">29 Ekim · 19:47</div></div></div>
+              <div class="row"><div class="ic">🌑</div><div class="tx"><div class="tt">Yeni Ay · ♏ Akrep</div><div class="ms">5 Kasım · 15:02</div></div></div>
+            </div>
+          </div>
+          <div class="fade"></div>
+        </div>
+      </div>
+      <div class="lbl"><div class="t">Ay Fazları</div><div class="s">Çizilen Ay (gölge elips maskesi) · serif evre adı</div><div class="api">Canvas: Circle + Ellipse(rx: r·|cos φ|) terminatör · .shadow(color: moon.opacity(0.3), radius: 30)</div></div>
+    </div>
+
+    <!-- GÜNLÜK BURÇ -->
+    <div class="shot">
+      <div class="ph"><canvas class="stars"></canvas><div class="island"></div>
+        <div class="sc">
+          <div class="sb"><span>09:41</span><span>●●● ⌔ ▮</span></div>
+          <div class="body">
+            <div class="navbar"><div class="back"><i></i>Astroloji</div><div class="ttl">Günlük Burç</div><div class="ic">⇪</div></div>
+            <div class="strip" style="justify-content:center;margin-bottom:8px">
+              <div class="pl" style="min-width:34px;opacity:0.5"><div class="gl">♉</div></div>
+              <div class="pl" style="min-width:34px;border-color:var(--accent);background:rgba(143,112,255,0.2)"><div class="gl" style="color:#fff">♊</div></div>
+              <div class="pl" style="min-width:34px;opacity:0.5"><div class="gl">♋</div></div>
+              <div class="pl" style="min-width:34px;opacity:0.35"><div class="gl">♌</div></div>
+              <div class="pl" style="min-width:34px;opacity:0.35"><div class="gl">♍</div></div>
+            </div>
+            <div style="text-align:center"><div style="font-family:var(--serif);font-size:24px">İkizler</div><div style="font-size:9.5px;color:var(--t3);margin-top:2px">16 Ekim 2026 · Hava · Değişken</div></div>
+            <div class="g hero" style="margin-top:10px">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+                <svg width="48" height="48" viewBox="0 0 92 92"><circle cx="46" cy="46" r="38" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="8"/><circle cx="46" cy="46" r="38" fill="none" stroke="#8F70FF" stroke-width="8" stroke-linecap="round" stroke-dasharray="191 239" transform="rotate(-90 46 46)"/><text x="46" y="54" text-anchor="middle" font-size="26" fill="#fff" font-family="New York,ui-serif,serif">4</text></svg>
+                <div><div style="font-size:12px;font-weight:600">Genel enerji 4/5</div><div style="font-size:9.5px;color:var(--t2);margin-top:2px">Zihin açık, sosyal akış güçlü</div></div>
+              </div>
+              <div style="font-size:10.5px;line-height:1.6">Merkür Akrep'te derin sohbetler çağırıyor; yüzeysel sohbetler bugün seni tatmin etmez. Öğleden sonra Ay–Venüs uyumu estetik işler ve alışveriş için elverişli.</div>
+            </div>
+            <div class="g compact">
+              <div class="meter"><div class="k">Aşk</div><div class="dots"><i class="on" style="background:var(--venus)"></i><i class="on" style="background:var(--venus)"></i><i class="on" style="background:var(--venus)"></i><i class="on" style="background:var(--venus)"></i><i></i></div><div class="v">4</div></div>
+              <div class="meter"><div class="k">Kariyer</div><div class="dots"><i class="on" style="background:var(--air)"></i><i class="on" style="background:var(--air)"></i><i class="on" style="background:var(--air)"></i><i></i><i></i></div><div class="v">3</div></div>
+              <div class="meter"><div class="k">Sağlık</div><div class="dots"><i class="on" style="background:var(--harmonik)"></i><i class="on" style="background:var(--harmonik)"></i><i class="on" style="background:var(--harmonik)"></i><i class="on" style="background:var(--harmonik)"></i><i class="on" style="background:var(--harmonik)"></i></div><div class="v">5</div></div>
+              <div class="meter"><div class="k">Şans</div><div class="dots"><i class="on" style="background:var(--sun)"></i><i class="on" style="background:var(--sun)"></i><i class="on" style="background:var(--sun)"></i><i></i><i></i></div><div class="v">3</div></div>
+            </div>
+            <div class="tiles">
+              <div class="tile"><div class="k">ŞANSLI RENK</div><div class="v" style="display:flex;align-items:center;gap:6px"><i style="width:12px;height:12px;border-radius:50%;background:#59C7FA;display:inline-block"></i>Turkuaz</div></div>
+              <div class="tile"><div class="k">ŞANSLI SAYI</div><div class="v" style="font-family:var(--serif);font-size:16px">7</div></div>
+            </div>
+          </div>
+          <div class="fade"></div>
+        </div>
+      </div>
+      <div class="lbl"><div class="t">Günlük Burç Yorumu</div><div class="s">Burç şeridi (diğer burçlar reklam/Pro ile açılır) · DotMeter puanlar</div><div class="api">DailyHoroscopeView · ScrollView(.horizontal) burç seçimi · AdGateView kilidi mevcut</div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ 8. KART FALI ═══════════════ -->
+<section class="section" id="kart">
+  <div class="sec-head"><span class="sec-num">08</span><h2 class="sec-title">Kart Falı — Tarot, Katina, Rün, Tanrı Kartları</h2></div>
+  <p class="sec-note">
+    Dört fal türü aynı akışı paylaşır: kategori → yelpazeden seç → dokun ve çevir → yorum → paylaş. Yelpaze gerçek kart gibi pivot etrafında döner; seçilen kart yükselir ve parlar.
+    Kart arkası tek tasarım (lavanta yıldız), kart önü türe göre renklenir: Tarot altın, Katina gül, Rün taş grisi, Tanrı Kartları indigo-elektrik.
+  </p>
+  <div class="phones">
+
+    <!-- KART SEKMESİ -->
+    <div class="shot">
+      <div class="ph"><canvas class="stars"></canvas><div class="island"></div>
+        <div class="sc">
+          <div class="sb"><span>09:41</span><span>●●● ⌔ ▮</span></div>
+          <div class="body">
+            <div class="navbar"><div class="ttl">Kart Falı</div><div class="pill a">1 ücretsiz hak</div></div>
+            <div class="g hero" style="padding:16px;background:linear-gradient(160deg,rgba(255,181,71,0.2),rgba(143,112,255,0.12) 70%);border-color:rgba(255,181,71,0.3)">
+              <div style="display:flex;align-items:center;gap:12px">
+                <div style="width:46px;height:70px;border-radius:7px;background:linear-gradient(170deg,#3B2A7A,#1A1440);border:1px solid rgba(255,217,89,0.4);display:grid;place-items:center;font-size:22px;color:#FFD959;font-family:var(--serif);box-shadow:0 8px 20px rgba(0,0,0,0.4)">☉</div>
+                <div style="flex:1"><div style="font-size:8.5px;letter-spacing:0.12em;color:var(--t3);font-weight:700">TAROT · GÜNLÜK</div><div style="font-family:var(--serif);font-size:17px;margin-top:3px">Bugünün kartını çek</div><div style="font-size:9.5px;color:var(--t2);margin-top:3px">Geçmiş · Şimdi · Gelecek</div></div>
+              </div>
+              <span class="btn sm" style="margin-top:12px">Kart Çek</span>
+            </div>
+            <div class="tiles">
+              <div class="tile" style="background:linear-gradient(160deg,rgba(255,138,184,0.14),rgba(255,255,255,0.03))"><div style="font-size:18px">👁</div><div class="v">Katina Falı</div><div class="s">Kadim aşk kartları</div></div>
+              <div class="tile" style="background:linear-gradient(160deg,rgba(201,162,126,0.16),rgba(255,255,255,0.03))"><div style="font-family:var(--serif);font-size:18px;color:#D9C2A6">ᚠ</div><div class="v">Rün Falı</div><div class="s">Viking rehberliği</div></div>
+              <div class="tile" style="background:linear-gradient(160deg,rgba(123,140,255,0.18),rgba(255,255,255,0.03))"><div style="font-size:18px;color:var(--neptune)">⚡</div><div class="v">Tanrı Kartları</div><div class="s">Mitolojik mesaj</div></div>
+              <div class="tile"><div style="font-size:18px;color:var(--t3)">◷</div><div class="v">Geçmiş Fallar</div><div class="s">12 kayıt</div></div>
+            </div>
+            <div class="g compact" style="margin-top:2px">
+              <div class="gh"><span class="i">?</span><span class="t">Nasıl Çalışır?</span></div>
+              <div class="row"><div class="ic" style="color:var(--accent)">☝</div><div class="tx"><div class="ms">Yelpazeden bir kart seç ve dokun</div></div></div>
+              <div class="row"><div class="ic" style="color:var(--accent)">⟳</div><div class="tx"><div class="ms">Kartını çevir ve yorumunu oku</div></div></div>
+              <div class="row"><div class="ic" style="color:var(--accent)">🎁</div><div class="tx"><div class="ms">Her gün 1 ücretsiz hak, ekstra için reklam izle</div></div></div>
+            </div>
+          </div>
+          <div class="fade"></div>
+          <div class="tabbar">
+            <div class="tab"><div class="ti">⌂</div><div class="tl">Anasayfa</div></div>
+            <div class="tab"><div class="ti">✧</div><div class="tl">Astroloji</div></div>
+            <div class="tab act"><div class="ti">✦</div><div class="tl">Kart Falı</div></div>
+            <div class="tab"><div class="ti">⚙</div><div class="tl">Ayarlar</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="lbl"><div class="t">Kart Falı sekmesi</div><div class="s">Günlük tarot hero · 2×2 fal türü · kalan hak rozeti</div><div class="api">CardReadingTabView · LazyVGrid(2) · hak sayacı EntitlementManager.freeReadingsLeft</div></div>
+    </div>
+
+    <!-- YELPAZE -->
+    <div class="shot">
+      <div class="ph"><canvas class="stars"></canvas><div class="island"></div>
+        <div class="sc">
+          <div class="sb"><span>09:41</span><span>●●● ⌔ ▮</span></div>
+          <div class="body">
+            <div class="navbar"><div class="back"><i></i>Kart Falı</div><div class="ttl">Tarot</div><div class="ic">✕</div></div>
+            <div style="text-align:center;padding:14px 0 0"><div style="color:var(--accent);font-size:18px">✦</div><div style="font-family:var(--serif);font-size:22px;margin-top:6px">Kartını Seç</div><div style="font-size:10px;color:var(--t2);margin-top:4px">Zihnini odakla ve bir kart seç</div></div>
+            <div class="fan" style="margin-top:28px;height:230px">
+              <div class="cardb" style="transform:rotate(-36deg)"></div>
+              <div class="cardb" style="transform:rotate(-24deg)"></div>
+              <div class="cardb" style="transform:rotate(-12deg)"></div>
+              <div class="cardb sel" style="transform:rotate(0deg) translateY(-22px)"></div>
+              <div class="cardb" style="transform:rotate(12deg)"></div>
+              <div class="cardb" style="transform:rotate(24deg)"></div>
+              <div class="cardb" style="transform:rotate(36deg)"></div>
+            </div>
+            <div style="text-align:center;font-size:9.5px;color:var(--t3);margin-top:14px">Kaydırarak yelpazeyi döndür · dokunarak seç</div>
+            <div class="seg" style="width:150px;margin:14px auto 0"><div class="on">Aşk</div><div>Kariyer</div><div>Genel</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="lbl"><div class="t">Kart seçimi · yelpaze</div><div class="s">Pivot etrafında dönen kartlar; seçilen yükselir, cam parlaması</div><div class="api">ZStack + .rotationEffect(.degrees(i·12), anchor: .init(x:0.5,y:1.4)) · DragGesture ile açı · .sensoryFeedback(.impact)</div></div>
+    </div>
+
+    <!-- KART AÇILDI -->
+    <div class="shot">
+      <div class="ph"><canvas class="stars"></canvas><div class="island"></div>
+        <div class="sc">
+          <div class="sb"><span>09:41</span><span>●●● ⌔ ▮</span></div>
+          <div class="body">
+            <div class="navbar"><div class="back"><i></i>Geri</div><div class="ttl">Tarot</div><div class="ic">⇪</div></div>
+            <div class="cardf" style="margin-top:4px">
+              <div class="fr"></div>
+              <div class="num">XIX</div>
+              <div class="art"></div>
+              <div class="nm">Güneş</div>
+              <div class="sb2">MAJÖR ARKANA</div>
+            </div>
+            <div style="text-align:center;margin-top:10px;display:flex;justify-content:center;gap:6px"><span class="pill h">Düz</span><span class="pill a">Aşk</span></div>
+            <div class="g hero" style="margin-top:10px">
+              <div class="gh"><span class="i">✦</span><span class="t">Kartın Yorumu</span></div>
+              <div style="font-size:10.5px;line-height:1.6">Güneş, açıklık ve neşe getirir. İlişkide saklanan bir şey kalmaz; sıcaklık ve dürüstlük bağı güçlendirir. Kendini olduğun gibi göster — görülmek bugün ödüllendirilir.</div>
+            </div>
+            <span class="btn ghost sm">Sonucu Paylaş</span>
+          </div>
+          <div class="fade"></div>
+        </div>
+      </div>
+      <div class="lbl"><div class="t">Kart açıldı · yorum</div><div class="s">Kart önü tür rengiyle; yorum <code style="color:var(--accent2)">tarot_cards.json</code>; paylaşım kartı mevcut</div><div class="api">.rotation3DEffect(.degrees(flip), axis: (0,1,0)) · 90° sonrası ön yüz · TarotShareCard + ShareImageRenderer</div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ 9. PAYWALL & AYARLAR ═══════════════ -->
+<section class="section" id="para">
+  <div class="sec-head"><span class="sec-num">09</span><h2 class="sec-title">Paywall, Onboarding ve Ayarlar</h2></div>
+  <p class="sec-note">Paywall üç kademe (₺200 / ₺300 / ₺400) tek sheet'te; önerilen kademe tonlu cam ile öne çıkar. Onboarding üç adım, her adım tek soru. Ayarlar düz liste; dil değişimi (TR/EN) ve "Haritayı yeniden hesapla" burada.</p>
+  <div class="phones">
+
+    <!-- PAYWALL -->
+    <div class="shot">
+      <div class="ph"><canvas class="stars"></canvas><div class="island"></div>
+        <div class="sc">
+          <div class="sb"><span>09:41</span><span>●●● ⌔ ▮</span></div>
+          <div class="body">
+            <div class="navbar"><div></div><div class="ic">✕</div></div>
+            <div style="text-align:center;padding:4px 0 0">
+              <div style="width:64px;height:64px;border-radius:50%;margin:0 auto;display:grid;place-items:center;font-size:26px;color:#fff;background:radial-gradient(circle,rgba(143,112,255,0.6),rgba(143,112,255,0.1) 70%);box-shadow:0 0 40px rgba(143,112,255,0.5)">✦</div>
+              <div style="font-family:var(--serif);font-size:24px;margin-top:12px">Pro Özellikleri Aç</div>
+              <div style="font-size:10.5px;color:var(--t2);margin-top:4px">Yıldız haritanın tüm detaylarını keşfet</div>
+            </div>
+            <div class="g compact" style="margin-top:14px">
+              <div class="row"><div class="ic" style="color:var(--harmonik)">✓</div><div class="tx"><div class="ms" style="color:var(--t1)">Tüm gezegen & ev yorumları</div></div></div>
+              <div class="row"><div class="ic" style="color:var(--harmonik)">✓</div><div class="tx"><div class="ms" style="color:var(--t1)">Synastry, Composite, Güneş Dönüşü</div></div></div>
+              <div class="row"><div class="ic" style="color:var(--harmonik)">✓</div><div class="tx"><div class="ms" style="color:var(--t1)">Sınırsız kart falı, reklamsız</div></div></div>
+            </div>
+            <div class="tier"><div class="radio"></div><div><div class="n">Doğum Haritası Pro</div><div class="d">Tek seferlik</div></div><div class="p">₺200</div></div>
+            <div class="tier best"><div class="radio"></div><div><div class="n">Astroloji Paketi <span class="pill pro" style="margin-left:4px">Popüler</span></div><div class="d">Harita + ilişki analizleri</div></div><div class="p">₺300</div></div>
+            <div class="tier"><div class="radio"></div><div><div class="n">Her Şey Dahil</div><div class="d">Astroloji + tüm fallar</div></div><div class="p">₺400</div></div>
+            <span class="btn" style="margin-top:4px">₺300 ile Devam Et</span>
+            <div style="text-align:center;font-size:9px;color:var(--t3);margin-top:8px">Satın Almaları Geri Yükle · Kullanım Koşulları</div>
+          </div>
+        </div>
+      </div>
+      <div class="lbl"><div class="t">Paywall</div><div class="s">Tek sheet · önerilen kademe tonlu · tek CTA</div><div class="api">PaywallView · StoreManager.products (sıralı) · .presentationDetents([.large]) · ProductView yerine özel satır</div></div>
+    </div>
+
+    <!-- ONBOARDING -->
+    <div class="shot">
+      <div class="ph"><canvas class="stars"></canvas><div class="island"></div>
+        <div class="sc">
+          <div class="sb"><span>09:41</span><span>●●● ⌔ ▮</span></div>
+          <div class="body" style="display:flex;flex-direction:column">
+            <div style="display:flex;gap:4px;justify-content:center;margin-top:14px"><i style="width:22px;height:3px;border-radius:2px;background:var(--accent)"></i><i style="width:22px;height:3px;border-radius:2px;background:var(--accent)"></i><i style="width:22px;height:3px;border-radius:2px;background:rgba(255,255,255,0.12)"></i></div>
+            <div style="text-align:center;margin-top:36px"><div style="font-size:8.5px;letter-spacing:0.14em;color:var(--t3);font-weight:700">ADIM 2 / 3</div><div style="font-family:var(--serif);font-size:26px;line-height:1.15;margin-top:10px">Ne zaman<br><em style="color:var(--accent2)">doğdun?</em></div><div style="font-size:10px;color:var(--t2);margin-top:8px;line-height:1.5">Yükselen ve Ay burcun için<br>doğum saatin gerekli.</div></div>
+            <div class="g" style="margin-top:28px;text-align:center;padding:16px">
+              <div style="display:flex;justify-content:center;gap:14px;font-family:var(--serif);font-size:22px"><span>12</span><span style="color:var(--accent2)">Haziran</span><span>1990</span></div>
+              <div style="height:1px;background:rgba(255,255,255,0.08);margin:12px 0"></div>
+              <div style="display:flex;justify-content:center;gap:10px;font-family:var(--serif);font-size:22px"><span>14</span><span style="color:var(--t3)">:</span><span>35</span></div>
+              <div style="font-size:9px;color:var(--t3);margin-top:8px">Saati bilmiyorum →</div>
+            </div>
+            <div style="flex:1"></div>
+            <span class="btn" style="margin-bottom:14px">Devam</span>
+            <div style="text-align:center;font-size:8.5px;color:var(--t4);margin-bottom:16px;line-height:1.5">Bu uygulama eğlence amaçlıdır.<br>Profesyonel danışmanlık yerine geçmez.</div>
+          </div>
+        </div>
+      </div>
+      <div class="lbl"><div class="t">Onboarding · adım 2</div><div class="s">Her adım tek soru; serif soru başlığı; ilerleme çubuğu</div><div class="api">TabView(.page) + özel indikatör · DatePicker(.wheel) tonlu cam içinde · "Saati bilmiyorum" → houses gizlenir</div></div>
+    </div>
+
+    <!-- AYARLAR -->
+    <div class="shot">
+      <div class="ph"><canvas class="stars"></canvas><div class="island"></div>
+        <div class="sc">
+          <div class="sb"><span>09:41</span><span>●●● ⌔ ▮</span></div>
+          <div class="body">
+            <div class="navbar"><div class="ttl">Ayarlar</div></div>
+            <div class="g hero compact" style="display:flex;align-items:center;gap:10px">
+              <div style="width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:18px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2)">♊</div>
+              <div style="flex:1"><div style="font-size:12px;font-weight:600">Devrim</div><div style="font-size:9.5px;color:var(--t2);margin-top:2px">☉ İkizler · ☽ Yengeç · AC Başak</div></div>
+              <span class="pill pro">✦ Pro</span>
+            </div>
+            <div class="lab">PROFİL</div>
+            <div class="g compact">
+              <div class="srow"><div class="ic" style="background:rgba(143,112,255,0.18);color:var(--accent)">◎</div><div class="t">Doğum Bilgilerim</div><div class="ch">›</div></div>
+              <div class="srow"><div class="ic" style="background:rgba(255,138,184,0.18);color:var(--venus)">♡</div><div class="t">Kayıtlı Kişiler</div><div style="font-size:9.5px;color:var(--t3)">3</div><div class="ch">›</div></div>
+              <div class="srow"><div class="ic" style="background:rgba(89,199,250,0.18);color:var(--accent2)">⟳</div><div class="t">Haritayı Yeniden Hesapla</div><div class="ch">›</div></div>
+            </div>
+            <div class="lab">UYGULAMA</div>
+            <div class="g compact">
+              <div class="srow"><div class="ic" style="background:rgba(255,255,255,0.08)">🌐</div><div class="t">Dil</div><div style="font-size:9.5px;color:var(--t3)">Türkçe</div><div class="ch">›</div></div>
+              <div class="srow"><div class="ic" style="background:rgba(255,255,255,0.08)">🔔</div><div class="t">Transit Bildirimleri</div><div class="toggle"></div></div>
+              <div class="srow"><div class="ic" style="background:rgba(255,255,255,0.08)">🌙</div><div class="t">Günlük Hatırlatıcı</div><div style="font-size:9.5px;color:var(--t3)">09:00</div><div class="ch">›</div></div>
+            </div>
+            <div class="lab">SATIN ALMA</div>
+            <div class="g compact">
+              <div class="srow"><div class="ic" style="background:rgba(255,181,71,0.18);color:var(--sun)">✦</div><div class="t">Pro Özellikleri</div><div class="ch">›</div></div>
+              <div class="srow"><div class="ic" style="background:rgba(255,255,255,0.08)">↺</div><div class="t">Satın Almaları Geri Yükle</div><div class="ch">›</div></div>
+            </div>
+          </div>
+          <div class="fade"></div>
+          <div class="tabbar">
+            <div class="tab"><div class="ti">⌂</div><div class="tl">Anasayfa</div></div>
+            <div class="tab"><div class="ti">✧</div><div class="tl">Astroloji</div></div>
+            <div class="tab"><div class="ti">✦</div><div class="tl">Kart Falı</div></div>
+            <div class="tab act"><div class="ti">⚙</div><div class="tl">Ayarlar</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="lbl"><div class="t">Ayarlar</div><div class="s">Profil hero + gruplanmış cam listeler; <code style="color:var(--accent2)">ProfileView</code> içeriği buraya taşındı</div><div class="api">List yerine VStack + glassCard (List arka planı Liquid Glass'ta sorunlu) · Toggle(.tint(harmonik))</div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════ 10. SWIFTUI EŞLEME ═══════════════ -->
+<section class="section" id="swift">
+  <div class="sec-head"><span class="sec-num">10</span><h2 class="sec-title">SwiftUI eşleme tablosu</h2></div>
+  <p class="sec-note">Her görsel karar bir API'ye bağlı. iOS 26'ya özel olanlar işaretli; altında iOS 17 fallback'i yazıyor. Yeni bağımlılık yok.</p>
+  <div class="card" style="padding:8px 14px">
+    <table class="map">
+      <tr><th>GÖRSEL</th><th>SWIFTUI</th><th>NOT</th></tr>
+      <tr><td>Cam kart</td><td><code>.glassEffect(.regular, in: .rect(cornerRadius: 20))</code> <span class="pill a" style="font-size:8px">iOS 26</span><br><code>.glassCard()</code> (mevcut, fallback)</td><td class="note"><code>GlassCard</code> modifier'ı içinde <code>if #available(iOS 26)</code> dallanması; çağıran kod değişmez.</td></tr>
+      <tr><td>Tonlu hero kart</td><td><code>.glassEffect(.regular.tint(AstroTheme.accent.opacity(0.18)))</code></td><td class="note">Fallback: mevcut <code>GlassCard</code> + <code>LinearGradient</code> overlay.</td></tr>
+      <tr><td>Yüzen tab bar</td><td><code>TabView { Tab("Anasayfa", systemImage: "house.fill") { … } }</code><br><code>.tabBarMinimizeBehavior(.onScrollDown)</code> <span class="pill a" style="font-size:8px">iOS 26</span></td><td class="note">iOS 26'da sistem zaten Liquid Glass çizer; özel tab bar yazma. Mevcut <code>tabItem</code> yapısı <code>Tab</code> API'sine geçirilir.</td></tr>
+      <tr><td>Butonlar</td><td><code>.buttonStyle(.glassProminent)</code> / <code>.buttonStyle(.glass)</code> <span class="pill a" style="font-size:8px">iOS 26</span></td><td class="note">Fallback: mevcut <code>GlassButton</code>.</td></tr>
+      <tr><td>Serif başlıklar</td><td><code>.font(.largeTitle).fontDesign(.serif)</code></td><td class="note">New York sistemde var; Canvas'ta <code>Font.system(size:, design: .serif)</code>.</td></tr>
+      <tr><td>Aurora arka plan</td><td><code>SubtleStarsBackground</code> + 2 × <code>RadialGradient</code>, <code>.blur(60)</code></td><td class="note">Mevcut yıldız Canvas'ı korunur; gradient'ler <code>ZStack</code>'in altına.</td></tr>
+      <tr><td>Çark</td><td><code>Canvas</code> (mevcut) · burç dilimi <code>Path.addArc</code> + <code>element.opacity(0.12)</code></td><td class="note">Açı çizgi rengi <code>AstroTheme.harmonik/zorlayici/notr</code>; minör açılar <code>StrokeStyle(dash:)</code>.</td></tr>
+      <tr><td>Gezegen detayı</td><td><code>.sheet(item:)</code> · <code>.presentationDetents([.fraction(0.68), .large])</code> · <code>.presentationBackground(.ultraThinMaterial)</code></td><td class="note">Çark üstünde dokunma: <code>onTapGesture { location in }</code> → en yakın gezegen.</td></tr>
+      <tr><td>Segment geçişi</td><td><code>@Namespace</code> + <code>matchedGeometryEffect</code> seçili pill</td><td class="note">Sistem <code>Picker(.segmented)</code> cam ile uyumsuz; özel 40 satır.</td></tr>
+      <tr><td>Skor halkası</td><td><code>Circle().trim(from: 0, to: value)</code> + <code>AngularGradient</code></td><td class="note">Sayı: <code>.contentTransition(.numericText())</code>; animasyon <code>.spring(duration: 0.8)</code>.</td></tr>
+      <tr><td>Kart yelpazesi</td><td><code>ZStack</code> + <code>.rotationEffect(_, anchor: UnitPoint(x: 0.5, y: 1.4))</code></td><td class="note"><code>DragGesture</code> açı ofseti; seçimde <code>.sensoryFeedback(.impact(weight: .light))</code>.</td></tr>
+      <tr><td>Kart çevirme</td><td><code>.rotation3DEffect(.degrees(flip), axis: (0,1,0), perspective: 0.6)</code></td><td class="note">Mevcut <code>flipProgress</code> mantığı aynı; sadece kart önü/arkası yeniden çizilir.</td></tr>
+      <tr><td>Kart → detay geçişi</td><td><code>.matchedTransitionSource(id:in:)</code> + <code>.navigationTransition(.zoom)</code></td><td class="note">iOS 18+. Fallback: standart push.</td></tr>
+      <tr><td>Takvim günleri</td><td><code>LazyVGrid(columns: 7)</code> · seçili gün <code>.glassEffect(.regular.tint(accent).interactive())</code></td><td class="note">Olay noktaları <code>HStack(spacing: 2) { Circle().frame(3) }</code>.</td></tr>
+      <tr><td>Ay çizimi</td><td><code>Canvas</code>: ışıklı daire + terminatör <code>Ellipse</code> maske</td><td class="note"><code>illumination</code> → elips genişliği <code>r·cos(π·k)</code>; evreye göre sol/sağ.</td></tr>
+      <tr><td>Haptik</td><td><code>.sensoryFeedback(.selection, trigger:)</code></td><td class="note">Segment, gün seçimi, kart seçimi; başka yerde yok.</td></tr>
+      <tr><td>Boş durum</td><td><code>ContentUnavailableView("Henüz profil oluşturulmadı", systemImage: "person.crop.circle.badge.plus", description:)</code></td><td class="note">Profile/People/Synastry boş ekranları tek bileşen.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════ 11. ESKİ → YENİ ═══════════════ -->
+<section class="section" id="fark">
+  <div class="sec-head"><span class="sec-num">11</span><h2 class="sec-title">Eski çalışma → bu çalışma: ne değişti, koda ne dokunur</h2></div>
+  <div class="diff">
+    <div class="card">
+      <h4>TASARIMDA DEĞİŞENLER</h4>
+      <ul>
+        <li><span class="mk">01</span><div><b>Kapsam.</b> Eski: 4 çark ekranı. Yeni: 4 sekme, 16 ekran, bileşen kütüphanesi ve token'lar.</div></li>
+        <li><span class="mk">02</span><div><b>Yüzey.</b> Düz #06030e → katmanlı cam, aurora glow, 1px specular. Kartlar arasında derinlik var.</div></li>
+        <li><span class="mk">03</span><div><b>Okunurluk.</b> 7–9px → en küçük metin 10.5px (telefon ölçeğinde ≈ .caption). Yorum gövdesi .caption'dan .subheadline'a.</div></li>
+        <li><span class="mk">04</span><div><b>Renk anlamı.</b> Element, ton ve gezegen renkleri sabit; ekranlar arasında aynı şey aynı renkte.</div></li>
+        <li><span class="mk">05</span><div><b>Tipografi.</b> Tek sans → serif + sans ikili ses. Glifler her yerde serif.</div></li>
+        <li><span class="mk">06</span><div><b>Navigasyon.</b> Doğum haritası tek uzun scroll → 4 segment; gezegen detayı push → yarım sheet.</div></li>
+        <li><span class="mk">07</span><div><b>Tek cevap kuralı.</b> Synastry, günlük burç, enerji: ekranın üstünde bir sayı/halka, sonra detay.</div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>KODA DOKUNAN NOKTALAR (ÖNCELİK SIRASI)</h4>
+      <ul>
+        <li><span class="mk">A</span><div><b>AstroTheme</b> — <code style="color:var(--accent2)">planet(_:)</code> paleti ekle; <code style="color:var(--accent2)">HomeView.toneColor</code>'ı tema renklerine bağla (şu an .green/.orange).</div></li>
+        <li><span class="mk">B</span><div><b>GlassCard</b> — iOS 26 dalı: <code style="color:var(--accent2)">glassEffect</code>; tint parametresi ekle (hero kartlar için).</div></li>
+        <li><span class="mk">C</span><div><b>ChartWheelView</b> — burç dilimi element dolgusu, açı rengi tema, glif serif, <code style="color:var(--accent2)">planetColor</code> → tema.</div></li>
+        <li><span class="mk">D</span><div><b>BirthChartResultView</b> — segment kontrolü + gezegen detay sheet'i.</div></li>
+        <li><span class="mk">E</span><div><b>Yeni bileşenler</b> — TonePill, PlanetRow, AspectRow, DotMeter, ScoreRing, SegmentedGlass (Design/ altına).</div></li>
+        <li><span class="mk">F</span><div><b>ContentView</b> — <code style="color:var(--accent2)">Tab</code> API'si + <code style="color:var(--accent2)">tabBarMinimizeBehavior</code>; tab başına reset mantığı aynen kalır.</div></li>
+        <li><span class="mk">G</span><div><b>MoonPhaseView</b> — SF Symbol yerine Canvas Ay; <b>SettingsView</b> — ProfileView içeriği buraya.</div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="foot">
+  AstroApp · Liquid Glass Design 2026 · Bu dosya statik bir tasarım çalışmasıdır; gezegen konumları ve puanlar örnek veridir.
+  Çarklar sayfa yüklenince JavaScript ile çizilir (Ascendant solda, saat yönünün tersine ekliptik) — <code style="color:var(--accent2)">ChartWheelView.chartAngle()</code> ile aynı dönüşüm.
+  Karşılaştırma için: <code style="color:var(--accent2)">astroapp_full_html.html</code> (2025) ↔ <code style="color:var(--accent2)">astroapp_design_2026.html</code> (bu dosya).
+</div>
+
+</div>
+
+<script>
+/* ───────── Yıldız arka planı (SubtleStarsBackground eşleniği, seed sabit) ───────── */
+(function(){
+  function rng(seed){ let s=seed>>>0||1; return function(){ s+=0x9e3779b9; let z=s; z=Math.imul(z^(z>>>16),0x85ebca6b); z=Math.imul(z^(z>>>13),0xc2b2ae35); return ((z^(z>>>16))>>>0)/4294967296; }; }
+  document.querySelectorAll('canvas.stars').forEach((c,idx)=>{
+    const w=272,h=588; c.width=w*2; c.height=h*2; c.style.width=w+'px'; c.style.height=h+'px';
+    const ctx=c.getContext('2d'); ctx.scale(2,2); const r=rng(42+idx);
+    for(let i=0;i<90;i++){ const x=r()*w,y=r()*h,rad=0.3+r()*1.1,a=0.12+r()*0.35; ctx.beginPath(); ctx.arc(x,y,rad,0,Math.PI*2); ctx.fillStyle=`rgba(255,255,255,${a})`; ctx.fill(); }
+  });
+})();
+
+/* ───────── Çark çizici — ChartWheelView ile aynı geometri ───────── */
+(function(){
+  const EL=['#FF736B','#6BD185','#FFD959','#66ADFF']; // fire earth air water
+  const SIGNS=['♈','♉','♊','♋','♌','♍','♎','♏','♐','♑','♒','♓'];
+  const P={sun:['☉','#FFB547'],moon:['☽','#E8ECFF'],mercury:['☿','#5AD8E6'],venus:['♀','#FF8AB8'],mars:['♂','#FF5F57'],jupiter:['♃','#B98CFF'],saturn:['♄','#C9A27E'],uranus:['♅','#5EEAD4'],neptune:['♆','#7B8CFF'],pluto:['♇','#9CA3AF']};
+  const ASP=[[0,8,'#8C8CFF',1.1],[60,4,'#4DD9A6',0.7],[90,6,'#FF6673',0.9],[120,6,'#4DD9A6',0.9],[180,8,'#FF6673',1.1]];
+
+  // Örnek veri — Devrim natal (ASC ♍ 7°52′)
+  const NATAL={asc:157.9, mc:62.0,
+    planets:{sun:62.2,moon:108.5,mercury:80.4,venus:54.1,mars:341.8,jupiter:95.3,saturn:302.6,uranus:278.1,neptune:283.4,pluto:226.7},
+    houses:[157.9,186.2,216.9,242.0,268.7,300.1,337.9,6.2,36.9,62.0,88.7,120.1]};
+  const TRANSIT={sun:203.2,moon:38.4,mercury:220.5,venus:215.1,mars:242.3,jupiter:140.2,saturn:1.2,uranus:61.0,neptune:1.9,pluto:302.4};
+  const COMPOSITE={asc:52.0, mc:312.0,
+    planets:{sun:98.0,moon:235.2,mercury:112.4,venus:116.3,mars:21.9,jupiter:171.5,saturn:321.8,uranus:269.4,neptune:276.8,pluto:229.6},
+    houses:[52,80,108,138,168,200,232,260,288,318,348,20]};
+
+  function pt(cx,cy,r,deg,asc){ const a=(180-(deg-asc))*Math.PI/180; return [cx+r*Math.cos(a), cy-r*Math.sin(a)]; }
+  function ring(cx,cy,r1,r2,d0,d1,asc){ // dilim yolu — polyline ile, sweep bayrağı derdi yok
+    let p=''; const n=12;
+    for(let i=0;i<=n;i++){ const d=d0+(d1-d0)*i/n; const [x,y]=pt(cx,cy,r2,d,asc); p+=(i?'L':'M')+x.toFixed(2)+' '+y.toFixed(2); }
+    for(let i=n;i>=0;i--){ const d=d0+(d1-d0)*i/n; const [x,y]=pt(cx,cy,r1,d,asc); p+='L'+x.toFixed(2)+' '+y.toFixed(2); }
+    return p+'Z';
+  }
+  function el(n,attrs,txt){ const e=document.createElementNS('http://www.w3.org/2000/svg',n); for(const k in attrs) e.setAttribute(k,attrs[k]); if(txt!=null) e.textContent=txt; return e; }
+  function sep(a,b){ let d=Math.abs(a-b)%360; return d>180?360-d:d; }
+  function spread(entries){ // çakışma çözümü — min 9°
+    entries.sort((a,b)=>a.deg-b.deg); for(let pass=0;pass<6;pass++){ for(let i=1;i<entries.length;i++){ const gap=entries[i].disp-entries[i-1].disp; if(gap<9){ const push=(9-gap)/2; entries[i].disp+=push; entries[i-1].disp-=push; } } } return entries;
+  }
+
+  function draw(svg,kind){
+    const cx=120,cy=120, chart = kind==='composite'?COMPOSITE:NATAL, asc=chart.asc;
+    const bi = kind==='transit';
+    const R={outer:bi?104:112, signIn:bi?92:98, houseIn:bi?70:74, planet:bi?60:62, aspect:bi?46:50, outerPl:bi?110:0};
+    svg.innerHTML='';
+    // defs
+    const defs=el('defs'); defs.innerHTML='<radialGradient id="cglow'+kind+'" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="rgba(143,112,255,0.18)"/><stop offset="1" stop-color="rgba(143,112,255,0)"/></radialGradient>'; svg.appendChild(defs);
+    svg.appendChild(el('circle',{cx,cy,r:R.aspect+4,fill:'url(#cglow'+kind+')'}));
+
+    // Burç halkası — element dolgusu
+    for(let i=0;i<12;i++){
+      svg.appendChild(el('path',{d:ring(cx,cy,R.signIn,R.outer,i*30,i*30+30,asc),fill:EL[i%4],'fill-opacity':0.11,stroke:'rgba(255,255,255,0.10)','stroke-width':0.5}));
+      const [x,y]=pt(cx,cy,(R.signIn+R.outer)/2,i*30+15,asc);
+      svg.appendChild(el('text',{x,y:y+3.2,'text-anchor':'middle','font-size':9,fill:EL[i%4],'font-family':'New York, ui-serif, serif'},SIGNS[i]));
+    }
+    // Ev halkası
+    svg.appendChild(el('circle',{cx,cy,r:R.houseIn,fill:'none',stroke:'rgba(255,255,255,0.12)','stroke-width':0.6}));
+    svg.appendChild(el('circle',{cx,cy,r:R.signIn,fill:'none',stroke:'rgba(255,255,255,0.18)','stroke-width':0.8}));
+    chart.houses.forEach((h,i)=>{
+      const ang=(i===0||i===9||i===3||i===6); const [x1,y1]=pt(cx,cy,R.signIn,h,asc), [x2,y2]=pt(cx,cy,ang?R.aspect:R.houseIn,h,asc);
+      svg.appendChild(el('line',{x1,y1,x2,y2,stroke:ang?'rgba(255,255,255,0.55)':'rgba(255,255,255,0.14)','stroke-width':ang?1:0.5}));
+      const next=chart.houses[(i+1)%12]; let mid=h+((next-h+360)%360)/2; const [nx,ny]=pt(cx,cy,(R.houseIn+R.aspect)/2+6,mid,asc);
+      svg.appendChild(el('text',{x:nx,y:ny+2.2,'text-anchor':'middle','font-size':5.5,fill:'rgba(255,255,255,0.28)'},i+1));
+    });
+    // AC / MC etiketleri
+    const [ax,ay]=pt(cx,cy,R.outer+7,asc,asc); svg.appendChild(el('text',{x:ax-2,y:ay+2.5,'text-anchor':'end','font-size':6.5,fill:'#4DD9A6','font-weight':700},'AC'));
+    const [mx,my]=pt(cx,cy,R.outer+7,chart.mc,asc); svg.appendChild(el('text',{x:mx,y:my-1,'text-anchor':'middle','font-size':6.5,fill:'rgba(255,255,255,0.55)','font-weight':700},'MC'));
+
+    // Açılar (iç gezegenler arası)
+    const keys=Object.keys(chart.planets);
+    for(let i=0;i<keys.length;i++) for(let j=i+1;j<keys.length;j++){
+      const a=chart.planets[keys[i]], b=chart.planets[keys[j]], s=sep(a,b);
+      for(const [ang,orb,col,w] of ASP){ if(Math.abs(s-ang)<=orb){ const [x1,y1]=pt(cx,cy,R.aspect,a,asc),[x2,y2]=pt(cx,cy,R.aspect,b,asc);
+        const strong=Math.abs(s-ang)<orb*0.5; svg.appendChild(el('line',{x1,y1,x2,y2,stroke:col,'stroke-opacity':strong?0.75:0.38,'stroke-width':w*(strong?1:0.7),'stroke-dasharray':ang===60?'2 2':'none'})); } }
+    }
+    svg.appendChild(el('circle',{cx,cy,r:R.aspect,fill:'none',stroke:'rgba(255,255,255,0.1)','stroke-width':0.5}));
+
+    // İç gezegenler
+    const inner=spread(keys.map(k=>({k,deg:chart.planets[k],disp:chart.planets[k]})));
+    inner.forEach(({k,deg,disp})=>{
+      const [g,c]=P[k]; const [tx,ty]=pt(cx,cy,R.signIn-2,deg,asc),[tx2,ty2]=pt(cx,cy,R.signIn-7,deg,asc);
+      svg.appendChild(el('line',{x1:tx,y1:ty,x2:tx2,y2:ty2,stroke:c,'stroke-opacity':0.8,'stroke-width':0.9}));
+      const [x,y]=pt(cx,cy,R.planet+8,disp,asc);
+      svg.appendChild(el('circle',{cx:x,cy:y,r:6.5,fill:'rgba(10,13,31,0.85)',stroke:c,'stroke-opacity':0.35,'stroke-width':0.6}));
+      svg.appendChild(el('text',{x,y:y+3.6,'text-anchor':'middle','font-size':10,fill:c,'font-family':'New York, ui-serif, serif'},g));
+    });
+
+    // Dış halka (transit)
+    if(bi){
+      svg.appendChild(el('circle',{cx,cy,r:R.outer+2,fill:'none',stroke:'rgba(89,199,250,0.25)','stroke-width':0.6,'stroke-dasharray':'1.5 2.5'}));
+      const outer=spread(Object.keys(TRANSIT).map(k=>({k,deg:TRANSIT[k],disp:TRANSIT[k]})));
+      outer.forEach(({k,deg,disp})=>{
+        const [g,c]=P[k]; const [x,y]=pt(cx,cy,R.outerPl+3,disp,asc);
+        svg.appendChild(el('text',{x,y:y+3,'text-anchor':'middle','font-size':8.5,fill:c,'fill-opacity':0.9,'font-family':'New York, ui-serif, serif'},g));
+        const [tx,ty]=pt(cx,cy,R.outer+1,deg,asc),[tx2,ty2]=pt(cx,cy,R.outer+5,deg,asc);
+        svg.appendChild(el('line',{x1:tx,y1:ty,x2:tx2,y2:ty2,stroke:c,'stroke-width':0.8}));
+        if(k==='saturn'||k==='uranus'||k==='neptune'){ svg.appendChild(el('text',{x:x+6,y:y-4,'font-size':5,fill:'#FF6673','font-weight':700},'℞')); }
+      });
+      // Seçili transit: Jüpiter → natal Güneş (vurgulu), diğerleri soluk
+      const [jx,jy]=pt(cx,cy,R.outer-1,TRANSIT.jupiter,asc),[sx,sy]=pt(cx,cy,R.aspect,NATAL.planets.sun,asc);
+      svg.appendChild(el('line',{x1:jx,y1:jy,x2:sx,y2:sy,stroke:'#4DD9A6','stroke-width':1.3,'stroke-opacity':0.9}));
+      const [tx,ty]=pt(cx,cy,R.outer-1,TRANSIT.saturn,asc),[mx2,my2]=pt(cx,cy,R.aspect,NATAL.planets.moon,asc);
+      svg.appendChild(el('line',{x1:tx,y1:ty,x2:mx2,y2:my2,stroke:'#FF6673','stroke-width':0.8,'stroke-opacity':0.35,'stroke-dasharray':'2 2'}));
+    }
+
+    // Merkez
+    svg.appendChild(el('circle',{cx,cy,r:bi?14:16,fill:'rgba(10,13,31,0.9)',stroke:'rgba(143,112,255,0.35)','stroke-width':0.6}));
+    const sunSign=SIGNS[Math.floor(chart.planets.sun/30)];
+    svg.appendChild(el('text',{x:cx,y:cy+5,'text-anchor':'middle','font-size':bi?12:14,fill:'rgba(255,255,255,0.9)','font-family':'New York, ui-serif, serif'},sunSign));
+  }
+  document.querySelectorAll('svg.wheel').forEach(s=>draw(s,s.dataset.kind));
+
+  /* Açı matrisi */
+  const grid=document.getElementById('aspgrid'); if(grid){
+    const ks=['sun','moon','mercury','venus','mars','jupiter','saturn'];
+    const sym={0:['☌','#8C8CFF'],60:['⚹','#4DD9A6'],90:['□','#FF6673'],120:['△','#4DD9A6'],180:['☍','#FF6673']};
+    grid.appendChild(Object.assign(document.createElement('div'),{className:'c hd'}));
+    ks.forEach(k=>{ const d=document.createElement('div'); d.className='c hd'; d.textContent=P[k][0]; d.style.color=P[k][1]; grid.appendChild(d); });
+    ks.forEach((a,i)=>{ const h=document.createElement('div'); h.className='c hd'; h.textContent=P[a][0]; h.style.color=P[a][1]; grid.appendChild(h);
+      ks.forEach((b,j)=>{ const d=document.createElement('div'); d.className='c';
+        if(j<i){ const s=sep(NATAL.planets[a],NATAL.planets[b]); for(const [ang,orb] of ASP){ if(Math.abs(s-ang)<=orb){ const [g,c]=sym[ang]; d.textContent=g; d.style.color=c; d.style.background=c.replace(')',',0.16)').replace('#','rgba(').replace(/rgba\((..)(..)(..),/,(m,r,g2,b2)=>`rgba(${parseInt(r,16)},${parseInt(g2,16)},${parseInt(b2,16)},`); break; } } }
+        else if(j>=i){ d.style.background='transparent'; }
+        grid.appendChild(d); }); });
+  }
+})();
+</script>
+</body>
+</html>
