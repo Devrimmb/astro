@@ -4,6 +4,8 @@ import SwiftUI
 /// Tüm gezegen çiftleri arasındaki açıları kompakt grid olarak gösterir.
 struct AspectGridView: View {
     let chart: BirthChart
+    /// Hücreye dokununca (nil → salt görüntü)
+    var onSelect: ((Aspect) -> Void)? = nil
 
     /// Grid'de gösterilecek noktalar
     private var points: [ChartPoint] {
@@ -53,15 +55,21 @@ struct AspectGridView: View {
                     HStack(spacing: 0) {
                         // Sol: satır gezegen glifi
                         Text(pts[row].glyph)
-                            .font(.system(size: 10, weight: .medium))
-                            .foregroundStyle(.white)
+                            .font(.system(size: 11, weight: .medium, design: .serif))
+                            .foregroundStyle(AstroTheme.point(pts[row]))
                             .frame(width: 32, height: 28)
 
                         // Hücreler: 0..<row
                         ForEach(0..<row, id: \.self) { col in
                             let key = "\(pts[row])_\(pts[col])"
                             if let aspect = lookup[key] {
-                                aspectCell(aspect)
+                                if let onSelect {
+                                    Button { onSelect(aspect) } label: { aspectCell(aspect) }
+                                        .buttonStyle(.plain)
+                                        .accessibilityLabel("\(aspect.point1.name) \(aspect.type.turkishName) \(aspect.point2.name), orb \(String(format: "%.1f", aspect.orb)) derece")
+                                } else {
+                                    aspectCell(aspect)
+                                }
                             } else {
                                 emptyCell
                             }
@@ -74,8 +82,8 @@ struct AspectGridView: View {
                     Color.clear.frame(width: 32, height: 20) // sol boşluk
                     ForEach(0..<(pts.count - 1), id: \.self) { col in
                         Text(pts[col].glyph)
-                            .font(.system(size: 10, weight: .medium))
-                            .foregroundStyle(.white)
+                            .font(.system(size: 11, weight: .medium, design: .serif))
+                            .foregroundStyle(AstroTheme.point(pts[col]))
                             .frame(width: 32, height: 20)
                     }
                 }
@@ -84,11 +92,7 @@ struct AspectGridView: View {
     }
 
     private func aspectCell(_ aspect: Aspect) -> some View {
-        let bgColor: Color = switch aspect.type.nature {
-        case .harmonik: .green
-        case .zorlayici: .red
-        case .notr: .blue
-        }
+        let bgColor = AstroTheme.nature(aspect.type.nature)
 
         return VStack(spacing: 0) {
             Text(aspect.type.symbol)

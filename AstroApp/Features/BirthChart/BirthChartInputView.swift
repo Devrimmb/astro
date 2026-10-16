@@ -355,7 +355,7 @@ struct ChartPaymentSheet: View {
                             if appState.store.chartCredits > 0 {
                                 HStack(spacing: 6) {
                                     Image(systemName: "checkmark.seal.fill")
-                                        .foregroundStyle(.green)
+                                        .foregroundStyle(AstroTheme.harmonik)
                                     Text("\(appState.store.chartCredits) hesaplama hakkınız mevcut")
                                         .font(.caption)
                                         .foregroundStyle(.white.opacity(0.6))
@@ -375,7 +375,7 @@ struct ChartPaymentSheet: View {
                     if let error = errorMessage {
                         Text(error)
                             .font(.caption)
-                            .foregroundStyle(.red)
+                            .foregroundStyle(AstroTheme.zorlayici)
                             .padding(.top, 8)
                     }
 

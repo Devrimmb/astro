@@ -16,15 +16,14 @@ struct HomeView: View {
                 SubtleStarsBackground()
 
                 ScrollView {
-                    VStack(spacing: 16) {
+                    VStack(spacing: 12) {
                         greetingSection
                         cosmicCoachCard
                         if appState.currentChart != nil { bigThreeCard }
                         todayPlanetsCard
+                        moonAndHourTiles
                         todayCalendarCard
                         if !activeRetrogrades.isEmpty { retrogradeCard }
-                        moonPhaseCard
-                        planetaryHourCard
                     }
                     .padding()
                     .padding(.bottom, 40)
@@ -52,20 +51,38 @@ struct HomeView: View {
     // MARK: - Karşılama
 
     private var greetingSection: some View {
-        VStack(spacing: 6) {
-            Text(greetingText)
-                .font(.title2.bold())
-                .foregroundStyle(.white)
-            if let name = appState.birthDataStore.savedData?.name, !name.isEmpty {
-                Text("\(LanguageManager.localized("Merhaba")), \(name)")
-                    .font(.subheadline)
-                    .foregroundStyle(AstroTheme.textSecondary)
+        VStack(alignment: .leading, spacing: 6) {
+            Group {
+                if let name = appState.birthDataStore.savedData?.name, !name.isEmpty {
+                    Text("\(greetingText), ")
+                        .foregroundStyle(.white)
+                    + Text(name)
+                        .italic()
+                        .foregroundStyle(AstroTheme.accentSecondary)
+                } else {
+                    Text(greetingText)
+                        .foregroundStyle(.white)
+                }
             }
-            Text(todayDateText)
-                .font(.caption)
-                .foregroundStyle(AstroTheme.textTertiary)
+            .font(.largeTitle)
+            .fontDesign(.serif)
+            .lineLimit(2)
+            .minimumScaleFactor(0.8)
+
+            HStack(spacing: 4) {
+                Text(todayDateText)
+                if let sign = moonPhase.moonSign {
+                    Text("·")
+                    Text("Ay \(sign.glyph) \(sign.name)'da")
+                        .foregroundStyle(AstroTheme.accentSecondary)
+                }
+            }
+            .font(.caption)
+            .foregroundStyle(AstroTheme.textTertiary)
         }
-        .padding(.top, 8)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.top, 4)
+        .padding(.horizontal, 2)
     }
 
     // MARK: - Kozmik Koç
@@ -120,7 +137,7 @@ struct HomeView: View {
                 .padding(.vertical, 8)
             }
         }
-        .glassCard()
+        .glassCard(tint: AstroTheme.accent)
     }
 
     private func sectionLabel(_ text: String) -> some View {
@@ -135,7 +152,7 @@ struct HomeView: View {
         HStack(alignment: .top, spacing: 10) {
             Image(systemName: item.icon)
                 .font(.callout)
-                .foregroundStyle(toneColor(item.tone))
+                .foregroundStyle(AstroTheme.tone(item.tone))
                 .frame(width: 22)
 
             VStack(alignment: .leading, spacing: 2) {
@@ -169,53 +186,42 @@ struct HomeView: View {
         }
     }
 
-    private func toneColor(_ tone: DailyCosmicCoach.Tone) -> Color {
-        switch tone {
-        case .harmonik: .green
-        case .zorlayici: .orange
-        case .notr: AstroTheme.accent
+    // MARK: - Ay Fazı + Gezegen Saati (yan yana)
+
+    private var moonAndHourTiles: some View {
+        HStack(alignment: .top, spacing: 12) {
+            moonPhaseCard
+            planetaryHourCard
         }
+        .fixedSize(horizontal: false, vertical: true)
     }
 
-    // MARK: - Ay Fazı
-
     private var moonPhaseCard: some View {
-        HStack(spacing: 14) {
-            Image(systemName: moonPhaseIcon)
-                .font(.system(size: 36))
-                .foregroundStyle(.yellow.opacity(0.8))
-                .frame(width: 44, height: 44)
-
-            VStack(alignment: .leading, spacing: 4) {
-                HStack(spacing: 4) {
-                    Text("Ay Fazı")
-                        .font(.caption.bold())
-                        .foregroundStyle(AstroTheme.textTertiary)
-                    InfoTip(
-                        title: "Ay Fazları",
-                        message: "Ay'ın evresi duygularını ve enerjini etkiler. Yeni Ay yeni başlangıçlar, Dolunay ise sonuçlanma ve farkındalık zamanıdır."
-                    )
-                }
-                Text(moonPhase.phase.name)
-                    .font(.headline)
-                    .foregroundStyle(.white)
-                HStack(spacing: 4) {
-                    Text("Aydınlanma: %\(Int(moonPhase.illumination * 100))")
+        VStack(alignment: .leading, spacing: 8) {
+            HStack(spacing: 4) {
+                sectionLabel("Ay Fazı")
+                InfoTip(
+                    title: "Ay Fazları",
+                    message: "Ay'ın evresi duygularını ve enerjini etkiler. Yeni Ay yeni başlangıçlar, Dolunay ise sonuçlanma ve farkındalık zamanıdır."
+                )
+            }
+            HStack(spacing: 10) {
+                MoonDisc(info: moonPhase, size: 40, glow: false)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(moonPhase.phase.name)
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(.white)
+                        .lineLimit(2)
+                        .minimumScaleFactor(0.85)
+                    Text("%\(Int(moonPhase.illumination * 100)) aydınlık")
                         .font(.caption2)
                         .foregroundStyle(AstroTheme.textSecondary)
-                    if let sign = moonPhase.moonSign {
-                        Text("·")
-                            .foregroundStyle(AstroTheme.textTertiary)
-                        Text("\(sign.glyph) \(sign.name)")
-                            .font(.caption2)
-                            .foregroundStyle(AstroTheme.accentSecondary)
-                    }
                 }
             }
-
-            Spacer()
         }
-        .glassCard()
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .glassCard(cornerRadius: 16, padding: 12)
+        .accessibilityElement(children: .combine)
     }
 
     // MARK: - Günlük Takvim Özeti
@@ -227,7 +233,7 @@ struct HomeView: View {
             } label: {
                 HStack(spacing: 6) {
                     Image(systemName: "calendar.badge.clock")
-                        .foregroundStyle(.blue)
+                        .foregroundStyle(AstroTheme.accentSecondary)
                     Text("Bugünün Takvimi")
                         .font(.headline)
                         .foregroundStyle(.white)
@@ -241,7 +247,7 @@ struct HomeView: View {
             if let tip = dailyTip {
                 HStack(alignment: .top, spacing: 8) {
                     Image(systemName: "lightbulb.fill")
-                        .foregroundStyle(.yellow)
+                        .foregroundStyle(AstroTheme.planet(.sun))
                         .font(.caption)
                     Text(tip)
                         .font(.caption)
@@ -273,45 +279,45 @@ struct HomeView: View {
 
     private func calendarEventColor(_ type: CalendarEventType) -> Color {
         switch type {
-        case .moonPhase: .cyan
-        case .eclipse: .indigo
-        case .retrograde: .red
-        case .voidOfCourse: Color(red: 0.6, green: 0.5, blue: 0.8)
-        case .planetaryHour: .brown
+        case .moonPhase: AstroTheme.planet(.moon)
+        case .eclipse: AstroTheme.accent
+        case .retrograde: AstroTheme.zorlayici
+        case .voidOfCourse: AstroTheme.water
+        case .planetaryHour: AstroTheme.planet(.saturn)
         }
     }
 
     // MARK: - Gezegen Saati
 
     private var planetaryHourCard: some View {
-        HStack(spacing: 14) {
-            Image(systemName: "clock.fill")
-                .font(.title2)
-                .foregroundStyle(AstroTheme.accent)
-                .frame(width: 44, height: 44)
-                .background(AstroTheme.accent.opacity(0.15), in: .rect(cornerRadius: 12))
-
-            VStack(alignment: .leading, spacing: 4) {
-                Text("Gezegen Saati")
-                    .font(.caption.bold())
-                    .foregroundStyle(AstroTheme.textTertiary)
-                if let hour = currentPlanetaryHour {
-                    Text(hour.planet.name)
-                        .font(.headline)
-                        .foregroundStyle(.white)
-                    Text(hour.timeText)
-                        .font(.caption2)
-                        .foregroundStyle(AstroTheme.textSecondary)
-                } else {
-                    Text("Hesaplanıyor...")
-                        .font(.caption)
-                        .foregroundStyle(AstroTheme.textSecondary)
+        VStack(alignment: .leading, spacing: 8) {
+            sectionLabel("Gezegen Saati")
+            if let hour = currentPlanetaryHour {
+                HStack(spacing: 10) {
+                    Text(hour.planet.glyph)
+                        .font(.system(size: 22, design: .serif))
+                        .foregroundStyle(AstroTheme.planet(hour.planet))
+                        .frame(width: 40, height: 40)
+                        .background(AstroTheme.planet(hour.planet).opacity(0.12), in: .circle)
+                        .accessibilityHidden(true)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(hour.planet.name)
+                            .font(.subheadline.weight(.semibold))
+                            .foregroundStyle(AstroTheme.planet(hour.planet))
+                        Text(hour.timeText)
+                            .font(.caption2)
+                            .foregroundStyle(AstroTheme.textSecondary)
+                    }
                 }
+            } else {
+                Text("Hesaplanıyor...")
+                    .font(.caption)
+                    .foregroundStyle(AstroTheme.textSecondary)
             }
-
-            Spacer()
         }
-        .glassCard()
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .glassCard(cornerRadius: 16, padding: 12)
+        .accessibilityElement(children: .combine)
     }
 
     // MARK: - Bugünün Gezegenleri
@@ -319,9 +325,9 @@ struct HomeView: View {
     private var todayPlanetsCard: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack(spacing: 6) {
-                Image(systemName: "sparkles")
-                    .foregroundStyle(.yellow)
-                Text("Bugünün Gökyüzü")
+                Image(systemName: "circle.hexagonpath")
+                    .foregroundStyle(AstroTheme.accentSecondary)
+                Text("Bugünün Gezegenleri")
                     .font(.headline)
                     .foregroundStyle(.white)
             }
@@ -334,63 +340,43 @@ struct HomeView: View {
                 }
                 .padding(.vertical, 8)
             } else {
-                LazyVGrid(
-                    columns: [GridItem(.flexible()), GridItem(.flexible())],
-                    spacing: 8
-                ) {
-                    ForEach(todayPlanets) { pos in
-                        HStack(spacing: 6) {
-                            Text(planetGlyph(pos.planet))
-                                .font(.system(size: 14))
-                                .frame(width: 20, alignment: .center)
-
-                            VStack(alignment: .leading, spacing: 2) {
-                                HStack(spacing: 3) {
-                                    Text(pos.planet.name)
-                                        .font(.caption.weight(.semibold))
-                                        .foregroundStyle(.white)
-                                        .lineLimit(1)
-                                    if pos.isRetrograde {
-                                        Text("℞")
-                                            .font(.caption2)
-                                            .foregroundStyle(.red)
-                                    }
-                                }
-                                HStack(spacing: 3) {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 8) {
+                        ForEach(todayPlanets) { pos in
+                            VStack(spacing: 5) {
+                                Text(pos.planet.glyph)
+                                    .font(.system(size: 18, design: .serif))
+                                    .foregroundStyle(AstroTheme.planet(pos.planet))
+                                Text(pos.planet.name)
+                                    .font(.caption2.weight(.semibold))
+                                    .foregroundStyle(.white)
+                                    .lineLimit(1)
+                                HStack(spacing: 2) {
                                     Text(pos.sign.glyph)
-                                    Text(pos.sign.name)
-                                        .lineLimit(1)
+                                        .fontDesign(.serif)
+                                        .foregroundStyle(AstroTheme.element(pos.sign.element))
+                                    Text(String(format: "%.0f°", pos.degree))
+                                        .foregroundStyle(AstroTheme.textSecondary)
+                                        .monospacedDigit()
                                 }
                                 .font(.caption2)
-                                .foregroundStyle(AstroTheme.textSecondary)
+                                Text(pos.isRetrograde ? "℞" : " ")
+                                    .font(.system(size: 9, weight: .bold))
+                                    .foregroundStyle(AstroTheme.zorlayici)
                             }
-
-                            Spacer(minLength: 0)
+                            .frame(width: 64)
+                            .padding(.vertical, 8)
+                            .background(AstroTheme.surface, in: .rect(cornerRadius: 12))
+                            .accessibilityElement(children: .combine)
+                            .accessibilityLabel("\(pos.planet.name), \(pos.sign.name) \(String(format: "%.0f", pos.degree)) derece\(pos.isRetrograde ? ", retrograd" : "")")
                         }
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 6)
-                        .background(AstroTheme.surface, in: .rect(cornerRadius: 10))
                     }
+                    .padding(.horizontal, 2)
                 }
+                .scrollClipDisabled()
             }
         }
         .glassCard()
-    }
-
-    private func planetGlyph(_ planet: Planet) -> String {
-        switch planet {
-        case .sun:     "☉"
-        case .moon:    "☽"
-        case .mercury: "☿"
-        case .venus:   "♀"
-        case .mars:    "♂"
-        case .jupiter: "♃"
-        case .saturn:  "♄"
-        case .uranus:  "⛢"
-        case .neptune: "♆"
-        case .pluto:   "♇"
-        default:       "·"
-        }
     }
 
     // MARK: - Retrograde Durumu
@@ -399,7 +385,7 @@ struct HomeView: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(spacing: 6) {
                 Image(systemName: "arrow.backward.circle")
-                    .foregroundStyle(.red)
+                    .foregroundStyle(AstroTheme.zorlayici)
                 Text("Aktif Retrogradlar")
                     .font(.headline)
                     .foregroundStyle(.white)
@@ -407,10 +393,12 @@ struct HomeView: View {
 
             ForEach(activeRetrogrades) { retro in
                 HStack(spacing: 10) {
-                    Text(retro.planet.name.prefix(2))
-                        .font(.caption.bold())
-                        .foregroundStyle(AstroTheme.accent)
-                        .frame(width: 28)
+                    Text(retro.planet.glyph)
+                        .font(.system(size: 16, design: .serif))
+                        .foregroundStyle(AstroTheme.planet(retro.planet))
+                        .frame(width: 28, height: 28)
+                        .background(AstroTheme.planet(retro.planet).opacity(0.12), in: .circle)
+                        .accessibilityHidden(true)
                     VStack(alignment: .leading, spacing: 2) {
                         Text("\(retro.planet.name) Retrograde")
                             .font(.caption.bold())
@@ -422,6 +410,8 @@ struct HomeView: View {
                     Spacer()
                     Text(retro.startSign.glyph)
                         .font(.title3)
+                        .fontDesign(.serif)
+                        .foregroundStyle(AstroTheme.element(retro.startSign.element))
                 }
             }
         }
@@ -443,30 +433,15 @@ struct HomeView: View {
             }
 
             if let chart = appState.currentChart {
-                HStack(spacing: 0) {
+                HStack(spacing: 8) {
                     if let sun = chart.sunSign {
-                        bigThreeItem(
-                            label: "Güneş",
-                            sign: sun,
-                            icon: "sun.max.fill",
-                            color: .orange
-                        )
+                        bigThreeItem(label: "Güneş", sign: sun, glyph: "☉", color: AstroTheme.planet(.sun))
                     }
                     if let moon = chart.moonSign {
-                        bigThreeItem(
-                            label: "Ay",
-                            sign: moon,
-                            icon: "moon.fill",
-                            color: AstroTheme.accentSecondary
-                        )
+                        bigThreeItem(label: "Ay", sign: moon, glyph: "☽", color: AstroTheme.planet(.moon))
                     }
                     if let asc = chart.ascendant {
-                        bigThreeItem(
-                            label: "Yükselen",
-                            sign: asc,
-                            icon: "arrow.up.circle.fill",
-                            color: AstroTheme.accent
-                        )
+                        bigThreeItem(label: "Yükselen", sign: asc, glyph: "AC", color: AstroTheme.harmonik)
                     }
                 }
             }
@@ -476,63 +451,25 @@ struct HomeView: View {
 
     // MARK: - Yardımcılar
 
-    private func miniMood(title: String, rating: Int, icon: String, color: Color) -> some View {
-        VStack(spacing: 4) {
-            Image(systemName: icon)
-                .font(.caption2)
+    private func bigThreeItem(label: String, sign: ZodiacSign, glyph: String, color: Color) -> some View {
+        VStack(spacing: 5) {
+            Text(glyph)
+                .font(.system(size: 22, design: .serif))
                 .foregroundStyle(color)
-            Text(title)
-                .font(.caption2)
+            Text(label.uppercased())
+                .font(.system(size: 9, weight: .bold))
+                .kerning(1)
                 .foregroundStyle(AstroTheme.textTertiary)
-            HStack(spacing: 1) {
-                ForEach(0..<5, id: \.self) { i in
-                    Circle()
-                        .fill(i < rating ? color : AstroTheme.surface)
-                        .frame(width: 5, height: 5)
-                }
-            }
-        }
-        .frame(maxWidth: .infinity)
-    }
-
-    private func bigThreeItem(label: String, sign: ZodiacSign, icon: String, color: Color) -> some View {
-        VStack(spacing: 6) {
-            Image(systemName: icon)
-                .font(.title3)
-                .foregroundStyle(color)
-            Text(label)
-                .font(.caption2)
-                .foregroundStyle(AstroTheme.textTertiary)
-            Text(sign.glyph)
-                .font(.title2)
             Text(sign.name)
-                .font(.caption2.bold())
+                .font(.caption.weight(.semibold))
                 .foregroundStyle(.white)
         }
         .frame(maxWidth: .infinity)
-    }
-
-    private var moonPhaseIcon: String {
-        switch moonPhase.phase {
-        case .newMoon: "moonphase.new.moon"
-        case .waxingCrescent: "moonphase.waxing.crescent"
-        case .firstQuarter: "moonphase.first.quarter"
-        case .waxingGibbous: "moonphase.waxing.gibbous"
-        case .fullMoon: "moonphase.full.moon"
-        case .waningGibbous: "moonphase.waning.gibbous"
-        case .lastQuarter: "moonphase.last.quarter"
-        case .waningCrescent: "moonphase.waning.crescent"
-        }
-    }
-
-    private func starRating(_ rating: Int) -> some View {
-        HStack(spacing: 2) {
-            ForEach(0..<5, id: \.self) { i in
-                Image(systemName: i < rating ? "star.fill" : "star")
-                    .font(.caption2)
-                    .foregroundStyle(i < rating ? .orange : AstroTheme.textTertiary)
-            }
-        }
+        .padding(.vertical, 10)
+        .background(AstroTheme.surface, in: .rect(cornerRadius: 14))
+        .overlay { RoundedRectangle(cornerRadius: 14, style: .continuous).stroke(AstroTheme.cardBorder, lineWidth: 1) }
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(label): \(sign.name)")
     }
 
     private var greetingText: String {

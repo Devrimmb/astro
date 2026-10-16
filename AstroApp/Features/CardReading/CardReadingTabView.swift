@@ -2,6 +2,7 @@ import SwiftUI
 
 struct CardReadingTabView: View {
     @Environment(AppState.self) private var appState
+    @Environment(EntitlementManager.self) private var entitlements
 
     var body: some View {
         NavigationStack {
@@ -9,53 +10,31 @@ struct CardReadingTabView: View {
                 SubtleStarsBackground()
 
                 ScrollView {
-                    VStack(spacing: 20) {
+                    VStack(spacing: 12) {
+                        tarotHeroCard
+
+                        sectionHeader(title: "Diğer Fallar", icon: "sparkles", color: AstroTheme.accent)
+                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 10) {
+                            readingTile(
+                                glyph: "👁", title: "Katina Falı", subtitle: "Kadim aşk kartları",
+                                tint: AstroTheme.planet(.venus)
+                            ) { KatinaView() }
+                            readingTile(
+                                glyph: "ᚠ", title: "Rün Falı", subtitle: "Viking rehberliği",
+                                tint: AstroTheme.planet(.saturn), serif: true
+                            ) { RuneView() }
+                            readingTile(
+                                glyph: "⚡", title: "Tanrı Kartları", subtitle: "Mitolojik mesaj",
+                                tint: AstroTheme.planet(.neptune)
+                            ) { GodCardView() }
+                            readingTile(
+                                glyph: "✦", title: "Tarot Falı", subtitle: "3 kart açılımı",
+                                tint: AstroTheme.accent, serif: true
+                            ) { TarotView() }
+                        }
+
                         // MARK: - Nasıl Çalışır
                         cardReadingInfoBanner
-
-                        // MARK: - Tarot
-                        sectionHeader(title: "Tarot", icon: "sparkles", color: .purple)
-
-                        featureCard(
-                            icon: "sparkles",
-                            title: "Tarot Falı",
-                            description: "Geçmiş, şimdi ve gelecek — 3 kart açılımı",
-                            color: .purple,
-                            destination: TarotView()
-                        )
-
-                        // MARK: - Katina
-                        sectionHeader(title: "Katina", icon: "eye.fill", color: .orange)
-
-                        featureCard(
-                            icon: "eye.fill",
-                            title: "Katina Falı",
-                            description: "Kadim katina kartları ile geleceğine bak",
-                            color: .orange,
-                            destination: KatinaView()
-                        )
-
-                        // MARK: - Rune
-                        sectionHeader(title: "Rune", icon: "circle.grid.3x3.fill", color: .brown)
-
-                        featureCard(
-                            icon: "circle.grid.3x3.fill",
-                            title: "Rune Falı",
-                            description: "Kadim Viking runeleri ile rehberlik al",
-                            color: .brown,
-                            destination: RuneView()
-                        )
-
-                        // MARK: - Tanrı Kartları
-                        sectionHeader(title: "Tanrı Kartları", icon: "bolt.fill", color: .indigo)
-
-                        featureCard(
-                            icon: "bolt.fill",
-                            title: "Tanrı Kartları",
-                            description: "Mitolojik tanrılardan sana özel mesaj al",
-                            color: .indigo,
-                            destination: GodCardView()
-                        )
                     }
                     .padding()
                     .padding(.bottom, 40)
@@ -65,6 +44,98 @@ struct CardReadingTabView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbarColorScheme(.dark, for: .navigationBar)
         }
+    }
+
+    // MARK: - Günlük Tarot (hero)
+
+    private var tarotHeroCard: some View {
+        NavigationLink {
+            TarotView()
+                .environment(appState)
+                .environment(appState.store)
+                .environment(appState.entitlements)
+        } label: {
+            VStack(alignment: .leading, spacing: 12) {
+                HStack(spacing: 14) {
+                    // Kart arkası minyatürü
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 8, style: .continuous)
+                            .fill(LinearGradient(colors: [Color(red: 0.23, green: 0.16, blue: 0.48), Color(red: 0.10, green: 0.08, blue: 0.25)],
+                                                 startPoint: .topLeading, endPoint: .bottomTrailing))
+                        RoundedRectangle(cornerRadius: 8, style: .continuous)
+                            .stroke(AstroTheme.air.opacity(0.45), lineWidth: 1)
+                        Text("☉")
+                            .font(.system(size: 22, design: .serif))
+                            .foregroundStyle(AstroTheme.air)
+                    }
+                    .frame(width: 48, height: 72)
+                    .shadow(color: .black.opacity(0.4), radius: 8, y: 4)
+
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("TAROT · GÜNLÜK")
+                            .font(.system(size: 9, weight: .bold))
+                            .kerning(1.2)
+                            .foregroundStyle(AstroTheme.textTertiary)
+                        Text("Bugünün kartını çek")
+                            .font(.title3)
+                            .fontDesign(.serif)
+                            .foregroundStyle(.white)
+                        Text("Geçmiş · Şimdi · Gelecek")
+                            .font(.caption)
+                            .foregroundStyle(AstroTheme.textSecondary)
+                    }
+                    Spacer(minLength: 0)
+                }
+
+                HStack {
+                    Text("Kart Çek")
+                        .glassButton()
+                    Spacer()
+                    if entitlements.hasFullAccess {
+                        Pill.pro
+                    } else {
+                        Pill(text: "Günde 1 ücretsiz", color: AstroTheme.accent, icon: "gift.fill")
+                    }
+                }
+            }
+            .glassCard(tint: AstroTheme.planet(.sun))
+        }
+        .buttonStyle(.plain)
+    }
+
+    // MARK: - Fal Tile'ları
+
+    private func readingTile<Destination: View>(
+        glyph: String,
+        title: String,
+        subtitle: String,
+        tint: Color,
+        serif: Bool = false,
+        @ViewBuilder destination: @escaping () -> Destination
+    ) -> some View {
+        NavigationLink {
+            destination()
+                .environment(appState)
+                .environment(appState.store)
+                .environment(appState.entitlements)
+        } label: {
+            VStack(alignment: .leading, spacing: 8) {
+                Text(glyph)
+                    .font(.system(size: 22, design: serif ? .serif : .default))
+                    .foregroundStyle(tint)
+                    .frame(height: 28)
+                Text(title)
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.white)
+                Text(subtitle)
+                    .font(.caption)
+                    .foregroundStyle(AstroTheme.textSecondary)
+                    .lineLimit(1)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .glassCard(cornerRadius: 16, padding: 14, tint: tint)
+        }
+        .buttonStyle(.plain)
     }
 
     // MARK: - Bilgi Bandı
@@ -117,57 +188,17 @@ struct CardReadingTabView: View {
     // MARK: - Section Header
 
     private func sectionHeader(title: String, icon: String, color: Color) -> some View {
-        HStack(spacing: 8) {
+        HStack(spacing: 6) {
             Image(systemName: icon)
+                .font(.caption2)
                 .foregroundStyle(color)
-            Text(title)
-                .font(.title3.bold())
-                .foregroundStyle(.white)
+            Text(title.uppercased())
+                .font(.caption2.weight(.bold))
+                .kerning(1.2)
+                .foregroundStyle(AstroTheme.textTertiary)
             Spacer()
         }
-        .padding(.top, 4)
+        .padding(.top, 8)
+        .padding(.horizontal, 4)
     }
-
-    // MARK: - Feature Card
-
-    private func featureCard<Destination: View>(
-        icon: String,
-        title: String,
-        description: String,
-        color: Color,
-        destination: Destination
-    ) -> some View {
-        NavigationLink {
-            destination
-                .environment(appState)
-                .environment(appState.store)
-                .environment(appState.entitlements)
-        } label: {
-            HStack(spacing: 14) {
-                Image(systemName: icon)
-                    .font(.title2)
-                    .foregroundStyle(color)
-                    .frame(width: 44, height: 44)
-                    .background(color.opacity(0.15), in: .rect(cornerRadius: 12))
-
-                VStack(alignment: .leading, spacing: 3) {
-                    Text(title)
-                        .font(.headline)
-                        .foregroundStyle(.white)
-                    Text(description)
-                        .font(.caption)
-                        .foregroundStyle(AstroTheme.textSecondary)
-                        .lineLimit(2)
-                }
-
-                Spacer()
-
-                Image(systemName: "chevron.right")
-                    .font(.caption)
-                    .foregroundStyle(AstroTheme.textTertiary)
-            }
-            .glassCard()
-        }
-    }
-
 }

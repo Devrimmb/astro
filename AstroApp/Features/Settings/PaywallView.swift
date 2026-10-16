@@ -43,7 +43,8 @@ struct PaywallView: View {
                 .foregroundStyle(AstroTheme.accent)
 
             Text("Pro Özellikleri Aç")
-                .font(.title2.weight(.bold))
+                .font(.title2)
+                    .fontDesign(.serif)
                 .foregroundStyle(.white)
 
             Text("Yıldız haritanın tüm detaylarını keşfet")

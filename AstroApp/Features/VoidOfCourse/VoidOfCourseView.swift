@@ -55,11 +55,11 @@ struct VoidOfCourseView: View {
                 VStack(spacing: 10) {
                     Image(systemName: "moon.haze.fill")
                         .font(.system(size: 36))
-                        .foregroundStyle(.orange)
+                        .foregroundStyle(AstroTheme.water)
 
                     Text("Ay Şu An Boşlukta!")
                         .font(.headline)
-                        .foregroundStyle(.orange)
+                        .foregroundStyle(AstroTheme.water)
 
                     Text("\(voc.fromSign.name) → \(voc.toSign.name)")
                         .font(.subheadline)
@@ -104,7 +104,7 @@ struct VoidOfCourseView: View {
                         VStack(alignment: .leading, spacing: 2) {
                             Text("\(voc.startText) → \(voc.endText)")
                                 .font(.caption.bold())
-                                .foregroundStyle(voc.isActive ? .orange : .white)
+                                .foregroundStyle(voc.isActive ? AstroTheme.water : .white)
                             HStack(spacing: 4) {
                                 Text("\(voc.fromSign.glyph) \(voc.fromSign.name)")
                                     .font(.caption2)

@@ -29,12 +29,11 @@ struct MoonPhaseView: View {
 
     private var currentPhaseCard: some View {
         VStack(spacing: 16) {
-            Text(currentPhase.phase.emoji)
-                .font(.system(size: 72))
-                .accessibilityHidden(true)
+            MoonDisc(info: currentPhase, size: 170)
 
             Text(currentPhase.phase.name)
-                .font(.title2.bold())
+                .font(.title)
+                .fontDesign(.serif)
                 .foregroundStyle(.white)
 
             Text("Aydınlanma: %\(Int(currentPhase.illumination * 100))")
@@ -102,10 +101,8 @@ struct MoonPhaseView: View {
 
             ForEach(upcomingPhases, id: \.date) { info in
                 HStack {
-                    Text(info.phase.emoji)
-                        .font(.title3)
+                    MoonDisc(info: info, size: 28, glow: false)
                         .frame(width: 32)
-                        .accessibilityHidden(true)
                     VStack(alignment: .leading, spacing: 2) {
                         Text(info.phase.name)
                             .font(.subheadline)

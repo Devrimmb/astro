@@ -37,7 +37,8 @@ struct OnboardingView: View {
                 .foregroundStyle(AstroTheme.accent)
 
             Text("Yıldızlar Seni Bekliyor")
-                .font(.largeTitle.bold())
+                .font(.largeTitle)
+                    .fontDesign(.serif)
                 .foregroundStyle(.white)
                 .multilineTextAlignment(.center)
 
@@ -67,7 +68,8 @@ struct OnboardingView: View {
             VStack(spacing: 20) {
                 VStack(spacing: 6) {
                     Text("Doğum Bilgilerin")
-                        .font(.title.bold())
+                        .font(.title)
+                    .fontDesign(.serif)
                         .foregroundStyle(.white)
                     Text("Haritanı hesaplamak için bilgilerini gir.")
                         .font(.subheadline)

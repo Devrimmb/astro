@@ -42,7 +42,8 @@ struct TransitView: View {
             VStack(spacing: 20) {
                 VStack(spacing: 6) {
                     Text("Transitler")
-                        .font(.largeTitle.weight(.bold))
+                        .font(.largeTitle)
+                        .fontDesign(.serif)
                         .foregroundStyle(.white)
                     Text("Gezegen hareketlerinin haritanıza etkisi")
                         .font(.subheadline)
@@ -68,13 +69,19 @@ struct TransitView: View {
     private func transitContent(_ report: TransitReport) -> some View {
         ScrollView {
             VStack(spacing: 16) {
-                datePicker
+                weekStrip
                 if let chart = natalChart {
-                    TransitBiWheelView(
-                        natalChart: chart,
-                        transitPositions: report.transitPositions,
-                        size: 340
-                    )
+                    VStack(spacing: 6) {
+                        TransitBiWheelView(
+                            natalChart: chart,
+                            transitPositions: report.transitPositions,
+                            size: 340
+                        )
+                        HStack(spacing: 14) {
+                            wheelLegend(color: .white, text: "İç: natal")
+                            wheelLegend(color: AstroTheme.accentSecondary, text: "Dış: \(shortDateText(selectedDate))")
+                        }
+                    }
                     .glassCard()
                 }
                 currentPositionsCard(report)
@@ -119,34 +126,104 @@ struct TransitView: View {
         }
     }
 
-    // MARK: - Date Picker
+    // MARK: - Hafta Şeridi
 
-    private var datePicker: some View {
-        HStack {
-            Button {
-                selectedDate = Calendar.current.date(byAdding: .day, value: -1, to: selectedDate) ?? selectedDate
-            } label: {
-                Image(systemName: "chevron.left")
-                    .foregroundStyle(AstroTheme.accent)
+    /// Seçili günü ortalayan 7 günlük şerit; oklar haftayı kaydırır.
+    private var weekStrip: some View {
+        let calendar = Calendar.current
+        let days = (-3...3).compactMap { calendar.date(byAdding: .day, value: $0, to: selectedDate) }
+
+        return VStack(spacing: 8) {
+            HStack {
+                Button {
+                    selectedDate = calendar.date(byAdding: .day, value: -7, to: selectedDate) ?? selectedDate
+                } label: {
+                    Image(systemName: "chevron.left").font(.caption.weight(.semibold))
+                }
+                Spacer()
+                Text(monthYearText(selectedDate))
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.white)
+                Spacer()
+                if !isToday {
+                    Button("Bugün") { selectedDate = .now }
+                        .font(.caption.weight(.semibold))
+                }
+                Button {
+                    selectedDate = calendar.date(byAdding: .day, value: 7, to: selectedDate) ?? selectedDate
+                } label: {
+                    Image(systemName: "chevron.right").font(.caption.weight(.semibold))
+                }
             }
+            .foregroundStyle(AstroTheme.accent)
 
-            Spacer()
-
-            DatePicker("", selection: $selectedDate, displayedComponents: .date)
-                .labelsHidden()
-                .colorScheme(.dark)
-
-            Spacer()
-
-            Button {
-                selectedDate = Calendar.current.date(byAdding: .day, value: 1, to: selectedDate) ?? selectedDate
-            } label: {
-                Image(systemName: "chevron.right")
-                    .foregroundStyle(AstroTheme.accent)
+            HStack(spacing: 4) {
+                ForEach(days, id: \.self) { day in
+                    let selected = calendar.isDate(day, inSameDayAs: selectedDate)
+                    let today = calendar.isDateInToday(day)
+                    Button {
+                        selectedDate = day
+                    } label: {
+                        VStack(spacing: 2) {
+                            Text(weekdayText(day).uppercased())
+                                .font(.system(size: 8, weight: .bold))
+                                .kerning(0.8)
+                                .foregroundStyle(selected ? .white.opacity(0.8) : AstroTheme.textTertiary)
+                            Text("\(calendar.component(.day, from: day))")
+                                .font(.subheadline.weight(.semibold))
+                                .foregroundStyle(selected ? .white : AstroTheme.textSecondary)
+                            Circle()
+                                .fill(today ? AstroTheme.accentSecondary : .clear)
+                                .frame(width: 3, height: 3)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 6)
+                        .background {
+                            if selected {
+                                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                    .fill(AstroTheme.accent.opacity(0.35))
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                            .stroke(AstroTheme.accent.opacity(0.5), lineWidth: 1)
+                                    }
+                            }
+                        }
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel(fullDateText(day))
+                    .accessibilityAddTraits(selected ? [.isSelected] : [])
+                }
             }
         }
-        .padding(.horizontal, 8)
-        .glassCard()
+        .glassCard(cornerRadius: 16, padding: 12)
+        .sensoryFeedback(.selection, trigger: selectedDate)
+    }
+
+    private func wheelLegend(color: Color, text: String) -> some View {
+        HStack(spacing: 4) {
+            Circle().fill(color).frame(width: 6, height: 6)
+            Text(text).font(.caption2).foregroundStyle(AstroTheme.textTertiary)
+        }
+    }
+
+    private func monthYearText(_ date: Date) -> String {
+        let f = DateFormatter(); f.locale = Locale(identifier: "tr_TR"); f.dateFormat = "MMMM yyyy"
+        return f.string(from: date)
+    }
+
+    private func weekdayText(_ date: Date) -> String {
+        let f = DateFormatter(); f.locale = Locale(identifier: "tr_TR"); f.dateFormat = "EEE"
+        return f.string(from: date)
+    }
+
+    private func shortDateText(_ date: Date) -> String {
+        let f = DateFormatter(); f.locale = Locale(identifier: "tr_TR"); f.dateFormat = "d MMM yyyy"
+        return f.string(from: date)
+    }
+
+    private func fullDateText(_ date: Date) -> String {
+        let f = DateFormatter(); f.locale = Locale(identifier: "tr_TR"); f.dateFormat = "d MMMM yyyy, EEEE"
+        return f.string(from: date)
     }
 
     // MARK: - Current Positions
@@ -179,30 +256,8 @@ struct TransitView: View {
     private func positionRow(_ pos: PlanetPosition) -> some View {
         let isExpanded = expandedPlanets.contains(pos.planet)
         return VStack(alignment: .leading, spacing: 6) {
-            HStack(spacing: 8) {
-                Text(planetGlyph(pos.planet))
-                    .font(.callout)
-                    .frame(width: 20)
-                Text(pos.planet.rawValue)
-                    .font(.caption.weight(.medium))
-                    .foregroundStyle(.white)
-                    .frame(width: 60, alignment: .leading)
-                HStack(spacing: 3) {
-                    Text(pos.sign.glyph)
-                        .font(.caption2)
-                    Text("\(pos.sign.name) \(String(format: "%.0f", pos.degree))°")
-                        .font(.caption2.bold())
-                        .foregroundStyle(.white)
-                    if pos.isRetrograde {
-                        Text("℞")
-                            .font(.caption2)
-                            .foregroundStyle(.red)
-                    }
-                }
-                Spacer()
-                Text("\(pos.house). ev")
-                    .font(.caption2)
-                    .foregroundStyle(AstroTheme.textTertiary)
+            HStack(spacing: 6) {
+                PlanetRow(position: pos)
                 Image(systemName: "chevron.down")
                     .font(.caption2)
                     .foregroundStyle(AstroTheme.textTertiary)
@@ -234,8 +289,8 @@ struct TransitView: View {
     private func significantTransitsCard(_ report: TransitReport) -> some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(spacing: 6) {
-                Image(systemName: "exclamationmark.triangle.fill")
-                    .foregroundStyle(.orange)
+                Image(systemName: "sparkles")
+                    .foregroundStyle(AstroTheme.planet(.sun))
                 Text("Önemli Transitler")
                     .font(.headline)
                     .foregroundStyle(.white)
@@ -308,29 +363,7 @@ struct TransitView: View {
         let isExpanded = expandedAspects.contains(aspect.id)
         return VStack(alignment: .leading, spacing: 6) {
             HStack(spacing: 8) {
-                Text(planetGlyph(aspect.transitPlanet))
-                    .font(.caption)
-                    .frame(width: 18)
-
-                Text(aspect.type.symbol)
-                    .font(.caption)
-                    .foregroundStyle(aspectColor(aspect.type))
-                    .frame(width: 18)
-
-                Text(planetGlyph(aspect.natalPlanet))
-                    .font(.caption)
-                    .frame(width: 18)
-
-                VStack(alignment: .leading, spacing: 1) {
-                    Text("T.\(aspect.transitPlanet.rawValue) \(aspect.type.turkishName) N.\(aspect.natalPlanet.rawValue)")
-                        .font(.caption2)
-                        .foregroundStyle(.white)
-                    Text("\(aspect.applying ? "Yaklaşan" : "Ayrılan") · \(String(format: "%.1f", aspect.orb))° orb")
-                        .font(.caption2)
-                        .foregroundStyle(AstroTheme.textTertiary)
-                }
-
-                Spacer()
+                AspectRow(aspect)
 
                 Image(systemName: "chevron.down")
                     .font(.caption2)
@@ -358,34 +391,7 @@ struct TransitView: View {
     }
 
     private func aspectColor(_ type: AspectType) -> Color {
-        switch type.nature {
-        case .harmonik: AstroTheme.harmonik
-        case .zorlayici: AstroTheme.zorlayici
-        case .notr: AstroTheme.accent
-        }
-    }
-
-    private func planetGlyph(_ planet: Planet) -> String {
-        switch planet {
-        case .sun: "☉"
-        case .moon: "☽"
-        case .mercury: "☿"
-        case .venus: "♀"
-        case .mars: "♂"
-        case .jupiter: "♃"
-        case .saturn: "♄"
-        case .uranus: "♅"
-        case .neptune: "♆"
-        case .pluto: "♇"
-        case .northNode: "☊"
-        case .chiron: "⚷"
-        case .lilith: "⚸"
-        case .partOfFortune: "⊕"
-        case .ceres: "⚳"
-        case .pallas: "⚴"
-        case .juno: "⚵"
-        case .vesta: "⚶"
-        }
+        AstroTheme.nature(type.nature)
     }
 
     // MARK: - Data Loading

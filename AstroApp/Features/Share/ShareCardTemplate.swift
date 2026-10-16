@@ -100,7 +100,7 @@ func shareScoreColor(_ score: Int) -> Color {
     switch score {
     case 80...100: Color(red: 0.30, green: 0.85, blue: 0.65)
     case 60..<80: Color(red: 0.56, green: 0.44, blue: 1.0)
-    case 40..<60: .orange
+    case 40..<60: AstroTheme.planet(.sun)
     default: Color(red: 1.0, green: 0.40, blue: 0.45)
     }
 }

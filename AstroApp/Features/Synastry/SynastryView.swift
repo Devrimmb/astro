@@ -34,14 +34,17 @@ struct SynastryView: View {
 
             ScrollView {
                 VStack(spacing: 16) {
-                    if hasSavedPeople && !useManualEntry {
-                        peoplePickerCard
-                    } else {
-                        partnerInputCard
-                    }
+                    // Sonuç yokken seçim; sonuç varken seçim kartı gizlenir, çift başlığı gelir
+                    if synastryResult == nil || isLoading {
+                        if hasSavedPeople && !useManualEntry {
+                            peoplePickerCard
+                        } else {
+                            partnerInputCard
+                        }
 
-                    if hasSavedPeople {
-                        toggleModeButton
+                        if hasSavedPeople {
+                            toggleModeButton
+                        }
                     }
 
                     if isLoading {
@@ -50,6 +53,8 @@ struct SynastryView: View {
                             .foregroundStyle(AstroTheme.textSecondary)
                             .padding(.top, 20)
                     } else if let result = synastryResult {
+                        pairHeader(result)
+                        changePeopleButton
                         relationshipScoreCard(result)
                         scoreCard(result)
                         biWheelCard(result)
@@ -231,6 +236,57 @@ struct SynastryView: View {
         .glassCard()
     }
 
+    // MARK: - Kişileri Değiştir
+
+    /// Sonucu temizler, seçim kartını geri getirir
+    private var changePeopleButton: some View {
+        Button {
+            withAnimation(.easeInOut(duration: 0.2)) { synastryResult = nil }
+        } label: {
+            Label("Kişileri Değiştir", systemImage: "arrow.triangle.2.circlepath")
+                .font(.caption.weight(.medium))
+                .foregroundStyle(AstroTheme.textSecondary)
+                .padding(.horizontal, 14)
+                .padding(.vertical, 7)
+                .background(AstroTheme.surface, in: .capsule)
+                .overlay { Capsule().stroke(AstroTheme.cardBorder, lineWidth: 1) }
+        }
+    }
+
+    // MARK: - Çift Başlığı
+
+    /// İki kişinin Güneş burcu avatarı ve aralarında ♡ — sonucun kimler için olduğunu bir bakışta söyler.
+    private func pairHeader(_ result: SynastryResult) -> some View {
+        HStack(spacing: 14) {
+            personAvatar(name: displayName1, sign: result.chart1.sunSign, tint: AstroTheme.accent)
+            Image(systemName: "heart.fill")
+                .font(.subheadline)
+                .foregroundStyle(AstroTheme.planet(.venus))
+            personAvatar(name: displayName2, sign: result.chart2.sunSign, tint: AstroTheme.accentSecondary)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.top, 4)
+    }
+
+    private func personAvatar(name: String, sign: ZodiacSign?, tint: Color) -> some View {
+        VStack(spacing: 6) {
+            Text(sign?.glyph ?? "✦")
+                .font(.system(size: 20, design: .serif))
+                .foregroundStyle(sign.map { AstroTheme.element($0.element) } ?? tint)
+                .frame(width: 46, height: 46)
+                .background(tint.opacity(0.14), in: .circle)
+                .overlay { Circle().stroke(tint.opacity(0.45), lineWidth: 1) }
+                .accessibilityHidden(true)
+            Text(name)
+                .font(.caption.weight(.medium))
+                .foregroundStyle(.white)
+                .lineLimit(1)
+        }
+        .frame(width: 90)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(name): \(sign?.name ?? "bilinmiyor")")
+    }
+
     // MARK: - Relationship Score Card (Discepolo)
 
     private func relationshipScoreCard(_ result: SynastryResult) -> some View {
@@ -253,16 +309,19 @@ struct SynastryView: View {
                 }
             }
 
-            // Skor gösterimi
+            // Skor gösterimi — Discepolo ölçeği üst sınırsız (30+ nadir), o yüzden halka değil sayı
             HStack(spacing: 20) {
-                VStack(spacing: 4) {
+                VStack(spacing: 2) {
                     Text("\(rs.scoreValue)")
-                        .font(.system(size: 44, weight: .bold, design: .rounded))
+                        .font(.system(size: 48, design: .serif))
                         .foregroundStyle(discepologColor(rs.scoreValue))
-                    Text("puan")
-                        .font(.caption2)
+                        .contentTransition(.numericText())
+                    Text("PUAN")
+                        .font(.system(size: 9, weight: .semibold))
+                        .kerning(1.2)
                         .foregroundStyle(AstroTheme.textTertiary)
                 }
+                .frame(minWidth: 72)
 
                 VStack(alignment: .leading, spacing: 6) {
                     Text(rs.scoreDescription.rawValue)
@@ -276,44 +335,48 @@ struct SynastryView: View {
                 }
             }
 
-            // Skor çubuğu
-            GeometryReader { geo in
-                ZStack(alignment: .leading) {
-                    RoundedRectangle(cornerRadius: 4)
-                        .fill(AstroTheme.surface)
-                        .frame(height: 8)
-                    RoundedRectangle(cornerRadius: 4)
-                        .fill(discepologColor(rs.scoreValue))
-                        .frame(width: geo.size.width * min(Double(rs.scoreValue) / 30.0, 1.0), height: 8)
-                }
-            }
-            .frame(height: 8)
-
-            // Referans açıklaması
-            HStack(spacing: 0) {
-                scoreRangeLabel("0–5", "Min.")
-                scoreRangeLabel("5–10", "Orta")
-                scoreRangeLabel("10–15", "Önemli")
-                scoreRangeLabel("15–20", "Çok Ö.")
-                scoreRangeLabel("20–30", "Harika")
-                scoreRangeLabel("30+", "Nadir")
-            }
-            .font(.system(size: 7))
-            .foregroundStyle(AstroTheme.textTertiary)
+            // Ölçek: 6 bant, içinde bulunulan bant dolu
+            discepoloScale(score: rs.scoreValue, color: discepologColor(rs.scoreValue))
 
             Text("Ciro Discepolo metodu — gezegen etkileşimlerine dayalı")
                 .font(.system(size: 9))
                 .foregroundStyle(AstroTheme.textTertiary)
         }
-        .glassCard()
+        .glassCard(tint: AstroTheme.planet(.venus))
     }
 
-    private func scoreRangeLabel(_ range: String, _ label: String) -> some View {
-        VStack(spacing: 1) {
-            Text(range)
-            Text(label)
+    /// Discepolo bantları: (alt sınır, ad). Son bant açık uçlu.
+    private let discepoloBands: [(lower: Int, name: String)] = [
+        (0, "Min."), (5, "Orta"), (10, "Önemli"), (15, "Çok Önemli"), (20, "Harika"), (30, "Nadir")
+    ]
+
+    private func discepoloScale(score: Int, color: Color) -> some View {
+        let activeIndex = discepoloBands.lastIndex { score >= $0.lower } ?? 0
+        return VStack(spacing: 5) {
+            HStack(spacing: 3) {
+                ForEach(Array(discepoloBands.enumerated()), id: \.offset) { index, _ in
+                    Capsule()
+                        .fill(index <= activeIndex ? color.opacity(index == activeIndex ? 1 : 0.45) : .white.opacity(0.08))
+                        .frame(height: 6)
+                }
+            }
+            HStack(spacing: 3) {
+                ForEach(Array(discepoloBands.enumerated()), id: \.offset) { index, band in
+                    let upper = index + 1 < discepoloBands.count ? "–\(discepoloBands[index + 1].lower)" : "+"
+                    VStack(spacing: 1) {
+                        Text("\(band.lower)\(upper)")
+                        Text(band.name)
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.7)
+                    }
+                    .font(.system(size: 7.5, weight: index == activeIndex ? .bold : .regular))
+                    .foregroundStyle(index == activeIndex ? color : AstroTheme.textTertiary)
+                    .frame(maxWidth: .infinity)
+                }
+            }
         }
-        .frame(maxWidth: .infinity)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("Discepolo ölçeği: \(score) puan, \(discepoloBands[activeIndex].name)")
     }
 
     // MARK: - Breakdown Card
@@ -381,24 +444,7 @@ struct SynastryView: View {
                     .foregroundStyle(.white)
             }
 
-            ZStack {
-                Circle()
-                    .stroke(AstroTheme.surface, lineWidth: 8)
-                    .frame(width: 100, height: 100)
-                Circle()
-                    .trim(from: 0, to: Double(score) / 100)
-                    .stroke(scoreColor(score), style: StrokeStyle(lineWidth: 8, lineCap: .round))
-                    .frame(width: 100, height: 100)
-                    .rotationEffect(.degrees(-90))
-                VStack(spacing: 0) {
-                    Text("\(score)")
-                        .font(.title.bold())
-                        .foregroundStyle(.white)
-                    Text("/ 100")
-                        .font(.caption2)
-                        .foregroundStyle(AstroTheme.textTertiary)
-                }
-            }
+            ScoreRing(value: score, total: 100, tint: scoreColor(score), label: "/ 100", size: 104)
 
             Text(scoreText(score))
                 .font(.subheadline.bold())
@@ -420,35 +466,47 @@ struct SynastryView: View {
                 .font(.headline)
                 .foregroundStyle(.white)
 
-            categoryRow(icon: "heart.fill", title: "Duygusal Uyum", score: result.emotionalScore, color: AstroTheme.zorlayici)
-            Divider().overlay(AstroTheme.cardBorder)
-            categoryRow(icon: "bubble.left.fill", title: "İletişim", score: result.communicationScore, color: AstroTheme.accent)
-            Divider().overlay(AstroTheme.cardBorder)
-            categoryRow(icon: "flame.fill", title: "Tutku", score: result.passionScore, color: .orange)
-            Divider().overlay(AstroTheme.cardBorder)
-            categoryRow(icon: "shield.fill", title: "Kararlılık", score: result.stabilityScore, color: AstroTheme.harmonik)
+            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 8) {
+                categoryTile(icon: "heart.fill", title: "Duygusal Uyum", score: result.emotionalScore, color: AstroTheme.planet(.venus))
+                categoryTile(icon: "bubble.left.fill", title: "İletişim", score: result.communicationScore, color: AstroTheme.air)
+                categoryTile(icon: "flame.fill", title: "Tutku", score: result.passionScore, color: AstroTheme.planet(.mars))
+                categoryTile(icon: "shield.fill", title: "Kararlılık", score: result.stabilityScore, color: AstroTheme.harmonik)
+            }
         }
         .glassCard()
     }
 
-    private func categoryRow(icon: String, title: String, score: Int, color: Color) -> some View {
-        HStack {
-            Image(systemName: icon)
-                .font(.caption)
-                .foregroundStyle(color)
-                .frame(width: 20)
-            Text(title)
-                .font(.subheadline)
-                .foregroundStyle(.white)
-            Spacer()
-            ProgressView(value: Double(score), total: 100)
-                .tint(color)
-                .frame(width: 80)
+    private func categoryTile(icon: String, title: String, score: Int, color: Color) -> some View {
+        VStack(alignment: .leading, spacing: 6) {
+            HStack(spacing: 5) {
+                Image(systemName: icon)
+                    .font(.caption2)
+                    .foregroundStyle(color)
+                Text(title.uppercased())
+                    .font(.system(size: 9, weight: .bold))
+                    .kerning(1)
+                    .foregroundStyle(AstroTheme.textTertiary)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.8)
+            }
             Text("\(score)")
-                .font(.caption.bold())
+                .font(.system(size: 26, design: .serif))
                 .foregroundStyle(color)
-                .frame(width: 30, alignment: .trailing)
+                .contentTransition(.numericText())
+            GeometryReader { geo in
+                ZStack(alignment: .leading) {
+                    Capsule().fill(.white.opacity(0.08))
+                    Capsule().fill(color).frame(width: geo.size.width * min(Double(score) / 100, 1))
+                }
+            }
+            .frame(height: 3)
         }
+        .padding(12)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(AstroTheme.surface, in: .rect(cornerRadius: 14))
+        .overlay { RoundedRectangle(cornerRadius: 14, style: .continuous).stroke(AstroTheme.cardBorder, lineWidth: 1) }
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(title): 100 üzerinden \(score)")
     }
 
     // MARK: - Key Aspects
@@ -480,22 +538,8 @@ struct SynastryView: View {
     }
 
     private func synastryAspectRow(_ aspect: SynastryAspect) -> some View {
-        HStack(spacing: 8) {
-            Circle()
-                .fill(aspectNatureColor(aspect.type))
-                .frame(width: 6, height: 6)
-
-            Text(aspect.description)
-                .font(.caption)
-                .foregroundStyle(.white)
-
-            Spacer()
-
-            Text(aspect.type.turkishName)
-                .font(.caption2)
-                .foregroundStyle(aspectNatureColor(aspect.type))
-        }
-        .padding(.vertical, 3)
+        AspectRow(aspect, name1: displayName1, name2: displayName2)
+            .padding(.vertical, 3)
     }
 
     // MARK: - Bütüncül Yorum (sentez)
@@ -526,7 +570,7 @@ struct SynastryView: View {
             HStack(spacing: 6) {
                 Image(systemName: "circle.circle.fill")
                     .foregroundStyle(AstroTheme.accent)
-                Text("Sinastri Haritası")
+                Text("Synastry Haritası")
                     .font(.headline)
                     .foregroundStyle(.white)
             }
@@ -558,9 +602,9 @@ struct SynastryView: View {
 
             // Açıklama
             HStack(spacing: 12) {
-                legendDot(.green,  "Harmonik")
-                legendDot(.red,    "Zorlayıcı")
-                legendDot(.blue,   "Nötr")
+                legendDot(AstroTheme.harmonik,  "Harmonik")
+                legendDot(AstroTheme.zorlayici, "Zorlayıcı")
+                legendDot(AstroTheme.notr,      "Nötr")
             }
             .frame(maxWidth: .infinity)
         }
@@ -602,7 +646,7 @@ struct SynastryView: View {
         case 20...: AstroTheme.harmonik
         case 15..<20: AstroTheme.accentSecondary
         case 10..<15: AstroTheme.accent
-        case 5..<10: .orange
+        case 5..<10: AstroTheme.planet(.sun)
         default: AstroTheme.textSecondary
         }
     }
@@ -611,7 +655,7 @@ struct SynastryView: View {
         switch score {
         case 70...100: AstroTheme.harmonik
         case 50..<70: AstroTheme.accent
-        case 30..<50: .orange
+        case 30..<50: AstroTheme.planet(.sun)
         default: AstroTheme.zorlayici
         }
     }
@@ -626,13 +670,6 @@ struct SynastryView: View {
         }
     }
 
-    private func aspectNatureColor(_ type: AspectType) -> Color {
-        switch type.nature {
-        case .harmonik: AstroTheme.harmonik
-        case .zorlayici: AstroTheme.zorlayici
-        case .notr: AstroTheme.accent
-        }
-    }
 
     // MARK: - Calculation
 

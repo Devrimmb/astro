@@ -154,7 +154,7 @@ struct AstroCalendarContent: View {
                 VStack(alignment: .leading, spacing: 10) {
                     HStack(spacing: 6) {
                         Image(systemName: "sun.min.fill")
-                            .foregroundStyle(.orange)
+                            .foregroundStyle(AstroTheme.planet(.sun))
                         Text("Bugün")
                             .font(.headline)
                             .foregroundStyle(.white)
@@ -171,7 +171,7 @@ struct AstroCalendarContent: View {
                                 if let sign = moon.moonSign {
                                     Text("Ay \(sign.glyph) \(sign.name) burcunda")
                                         .font(.caption)
-                                        .foregroundStyle(.cyan)
+                                        .foregroundStyle(AstroTheme.planet(.moon))
                                 }
                             }
                         }
@@ -180,7 +180,7 @@ struct AstroCalendarContent: View {
                     if let tip = today.dailyTip {
                         HStack(alignment: .top, spacing: 8) {
                             Image(systemName: "lightbulb.fill")
-                                .foregroundStyle(.yellow)
+                                .foregroundStyle(AstroTheme.planet(.sun))
                                 .font(.caption)
                             Text(tip)
                                 .font(.caption)
@@ -240,11 +240,11 @@ struct AstroCalendarContent: View {
 
     private func eventColor(_ type: CalendarEventType) -> Color {
         switch type {
-        case .moonPhase: .cyan
-        case .eclipse: .indigo
-        case .retrograde: .red
+        case .moonPhase: AstroTheme.planet(.moon)
+        case .eclipse: AstroTheme.accent
+        case .retrograde: AstroTheme.zorlayici
         case .voidOfCourse: Color(red: 0.6, green: 0.5, blue: 0.8)
-        case .planetaryHour: .brown
+        case .planetaryHour: AstroTheme.planet(.saturn)
         }
     }
 }

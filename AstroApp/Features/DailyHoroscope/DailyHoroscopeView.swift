@@ -130,7 +130,8 @@ struct DailyHoroscopeView: View {
                     .accessibilityHidden(true)
                 VStack(alignment: .leading, spacing: 2) {
                     Text(h.sign.name)
-                        .font(.title2.bold())
+                        .font(.title2)
+                    .fontDesign(.serif)
                         .foregroundStyle(.white)
                     Text(h.dateText)
                         .font(.caption)
@@ -156,7 +157,7 @@ struct DailyHoroscopeView: View {
             moodItem(title: "Aşk", rating: h.loveRating, icon: "heart.fill", color: AstroTheme.zorlayici)
             moodItem(title: "Kariyer", rating: h.careerRating, icon: "briefcase.fill", color: AstroTheme.accent)
             moodItem(title: "Sağlık", rating: h.healthRating, icon: "leaf.fill", color: AstroTheme.harmonik)
-            moodItem(title: "Şans", rating: h.luckRating, icon: "star.fill", color: .orange)
+            moodItem(title: "Şans", rating: h.luckRating, icon: "star.fill", color: AstroTheme.planet(.sun))
         }
         .glassCard()
     }
@@ -169,13 +170,7 @@ struct DailyHoroscopeView: View {
             Text(title)
                 .font(.caption2)
                 .foregroundStyle(AstroTheme.textSecondary)
-            HStack(spacing: 2) {
-                ForEach(0..<5, id: \.self) { i in
-                    Circle()
-                        .fill(i < rating ? color : AstroTheme.surface)
-                        .frame(width: 6, height: 6)
-                }
-            }
+            DotMeter(value: rating, tint: color, dotSize: 6)
         }
         .frame(maxWidth: .infinity)
         .accessibilityElement(children: .combine)
@@ -189,7 +184,7 @@ struct DailyHoroscopeView: View {
             HStack(spacing: 6) {
                 Image(systemName: "lightbulb.fill")
                     .font(.caption)
-                    .foregroundStyle(.orange)
+                    .foregroundStyle(AstroTheme.planet(.sun))
                 Text("Günün Tavsiyesi")
                     .font(.caption.bold())
                     .foregroundStyle(.white)
@@ -222,7 +217,7 @@ struct DailyHoroscopeView: View {
             ForEach(0..<5, id: \.self) { i in
                 Image(systemName: i < rating ? "star.fill" : "star")
                     .font(.caption2)
-                    .foregroundStyle(i < rating ? .orange : AstroTheme.textTertiary)
+                    .foregroundStyle(i < rating ? AstroTheme.planet(.sun) : AstroTheme.textTertiary)
             }
         }
         .accessibilityLabel("Genel: 5 üzerinden \(rating)")

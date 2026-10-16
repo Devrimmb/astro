@@ -76,7 +76,7 @@ struct ChartShareCard: View {
                 label: "GÜNEŞ",
                 sign: chart.sunSign,
                 icon: "sun.max.fill",
-                color: .orange
+                color: AstroTheme.planet(.sun)
             )
             bigThreeItem(
                 label: "AY",
@@ -250,7 +250,7 @@ struct SynastryShareCard: View {
                 VStack(spacing: 20) {
                     categoryBar(icon: "heart.fill", title: "Duygusal", score: emotionalScore, color: Color(red: 1.0, green: 0.40, blue: 0.45))
                     categoryBar(icon: "bubble.left.fill", title: "İletişim", score: communicationScore, color: Color(red: 0.56, green: 0.44, blue: 1.0))
-                    categoryBar(icon: "flame.fill", title: "Tutku", score: passionScore, color: .orange)
+                    categoryBar(icon: "flame.fill", title: "Tutku", score: passionScore, color: AstroTheme.planet(.sun))
                     categoryBar(icon: "shield.fill", title: "Kararlılık", score: stabilityScore, color: Color(red: 0.30, green: 0.85, blue: 0.65))
                 }
                 .padding(.horizontal, 80)
@@ -305,7 +305,7 @@ struct SynastryShareCard: View {
         case 20...: Color(red: 0.30, green: 0.85, blue: 0.65)
         case 15..<20: Color(red: 0.35, green: 0.78, blue: 0.98)
         case 10..<15: Color(red: 0.56, green: 0.44, blue: 1.0)
-        case 5..<10: .orange
+        case 5..<10: AstroTheme.planet(.sun)
         default: Color.white.opacity(0.55)
         }
     }
@@ -314,7 +314,7 @@ struct SynastryShareCard: View {
         switch aspectScore {
         case 70...100: Color(red: 0.30, green: 0.85, blue: 0.65)
         case 50..<70: Color(red: 0.56, green: 0.44, blue: 1.0)
-        case 30..<50: .orange
+        case 30..<50: AstroTheme.planet(.sun)
         default: Color(red: 1.0, green: 0.40, blue: 0.45)
         }
     }

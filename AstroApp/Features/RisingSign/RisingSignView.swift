@@ -78,11 +78,12 @@ struct RisingSignView: View {
 
             Image(systemName: "sunrise.fill")
                 .font(.system(size: 48))
-                .foregroundStyle(.orange.opacity(0.8))
+                .foregroundStyle(AstroTheme.harmonik.opacity(0.8))
 
             VStack(spacing: 8) {
                 Text("Yükselen Burç")
-                    .font(.largeTitle.weight(.bold))
+                    .font(.largeTitle)
+                    .fontDesign(.serif)
                     .foregroundStyle(.white)
                 Text("Bugünkü ücretsiz hakkını kullandın")
                     .font(.subheadline)
@@ -106,11 +107,12 @@ struct RisingSignView: View {
 
             Image(systemName: "sunrise.fill")
                 .font(.system(size: 48))
-                .foregroundStyle(.orange.opacity(0.8))
+                .foregroundStyle(AstroTheme.harmonik.opacity(0.8))
 
             VStack(spacing: 8) {
                 Text("Yükselen Burç")
-                    .font(.largeTitle.weight(.bold))
+                    .font(.largeTitle)
+                    .fontDesign(.serif)
                     .foregroundStyle(.white)
                 Text("Yükselen burcun dış dünyadaki izlenimini yansıtır")
                     .font(.subheadline)
@@ -289,7 +291,7 @@ struct RisingSignView: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text("Doğum saati yükselen burç hesabı için çok önemlidir")
                     .font(.caption2)
-                    .foregroundStyle(.orange.opacity(0.8))
+                    .foregroundStyle(AstroTheme.harmonik.opacity(0.8))
             }
 
             LocationPickerView(
@@ -309,7 +311,7 @@ struct RisingSignView: View {
                 VStack(spacing: 16) {
                     Image(systemName: "sunrise.fill")
                         .font(.system(size: 36))
-                        .foregroundStyle(.orange.opacity(0.8))
+                        .foregroundStyle(AstroTheme.harmonik.opacity(0.8))
 
                     // Kişi adı
                     if let name = calculatedName {
@@ -326,7 +328,8 @@ struct RisingSignView: View {
                         Text(rising.glyph)
                             .font(.system(size: 48))
                         Text(rising.name)
-                            .font(.title2.weight(.bold))
+                            .font(.title2)
+                    .fontDesign(.serif)
                             .foregroundStyle(.white)
                     }
 
@@ -358,7 +361,7 @@ struct RisingSignView: View {
                     VStack(alignment: .leading, spacing: 12) {
                         HStack(spacing: 8) {
                             Image(systemName: "sunrise.fill")
-                                .foregroundStyle(.orange)
+                                .foregroundStyle(AstroTheme.harmonik)
                             Text(entry.name)
                                 .font(.headline)
                                 .foregroundStyle(.white)
@@ -404,7 +407,7 @@ struct RisingSignView: View {
                 VStack(spacing: 12) {
                     Image(systemName: "exclamationmark.triangle")
                         .font(.title)
-                        .foregroundStyle(.orange)
+                        .foregroundStyle(AstroTheme.harmonik)
                     Text("Yükselen burç hesaplanamadı")
                         .font(.headline)
                         .foregroundStyle(.white)

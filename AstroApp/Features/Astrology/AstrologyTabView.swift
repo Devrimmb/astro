@@ -9,7 +9,9 @@ struct AstrologyTabView: View {
                 SubtleStarsBackground()
 
                 ScrollView {
-                    VStack(spacing: 20) {
+                    VStack(spacing: 12) {
+                        chartHeroCard
+
                         // MARK: - Bilgi Bandı
                         astrologyInfoBanner
 
@@ -27,24 +29,24 @@ struct AstrologyTabView: View {
                             icon: "sunrise.fill",
                             title: "Yükselen Burç Yorumu",
                             description: "Yükselen burcun ve güneş burcunun birleşik etkisi",
-                            color: .orange
+                            color: AstroTheme.harmonik
                         ) { RisingSignView() }
 
                         featureCard(
                             icon: "moon.fill",
                             title: "Ay Burcu Yorumu",
                             description: "Ay burcunun duygusal dünyandaki etkisini keşfet",
-                            color: .yellow
+                            color: AstroTheme.planet(.moon)
                         ) { MoonSignView() }
 
                         // MARK: - Günlük & Dönemsel
-                        sectionHeader(title: "Günlük & Dönemsel", icon: "sun.horizon", color: .orange)
+                        sectionHeader(title: "Günlük & Dönemsel", icon: "sun.horizon", color: AstroTheme.planet(.sun))
 
                         featureCard(
                             icon: "sun.horizon",
                             title: "Günlük Burç Yorumu",
                             description: "Bugünün enerjisi ve burç yorumunuz",
-                            color: .orange
+                            color: AstroTheme.planet(.sun)
                         ) { DailyHoroscopeView() }
 
                         featureCard(
@@ -58,79 +60,79 @@ struct AstrologyTabView: View {
                             icon: "sun.max.circle",
                             title: "Güneş Dönüşü",
                             description: "Yıllık Solar Return haritanız — yılın enerjisini keşfedin",
-                            color: .orange
+                            color: AstroTheme.air
                         ) { SolarReturnView() }
 
                         // MARK: - Uyum & İlişkiler
-                        sectionHeader(title: "Uyum & İlişkiler", icon: "heart.text.square", color: .pink)
+                        sectionHeader(title: "Uyum & İlişkiler", icon: "heart.text.square", color: AstroTheme.planet(.venus))
 
                         featureCard(
                             icon: "heart.text.square",
                             title: "Synastry Analizi",
                             description: "İki harita karşılaştırması ile gerçek ilişki uyumu",
-                            color: AstroTheme.zorlayici
+                            color: AstroTheme.planet(.venus)
                         ) { SynastryView() }
 
                         featureCard(
                             icon: "arrow.triangle.merge",
                             title: "Composite Harita",
                             description: "İki haritanın orta noktalarından ilişki haritası",
-                            color: .mint
+                            color: AstroTheme.harmonik
                         ) { CompositeChartView() }
 
                         // MARK: - Takvim
-                        sectionHeader(title: "Takvim", icon: "calendar", color: .blue)
+                        sectionHeader(title: "Takvim", icon: "calendar", color: AstroTheme.accentSecondary)
 
                         featureCard(
                             icon: "calendar.badge.clock",
                             title: "Astro Takvim",
                             description: "Ay fazları, retrograde, tutulma ve VOC — tek takvimde",
-                            color: .blue
+                            color: AstroTheme.accentSecondary
                         ) { AstroCalendarContent() }
 
                         // MARK: - Ay & Gök Olayları
-                        sectionHeader(title: "Ay & Gök Olayları", icon: "moon.stars", color: .cyan)
+                        sectionHeader(title: "Ay & Gök Olayları", icon: "moon.stars", color: AstroTheme.water)
 
                         featureCard(
                             icon: "moon.stars",
                             title: "Ay Fazları",
                             description: "Güncel ay fazı, ay burcu ve enerji rehberi",
-                            color: .cyan
+                            color: AstroTheme.planet(.moon)
                         ) { MoonPhaseView() }
 
                         featureCard(
                             icon: "moon.haze",
                             title: "Ay Boşlukta (VOC)",
                             description: "Void of Course Moon — karar almak için uygun olmayan zamanlar",
-                            color: Color(red: 0.6, green: 0.5, blue: 0.8)
+                            color: AstroTheme.water
                         ) { VoidOfCourseView() }
 
                         featureCard(
                             icon: "arrow.backward.circle",
                             title: "Retrograde Takvimi",
                             description: "Gezegen retrograde dönemleri takvimi",
-                            color: .red
+                            color: AstroTheme.zorlayici
                         ) { RetrogradeCalendarView() }
 
                         featureCard(
                             icon: "circle.lefthalf.striped.horizontal",
                             title: "Tutulmalar",
                             description: "Güneş ve Ay tutulma tarihleri ve etkileri",
-                            color: .indigo
+                            color: AstroTheme.accent
                         ) { EclipseView() }
 
                         featureCard(
                             icon: "clock.fill",
                             title: "Gezegen Saatleri",
                             description: "Günün her saatinin yönetici gezegeni",
-                            color: .brown
+                            color: AstroTheme.planet(.saturn)
                         ) { PlanetaryHoursView() }
 
                         featureCard(
                             icon: "sparkle",
                             title: "Sabit Yıldızlar",
                             description: "Regulus, Sirius, Algol ve diğer önemli sabit yıldızlar",
-                            color: .yellow
+                            color: AstroTheme.air
                         ) { FixedStarsView() }
                     }
                     .padding()
@@ -141,6 +143,90 @@ struct AstrologyTabView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbarColorScheme(.dark, for: .navigationBar)
         }
+    }
+
+    // MARK: - Doğum Haritan (hero)
+
+    /// Harita varsa sonuç ekranına kestirme; yoksa hesaplamaya çağrı.
+    @ViewBuilder
+    private var chartHeroCard: some View {
+        if let chart = appState.currentChart {
+            let name = appState.birthDataStore.savedData?.name ?? ""
+            NavigationLink {
+                BirthChartResultView(chart: chart, personName: name.isEmpty ? "Haritam" : name)
+                    .environment(appState)
+                    .environment(appState.store)
+                    .environment(appState.entitlements)
+            } label: {
+                HStack(spacing: 14) {
+                    ZStack {
+                        Circle().stroke(.white.opacity(0.14), lineWidth: 1)
+                        Circle().stroke(.white.opacity(0.08), lineWidth: 1).padding(7)
+                        if let sun = chart.sunSign {
+                            Text(sun.glyph)
+                                .font(.system(size: 20, design: .serif))
+                                .foregroundStyle(AstroTheme.element(sun.element))
+                        }
+                        Circle().fill(AstroTheme.planet(.sun)).frame(width: 5, height: 5).offset(y: -26)
+                        Circle().fill(AstroTheme.planet(.moon)).frame(width: 4, height: 4).offset(x: 20, y: 17)
+                        Circle().fill(AstroTheme.harmonik).frame(width: 4, height: 4).offset(x: -21, y: 15)
+                    }
+                    .frame(width: 56, height: 56)
+
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text("Doğum Haritan")
+                            .font(.subheadline.weight(.semibold))
+                            .foregroundStyle(.white)
+                        Text(heroSubtitle(name: name, chart: chart))
+                            .font(.caption)
+                            .foregroundStyle(AstroTheme.textSecondary)
+                            .lineLimit(1)
+                    }
+                    Spacer()
+                    Image(systemName: "chevron.right")
+                        .font(.caption)
+                        .foregroundStyle(AstroTheme.accent)
+                }
+                .glassCard(tint: AstroTheme.accent)
+            }
+        } else {
+            NavigationLink {
+                BirthChartInputView()
+                    .environment(appState)
+                    .environment(appState.store)
+                    .environment(appState.entitlements)
+            } label: {
+                HStack(spacing: 14) {
+                    Image(systemName: "star.circle.fill")
+                        .font(.title)
+                        .foregroundStyle(AstroTheme.accent)
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text("Doğum haritanı oluştur")
+                            .font(.subheadline.weight(.semibold))
+                            .foregroundStyle(.white)
+                        Text("Tüm yorumlar ve transitler haritana göre kişiselleşir.")
+                            .font(.caption)
+                            .foregroundStyle(AstroTheme.textSecondary)
+                    }
+                    Spacer()
+                    Image(systemName: "chevron.right")
+                        .font(.caption)
+                        .foregroundStyle(AstroTheme.accent)
+                }
+                .glassCard(tint: AstroTheme.accent)
+            }
+        }
+    }
+
+    private func heroSubtitle(name: String, chart: BirthChart) -> String {
+        let f = DateFormatter()
+        f.locale = Locale(identifier: "tr_TR")
+        f.dateFormat = "d MMM yyyy"
+        var parts: [String] = []
+        if !name.isEmpty { parts.append(name) }
+        parts.append(f.string(from: chart.birthDate))
+        if let city = appState.birthDataStore.savedData?.cityName, !city.isEmpty { parts.append(city) }
+        return parts.joined(separator: " · ")
     }
 
     // MARK: - Bilgi Bandı
@@ -193,15 +279,18 @@ struct AstrologyTabView: View {
     // MARK: - Section Header
 
     private func sectionHeader(title: String, icon: String, color: Color) -> some View {
-        HStack(spacing: 8) {
+        HStack(spacing: 6) {
             Image(systemName: icon)
+                .font(.caption2)
                 .foregroundStyle(color)
-            Text(title)
-                .font(.title3.bold())
-                .foregroundStyle(.white)
+            Text(title.uppercased())
+                .font(.caption2.weight(.bold))
+                .kerning(1.2)
+                .foregroundStyle(AstroTheme.textTertiary)
             Spacer()
         }
-        .padding(.top, 4)
+        .padding(.top, 8)
+        .padding(.horizontal, 4)
     }
 
     // MARK: - Feature Card
@@ -219,16 +308,16 @@ struct AstrologyTabView: View {
                 .environment(appState.store)
                 .environment(appState.entitlements)
         } label: {
-            HStack(spacing: 14) {
+            HStack(spacing: 12) {
                 Image(systemName: icon)
-                    .font(.title2)
+                    .font(.title3)
                     .foregroundStyle(color)
-                    .frame(width: 44, height: 44)
-                    .background(color.opacity(0.15), in: .rect(cornerRadius: 12))
+                    .frame(width: 40, height: 40)
+                    .background(color.opacity(0.14), in: .rect(cornerRadius: 12))
 
-                VStack(alignment: .leading, spacing: 3) {
+                VStack(alignment: .leading, spacing: 2) {
                     Text(title)
-                        .font(.headline)
+                        .font(.subheadline.weight(.semibold))
                         .foregroundStyle(.white)
                     Text(description)
                         .font(.caption)
@@ -240,10 +329,10 @@ struct AstrologyTabView: View {
                 Spacer()
 
                 Image(systemName: "chevron.right")
-                    .font(.caption)
+                    .font(.caption2)
                     .foregroundStyle(AstroTheme.textTertiary)
             }
-            .glassCard()
+            .glassCard(cornerRadius: 16, padding: 12)
         }
     }
 }

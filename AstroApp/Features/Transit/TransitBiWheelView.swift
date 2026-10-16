@@ -40,32 +40,34 @@ struct TransitBiWheelView: View {
             let startAngle = chartAngle(startDeg)
             let endAngle = chartAngle(endDeg)
 
-            var path = Path()
-            path.addArc(center: center, radius: outerRadius, startAngle: startAngle, endAngle: endAngle, clockwise: false)
-            path.addArc(center: center, radius: signRingInner, startAngle: endAngle, endAngle: startAngle, clockwise: true)
-            path.closeSubpath()
+            let path = WheelGeometry.ringSegment(center: center, innerRadius: signRingInner, outerRadius: outerRadius,
+                                                 startAngle: startAngle, endAngle: endAngle)
 
-            let color: Color = switch sign.element {
-            case .fire:  .red.opacity(0.13)
-            case .earth: .green.opacity(0.10)
-            case .air:   .yellow.opacity(0.10)
-            case .water: .blue.opacity(0.13)
-            }
+            let color = AstroTheme.element(sign.element).opacity(0.12)
             context.fill(path, with: .color(color))
-            context.stroke(path, with: .color(.white.opacity(0.3)), lineWidth: 0.5)
+            context.stroke(path, with: .color(.white.opacity(0.10)), lineWidth: 0.5)
 
             // Burc glyph
             let midDeg = startDeg + 15.0
             let glyphRadius = (outerRadius + signRingInner) / 2
             let angle = chartAngle(midDeg)
             let point = pointOnCircle(center: center, radius: glyphRadius, angle: angle)
-            let text = Text(sign.glyph).font(.system(size: size * 0.035)).foregroundColor(.white.opacity(0.8))
+            let text = Text(sign.glyph)
+                .font(.system(size: size * 0.036, design: .serif))
+                .foregroundColor(AstroTheme.element(sign.element))
             context.draw(context.resolve(text), at: point, anchor: .center)
         }
 
+        // Dış transit halkası — kesikli, ikincil renk
+        var transitRing = Path()
+        transitRing.addEllipse(in: CGRect(x: center.x - outerRadius - 2, y: center.y - outerRadius - 2,
+                                          width: (outerRadius + 2) * 2, height: (outerRadius + 2) * 2))
+        context.stroke(transitRing, with: .color(AstroTheme.accentSecondary.opacity(0.25)),
+                       style: StrokeStyle(lineWidth: 0.6, dash: [1.5, 2.5]))
+
         // Circles
         for (r, w, o): (CGFloat, CGFloat, Double) in [
-            (outerRadius, 1, 0.6), (signRingInner, 1, 0.6), (houseRingInner, 0.5, 0.3)
+            (outerRadius, 0.8, 0.22), (signRingInner, 0.8, 0.18), (houseRingInner, 0.5, 0.12)
         ] {
             var circle = Path()
             circle.addEllipse(in: CGRect(x: center.x - r, y: center.y - r, width: r * 2, height: r * 2))
@@ -84,7 +86,14 @@ struct TransitBiWheelView: View {
             path.move(to: outer)
             path.addLine(to: inner)
             let isAngular = [1, 4, 7, 10].contains(house.id)
-            context.stroke(path, with: .color(.white.opacity(isAngular ? 0.7 : 0.3)), lineWidth: isAngular ? 1.5 : 0.5)
+            context.stroke(path, with: .color(.white.opacity(isAngular ? 0.55 : 0.14)), lineWidth: isAngular ? 1.0 : 0.5)
+        }
+
+        // AC etiketi — natal çarkla aynı konvansiyon
+        if let asc = natalChart.houses.first(where: { $0.id == 1 }) {
+            let point = pointOnCircle(center: center, radius: signRingInner - 4, angle: chartAngle(asc.cusp))
+            let text = Text("AC").font(.system(size: size * 0.024, weight: .bold)).foregroundColor(AstroTheme.harmonik)
+            context.draw(context.resolve(text), at: point, anchor: .leading)
         }
     }
 
@@ -95,8 +104,11 @@ struct TransitBiWheelView: View {
         for pos in natalPlanets {
             let angle = chartAngle(pos.longitude)
             let point = pointOnCircle(center: center, radius: natalPlanetRadius, angle: angle)
-            let glyph = planetGlyph(pos.planet)
-            let text = Text(glyph).font(.system(size: size * 0.032)).foregroundColor(planetColor(pos.planet))
+            let color = AstroTheme.planet(pos.planet)
+            let badge = size * 0.024
+            context.fill(Path(ellipseIn: CGRect(x: point.x - badge, y: point.y - badge, width: badge * 2, height: badge * 2)),
+                         with: .color(AstroTheme.background.opacity(0.85)))
+            let text = Text(pos.planet.glyph).font(.system(size: size * 0.032, design: .serif)).foregroundColor(color)
             context.draw(context.resolve(text), at: point, anchor: .center)
         }
     }
@@ -111,11 +123,16 @@ struct TransitBiWheelView: View {
             // Arka plan daire
             var bgPath = Path()
             bgPath.addEllipse(in: CGRect(x: point.x - 8, y: point.y - 8, width: 16, height: 16))
-            context.fill(bgPath, with: .color(Color.black.opacity(0.6)))
+            context.fill(bgPath, with: .color(AstroTheme.background.opacity(0.85)))
 
-            let glyph = planetGlyph(pos.planet)
-            let text = Text(glyph).font(.system(size: size * 0.03)).foregroundColor(planetColor(pos.planet).opacity(0.9))
+            let text = Text(pos.planet.glyph)
+                .font(.system(size: size * 0.03, design: .serif))
+                .foregroundColor(AstroTheme.planet(pos.planet).opacity(0.95))
             context.draw(context.resolve(text), at: point, anchor: .center)
+            if pos.isRetrograde {
+                let rx = Text("℞").font(.system(size: size * 0.016, weight: .bold)).foregroundColor(AstroTheme.zorlayici)
+                context.draw(context.resolve(rx), at: CGPoint(x: point.x + 7, y: point.y - 7), anchor: .center)
+            }
 
             // Ince cizgi - transit pozisyondan ic halkaya
             let tickOuter = pointOnCircle(center: center, radius: outerRadius, angle: angle)
@@ -123,7 +140,7 @@ struct TransitBiWheelView: View {
             var tickPath = Path()
             tickPath.move(to: tickOuter)
             tickPath.addLine(to: tickInner)
-            context.stroke(tickPath, with: .color(planetColor(pos.planet).opacity(0.5)), lineWidth: 1)
+            context.stroke(tickPath, with: .color(AstroTheme.planet(pos.planet).opacity(0.5)), lineWidth: 1)
         }
     }
 
@@ -150,11 +167,7 @@ struct TransitBiWheelView: View {
                         path.move(to: p1)
                         path.addLine(to: p2)
 
-                        let color: Color = switch aspectType.nature {
-                        case .harmonik: .green
-                        case .zorlayici: .red
-                        case .notr: .blue
-                        }
+                        let color = AstroTheme.nature(aspectType.nature)
                         context.stroke(path, with: .color(color.opacity(0.35)),
                                        style: StrokeStyle(lineWidth: 0.6, dash: [3, 3]))
                         break
@@ -175,28 +188,5 @@ struct TransitBiWheelView: View {
             x: center.x + radius * CGFloat(Foundation.cos(angle.radians)),
             y: center.y - radius * CGFloat(Foundation.sin(angle.radians))
         )
-    }
-
-    private func planetGlyph(_ planet: Planet) -> String {
-        switch planet {
-        case .sun: "☉"; case .moon: "☽"; case .mercury: "☿"; case .venus: "♀"
-        case .mars: "♂"; case .jupiter: "♃"; case .saturn: "♄"; case .uranus: "♅"
-        case .neptune: "♆"; case .pluto: "♇"; case .northNode: "☊"; case .chiron: "⚷"
-        case .lilith: "⚸"; case .partOfFortune: "⊕"
-        case .ceres: "⚳"; case .pallas: "⚴"; case .juno: "⚵"; case .vesta: "⚶"
-        }
-    }
-
-    private func planetColor(_ planet: Planet) -> Color {
-        switch planet {
-        case .sun: .orange; case .moon: .white; case .mercury: .cyan; case .venus: .pink
-        case .mars: .red; case .jupiter: .purple; case .saturn: .brown; case .uranus: .teal
-        case .neptune: .indigo; case .pluto: .gray; case .northNode: .mint; case .chiron: .yellow
-        case .lilith: Color(red: 0.3, green: 0, blue: 0.3); case .partOfFortune: .green
-        case .ceres: Color(red: 0.6, green: 0.4, blue: 0.2)
-        case .pallas: Color(red: 0.5, green: 0.7, blue: 0.9)
-        case .juno: Color(red: 0.8, green: 0.4, blue: 0.6)
-        case .vesta: Color(red: 0.9, green: 0.5, blue: 0.2)
-        }
     }
 }

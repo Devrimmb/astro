@@ -25,7 +25,7 @@ struct TransitShareCard: View {
                     LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
                         ForEach(report.transitPositions, id: \.planet) { pos in
                             HStack(spacing: 8) {
-                                Text(planetGlyph(pos.planet))
+                                Text(pos.planet.glyph)
                                     .font(.system(size: 20))
                                     .frame(width: 28)
                                 VStack(alignment: .leading, spacing: 2) {
@@ -41,7 +41,7 @@ struct TransitShareCard: View {
                                         if pos.isRetrograde {
                                             Text("℞")
                                                 .font(.system(size: 14))
-                                                .foregroundStyle(.red)
+                                                .foregroundStyle(AstroTheme.zorlayici)
                                         }
                                     }
                                 }
@@ -122,16 +122,6 @@ struct TransitShareCard: View {
         case .harmonik: Color(red: 0.30, green: 0.85, blue: 0.65)
         case .zorlayici: Color(red: 1.0, green: 0.40, blue: 0.45)
         case .notr: purple
-        }
-    }
-
-    private func planetGlyph(_ planet: Planet) -> String {
-        switch planet {
-        case .sun: "☉"; case .moon: "☽"; case .mercury: "☿"; case .venus: "♀"
-        case .mars: "♂"; case .jupiter: "♃"; case .saturn: "♄"; case .uranus: "♅"
-        case .neptune: "♆"; case .pluto: "♇"; case .northNode: "☊"; case .chiron: "⚷"
-        case .lilith: "⚸"; case .partOfFortune: "⊕"; case .ceres: "⚳"; case .pallas: "⚴"
-        case .juno: "⚵"; case .vesta: "⚶"
         }
     }
 

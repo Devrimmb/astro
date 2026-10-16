@@ -15,7 +15,7 @@ struct SimulatedAdView: View {
 
                 Image(systemName: "star.circle.fill")
                     .font(.system(size: 80))
-                    .foregroundStyle(.yellow)
+                    .foregroundStyle(AstroTheme.planet(.sun))
                     .symbolEffect(.pulse)
 
                 Text("Test Reklam")
@@ -24,7 +24,7 @@ struct SimulatedAdView: View {
 
                 Text("Bu bir simüle reklamdır.\nGerçek cihazda Google AdMob reklamı gösterilecektir.")
                     .font(.subheadline)
-                    .foregroundStyle(.gray)
+                    .foregroundStyle(AstroTheme.textSecondary)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 32)
 
@@ -48,7 +48,7 @@ struct SimulatedAdView: View {
                         .foregroundStyle(.black)
                         .padding(.horizontal, 32)
                         .padding(.vertical, 14)
-                        .background(.yellow, in: .capsule)
+                        .background(AstroTheme.planet(.sun), in: .capsule)
                     }
                 }
 
@@ -60,7 +60,7 @@ struct SimulatedAdView: View {
                         } label: {
                             Image(systemName: "xmark.circle.fill")
                                 .font(.title2)
-                                .foregroundStyle(.gray)
+                                .foregroundStyle(AstroTheme.textSecondary)
                         }
                     }
                 }

@@ -74,7 +74,7 @@ struct EclipseView: View {
             HStack {
                 Image(systemName: eclipse.isSolar ? "sun.max.trianglebadge.exclamationmark" : "moon.circle")
                     .font(.title2)
-                    .foregroundStyle(eclipse.isSolar ? .orange : .cyan)
+                    .foregroundStyle(eclipse.isSolar ? AstroTheme.planet(.sun) : AstroTheme.planet(.moon))
 
                 VStack(alignment: .leading, spacing: 2) {
                     Text(eclipse.type.rawValue)
@@ -102,10 +102,10 @@ struct EclipseView: View {
                     HStack(spacing: 4) {
                         Image(systemName: "exclamationmark.triangle")
                             .font(.caption2)
-                            .foregroundStyle(.orange)
+                            .foregroundStyle(AstroTheme.planet(.sun))
                         Text("Etkilenen: \(affected.map(\.rawValue).joined(separator: ", "))")
                             .font(.caption2)
-                            .foregroundStyle(.orange)
+                            .foregroundStyle(AstroTheme.planet(.sun))
                     }
                 }
             }

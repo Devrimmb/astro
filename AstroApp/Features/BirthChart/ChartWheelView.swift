@@ -1,14 +1,19 @@
 import SwiftUI
 
+/// Natal çark. Ascendant solda (180°), burç halkası dışta, ev halkası içte,
+/// açı ağı merkezde. Renkler tamamen `AstroTheme`'den: burç dilimi element,
+/// gezegen kendi rengi, açı çizgisi doğası (harmonik / zorlayıcı / nötr).
 struct ChartWheelView: View {
     let chart: BirthChart
     let size: CGFloat
+    /// Çark üstünde bir gezegene dokunulunca çağrılır (nil → dokunma kapalı)
+    var onSelectPlanet: ((PlanetPosition) -> Void)? = nil
 
     private var outerRadius: CGFloat { size / 2 - 10 }
     private var signRingInner: CGFloat { outerRadius - 36 }
     private var houseRingInner: CGFloat { signRingInner - 70 }
     private var planetRingRadius: CGFloat { (signRingInner + houseRingInner) / 2 }
-    private var innerRadius: CGFloat { houseRingInner }
+    private var aspectRadius: CGFloat { houseRingInner - 2 }
 
     /// Ascendant derecesi — chart'ın sol tarafına (9 o'clock) hizalanır
     private var ascDegree: Double {
@@ -19,15 +24,55 @@ struct ChartWheelView: View {
         Canvas { context, canvasSize in
             let center = CGPoint(x: canvasSize.width / 2, y: canvasSize.height / 2)
 
+            drawCenterGlow(context: &context, center: center)
             drawZodiacRing(context: &context, center: center)
             drawZodiacGlyphs(context: &context, center: center)
             drawHouseLines(context: &context, center: center)
             drawHouseNumbers(context: &context, center: center)
-            drawPlanets(context: &context, center: center)
             drawAspectLines(context: &context, center: center)
+            drawPlanets(context: &context, center: center)
         }
         .frame(width: size, height: size)
         .drawingGroup()
+        .contentShape(Rectangle())
+        .onTapGesture(coordinateSpace: .local) { location in
+            guard let onSelectPlanet, let hit = planet(at: location) else { return }
+            onSelectPlanet(hit)
+        }
+    }
+
+    // MARK: - Dokunma
+
+    /// Dokunulan noktaya en yakın gezegen rozetini bulur (rozet yarıçapının ~2 katı tolerans)
+    private func planet(at location: CGPoint) -> PlanetPosition? {
+        let center = CGPoint(x: size / 2, y: size / 2)
+        let hitRadius = size * 0.06
+        var best: (planet: AstroApp.Planet, distance: CGFloat)?
+
+        for placement in planetPlacements() {
+            let point = pointOnCircle(center: center, radius: planetRingRadius, angle: chartAngle(placement.displayDeg))
+            let distance = hypot(point.x - location.x, point.y - location.y)
+            if distance <= hitRadius, distance < (best?.distance ?? .infinity) {
+                best = (placement.planet, distance)
+            }
+        }
+        guard let best else { return nil }
+        return chart.planets.first { $0.planet == best.planet }
+    }
+
+    // MARK: - Merkez ışıması
+
+    /// Açı ağının arkasına hafif lavanta ışık — çark zemine "oturur"
+    private func drawCenterGlow(context: inout GraphicsContext, center: CGPoint) {
+        let r = aspectRadius + 6
+        let rect = CGRect(x: center.x - r, y: center.y - r, width: r * 2, height: r * 2)
+        context.fill(
+            Path(ellipseIn: rect),
+            with: .radialGradient(
+                Gradient(colors: [AstroTheme.accent.opacity(0.16), .clear]),
+                center: center, startRadius: 0, endRadius: r
+            )
+        )
     }
 
     // MARK: - Burç Halkası
@@ -40,42 +85,18 @@ struct ChartWheelView: View {
             let startAngle = chartAngle(startDeg)
             let endAngle = chartAngle(endDeg)
 
-            var path = Path()
-            path.addArc(center: center, radius: outerRadius,
-                        startAngle: startAngle, endAngle: endAngle, clockwise: false)
-            path.addArc(center: center, radius: signRingInner,
-                        startAngle: endAngle, endAngle: startAngle, clockwise: true)
-            path.closeSubpath()
+            let path = WheelGeometry.ringSegment(center: center, innerRadius: signRingInner, outerRadius: outerRadius,
+                                                 startAngle: startAngle, endAngle: endAngle)
 
-            let color: Color = switch sign.element {
-            case .fire:  .red.opacity(0.13)
-            case .earth: .green.opacity(0.10)
-            case .air:   .yellow.opacity(0.10)
-            case .water: .blue.opacity(0.13)
-            }
-
-            context.fill(path, with: .color(color))
-            context.stroke(path, with: .color(.white.opacity(0.4)), lineWidth: 0.5)
+            context.fill(path, with: .color(AstroTheme.element(sign.element).opacity(0.12)))
+            context.stroke(path, with: .color(.white.opacity(0.10)), lineWidth: 0.5)
         }
 
-        // İç ve dış çember çizgileri
-        var outerCircle = Path()
-        outerCircle.addEllipse(in: CGRect(
-            x: center.x - outerRadius, y: center.y - outerRadius,
-            width: outerRadius * 2, height: outerRadius * 2))
-        context.stroke(outerCircle, with: .color(.white.opacity(0.6)), lineWidth: 1)
-
-        var innerCircle = Path()
-        innerCircle.addEllipse(in: CGRect(
-            x: center.x - signRingInner, y: center.y - signRingInner,
-            width: signRingInner * 2, height: signRingInner * 2))
-        context.stroke(innerCircle, with: .color(.white.opacity(0.6)), lineWidth: 1)
-
-        var houseCircle = Path()
-        houseCircle.addEllipse(in: CGRect(
-            x: center.x - houseRingInner, y: center.y - houseRingInner,
-            width: houseRingInner * 2, height: houseRingInner * 2))
-        context.stroke(houseCircle, with: .color(.white.opacity(0.4)), lineWidth: 0.5)
+        // Halka sınırları — dış ve burç/ev sınırı belirgin, iç çemberler soluk
+        strokeCircle(context: &context, center: center, radius: outerRadius, color: .white.opacity(0.22), lineWidth: 0.8)
+        strokeCircle(context: &context, center: center, radius: signRingInner, color: .white.opacity(0.18), lineWidth: 0.8)
+        strokeCircle(context: &context, center: center, radius: houseRingInner, color: .white.opacity(0.12), lineWidth: 0.6)
+        strokeCircle(context: &context, center: center, radius: aspectRadius, color: .white.opacity(0.08), lineWidth: 0.5)
     }
 
     // MARK: - Burç Sembolleri
@@ -85,16 +106,12 @@ struct ChartWheelView: View {
 
         for sign in ZodiacSign.allCases {
             let midDeg = Double(sign.rawValue) * 30.0 + 15.0
-            let angle = chartAngle(midDeg)
-            let point = pointOnCircle(center: center, radius: glyphRadius, angle: angle)
+            let point = pointOnCircle(center: center, radius: glyphRadius, angle: chartAngle(midDeg))
 
-            let text = Text(sign.glyph).font(.system(size: size * 0.045)).foregroundColor(.white)
-            let resolved = context.resolve(text)
-            let textSize = resolved.measure(in: CGSize(width: 40, height: 40))
-            context.draw(resolved, at: CGPoint(
-                x: point.x - textSize.width / 2,
-                y: point.y - textSize.height / 2
-            ), anchor: .topLeading)
+            let text = Text(sign.glyph)
+                .font(.system(size: size * 0.045, design: .serif))
+                .foregroundColor(AstroTheme.element(sign.element))
+            context.draw(context.resolve(text), at: point, anchor: .center)
         }
     }
 
@@ -102,29 +119,34 @@ struct ChartWheelView: View {
 
     private func drawHouseLines(context: inout GraphicsContext, center: CGPoint) {
         for house in chart.houses {
+            let isAngular = house.id == 1 || house.id == 4 || house.id == 7 || house.id == 10
             let angle = chartAngle(house.cusp)
             let outerPoint = pointOnCircle(center: center, radius: signRingInner, angle: angle)
-            let innerPoint = pointOnCircle(center: center, radius: houseRingInner, angle: angle)
+            // Köşe evleri (ASC/IC/DSC/MC) merkeze kadar iner, diğerleri ev halkasında biter
+            let innerPoint = pointOnCircle(center: center, radius: isAngular ? aspectRadius : houseRingInner, angle: angle)
 
             var path = Path()
             path.move(to: outerPoint)
             path.addLine(to: innerPoint)
-
-            let lineWidth: CGFloat = (house.id == 1 || house.id == 4 || house.id == 7 || house.id == 10) ? 1.5 : 0.5
-            let opacity: Double = (house.id == 1 || house.id == 4 || house.id == 7 || house.id == 10) ? 0.8 : 0.4
-            context.stroke(path, with: .color(.white.opacity(opacity)), lineWidth: lineWidth)
+            context.stroke(path,
+                           with: .color(.white.opacity(isAngular ? 0.55 : 0.14)),
+                           lineWidth: isAngular ? 1.0 : 0.5)
         }
 
-        // ASC ve MC etiketleri
+        // ASC ve MC etiketleri — yükselen harmonik yeşil (Büyük Üçlü ile aynı), MC nötr
         let ascAngle = chartAngle(chart.houses[0].cusp)
-        let ascLabelPoint = pointOnCircle(center: center, radius: signRingInner + 4, angle: ascAngle)
-        let ascText = Text("ASC").font(.system(size: size * 0.028, weight: .bold)).foregroundColor(.orange)
+        let ascLabelPoint = pointOnCircle(center: center, radius: outerRadius + 7, angle: ascAngle)
+        let ascText = Text("AC")
+            .font(.system(size: size * 0.028, weight: .bold))
+            .foregroundColor(AstroTheme.harmonik)
         context.draw(context.resolve(ascText), at: ascLabelPoint, anchor: .trailing)
 
         if chart.houses.count >= 10 {
             let mcAngle = chartAngle(chart.houses[9].cusp)
-            let mcLabelPoint = pointOnCircle(center: center, radius: signRingInner + 4, angle: mcAngle)
-            let mcText = Text("MC").font(.system(size: size * 0.028, weight: .bold)).foregroundColor(.orange)
+            let mcLabelPoint = pointOnCircle(center: center, radius: outerRadius + 7, angle: mcAngle)
+            let mcText = Text("MC")
+                .font(.system(size: size * 0.028, weight: .bold))
+                .foregroundColor(AstroTheme.textSecondary)
             context.draw(context.resolve(mcText), at: mcLabelPoint, anchor: .bottom)
         }
     }
@@ -138,74 +160,86 @@ struct ChartWheelView: View {
             var midDeg = (currentCusp + nextCusp) / 2
             if nextCusp < currentCusp { midDeg = (currentCusp + nextCusp + 360) / 2 }
 
-            let angle = chartAngle(midDeg)
-            let numRadius = houseRingInner + 12
-            let point = pointOnCircle(center: center, radius: numRadius, angle: angle)
+            let point = pointOnCircle(center: center, radius: houseRingInner + 12, angle: chartAngle(midDeg))
 
             let text = Text("\(chart.houses[i].id)")
                 .font(.system(size: size * 0.025))
-                .foregroundColor(.white.opacity(0.5))
+                .foregroundColor(AstroTheme.textTertiary)
             context.draw(context.resolve(text), at: point, anchor: .center)
         }
     }
 
     // MARK: - Gezegen Sembolleri
 
-    private func drawPlanets(context: inout GraphicsContext, center: CGPoint) {
-        // Gezegen pozisyonlarını topla ve çakışmaları ayır
-        var placements: [(planet: AstroApp.Planet, degree: Double, displayDeg: Double)] = []
-        for pos in chart.planets {
-            placements.append((pos.planet, pos.longitude, pos.longitude))
-        }
+    /// Çakışması çözülmüş gezegen yerleşimleri — çizim ve dokunma aynı listeyi kullanır
+    private func planetPlacements() -> [(planet: AstroApp.Planet, degree: Double, displayDeg: Double)] {
+        var placements = chart.planets.map { (planet: $0.planet, degree: $0.longitude, displayDeg: $0.longitude) }
         resolvePlanetCollisions(&placements)
+        return placements
+    }
 
-        for placement in placements {
-            let angle = chartAngle(placement.displayDeg)
-            let point = pointOnCircle(center: center, radius: planetRingRadius, angle: angle)
+    private func drawPlanets(context: inout GraphicsContext, center: CGPoint) {
+        let badgeRadius = size * 0.027
 
-            let glyph = planetGlyph(placement.planet)
-            let text = Text(glyph)
-                .font(.system(size: size * 0.038))
-                .foregroundColor(planetColor(placement.planet))
+        for placement in planetPlacements() {
+            let color = AstroTheme.planet(placement.planet)
+            let point = pointOnCircle(center: center, radius: planetRingRadius, angle: chartAngle(placement.displayDeg))
+
+            // Glifin arkasına koyu rozet — açı ve ev çizgileri sembolü bozmasın
+            let badge = CGRect(x: point.x - badgeRadius, y: point.y - badgeRadius,
+                               width: badgeRadius * 2, height: badgeRadius * 2)
+            context.fill(Path(ellipseIn: badge), with: .color(AstroTheme.background.opacity(0.85)))
+            context.stroke(Path(ellipseIn: badge), with: .color(color.opacity(0.35)), lineWidth: 0.6)
+
+            let text = Text(placement.planet.glyph)
+                .font(.system(size: size * 0.034, design: .serif))
+                .foregroundColor(color)
             context.draw(context.resolve(text), at: point, anchor: .center)
 
-            // Gerçek pozisyona ince çizgi
+            // Gerçek pozisyona ince tick (burç halkasının iç kenarında)
             let realAngle = chartAngle(placement.degree)
-            let tickOuter = pointOnCircle(center: center, radius: signRingInner - 2, angle: realAngle)
-            let tickInner = pointOnCircle(center: center, radius: signRingInner - 8, angle: realAngle)
+            let tickOuter = pointOnCircle(center: center, radius: signRingInner - 1, angle: realAngle)
+            let tickInner = pointOnCircle(center: center, radius: signRingInner - 7, angle: realAngle)
             var tickPath = Path()
             tickPath.move(to: tickOuter)
             tickPath.addLine(to: tickInner)
-            context.stroke(tickPath, with: .color(planetColor(placement.planet).opacity(0.6)), lineWidth: 0.8)
+            context.stroke(tickPath, with: .color(color.opacity(0.8)), lineWidth: 0.9)
+
+            // Çakışma kaydırması varsa tick ile rozeti ince çizgiyle bağla
+            if abs(placement.displayDeg - placement.degree) > 0.5 {
+                let badgeEdge = pointOnCircle(center: center, radius: planetRingRadius + badgeRadius, angle: chartAngle(placement.displayDeg))
+                var link = Path()
+                link.move(to: tickInner)
+                link.addLine(to: badgeEdge)
+                context.stroke(link, with: .color(color.opacity(0.3)), lineWidth: 0.5)
+            }
         }
     }
 
     // MARK: - Açı Çizgileri
 
     private func drawAspectLines(context: inout GraphicsContext, center: CGPoint) {
-        let aspectRadius = houseRingInner - 2
-
         for aspect in chart.aspects {
-            // ChartPoint'ten longitude çöz
             guard let lon1 = longitude(for: aspect.point1),
                   let lon2 = longitude(for: aspect.point2) else { continue }
 
-            let angle1 = chartAngle(lon1)
-            let angle2 = chartAngle(lon2)
-            let point1 = pointOnCircle(center: center, radius: aspectRadius, angle: angle1)
-            let point2 = pointOnCircle(center: center, radius: aspectRadius, angle: angle2)
+            let point1 = pointOnCircle(center: center, radius: aspectRadius, angle: chartAngle(lon1))
+            let point2 = pointOnCircle(center: center, radius: aspectRadius, angle: chartAngle(lon2))
 
             var path = Path()
             path.move(to: point1)
             path.addLine(to: point2)
 
-            let color: Color = switch aspect.type.nature {
-            case .harmonik: .green
-            case .zorlayici: .red
-            case .notr: .blue
-            }
+            let color = AstroTheme.nature(aspect.type.nature)
 
-            let lineWidth: CGFloat = aspect.type.isMajor ? (aspect.type == .conjunction ? 1.0 : 0.6) : 0.4
+            // Orb daraldıkça çizgi netleşir: tam açı ≈ 0.6, orb sınırında ≈ 0.18.
+            // Klasik gezegen dışı noktalar (asteroid, Lilith, düğüm…) ağı boğmasın diye çok soluk.
+            let tightness = max(0, 1 - aspect.orb / max(aspect.type.orb, 0.1))
+            let baseOpacity = aspect.type.isMajor ? 0.18 : 0.10
+            let isCore = isCorePoint(aspect.point1) && isCorePoint(aspect.point2)
+            let opacity = (baseOpacity + tightness * (aspect.type.isMajor ? 0.42 : 0.2)) * (isCore ? 1 : 0.35)
+
+            let lineWidth: CGFloat = aspect.type.isMajor ? (aspect.type == .conjunction ? 1.1 : 0.7) : 0.45
             let dash: [CGFloat] = switch aspect.type {
             case .sextile: [4, 3]
             case .semiSextile, .quincunx: [2, 2]
@@ -213,8 +247,16 @@ struct ChartWheelView: View {
             default: []
             }
 
-            let style = StrokeStyle(lineWidth: lineWidth, dash: dash)
-            context.stroke(path, with: .color(color.opacity(aspect.type.isMajor ? 0.4 : 0.25)), style: style)
+            context.stroke(path, with: .color(color.opacity(opacity)),
+                           style: StrokeStyle(lineWidth: lineWidth, lineCap: .round, dash: dash))
+        }
+    }
+
+    /// Klasik 10 gezegen + AC/MC — açı ağında tam parlaklıkla çizilenler
+    private func isCorePoint(_ point: ChartPoint) -> Bool {
+        switch point {
+        case .planet(let p): AstroApp.Planet.classicPlanets.contains(p)
+        case .ascendant, .midheaven: true
         }
     }
 
@@ -245,58 +287,17 @@ struct ChartWheelView: View {
         )
     }
 
-    private func planetGlyph(_ planet: AstroApp.Planet) -> String {
-        switch planet {
-        case .sun: "☉"
-        case .moon: "☽"
-        case .mercury: "☿"
-        case .venus: "♀"
-        case .mars: "♂"
-        case .jupiter: "♃"
-        case .saturn: "♄"
-        case .uranus: "♅"
-        case .neptune: "♆"
-        case .pluto: "♇"
-        case .northNode: "☊"
-        case .chiron: "⚷"
-        case .lilith: "⚸"
-        case .partOfFortune: "⊕"
-        case .ceres: "⚳"
-        case .pallas: "⚴"
-        case .juno: "⚵"
-        case .vesta: "⚶"
-        }
-    }
-
-    private func planetColor(_ planet: AstroApp.Planet) -> Color {
-        switch planet {
-        case .sun: .orange
-        case .moon: .white
-        case .mercury: .cyan
-        case .venus: .pink
-        case .mars: .red
-        case .jupiter: .purple
-        case .saturn: .brown
-        case .uranus: .teal
-        case .neptune: .indigo
-        case .pluto: .gray
-        case .northNode: .mint
-        case .chiron: .yellow
-        case .lilith: Color(red: 0.3, green: 0, blue: 0.3)
-        case .partOfFortune: .green
-        case .ceres: Color(red: 0.6, green: 0.4, blue: 0.2)
-        case .pallas: Color(red: 0.5, green: 0.7, blue: 0.9)
-        case .juno: Color(red: 0.8, green: 0.4, blue: 0.6)
-        case .vesta: Color(red: 0.9, green: 0.5, blue: 0.2)
-        }
+    private func strokeCircle(context: inout GraphicsContext, center: CGPoint, radius: CGFloat, color: Color, lineWidth: CGFloat) {
+        let rect = CGRect(x: center.x - radius, y: center.y - radius, width: radius * 2, height: radius * 2)
+        context.stroke(Path(ellipseIn: rect), with: .color(color), lineWidth: lineWidth)
     }
 
     /// Yakın gezegenlerin çakışmasını çözer (minimum 8° arayla yerleştirir)
     private func resolvePlanetCollisions(_ placements: inout [(planet: AstroApp.Planet, degree: Double, displayDeg: Double)]) {
-        let minGap = 8.0
+        let minGap = 9.0
         placements.sort { $0.degree < $1.degree }
 
-        for pass in 0..<5 {
+        for _ in 0..<5 {
             var changed = false
             for i in 0..<placements.count {
                 let j = (i + 1) % placements.count
@@ -311,7 +312,6 @@ struct ChartWheelView: View {
                 }
             }
             if !changed { break }
-            _ = pass
         }
     }
 }

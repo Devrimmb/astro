@@ -128,7 +128,8 @@ struct TarotView: View {
 
             VStack(spacing: 8) {
                 Text("Tarot")
-                    .font(.largeTitle.weight(.bold))
+                    .font(.largeTitle)
+                    .fontDesign(.serif)
                     .foregroundStyle(.white)
                 Text("Bugünkü ücretsiz hakkını kullandın")
                     .font(.subheadline)
@@ -156,7 +157,8 @@ struct TarotView: View {
 
             VStack(spacing: 8) {
                 Text("Tarot")
-                    .font(.largeTitle.weight(.bold))
+                    .font(.largeTitle)
+                    .fontDesign(.serif)
                     .foregroundStyle(.white)
                 Text("Bir kategori seç ve kartını çek")
                     .font(.subheadline)
@@ -227,7 +229,8 @@ struct TarotView: View {
                     .scaleEffect(1.0 + sin(glowPhase * 2) * 0.05)
 
                 Text("Kartını Seç")
-                    .font(.title2.weight(.bold))
+                    .font(.title2)
+                    .fontDesign(.serif)
                     .foregroundStyle(.white)
 
                 Text("Zihnini odakla ve bir kart seç")

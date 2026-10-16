@@ -44,6 +44,30 @@ enum Planet: String, CaseIterable, Codable, Sendable {
         }
     }
 
+    /// Astrolojik sembol — çark, listeler ve paylaşım kartları hep buradan okur
+    var glyph: String {
+        switch self {
+        case .sun: "☉"
+        case .moon: "☽"
+        case .mercury: "☿"
+        case .venus: "♀"
+        case .mars: "♂"
+        case .jupiter: "♃"
+        case .saturn: "♄"
+        case .uranus: "♅"
+        case .neptune: "♆"
+        case .pluto: "♇"
+        case .northNode: "☊"
+        case .chiron: "⚷"
+        case .lilith: "⚸"
+        case .partOfFortune: "⊕"
+        case .ceres: "⚳"
+        case .pallas: "⚴"
+        case .juno: "⚵"
+        case .vesta: "⚶"
+        }
+    }
+
     var identifier: String {
         switch self {
         case .sun: "sun"

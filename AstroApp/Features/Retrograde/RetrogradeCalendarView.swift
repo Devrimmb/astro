@@ -69,7 +69,7 @@ struct RetrogradeCalendarView: View {
                 VStack(alignment: .leading, spacing: 10) {
                     HStack(spacing: 6) {
                         Image(systemName: "exclamationmark.circle.fill")
-                            .foregroundStyle(.orange)
+                            .foregroundStyle(AstroTheme.planet(.sun))
                         Text("Şu An Retrograde")
                             .font(.headline)
                             .foregroundStyle(.white)
@@ -97,7 +97,7 @@ struct RetrogradeCalendarView: View {
                         .foregroundStyle(.white)
                     Text("℞")
                         .font(.headline)
-                        .foregroundStyle(.red)
+                        .foregroundStyle(AstroTheme.zorlayici)
                 }
                 ForEach(grouped[planet] ?? []) { period in
                     retrogradeRow(period, highlight: false)
@@ -112,7 +112,7 @@ struct RetrogradeCalendarView: View {
             HStack {
                 Text("\(period.startText) → \(period.endText)")
                     .font(.caption.bold())
-                    .foregroundStyle(highlight ? .orange : .white)
+                    .foregroundStyle(highlight ? AstroTheme.planet(.sun) : .white)
                 Spacer()
                 Text("\(period.durationDays) gün")
                     .font(.caption2)

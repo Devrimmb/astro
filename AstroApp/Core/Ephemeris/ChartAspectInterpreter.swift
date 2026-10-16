@@ -9,11 +9,13 @@ import Foundation
 struct ChartAspectInterpreter: Sendable {
 
     enum Context: Sendable {
+        case natal        // doğum haritası
         case solarReturn  // yıllık harita
         case composite    // ilişki haritası
 
         var opener: String {
             switch self {
+            case .natal: "Haritanızda"
             case .solarReturn: "Bu yıl"
             case .composite: "İlişkinizde"
             }

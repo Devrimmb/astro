@@ -85,7 +85,7 @@ struct CompositeChartView: View {
             HStack(spacing: 8) {
                 Image(systemName: "arrow.triangle.merge")
                     .font(.title2)
-                    .foregroundStyle(.mint)
+                    .foregroundStyle(AstroTheme.harmonik)
                 Text("Composite Harita")
                     .font(.headline)
                     .foregroundStyle(.white)
@@ -317,11 +317,11 @@ struct CompositeChartResultView: View {
 
                     ChartWheelView(chart: composite.asBirthChart, size: 340)
                         .glassCard()
+                    interpretationsCard(composite)
                     bigThreeCard(composite)
                     elementBalanceCard(composite)
                     planetsCard(composite)
                     aspectsCard(composite)
-                    interpretationsCard(composite)
 
                     // Paylaş
                     Button {
@@ -350,24 +350,21 @@ struct CompositeChartResultView: View {
     // MARK: - Çift Başlığı
 
     private var coupleHeader: some View {
-        VStack(spacing: 4) {
-            HStack(spacing: 8) {
-                Text(name1)
-                    .font(.headline)
-                    .foregroundStyle(.white)
-                Image(systemName: "arrow.triangle.merge")
-                    .font(.caption)
-                    .foregroundStyle(.mint)
-                Text(name2)
-                    .font(.headline)
-                    .foregroundStyle(.white)
-            }
-            Text("İlişki Haritası")
+        HStack(spacing: 6) {
+            Text(name1)
+                .foregroundStyle(.white)
+            Image(systemName: "arrow.triangle.merge")
                 .font(.caption2)
+                .foregroundStyle(AstroTheme.harmonik)
+            Text(name2)
+                .foregroundStyle(.white)
+            Text("· orta nokta haritası")
                 .foregroundStyle(AstroTheme.textTertiary)
         }
+        .font(.caption.weight(.medium))
         .frame(maxWidth: .infinity)
-        .glassCard()
+        .padding(.top, 2)
+        .accessibilityElement(children: .combine)
     }
 
     // MARK: - Result Cards
@@ -378,10 +375,10 @@ struct CompositeChartResultView: View {
                 .font(.headline)
                 .foregroundStyle(.white)
 
-            HStack(spacing: 0) {
-                threeItem(title: "Güneş", sign: chart.sunSign, color: .orange)
-                threeItem(title: "Ay", sign: chart.moonSign, color: .cyan)
-                threeItem(title: "Yükselen", sign: chart.ascendant, color: AstroTheme.accent)
+            HStack(spacing: 8) {
+                threeItem(title: "Güneş", glyph: "☉", sign: chart.sunSign, color: AstroTheme.planet(.sun))
+                threeItem(title: "Ay", glyph: "☽", sign: chart.moonSign, color: AstroTheme.planet(.moon))
+                threeItem(title: "Yükselen", glyph: "AC", sign: chart.ascendant, color: AstroTheme.harmonik)
             }
 
             Text("Composite harita, ilişkinizin kendi başına bir varlık olarak enerjisini gösterir.")
@@ -391,18 +388,32 @@ struct CompositeChartResultView: View {
         .glassCard()
     }
 
-    private func threeItem(title: String, sign: ZodiacSign?, color: Color) -> some View {
-        VStack(spacing: 4) {
-            Text(sign?.glyph ?? "?")
-                .font(.title2)
-            Text(sign?.name ?? "—")
-                .font(.caption.bold())
+    private func threeItem(title: String, glyph: String, sign: ZodiacSign?, color: Color) -> some View {
+        VStack(spacing: 5) {
+            Text(glyph)
+                .font(.system(size: 22, design: .serif))
                 .foregroundStyle(color)
-            Text(title)
-                .font(.caption2)
-                .foregroundStyle(AstroTheme.textSecondary)
+            Text(title.uppercased())
+                .font(.system(size: 9, weight: .bold))
+                .kerning(1)
+                .foregroundStyle(AstroTheme.textTertiary)
+            HStack(spacing: 4) {
+                if let sign {
+                    Text(sign.glyph)
+                        .fontDesign(.serif)
+                        .foregroundStyle(AstroTheme.element(sign.element))
+                }
+                Text(sign?.name ?? "—")
+                    .foregroundStyle(.white)
+            }
+            .font(.caption.weight(.semibold))
         }
         .frame(maxWidth: .infinity)
+        .padding(.vertical, 10)
+        .background(AstroTheme.surface, in: .rect(cornerRadius: 14))
+        .overlay { RoundedRectangle(cornerRadius: 14, style: .continuous).stroke(AstroTheme.cardBorder, lineWidth: 1) }
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(title): \(sign?.name ?? "bilinmiyor")")
     }
 
     private func planetsCard(_ chart: CompositeChart) -> some View {
@@ -413,21 +424,8 @@ struct CompositeChartResultView: View {
 
             if showPlanets {
                 ForEach(chart.planets, id: \.planet) { pos in
-                    HStack(spacing: 8) {
-                        Text(pos.planet.rawValue)
-                            .font(.caption)
-                            .foregroundStyle(AstroTheme.textSecondary)
-                            .frame(width: 70, alignment: .leading)
-                        Text(pos.sign.glyph)
-                            .font(.caption)
-                        Text("\(pos.sign.name) \(String(format: "%.1f", pos.degree))°")
-                            .font(.caption.bold())
-                            .foregroundStyle(.white)
-                        Spacer()
-                        Text("\(pos.house). ev")
-                            .font(.caption2)
-                            .foregroundStyle(AstroTheme.textTertiary)
-                    }
+                    PlanetRow(position: pos)
+                        .padding(.vertical, 2)
                     if pos.planet != chart.planets.last?.planet {
                         Divider().overlay(AstroTheme.cardBorder)
                     }
@@ -461,11 +459,13 @@ struct CompositeChartResultView: View {
     private func aspectGridCell(_ aspect: Aspect) -> some View {
         HStack(spacing: 3) {
             Text(aspect.point1.glyph)
-                .foregroundStyle(.white)
+                .fontDesign(.serif)
+                .foregroundStyle(AstroTheme.point(aspect.point1))
             Text(aspect.type.symbol)
                 .foregroundStyle(aspectColor(aspect.type))
             Text(aspect.point2.glyph)
-                .foregroundStyle(.white)
+                .fontDesign(.serif)
+                .foregroundStyle(AstroTheme.point(aspect.point2))
         }
         .font(.caption2)
         .lineLimit(1)
@@ -516,11 +516,7 @@ struct CompositeChartResultView: View {
     }
 
     private func aspectColor(_ type: AspectType) -> Color {
-        switch type.nature {
-        case .harmonik: AstroTheme.harmonik
-        case .zorlayici: AstroTheme.zorlayici
-        case .notr: AstroTheme.accent
-        }
+        AstroTheme.nature(type.nature)
     }
 
     // MARK: - Element Dengesi
@@ -544,18 +540,18 @@ struct CompositeChartResultView: View {
                 HStack(spacing: 8) {
                     Image(systemName: elementIcon(element))
                         .font(.caption)
-                        .foregroundStyle(elementColor(element))
+                        .foregroundStyle(AstroTheme.element(element))
                         .frame(width: 16)
                     Text(element.displayName)
                         .font(.caption)
                         .foregroundStyle(.white)
                         .frame(width: 52, alignment: .leading)
                     ProgressView(value: pct)
-                        .tint(elementColor(element))
+                        .tint(AstroTheme.element(element))
                         .frame(maxWidth: .infinity)
                     Text("\(Int(pct * 100))%")
                         .font(.caption.bold())
-                        .foregroundStyle(elementColor(element))
+                        .foregroundStyle(AstroTheme.element(element))
                         .frame(width: 32, alignment: .trailing)
                 }
             }
@@ -563,14 +559,6 @@ struct CompositeChartResultView: View {
         .glassCard()
     }
 
-    private func elementColor(_ element: ZodiacSign.Element) -> Color {
-        switch element {
-        case .fire:  .red
-        case .earth: .green
-        case .air:   .yellow
-        case .water: .blue
-        }
-    }
 
     private func elementIcon(_ element: ZodiacSign.Element) -> String {
         switch element {

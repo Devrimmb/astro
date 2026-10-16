@@ -94,11 +94,12 @@ struct RuneView: View {
 
             Text("ᚱ")
                 .font(.system(size: 48))
-                .foregroundStyle(.orange)
+                .foregroundStyle(AstroTheme.planet(.saturn))
 
             VStack(spacing: 8) {
                 Text("Rune Falı")
-                    .font(.largeTitle.weight(.bold))
+                    .font(.largeTitle)
+                    .fontDesign(.serif)
                     .foregroundStyle(.white)
                 Text("Bugünkü ücretsiz hakkını kullandın")
                     .font(.subheadline)
@@ -124,12 +125,13 @@ struct RuneView: View {
             VStack(spacing: 12) {
                 Text("ᚱ")
                     .font(.system(size: 56))
-                    .foregroundStyle(.orange)
+                    .foregroundStyle(AstroTheme.planet(.saturn))
                     .shadow(color: Color(red: 0.8, green: 0.5, blue: 0.2).opacity(0.6), radius: 20)
                     .scaleEffect(1.0 + sin(glowPhase * 2) * 0.05)
 
                 Text("Rune Falı")
-                    .font(.largeTitle.weight(.bold))
+                    .font(.largeTitle)
+                    .fontDesign(.serif)
                     .foregroundStyle(.white)
 
                 Text("Kadim runelerden rehberlik al")
@@ -466,7 +468,7 @@ struct RuneView: View {
 
                 Text("ᚱ")
                     .font(.system(size: 52))
-                    .foregroundStyle(.orange)
+                    .foregroundStyle(AstroTheme.planet(.saturn))
                     .shadow(color: Color(red: 0.8, green: 0.5, blue: 0.2).opacity(0.5), radius: 10)
 
                 Text("Dokun ve Aç")

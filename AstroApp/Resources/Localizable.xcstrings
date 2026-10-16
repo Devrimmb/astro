@@ -4,6 +4,9 @@
     "" : {
 
     },
+    " " : {
+
+    },
     " burcu özelliği yansıtıyorsunuz." : {
 
     },
@@ -16,7 +19,7 @@
     "·" : {
 
     },
-    "· ℞" : {
+    "· orta nokta haritası" : {
 
     },
     "(%@)" : {
@@ -54,12 +57,12 @@
         }
       }
     },
-    "%@ · %@° orb" : {
+    "%@ · %@ · %@" : {
       "localizations" : {
         "tr" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "%1$@ · %2$@° orb"
+            "value" : "%1$@ · %2$@ · %3$@"
           }
         }
       }
@@ -80,6 +83,16 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "%1$@ %2$@ · %3$@"
+          }
+        }
+      }
+    },
+    "%@ %@ %@, orb %@ derece" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$@ %3$@, orb %4$@ derece"
           }
         }
       }
@@ -139,12 +152,25 @@
     "%@ Yorumu" : {
 
     },
+    "%@, " : {
+
+    },
     "%@, %@" : {
       "localizations" : {
         "tr" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%1$@, %2$@"
+          }
+        }
+      }
+    },
+    "%@, %@ %@ derece%@" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@, %2$@ %3$@ derece%4$@"
           }
         }
       }
@@ -179,12 +205,12 @@
         }
       }
     },
-    "%@: %lf puan" : {
+    "%@: %lld üzerinden %lld" : {
       "localizations" : {
         "tr" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "%1$@: %2$lf puan"
+            "value" : "%1$@: %2$lld üzerinden %3$lld"
           }
         }
       }
@@ -199,6 +225,16 @@
         }
       }
     },
+    "%@: 100 üzerinden %lld" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@: 100 üzerinden %2$lld"
+          }
+        }
+      }
+    },
     "%@°" : {
 
     },
@@ -206,6 +242,9 @@
 
     },
     "%%%lld" : {
+
+    },
+    "%%%lld aydınlık" : {
 
     },
     "%lld" : {
@@ -223,6 +262,16 @@
     "%lld okuma" : {
 
     },
+    "%lld üzerinden %lld" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld üzerinden %2$lld"
+          }
+        }
+      }
+    },
     "%lld." : {
 
     },
@@ -238,6 +287,16 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "%1$lld. Ev — %2$@"
+          }
+        }
+      }
+    },
+    "%lld%@" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld%2$@"
           }
         }
       }
@@ -267,6 +326,9 @@
 
     },
     "★ %@" : {
+
+    },
+    "☉" : {
 
     },
     "☉ %@" : {
@@ -333,6 +395,12 @@
         }
       }
     },
+    "AC" : {
+
+    },
+    "AC %@" : {
+
+    },
     "Açı bulunamadı" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -349,6 +417,9 @@
           }
         }
       }
+    },
+    "Açı Matrisi" : {
+
     },
     "Açı Yorumu" : {
 
@@ -493,9 +564,6 @@
         }
       }
     },
-    "ASC" : {
-
-    },
     "Aşk" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -617,6 +685,9 @@
     "Astroloji Rehberi" : {
 
     },
+    "Astroloji sekmesinden doğum bilgilerini girerek haritanı oluştur." : {
+
+    },
     "Ateş" : {
       "localizations" : {
         "de" : {
@@ -673,6 +744,16 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Ay %1$@ %2$@ burcunda"
+          }
+        }
+      }
+    },
+    "Ay %@ %@'da" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Ay %1$@ %2$@'da"
           }
         }
       }
@@ -1083,9 +1164,6 @@
     "Bu Evdeki Gezegenler" : {
 
     },
-    "Bu gezegen için henüz yorum eklenmedi." : {
-
-    },
     "Bu haritada hesaplanmış açı bulunmuyor." : {
 
     },
@@ -1245,7 +1323,10 @@
         }
       }
     },
-    "Bugünün Gökyüzü" : {
+    "Bugünün Gezegenleri" : {
+
+    },
+    "Bugünün kartını çek" : {
 
     },
     "Bugünün Takvimi" : {
@@ -1665,6 +1746,19 @@
         }
       }
     },
+    "Direkt" : {
+
+    },
+    "Discepolo ölçeği: %lld puan, %@" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Discepolo ölçeği: %1$lld puan, %2$@"
+          }
+        }
+      }
+    },
     "Doğum anındaki gökyüzünün sırlarını\ndetaylı bir harita ile keşfet" : {
 
     },
@@ -1718,6 +1812,9 @@
         }
       }
     },
+    "Doğum Haritan" : {
+
+    },
     "Doğum haritanı keşfet, tarot kartlarını çek\nve kozmik rehberini dinle." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1734,6 +1831,9 @@
           }
         }
       }
+    },
+    "Doğum haritanı oluştur" : {
+
     },
     "Doğum haritanı oluştur, her gün sana özel transit rehberliği burada görünsün." : {
 
@@ -1954,6 +2054,9 @@
     "Element Yorumları" : {
 
     },
+    "EN GÜÇLÜ AÇILAR" : {
+
+    },
     "Erkek" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -1975,9 +2078,6 @@
 
     },
     "Ev" : {
-
-    },
-    "Ev %lld" : {
 
     },
     "Ev geçişi için dokun" : {
@@ -2070,6 +2170,9 @@
           }
         }
       }
+    },
+    "Geçmiş · Şimdi · Gelecek" : {
+
     },
     "Geçmiş Fallarınız" : {
 
@@ -2219,6 +2322,9 @@
         }
       }
     },
+    "Gezegene dokun → yorum" : {
+
+    },
     "Gezegenler" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2252,9 +2358,6 @@
           }
         }
       }
-    },
-    "Grid" : {
-
     },
     "Güçlü Uyum" : {
       "extractionState" : "manual",
@@ -2889,6 +2992,9 @@
         }
       }
     },
+    "Hücreye dokun → yorum" : {
+
+    },
     "İki harita karşılaştırması ile gerçek ilişki uyumu" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2958,9 +3064,6 @@
           }
         }
       }
-    },
-    "İlişki Haritası" : {
-
     },
     "İlişki Skoru" : {
       "extractionState" : "manual",
@@ -3320,6 +3423,9 @@
           }
         }
       }
+    },
+    "Kart Çek" : {
+
     },
     "Kart Falı" : {
       "extractionState" : "manual",
@@ -3696,6 +3802,9 @@
         }
       }
     },
+    "Kişileri Değiştir" : {
+
+    },
     "Kişileri Seçin" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3816,9 +3925,6 @@
         }
       }
     },
-    "Liste" : {
-
-    },
     "mag %@" : {
 
     },
@@ -3858,6 +3964,7 @@
 
     },
     "Merhaba" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -4385,6 +4492,9 @@
         }
       }
     },
+    "PUAN" : {
+
+    },
     "Puan Detayı" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -4469,6 +4579,9 @@
           }
         }
       }
+    },
+    "Retro" : {
+
     },
     "Retrograde" : {
       "extractionState" : "stale",
@@ -4793,9 +4906,6 @@
         }
       }
     },
-    "Sinastri Haritası" : {
-
-    },
     "Şişkin Ay (Büyüyen)" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -5025,6 +5135,9 @@
         }
       }
     },
+    "Synastry Haritası" : {
+
+    },
     "Synastry Hesapla" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -5044,16 +5157,6 @@
     },
     "T.%@" : {
 
-    },
-    "T.%@ %@ N.%@" : {
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "T.%1$@ %2$@ N.%3$@"
-          }
-        }
-      }
     },
     "Takvim" : {
       "extractionState" : "manual",
@@ -5170,6 +5273,9 @@
           }
         }
       }
+    },
+    "TAROT · GÜNLÜK" : {
+
     },
     "Tarot Falı" : {
       "extractionState" : "manual",
@@ -5359,6 +5465,9 @@
         }
       }
     },
+    "Tüm Açılar" : {
+
+    },
     "Tüm gezegen yorumları" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -5428,6 +5537,9 @@
       }
     },
     "Tüm Transitler (%lld)" : {
+
+    },
+    "Tüm yorumlar ve transitler haritana göre kişiselleşir." : {
 
     },
     "Tutku" : {

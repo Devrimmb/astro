@@ -80,11 +80,12 @@ struct MoonSignView: View {
 
             Image(systemName: "moon.fill")
                 .font(.system(size: 48))
-                .foregroundStyle(.yellow.opacity(0.8))
+                .foregroundStyle(AstroTheme.planet(.moon).opacity(0.8))
 
             VStack(spacing: 8) {
                 Text("Ay Burcu")
-                    .font(.largeTitle.weight(.bold))
+                    .font(.largeTitle)
+                    .fontDesign(.serif)
                     .foregroundStyle(.white)
                 Text("Bugünkü ücretsiz hakkını kullandın")
                     .font(.subheadline)
@@ -108,11 +109,12 @@ struct MoonSignView: View {
 
             Image(systemName: "moon.fill")
                 .font(.system(size: 48))
-                .foregroundStyle(.yellow.opacity(0.8))
+                .foregroundStyle(AstroTheme.planet(.moon).opacity(0.8))
 
             VStack(spacing: 8) {
                 Text("Ay Burcu")
-                    .font(.largeTitle.weight(.bold))
+                    .font(.largeTitle)
+                    .fontDesign(.serif)
                     .foregroundStyle(.white)
                 Text("Ay burcun duygusal dünyanı yansıtır")
                     .font(.subheadline)
@@ -297,13 +299,14 @@ struct MoonSignView: View {
                 VStack(spacing: 12) {
                     Image(systemName: "moon.fill")
                         .font(.system(size: 36))
-                        .foregroundStyle(.yellow.opacity(0.8))
+                        .foregroundStyle(AstroTheme.planet(.moon).opacity(0.8))
 
                     Text(sign.glyph)
                         .font(.system(size: 56))
 
                     Text("Ay Burcu: \(sign.name)")
-                        .font(.title2.weight(.bold))
+                        .font(.title2)
+                    .fontDesign(.serif)
                         .foregroundStyle(.white)
 
                     if let entry = interpretation {
@@ -371,7 +374,7 @@ struct MoonSignView: View {
                 VStack(spacing: 12) {
                     Image(systemName: "exclamationmark.triangle")
                         .font(.title)
-                        .foregroundStyle(.orange)
+                        .foregroundStyle(AstroTheme.planet(.sun))
                     Text("Ay burcu hesaplanamadı")
                         .font(.headline)
                         .foregroundStyle(.white)

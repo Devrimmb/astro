@@ -28,7 +28,7 @@ struct ChartSynthesisSection: View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(spacing: 6) {
                 Image(systemName: item.icon)
-                    .foregroundStyle(toneColor(item.tone))
+                    .foregroundStyle(AstroTheme.tone(item.tone))
                 Text(item.title)
                     .font(.headline)
                     .foregroundStyle(.white)
@@ -70,7 +70,7 @@ struct ChartSynthesisSection: View {
         VStack(alignment: .leading, spacing: 12) {
             HStack(spacing: 6) {
                 Image(systemName: groupIcon(group.tone))
-                    .foregroundStyle(toneColor(group.tone))
+                    .foregroundStyle(AstroTheme.tone(group.tone))
                 Text(group.title)
                     .font(.headline)
                     .foregroundStyle(.white)
@@ -91,7 +91,7 @@ struct ChartSynthesisSection: View {
             HStack(spacing: 6) {
                 Image(systemName: item.icon)
                     .font(.caption2)
-                    .foregroundStyle(toneColor(item.tone))
+                    .foregroundStyle(AstroTheme.tone(item.tone))
                     .frame(width: 16)
                 Text(item.title)
                     .font(.caption.weight(.semibold))
@@ -100,7 +100,7 @@ struct ChartSynthesisSection: View {
                     Spacer()
                     Text(glyphs)
                         .font(.caption.weight(.medium))
-                        .foregroundStyle(toneColor(item.tone))
+                        .foregroundStyle(AstroTheme.tone(item.tone))
                 }
             }
             Text(item.message)
@@ -113,14 +113,6 @@ struct ChartSynthesisSection: View {
     }
 
     // MARK: - Renk / ikon
-
-    private func toneColor(_ tone: DailyCosmicCoach.Tone) -> Color {
-        switch tone {
-        case .harmonik:  AstroTheme.harmonik
-        case .zorlayici: AstroTheme.zorlayici
-        case .notr:      AstroTheme.accent
-        }
-    }
 
     private func groupIcon(_ tone: DailyCosmicCoach.Tone) -> String {
         switch tone {

@@ -28,7 +28,8 @@ struct CalendarDayDetailView: View {
     private var headerCard: some View {
         VStack(spacing: 8) {
             Text(formattedDate)
-                .font(.title2.bold())
+                .font(.title2)
+                    .fontDesign(.serif)
                 .foregroundStyle(.white)
             if let moon = summary.moonPhase {
                 HStack(spacing: 6) {
@@ -42,7 +43,7 @@ struct CalendarDayDetailView: View {
                             .foregroundStyle(AstroTheme.textTertiary)
                         Text("\(sign.glyph) \(sign.name)")
                             .font(.subheadline)
-                            .foregroundStyle(.cyan)
+                            .foregroundStyle(AstroTheme.planet(.moon))
                     }
                 }
             }
@@ -55,7 +56,7 @@ struct CalendarDayDetailView: View {
     private func tipCard(_ tip: String) -> some View {
         HStack(alignment: .top, spacing: 10) {
             Image(systemName: "lightbulb.fill")
-                .foregroundStyle(.yellow)
+                .foregroundStyle(AstroTheme.planet(.sun))
                 .font(.title3)
             VStack(alignment: .leading, spacing: 4) {
                 Text("Günün Tavsiyesi")
@@ -76,7 +77,7 @@ struct CalendarDayDetailView: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(spacing: 6) {
                 Image(systemName: "moon.stars")
-                    .foregroundStyle(.cyan)
+                    .foregroundStyle(AstroTheme.planet(.moon))
                 Text("Ay Fazı")
                     .font(.headline)
                     .foregroundStyle(.white)
@@ -110,7 +111,7 @@ struct CalendarDayDetailView: View {
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 4)
                                 .background(AstroTheme.surface, in: .capsule)
-                                .foregroundStyle(.cyan)
+                                .foregroundStyle(AstroTheme.planet(.moon))
                         }
                     }
                 }
@@ -182,11 +183,11 @@ struct CalendarDayDetailView: View {
 
     private func eventColor(_ type: CalendarEventType) -> Color {
         switch type {
-        case .moonPhase: .cyan
-        case .eclipse: .indigo
-        case .retrograde: .red
+        case .moonPhase: AstroTheme.planet(.moon)
+        case .eclipse: AstroTheme.accent
+        case .retrograde: AstroTheme.zorlayici
         case .voidOfCourse: Color(red: 0.6, green: 0.5, blue: 0.8)
-        case .planetaryHour: .brown
+        case .planetaryHour: AstroTheme.planet(.saturn)
         }
     }
 }

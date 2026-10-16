@@ -47,7 +47,7 @@ struct SolarReturnShareCard: View {
                             icon: "sun.max.fill",
                             label: "GÜNEŞ",
                             sign: solarReturn.chart.sunSign,
-                            color: .orange
+                            color: AstroTheme.planet(.sun)
                         )
                     }
                 }
@@ -78,7 +78,7 @@ struct SolarReturnShareCard: View {
                             if pos.isRetrograde {
                                 Text("℞")
                                     .font(.system(size: 14))
-                                    .foregroundStyle(.red)
+                                    .foregroundStyle(AstroTheme.zorlayici)
                             }
                         }
                     }

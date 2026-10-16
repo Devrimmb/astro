@@ -150,7 +150,7 @@ private struct ChartPDFContentView: View {
                     .foregroundStyle(.white)
 
                 HStack(spacing: 0) {
-                    bigThreeItem(label: "Güneş", sign: chart.sunSign, icon: "sun.max.fill", color: .orange)
+                    bigThreeItem(label: "Güneş", sign: chart.sunSign, icon: "sun.max.fill", color: AstroTheme.planet(.sun))
                     bigThreeItem(label: "Ay", sign: chart.moonSign, icon: "moon.fill", color: Color(red: 0.35, green: 0.78, blue: 0.98))
                     bigThreeItem(label: "Yükselen", sign: chart.ascendant, icon: "arrow.up.circle.fill", color: accentColor)
                 }
@@ -246,9 +246,9 @@ private struct ChartPDFContentView: View {
     private func pdfElementColor(_ element: ZodiacSign.Element) -> Color {
         switch element {
         case .fire: Color(red: 1.0, green: 0.40, blue: 0.45)
-        case .earth: .green
-        case .air: .yellow
-        case .water: .blue
+        case .earth: AstroTheme.harmonik
+        case .air: AstroTheme.planet(.sun)
+        case .water: AstroTheme.water
         }
     }
 
@@ -636,12 +636,12 @@ private struct ChartPDFContentView: View {
 
     private func categoryColor(_ category: InterpretationCategory) -> Color {
         switch category {
-        case .bigThree: .orange
-        case .planetInHouseSign: .purple
-        case .houseInSign: .teal
-        case .aspect: .orange
+        case .bigThree: AstroTheme.planet(.sun)
+        case .planetInHouseSign: AstroTheme.accent
+        case .houseInSign: AstroTheme.accentSecondary
+        case .aspect: AstroTheme.planet(.sun)
         case .element: Color(red: 1.0, green: 0.40, blue: 0.45)
-        case .modality: .gray
+        case .modality: AstroTheme.textSecondary
         }
     }
 }

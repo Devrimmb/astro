@@ -35,7 +35,7 @@ struct CompositeShareCard: View {
                         .foregroundStyle(.white)
 
                     HStack(spacing: 32) {
-                        bigThreeItem(label: "GÜNEŞ", sign: composite.sunSign, color: .orange)
+                        bigThreeItem(label: "GÜNEŞ", sign: composite.sunSign, color: AstroTheme.planet(.sun))
                         bigThreeItem(label: "AY", sign: composite.moonSign, color: lightBlue)
                         bigThreeItem(label: "YÜKSELEN", sign: composite.ascendant, color: purple)
                     }

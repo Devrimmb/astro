@@ -94,7 +94,8 @@ struct KatinaView: View {
 
             VStack(spacing: 8) {
                 Text("Katina Falı")
-                    .font(.largeTitle.weight(.bold))
+                    .font(.largeTitle)
+                    .fontDesign(.serif)
                     .foregroundStyle(.white)
                 Text("Bugünkü ücretsiz hakkını kullandın")
                     .font(.subheadline)
@@ -125,7 +126,8 @@ struct KatinaView: View {
                     .scaleEffect(1.0 + sin(glowPhase * 2) * 0.05)
 
                 Text("Katina Falı")
-                    .font(.largeTitle.weight(.bold))
+                    .font(.largeTitle)
+                    .fontDesign(.serif)
                     .foregroundStyle(.white)
 
                 Text("Zihnini odakla ve bir kart seç")

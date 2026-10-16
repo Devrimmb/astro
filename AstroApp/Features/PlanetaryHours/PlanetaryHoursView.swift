@@ -34,14 +34,15 @@ struct PlanetaryHoursView: View {
         return VStack(spacing: 10) {
             Image(systemName: "clock.fill")
                 .font(.system(size: 36))
-                .foregroundStyle(planetColor(current?.planet ?? .sun))
+                .foregroundStyle(AstroTheme.planet(current?.planet ?? .sun))
 
             Text("Şu Anki Gezegen Saati")
                 .font(.caption)
                 .foregroundStyle(AstroTheme.textSecondary)
 
             Text(current?.planet.name ?? "—")
-                .font(.title2.bold())
+                .font(.title2)
+                    .fontDesign(.serif)
                 .foregroundStyle(.white)
 
             if let current {
@@ -62,7 +63,7 @@ struct PlanetaryHoursView: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(spacing: 6) {
                 Image(systemName: "sun.max.fill")
-                    .foregroundStyle(.orange)
+                    .foregroundStyle(AstroTheme.planet(.sun))
                 Text("Gündüz Saatleri")
                     .font(.headline)
                     .foregroundStyle(.white)
@@ -79,7 +80,7 @@ struct PlanetaryHoursView: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(spacing: 6) {
                 Image(systemName: "moon.fill")
-                    .foregroundStyle(.cyan)
+                    .foregroundStyle(AstroTheme.accentSecondary)
                 Text("Gece Saatleri")
                     .font(.headline)
                     .foregroundStyle(.white)
@@ -95,7 +96,7 @@ struct PlanetaryHoursView: View {
     private func hourRow(_ hour: PlanetaryHour) -> some View {
         HStack(spacing: 10) {
             Circle()
-                .fill(planetColor(hour.planet))
+                .fill(AstroTheme.planet(hour.planet))
                 .frame(width: 8, height: 8)
 
             Text("\(hour.hourNumber).")
@@ -105,7 +106,7 @@ struct PlanetaryHoursView: View {
 
             Text(hour.planet.name)
                 .font(.caption.bold())
-                .foregroundStyle(hour.isActive ? .orange : .white)
+                .foregroundStyle(hour.isActive ? AstroTheme.planet(.sun) : .white)
                 .frame(width: 60, alignment: .leading)
 
             Text(hour.timeText)
@@ -117,26 +118,13 @@ struct PlanetaryHoursView: View {
             if hour.isActive {
                 Text("AKTİF")
                     .font(.caption2.bold())
-                    .foregroundStyle(.orange)
+                    .foregroundStyle(AstroTheme.planet(.sun))
                     .padding(.horizontal, 6)
                     .padding(.vertical, 2)
-                    .background(.orange.opacity(0.15), in: .capsule)
+                    .background(AstroTheme.planet(.sun).opacity(0.15), in: .capsule)
             }
         }
         .padding(.vertical, 1)
-    }
-
-    private func planetColor(_ planet: Planet) -> Color {
-        switch planet {
-        case .sun: .orange
-        case .moon: .white
-        case .mars: .red
-        case .mercury: .cyan
-        case .jupiter: .purple
-        case .venus: .pink
-        case .saturn: .brown
-        default: AstroTheme.accent
-        }
     }
 
     private func loadData() {

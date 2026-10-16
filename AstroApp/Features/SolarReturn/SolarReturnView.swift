@@ -131,7 +131,8 @@ struct SolarReturnView: View {
             VStack(spacing: 20) {
                 VStack(spacing: 6) {
                     Text("Güneş & Ay Dönüşü")
-                        .font(.largeTitle.weight(.bold))
+                        .font(.largeTitle)
+                    .fontDesign(.serif)
                         .foregroundStyle(.white)
                     Text("Yıllık Solar ve aylık Lunar Return haritaları")
                         .font(.subheadline)
@@ -243,7 +244,7 @@ struct SolarReturnView: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(spacing: 6) {
                 Image(systemName: "circle.circle.fill")
-                    .foregroundStyle(.orange)
+                    .foregroundStyle(AstroTheme.planet(.sun))
                 Text("SR & Natal Karşılaştırma")
                     .font(.headline)
                     .foregroundStyle(.white)
@@ -273,7 +274,7 @@ struct SolarReturnView: View {
         VStack(spacing: 12) {
             Image(systemName: "sun.max.circle.fill")
                 .font(.system(size: 40))
-                .foregroundStyle(.orange)
+                .foregroundStyle(AstroTheme.planet(.sun))
 
             Text("\(String(sr.year)) Güneş Dönüşü")
                 .font(.title3.bold())
@@ -300,8 +301,8 @@ struct SolarReturnView: View {
 
             HStack(spacing: 0) {
                 bigThreeItem(title: "SR Yükselen", sign: sr.returnAscendant,   color: AstroTheme.accent, description: "Yılın genel tonu")
-                bigThreeItem(title: "SR Ay",       sign: sr.returnMoonSign,     color: .cyan,             description: "Duygusal tema")
-                bigThreeItem(title: "SR Güneş",    sign: sr.chart.sunSign,      color: .orange,           description: "Temel enerji")
+                bigThreeItem(title: "SR Ay",       sign: sr.returnMoonSign,     color: AstroTheme.planet(.moon),             description: "Duygusal tema")
+                bigThreeItem(title: "SR Güneş",    sign: sr.chart.sunSign,      color: AstroTheme.planet(.sun),           description: "Temel enerji")
             }
         }
         .glassCard()
@@ -386,7 +387,7 @@ struct SolarReturnView: View {
                     Text("\(pos.house). ev")
                         .font(.caption2).foregroundStyle(AstroTheme.textTertiary)
                     if pos.isRetrograde {
-                        Text("℞").font(.caption2).foregroundStyle(.red)
+                        Text("℞").font(.caption2).foregroundStyle(AstroTheme.zorlayici)
                     }
                 }
                 if pos.planet != sr.chart.planets.last?.planet {
@@ -403,7 +404,7 @@ struct SolarReturnView: View {
         VStack(spacing: 12) {
             Image(systemName: "moon.circle.fill")
                 .font(.system(size: 40))
-                .foregroundStyle(.cyan)
+                .foregroundStyle(AstroTheme.planet(.moon))
 
             Text("Ay Dönüşü")
                 .font(.title3.bold())
@@ -430,8 +431,8 @@ struct SolarReturnView: View {
 
             HStack(spacing: 0) {
                 bigThreeItem(title: "LR Yükselen", sign: lr.chart.ascendant, color: AstroTheme.accent, description: "Ayın tonu")
-                bigThreeItem(title: "LR Güneş",   sign: lr.chart.sunSign,   color: .orange,           description: "Aktif enerji")
-                bigThreeItem(title: "LR Ay",       sign: lr.chart.moonSign,  color: .cyan,             description: "Duygusal tema")
+                bigThreeItem(title: "LR Güneş",   sign: lr.chart.sunSign,   color: AstroTheme.planet(.sun),           description: "Aktif enerji")
+                bigThreeItem(title: "LR Ay",       sign: lr.chart.moonSign,  color: AstroTheme.planet(.moon),             description: "Duygusal tema")
             }
         }
         .glassCard()
@@ -455,7 +456,7 @@ struct SolarReturnView: View {
                     Text("\(pos.house). ev")
                         .font(.caption2).foregroundStyle(AstroTheme.textTertiary)
                     if pos.isRetrograde {
-                        Text("℞").font(.caption2).foregroundStyle(.red)
+                        Text("℞").font(.caption2).foregroundStyle(AstroTheme.zorlayici)
                     }
                 }
                 if pos.planet != lr.chart.planets.last?.planet {
@@ -479,11 +480,7 @@ struct SolarReturnView: View {
     }
 
     private func srAspectColor(_ type: AspectType) -> Color {
-        switch type.nature {
-        case .harmonik:  AstroTheme.harmonik
-        case .zorlayici: AstroTheme.zorlayici
-        case .notr:      AstroTheme.accent
-        }
+        AstroTheme.nature(type.nature)
     }
 
     private func monthYearText(_ date: Date) -> String {

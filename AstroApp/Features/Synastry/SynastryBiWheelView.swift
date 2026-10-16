@@ -47,25 +47,18 @@ struct SynastryBiWheelView: View {
             let startAngle = chartAngle(startDeg)
             let endAngle   = chartAngle(endDeg)
 
-            var path = Path()
-            path.addArc(center: center, radius: outerRadius,    startAngle: startAngle, endAngle: endAngle, clockwise: false)
-            path.addArc(center: center, radius: signRingInner,  startAngle: endAngle,   endAngle: startAngle, clockwise: true)
-            path.closeSubpath()
+            let path = WheelGeometry.ringSegment(center: center, innerRadius: signRingInner, outerRadius: outerRadius,
+                                                 startAngle: startAngle, endAngle: endAngle)
 
-            let color: Color = switch sign.element {
-            case .fire:  .red.opacity(0.13)
-            case .earth: .green.opacity(0.10)
-            case .air:   .yellow.opacity(0.10)
-            case .water: .blue.opacity(0.13)
-            }
+            let color = AstroTheme.element(sign.element).opacity(0.12)
             context.fill(path, with: .color(color))
-            context.stroke(path, with: .color(.white.opacity(0.4)), lineWidth: 0.5)
+            context.stroke(path, with: .color(.white.opacity(0.10)), lineWidth: 0.5)
         }
 
         for r in [outerRadius, signRingInner] {
             var circle = Path()
             circle.addEllipse(in: CGRect(x: center.x - r, y: center.y - r, width: r * 2, height: r * 2))
-            context.stroke(circle, with: .color(.white.opacity(0.6)), lineWidth: 1)
+            context.stroke(circle, with: .color(.white.opacity(0.2)), lineWidth: 0.8)
         }
     }
 
@@ -77,12 +70,10 @@ struct SynastryBiWheelView: View {
             let midDeg = Double(sign.rawValue) * 30.0 + 15.0
             let angle  = chartAngle(midDeg)
             let point  = pointOnCircle(center: center, radius: glyphRadius, angle: angle)
-            let text   = Text(sign.glyph).font(.system(size: size * 0.042)).foregroundColor(.white)
-            let resolved = context.resolve(text)
-            let sz = resolved.measure(in: CGSize(width: 40, height: 40))
-            context.draw(resolved,
-                         at: CGPoint(x: point.x - sz.width / 2, y: point.y - sz.height / 2),
-                         anchor: .topLeading)
+            let text   = Text(sign.glyph)
+                .font(.system(size: size * 0.04, design: .serif))
+                .foregroundColor(AstroTheme.element(sign.element))
+            context.draw(context.resolve(text), at: point, anchor: .center)
         }
     }
 
@@ -94,7 +85,7 @@ struct SynastryBiWheelView: View {
                                      y: center.y - separatorRing,
                                      width: separatorRing * 2,
                                      height: separatorRing * 2))
-        context.stroke(circle, with: .color(.white.opacity(0.55)), lineWidth: 1.0)
+        context.stroke(circle, with: .color(AstroTheme.accentSecondary.opacity(0.35)), lineWidth: 0.8)
     }
 
     // MARK: - Ev Çizgileri (chart1 referans)
@@ -111,14 +102,14 @@ struct SynastryBiWheelView: View {
 
             let isAngular = house.id == 1 || house.id == 4 || house.id == 7 || house.id == 10
             context.stroke(path,
-                           with: .color(.white.opacity(isAngular ? 0.7 : 0.28)),
-                           lineWidth: isAngular ? 1.2 : 0.5)
+                           with: .color(.white.opacity(isAngular ? 0.55 : 0.14)),
+                           lineWidth: isAngular ? 1.0 : 0.5)
         }
 
         // ASC etiketi
         let ascAngle = chartAngle(chart1.houses[0].cusp)
         let ascPoint = pointOnCircle(center: center, radius: separatorRing + 3, angle: ascAngle)
-        let ascText  = Text("ASC").font(.system(size: size * 0.026, weight: .bold)).foregroundColor(.orange)
+        let ascText  = Text("AC").font(.system(size: size * 0.026, weight: .bold)).foregroundColor(AstroTheme.harmonik)
         context.draw(context.resolve(ascText), at: ascPoint, anchor: .trailing)
     }
 
@@ -130,7 +121,7 @@ struct SynastryBiWheelView: View {
                                      y: center.y - houseRingInner,
                                      width: houseRingInner * 2,
                                      height: houseRingInner * 2))
-        context.stroke(circle, with: .color(.white.opacity(0.35)), lineWidth: 0.5)
+        context.stroke(circle, with: .color(.white.opacity(0.12)), lineWidth: 0.5)
     }
 
     // MARK: - Cross-Aspect Çizgileri
@@ -156,11 +147,7 @@ struct SynastryBiWheelView: View {
             path.move(to: pt1)
             path.addLine(to: pt2)
 
-            let color: Color = switch aspect.type.nature {
-            case .harmonik:  .green
-            case .zorlayici: .red
-            case .notr:      .blue
-            }
+            let color = AstroTheme.nature(aspect.type.nature)
             let dash: [CGFloat] = aspect.type == .sextile ? [4, 3] : []
             context.stroke(path,
                            with: .color(color.opacity(0.5)),
@@ -177,15 +164,18 @@ struct SynastryBiWheelView: View {
         for p in placements {
             let angle = chartAngle(p.displayDeg)
             let point = pointOnCircle(center: center, radius: p2PlanetRing, angle: angle)
-            let text  = Text(planetGlyph(p.planet))
-                .font(.system(size: size * 0.035))
-                .foregroundColor(planetColor(p.planet).opacity(0.72))
+            let badge = size * 0.022
+            context.fill(Path(ellipseIn: CGRect(x: point.x - badge, y: point.y - badge, width: badge * 2, height: badge * 2)),
+                         with: .color(AstroTheme.background.opacity(0.8)))
+            let text  = Text(p.planet.glyph)
+                .font(.system(size: size * 0.032, design: .serif))
+                .foregroundColor(AstroTheme.planet(p.planet).opacity(0.85))
             context.draw(context.resolve(text), at: point, anchor: .center)
 
             drawTick(context: &context, center: center,
                      degree: p.degree,
                      outerR: signRingInner - 2, innerR: signRingInner - 8,
-                     color: planetColor(p.planet).opacity(0.45))
+                     color: AstroTheme.planet(p.planet).opacity(0.45))
         }
     }
 
@@ -198,15 +188,18 @@ struct SynastryBiWheelView: View {
         for p in placements {
             let angle = chartAngle(p.displayDeg)
             let point = pointOnCircle(center: center, radius: p1PlanetRing, angle: angle)
-            let text  = Text(planetGlyph(p.planet))
-                .font(.system(size: size * 0.035))
-                .foregroundColor(planetColor(p.planet))
+            let badge = size * 0.024
+            context.fill(Path(ellipseIn: CGRect(x: point.x - badge, y: point.y - badge, width: badge * 2, height: badge * 2)),
+                         with: .color(AstroTheme.background.opacity(0.85)))
+            let text  = Text(p.planet.glyph)
+                .font(.system(size: size * 0.034, design: .serif))
+                .foregroundColor(AstroTheme.planet(p.planet))
             context.draw(context.resolve(text), at: point, anchor: .center)
 
             drawTick(context: &context, center: center,
                      degree: p.degree,
                      outerR: separatorRing - 2, innerR: separatorRing - 8,
-                     color: planetColor(p.planet).opacity(0.55))
+                     color: AstroTheme.planet(p.planet).opacity(0.55))
         }
     }
 
@@ -264,51 +257,5 @@ struct SynastryBiWheelView: View {
             x: center.x + radius * CGFloat(Foundation.cos(rad)),
             y: center.y - radius * CGFloat(Foundation.sin(rad))
         )
-    }
-
-    private func planetGlyph(_ planet: AstroApp.Planet) -> String {
-        switch planet {
-        case .sun:          "☉"
-        case .moon:         "☽"
-        case .mercury:      "☿"
-        case .venus:        "♀"
-        case .mars:         "♂"
-        case .jupiter:      "♃"
-        case .saturn:       "♄"
-        case .uranus:       "♅"
-        case .neptune:      "♆"
-        case .pluto:        "♇"
-        case .northNode:    "☊"
-        case .chiron:       "⚷"
-        case .lilith:       "⚸"
-        case .partOfFortune:"⊕"
-        case .ceres:        "⚳"
-        case .pallas:       "⚴"
-        case .juno:         "⚵"
-        case .vesta:        "⚶"
-        }
-    }
-
-    private func planetColor(_ planet: AstroApp.Planet) -> Color {
-        switch planet {
-        case .sun:           .orange
-        case .moon:          .white
-        case .mercury:       .cyan
-        case .venus:         .pink
-        case .mars:          .red
-        case .jupiter:       .purple
-        case .saturn:        .brown
-        case .uranus:        .teal
-        case .neptune:       .indigo
-        case .pluto:         .gray
-        case .northNode:     .mint
-        case .chiron:        .yellow
-        case .lilith:        Color(red: 0.3, green: 0, blue: 0.3)
-        case .partOfFortune: .green
-        case .ceres:         Color(red: 0.6, green: 0.4, blue: 0.2)
-        case .pallas:        Color(red: 0.5, green: 0.7, blue: 0.9)
-        case .juno:          Color(red: 0.8, green: 0.4, blue: 0.6)
-        case .vesta:         Color(red: 0.9, green: 0.5, blue: 0.2)
-        }
     }
 }

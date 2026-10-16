@@ -15,6 +15,7 @@ struct SettingsView: View {
 
                 ScrollView {
                     VStack(spacing: 16) {
+                        profileCard
                         proStatusCard
                         languageCard
                         settingsCard
@@ -39,6 +40,96 @@ struct SettingsView: View {
                 Text("AstroApp v1.0\nKozmik rehberiniz.\n\nBu uygulama eğlence amaçlıdır, profesyonel danışmanlık yerine geçmez.")
             }
         }
+    }
+
+    // MARK: - Profil
+
+    /// Eski ProfileView'ın özeti: doğum bilgisi + Büyük Üçlü, tek kartta.
+    private var profileCard: some View {
+        Group {
+            if let data = appState.birthDataStore.savedData {
+                HStack(spacing: 14) {
+                    let sunSign = appState.currentChart?.sunSign
+                    Text(sunSign?.glyph ?? "✦")
+                        .font(.system(size: 24, design: .serif))
+                        .foregroundStyle(sunSign.map { AstroTheme.element($0.element) } ?? AstroTheme.accent)
+                        .frame(width: 52, height: 52)
+                        .background(.white.opacity(0.08), in: .circle)
+                        .overlay { Circle().stroke(.white.opacity(0.18), lineWidth: 1) }
+                        .accessibilityHidden(true)
+
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(data.name.isEmpty ? "Profilim" : data.name)
+                            .font(.title3)
+                            .fontDesign(.serif)
+                            .foregroundStyle(.white)
+                        if let chart = appState.currentChart {
+                            bigThreeLine(chart)
+                        }
+                        Text("\(formattedDate(data.birthDate)) · \(formattedTime(data.birthDate)) · \(data.cityName)")
+                            .font(.caption2)
+                            .foregroundStyle(AstroTheme.textTertiary)
+                            .lineLimit(1)
+                    }
+
+                    Spacer(minLength: 0)
+
+                    if entitlements.hasFullAccess {
+                        Pill.pro
+                    }
+                }
+                .accessibilityElement(children: .combine)
+            } else {
+                HStack(spacing: 12) {
+                    Image(systemName: "person.crop.circle.badge.plus")
+                        .font(.title2)
+                        .foregroundStyle(AstroTheme.accent)
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text("Henüz profil oluşturulmadı")
+                            .font(.subheadline.weight(.semibold))
+                            .foregroundStyle(.white)
+                        Text("Astroloji sekmesinden doğum bilgilerini girerek haritanı oluştur.")
+                            .font(.caption)
+                            .foregroundStyle(AstroTheme.textSecondary)
+                    }
+                    Spacer(minLength: 0)
+                }
+            }
+        }
+        .glassCard(tint: AstroTheme.accent)
+    }
+
+    private func bigThreeLine(_ chart: BirthChart) -> some View {
+        HStack(spacing: 6) {
+            if let sun = chart.sunSign {
+                Text("☉ \(sun.name)").foregroundStyle(AstroTheme.planet(.sun))
+            }
+            if let moon = chart.moonSign {
+                Text("·").foregroundStyle(AstroTheme.textTertiary)
+                Text("☽ \(moon.name)").foregroundStyle(AstroTheme.planet(.moon))
+            }
+            if let asc = chart.ascendant {
+                Text("·").foregroundStyle(AstroTheme.textTertiary)
+                Text("AC \(asc.name)").foregroundStyle(AstroTheme.harmonik)
+            }
+        }
+        .font(.caption)
+        .lineLimit(1)
+        .minimumScaleFactor(0.85)
+    }
+
+    private func formattedDate(_ date: Date) -> String {
+        let f = DateFormatter()
+        f.locale = Locale(identifier: "tr_TR")
+        f.dateFormat = "d MMM yyyy"
+        return f.string(from: date)
+    }
+
+    private func formattedTime(_ date: Date) -> String {
+        let f = DateFormatter()
+        f.locale = Locale(identifier: "tr_TR")
+        f.timeStyle = .short
+        return f.string(from: date)
     }
 
     // MARK: - Pro Status
@@ -139,27 +230,12 @@ struct SettingsView: View {
 
     private var settingsCard: some View {
         VStack(alignment: .leading, spacing: 0) {
-            NavigationLink {
-                ProfileView()
-                    .environment(appState)
-            } label: {
-                HStack(spacing: 12) {
-                    Image(systemName: "person.circle")
-                        .font(.subheadline)
-                        .foregroundStyle(AstroTheme.accent)
-                        .frame(width: 24)
-                    Text("Profilim")
-                        .font(.subheadline)
-                        .foregroundStyle(.white)
-                    Spacer()
-                    Image(systemName: "chevron.right")
-                        .font(.caption2)
-                        .foregroundStyle(AstroTheme.textTertiary)
+            if appState.birthDataStore.savedData != nil {
+                settingsRow(icon: "arrow.triangle.2.circlepath", title: "Haritayı Yeniden Hesapla") {
+                    Task { await appState.restoreSavedChart() }
                 }
-                .padding(.horizontal, 16)
-                .padding(.vertical, 14)
+                Divider().overlay(AstroTheme.cardBorder)
             }
-            Divider().overlay(AstroTheme.cardBorder)
             NavigationLink {
                 PeopleListView()
                     .environment(appState)
@@ -205,10 +281,10 @@ struct SettingsView: View {
         VStack(alignment: .leading, spacing: 12) {
             HStack(spacing: 8) {
                 Image(systemName: "wrench.and.screwdriver.fill")
-                    .foregroundStyle(.orange)
+                    .foregroundStyle(AstroTheme.planet(.sun))
                 Text("Admin")
                     .font(.headline)
-                    .foregroundStyle(.orange)
+                    .foregroundStyle(AstroTheme.planet(.sun))
             }
 
             Toggle(isOn: $adminTestMode) {
@@ -223,7 +299,7 @@ struct SettingsView: View {
                         .foregroundStyle(AstroTheme.textTertiary)
                 }
             }
-            .tint(.orange)
+            .tint(AstroTheme.planet(.sun))
             .onChange(of: adminTestMode) { _, newValue in
                 EntitlementManager.adminTestMode = newValue
             }

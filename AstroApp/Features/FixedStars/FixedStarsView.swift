@@ -38,7 +38,7 @@ struct FixedStarsView: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(spacing: 6) {
                 Image(systemName: "staroflife.fill")
-                    .foregroundStyle(.yellow)
+                    .foregroundStyle(AstroTheme.air)
                 Text("Haritanızdaki Yıldız Kavuşumları")
                     .font(.headline)
                     .foregroundStyle(.white)
@@ -53,7 +53,7 @@ struct FixedStarsView: View {
                     HStack {
                         Text("★ \(conj.star.turkishName)")
                             .font(.subheadline.bold())
-                            .foregroundStyle(.yellow)
+                            .foregroundStyle(AstroTheme.air)
                         Text("☌")
                             .foregroundStyle(AstroTheme.accent)
                         Text(conj.planet.name)
@@ -92,7 +92,7 @@ struct FixedStarsView: View {
                     VStack(alignment: .leading, spacing: 2) {
                         HStack(spacing: 4) {
                             Text("★")
-                                .foregroundStyle(.yellow)
+                                .foregroundStyle(AstroTheme.air)
                             Text(star.turkishName)
                                 .font(.caption.bold())
                                 .foregroundStyle(.white)
