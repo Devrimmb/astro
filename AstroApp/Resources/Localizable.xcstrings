@@ -350,9 +350,6 @@
     "☽ %@" : {
 
     },
-    "⚡" : {
-
-    },
     "✦" : {
 
     },
@@ -369,9 +366,6 @@
 
     },
     "🌙 Ay Dönüşü" : {
-
-    },
-    "🔮" : {
 
     },
     "1. Kişi" : {
@@ -2701,6 +2695,7 @@
       }
     },
     "Hangi tanrı sana mesaj gönderiyor?" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -3337,6 +3332,7 @@
       }
     },
     "Kadim runelerden rehberlik al" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -3511,6 +3507,7 @@
       }
     },
     "Kartı Değiştir" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -4650,6 +4647,9 @@
         }
       }
     },
+    "Rün Falı" : {
+
+    },
     "Rune Falı" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -4668,6 +4668,7 @@
       }
     },
     "Runene dokun ve aç" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -6210,6 +6211,7 @@
 
     },
     "Zihnini odakla ve bir kart seç" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -6292,9 +6294,6 @@
           }
         }
       }
-    },
-    "ᚱ" : {
-
     }
   },
   "version" : "1.0"
