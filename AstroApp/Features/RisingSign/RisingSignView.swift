@@ -92,7 +92,7 @@ struct RisingSignView: View {
 
             AdGateView(
                 title: "Tekrar Hesapla",
-                description: "Yükselen burcunu tekrar hesaplamak için kısa bir reklam izle veya Pro'ya geç."
+                description: "Yükselen burcunu tekrar hesaplamak için kısa bir reklam izle."
             ) {
                 isUnlockedByAd = true
             }

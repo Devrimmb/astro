@@ -88,7 +88,7 @@ struct ChartWheelView: View {
             let path = WheelGeometry.ringSegment(center: center, innerRadius: signRingInner, outerRadius: outerRadius,
                                                  startAngle: startAngle, endAngle: endAngle)
 
-            context.fill(path, with: .color(AstroTheme.element(sign.element).opacity(0.12)))
+            context.fill(path, with: .color(AstroTheme.element(sign.element).opacity(0.26)))
             context.stroke(path, with: .color(.white.opacity(0.10)), lineWidth: 0.5)
         }
 

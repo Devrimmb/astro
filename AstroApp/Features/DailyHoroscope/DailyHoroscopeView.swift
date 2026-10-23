@@ -103,7 +103,7 @@ struct DailyHoroscopeView: View {
                     Text("\(sign.name) Yorumu")
                         .font(.title3.weight(.bold))
                         .foregroundStyle(.white)
-                    Text("Diğer burçların günlük yorumunu okumak için reklam izle veya Pro'ya geç.")
+                    Text("Diğer burçların günlük yorumunu okumak için kısa bir reklam izle.")
                         .font(.caption)
                         .foregroundStyle(AstroTheme.textSecondary)
                         .multilineTextAlignment(.center)

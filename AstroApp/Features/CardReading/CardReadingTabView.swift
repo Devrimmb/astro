@@ -2,7 +2,6 @@ import SwiftUI
 
 struct CardReadingTabView: View {
     @Environment(AppState.self) private var appState
-    @Environment(EntitlementManager.self) private var entitlements
 
     var body: some View {
         NavigationStack {
@@ -91,11 +90,7 @@ struct CardReadingTabView: View {
                     Text("Kart Çek")
                         .glassButton()
                     Spacer()
-                    if entitlements.hasFullAccess {
-                        Pill.pro
-                    } else {
-                        Pill(text: "Günde 1 ücretsiz", color: AstroTheme.accent, icon: "gift.fill")
-                    }
+                    Pill(text: "Günde 1 ücretsiz", color: AstroTheme.accent, icon: "gift.fill")
                 }
             }
             .glassCard(tint: AstroTheme.planet(.sun))

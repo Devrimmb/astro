@@ -108,7 +108,7 @@ struct RuneView: View {
 
             AdGateView(
                 title: "Tekrar Fal Bak",
-                description: "Runeni tekrar çekmek için kısa bir reklam izle veya Pro'ya geç."
+                description: "Runeni tekrar çekmek için kısa bir reklam izle."
             ) {
                 isUnlockedByAd = true
             }

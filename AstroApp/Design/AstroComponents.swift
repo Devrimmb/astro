@@ -34,8 +34,9 @@ struct Pill: View {
         }
     }
 
-    static var pro: Pill {
-        Pill(text: "Pro", color: AstroTheme.planet(.sun), icon: "sparkle")
+    /// Doğum haritası satın alınmış — uygulamada "Pro" katmanı yok, tek seferlik harita var
+    static var chartUnlocked: Pill {
+        Pill(text: "Harita açık", color: AstroTheme.harmonik, icon: "checkmark")
     }
 }
 

@@ -74,8 +74,8 @@ struct SettingsView: View {
 
                     Spacer(minLength: 0)
 
-                    if entitlements.hasFullAccess {
-                        Pill.pro
+                    if entitlements.hasNatalChart {
+                        Pill.chartUnlocked
                     }
                 }
                 .accessibilityElement(children: .combine)
@@ -136,35 +136,36 @@ struct SettingsView: View {
 
     private var proStatusCard: some View {
         VStack(spacing: 12) {
-            if entitlements.hasFullAccess {
+            if entitlements.hasNatalChart {
                 HStack(spacing: 8) {
                     Image(systemName: "checkmark.seal.fill")
                         .foregroundStyle(AstroTheme.harmonik)
-                    Text("Pro Aktif")
+                    Text("Doğum Haritası Açık")
                         .font(.headline)
                         .foregroundStyle(.white)
                 }
                 .accessibilityElement(children: .combine)
-                .accessibilityLabel("Pro abonelik aktif")
-                Text("Tüm özelliklere erişiminiz var.")
+                .accessibilityLabel("Doğum haritası satın alınmış")
+                Text("Tam harita, ilişki analizleri ve transitler kullanımına açık.")
                     .font(.caption)
                     .foregroundStyle(AstroTheme.textSecondary)
             } else {
                 VStack(spacing: 8) {
-                    Text("Tüm Özellikleri Aç")
+                    Text("Doğum Haritanı Aç")
                         .font(.headline)
                         .foregroundStyle(.white)
-                    Text("Detaylı harita, uyumluluk analizi ve daha fazlası")
+                    Text("Tek seferlik ödeme, abonelik yok. Diğer sayfalar reklam izleyerek açılır.")
                         .font(.caption)
                         .foregroundStyle(AstroTheme.textSecondary)
+                        .multilineTextAlignment(.center)
 
                     Button {
                         showPaywall = true
                     } label: {
-                        Text("Pro'ya Geç")
+                        Text("Haritayı Satın Al")
                             .glassButton()
                     }
-                    .accessibilityLabel("Pro sürüme geç")
+                    .accessibilityLabel("Doğum haritasını satın al")
                     .padding(.top, 4)
                 }
             }

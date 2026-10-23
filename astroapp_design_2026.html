@@ -272,6 +272,32 @@
   .diff .card li b{color:var(--t1);font-weight:600}
   .diff .card li .mk{flex-shrink:0;width:18px;color:var(--accent2)}
 
+  /* ── İkon çalışması ── */
+  .icons{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+  .ic-card{padding:18px;border-radius:24px;background:var(--glass);border:1px solid var(--stroke);box-shadow:inset 0 1px 0 var(--spec)}
+  .ic-card.pick{border-color:rgba(143,112,255,0.45);background:linear-gradient(160deg,rgba(143,112,255,0.14),rgba(255,255,255,0.03) 60%)}
+  .ic-big{display:block;width:160px;height:160px;margin:0 auto 14px;border-radius:36px;box-shadow:0 20px 50px rgba(0,0,0,0.55),inset 0 1px 0 rgba(255,255,255,0.2)}
+  .ic-row{display:flex;align-items:flex-end;justify-content:center;gap:14px;margin-bottom:14px}
+  .ic-row svg,.ic-row img{display:block;box-shadow:0 6px 16px rgba(0,0,0,0.45)}
+  .ic-row .s60{width:60px;height:60px;border-radius:13.5px}
+  .ic-row .s29{width:29px;height:29px;border-radius:6.5px}
+  .ic-tag{font-size:9.5px;color:var(--t3);text-align:center;margin-top:4px}
+  .ic-name{font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px}
+  .ic-name .k{font-family:var(--serif);font-size:12px;color:var(--t3);letter-spacing:0.1em}
+  .ic-desc{font-size:12px;color:var(--t2);line-height:1.6;margin-top:6px}
+  .ic-pros{margin-top:10px;font-size:11.5px;line-height:1.6}
+  .ic-pros .p{color:var(--harmonik)} .ic-pros .m{color:var(--zorlayici)}
+  .homegrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px 10px;padding:22px 18px 18px;border-radius:40px;max-width:330px;margin:0 auto;
+    background:radial-gradient(260px 200px at 30% 0%,rgba(143,112,255,0.35),transparent 70%),linear-gradient(180deg,#1A1535,#0A0D1F);border:1px solid var(--stroke)}
+  .homegrid .app{text-align:center}
+  .homegrid .app .tile{width:60px;height:60px;border-radius:13.5px;margin:0 auto 5px;background:rgba(255,255,255,0.08);box-shadow:0 6px 14px rgba(0,0,0,0.4)}
+  .homegrid .app .nm{font-size:9px;color:rgba(255,255,255,0.85)}
+  .layers{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .layer{width:84px;text-align:center}
+  .layer svg{display:block;width:84px;height:84px;border-radius:19px;background:rgba(255,255,255,0.03);border:1px solid var(--stroke)}
+  .layer .l{font-size:10px;color:var(--t3);margin-top:5px}
+  .layer-plus{font-size:18px;color:var(--t4)}
+
   .foot{margin-top:60px;padding-top:24px;border-top:1px solid var(--stroke);font-size:12px;color:var(--t3);line-height:1.7}
 </style>
 </head>
@@ -291,6 +317,7 @@
   <a href="#para">Paywall & Ayarlar</a>
   <a href="#swift">SwiftUI Eşlemesi</a>
   <a href="#fark">Eski → Yeni</a>
+  <a href="#ikon">İkon</a>
 </nav>
 
 <!-- ═══════════════ HERO ═══════════════ -->
@@ -1199,6 +1226,213 @@
   </div>
 </section>
 
+<!-- ═══════════════ 12. UYGULAMA İKONU ═══════════════ -->
+<section class="section" id="ikon">
+  <div class="sec-head"><span class="sec-num">12</span><h2 class="sec-title">Uygulama ikonu — maskotu koruyarak</h2></div>
+  <p class="sec-note">
+    Mevcut ikon seviliyor ve doğru: <b>beyaz pofuduk maskot + lavanta fiyonk + hilal</b>, koyu indigo zemin. Sorun ikonun kendisi değil,
+    <b>kadrajı</b> — maskot ikonun yaklaşık %55'ini kaplıyor, 60px'te yüz detayları (göz parlamaları, yanak, gülümseme) kayboluyor ve etrafta boş alan kalıyor.
+    Aşağıdaki seçenekler maskotu değiştirmez; kadrajı, ölçeği ve uygulamanın çark diliyle bağını dener. Her biri 160 / 60 / 29 px'te yan yana — ikon kararı 60px'te verilir.
+  </p>
+
+  <!-- Ortak SVG tanımları: maskot, fiyonk, hilal, zemin -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <radialGradient id="icBg" cx="50%" cy="20%" r="90%"><stop offset="0" stop-color="#2A2155"/><stop offset="55%" stop-color="#16113A"/><stop offset="100%" stop-color="#0B0A22"/></radialGradient>
+      <radialGradient id="icBgAurora" cx="30%" cy="0%" r="80%"><stop offset="0" stop-color="#5A47B8"/><stop offset="45%" stop-color="#1C1545"/><stop offset="100%" stop-color="#0A0D1F"/></radialGradient>
+      <radialGradient id="icFur" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#FFFFFF"/><stop offset="60%" stop-color="#F1EEFF"/><stop offset="100%" stop-color="#D9D3F5"/></radialGradient>
+      <radialGradient id="icFur2" cx="50%" cy="35%" r="75%"><stop offset="0" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#E6E1FA"/></radialGradient>
+      <linearGradient id="icBowGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A48BFF"/><stop offset="100%" stop-color="#7A5CF5"/></linearGradient>
+      <radialGradient id="icMoon" cx="35%" cy="35%" r="80%"><stop offset="0" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#C9CDEA"/></radialGradient>
+      <linearGradient id="icMono" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B6B80"/><stop offset="100%" stop-color="#2E2E3C"/></linearGradient>
+      <clipPath id="icClip"><rect width="200" height="200" rx="44" ry="44"/></clipPath>
+
+      <!-- Pofuduk gövde -->
+      <symbol id="icBody" viewBox="0 0 200 200">
+        <g fill="url(#icFur)">
+          <circle cx="62" cy="118" r="34"/><circle cx="138" cy="118" r="34"/>
+          <circle cx="78" cy="84" r="28"/><circle cx="122" cy="84" r="28"/><circle cx="100" cy="76" r="26"/>
+          <circle cx="70" cy="142" r="26"/><circle cx="130" cy="142" r="26"/><circle cx="100" cy="148" r="30"/>
+        </g>
+        <circle cx="100" cy="112" r="50" fill="url(#icFur2)"/>
+      </symbol>
+      <!-- Yüz -->
+      <symbol id="icFace" viewBox="0 0 200 200">
+        <ellipse cx="70" cy="124" rx="9" ry="5.5" fill="#F6B9CF" opacity="0.85"/><ellipse cx="130" cy="124" rx="9" ry="5.5" fill="#F6B9CF" opacity="0.85"/>
+        <ellipse cx="84" cy="110" rx="9.5" ry="11.5" fill="#15152A"/><ellipse cx="116" cy="110" rx="9.5" ry="11.5" fill="#15152A"/>
+        <circle cx="87.5" cy="105.5" r="3.2" fill="#fff"/><circle cx="119.5" cy="105.5" r="3.2" fill="#fff"/>
+        <circle cx="81" cy="114.5" r="1.6" fill="#fff" opacity="0.9"/><circle cx="113" cy="114.5" r="1.6" fill="#fff" opacity="0.9"/>
+        <ellipse cx="100" cy="125" rx="5.5" ry="4.2" fill="#15152A"/>
+        <path d="M100 128.5 v4.5 M92 132 q8 7 16 0" fill="none" stroke="#15152A" stroke-width="2.2" stroke-linecap="round"/>
+      </symbol>
+      <!-- Fiyonk + yıldız -->
+      <symbol id="icBow" viewBox="0 0 200 200">
+        <path d="M98 64 C90 56 76 54 72 60 C68 66 74 76 86 76 C92 76 96 70 98 64 Z" fill="url(#icBowGrad)"/>
+        <path d="M102 64 C110 56 124 54 128 60 C132 66 126 76 114 76 C108 76 104 70 102 64 Z" fill="url(#icBowGrad)"/>
+        <circle cx="100" cy="66" r="7.5" fill="#F3EEFF"/>
+        <path d="M100 60.5 l1.6 4 4 1.6 -4 1.6 -1.6 4 -1.6 -4 -4 -1.6 4 -1.6 z" fill="#8F70FF"/>
+      </symbol>
+      <!-- Hilal -->
+      <symbol id="icCrescent" viewBox="0 0 40 40">
+        <circle cx="20" cy="20" r="16" fill="url(#icMoon)"/>
+        <circle cx="27" cy="16" r="14" fill="#15113A"/>
+      </symbol>
+      <!-- Yıldız parıltısı -->
+      <symbol id="icSpark" viewBox="0 0 20 20"><path d="M10 1 l2.2 6.8 6.8 2.2 -6.8 2.2 -2.2 6.8 -2.2 -6.8 -6.8 -2.2 6.8 -2.2 z" fill="#B9A6FF"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="icons">
+
+    <!-- A · MEVCUT -->
+    <div class="ic-card">
+      <img class="ic-big" src="AstroApp/Assets.xcassets/AppIcon.appiconset/AppIcon.png" alt="Mevcut ikon">
+      <div class="ic-row">
+        <div><img class="s60" src="AstroApp/Assets.xcassets/AppIcon.appiconset/AppIcon.png" alt=""><div class="ic-tag">60</div></div>
+        <div><img class="s29" src="AstroApp/Assets.xcassets/AppIcon.appiconset/AppIcon.png" alt=""><div class="ic-tag">29</div></div>
+      </div>
+      <div class="ic-name"><span class="k">A</span>Mevcut ikon</div>
+      <div class="ic-desc">Maskot ortada, geniş boşluk, sağ üstte hilal, dağınık yıldızlar.</div>
+      <div class="ic-pros"><span class="p">+</span> Karakter sevimli ve ayırt edici · fiyonk markaya özgü<br><span class="m">−</span> 60px'te yüz okunmuyor · hilal ve yıldızlar gürültüye dönüşüyor · zemin düz mor, uygulamanın aurora zeminiyle farklı</div>
+    </div>
+
+    <!-- B · YAKIN KADRAJ (öneri) -->
+    <div class="ic-card pick">
+      <svg class="ic-big" viewBox="0 0 200 200">
+        <g clip-path="url(#icClip)">
+          <rect width="200" height="200" fill="url(#icBgAurora)"/>
+          <use href="#icCrescent" x="142" y="12" width="48" height="48" opacity="0.95"/>
+          <use href="#icSpark" x="22" y="26" width="16" height="16"/><use href="#icSpark" x="170" y="92" width="10" height="10" opacity="0.7"/>
+          <g transform="translate(100 118) scale(1.55) translate(-100 -112)">
+            <use href="#icBody" width="200" height="200"/><use href="#icFace" width="200" height="200"/><use href="#icBow" width="200" height="200"/>
+          </g>
+        </g>
+      </svg>
+      <div class="ic-row">
+        <div><svg class="s60" viewBox="0 0 200 200"><g clip-path="url(#icClip)"><rect width="200" height="200" fill="url(#icBgAurora)"/><use href="#icCrescent" x="142" y="12" width="48" height="48"/><g transform="translate(100 118) scale(1.55) translate(-100 -112)"><use href="#icBody" width="200" height="200"/><use href="#icFace" width="200" height="200"/><use href="#icBow" width="200" height="200"/></g></g></svg><div class="ic-tag">60</div></div>
+        <div><svg class="s29" viewBox="0 0 200 200"><g clip-path="url(#icClip)"><rect width="200" height="200" fill="url(#icBgAurora)"/><use href="#icCrescent" x="142" y="12" width="48" height="48"/><g transform="translate(100 118) scale(1.55) translate(-100 -112)"><use href="#icBody" width="200" height="200"/><use href="#icFace" width="200" height="200"/><use href="#icBow" width="200" height="200"/></g></g></svg><div class="ic-tag">29</div></div>
+      </div>
+      <div class="ic-name"><span class="k">B</span>Yakın kadraj <span class="pill a" style="margin-left:auto">Öneri</span></div>
+      <div class="ic-desc">Aynı maskot, %55 → %90. Gövde alt kenardan taşar (iOS ikonlarında yaygın "portre" kadrajı), hilal sağ üstte tek aksesuar, aurora zemin.</div>
+      <div class="ic-pros"><span class="p">+</span> 29px'te bile göz + fiyonk okunuyor · uygulama zeminiyle süreklilik · tek odak<br><span class="m">−</span> Yıldızlar azaldı (ikon ölçeğinde zaten görünmüyorlardı)</div>
+    </div>
+
+    <!-- C · ÇARK HALKASI -->
+    <div class="ic-card">
+      <svg class="ic-big icon-ring" viewBox="0 0 200 200">
+        <g clip-path="url(#icClip)">
+          <rect width="200" height="200" fill="url(#icBg)"/>
+          <g class="ring" data-cx="100" data-cy="104" data-r1="78" data-r2="92"></g>
+          <circle cx="100" cy="104" r="78" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+          <circle cx="100" cy="104" r="92" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1"/>
+          <g transform="translate(100 118) scale(1.12) translate(-100 -112)">
+            <use href="#icBody" width="200" height="200"/><use href="#icFace" width="200" height="200"/><use href="#icBow" width="200" height="200"/>
+          </g>
+        </g>
+      </svg>
+      <div class="ic-row">
+        <div><svg class="s60 icon-ring" viewBox="0 0 200 200"><g clip-path="url(#icClip)"><rect width="200" height="200" fill="url(#icBg)"/><g class="ring" data-cx="100" data-cy="104" data-r1="78" data-r2="92"></g><g transform="translate(100 118) scale(1.12) translate(-100 -112)"><use href="#icBody" width="200" height="200"/><use href="#icFace" width="200" height="200"/><use href="#icBow" width="200" height="200"/></g></g></svg><div class="ic-tag">60</div></div>
+        <div><svg class="s29 icon-ring" viewBox="0 0 200 200"><g clip-path="url(#icClip)"><rect width="200" height="200" fill="url(#icBg)"/><g class="ring" data-cx="100" data-cy="104" data-r1="78" data-r2="92"></g><g transform="translate(100 118) scale(1.12) translate(-100 -112)"><use href="#icBody" width="200" height="200"/><use href="#icFace" width="200" height="200"/><use href="#icBow" width="200" height="200"/></g></g></svg><div class="ic-tag">29</div></div>
+      </div>
+      <div class="ic-name"><span class="k">C</span>Çark halkası</div>
+      <div class="ic-desc">Maskot, 12 element tonlu burç halkasının içinde — uygulamadaki natal çarkla doğrudan akrabalık.</div>
+      <div class="ic-pros"><span class="p">+</span> "Astroloji" mesajı anında · ürünle görsel bağ<br><span class="m">−</span> Halka maskotu küçültüyor, 29px'te renkli bir çember + beyaz leke oluyor · iki odak</div>
+    </div>
+
+    <!-- D · AY'DA -->
+    <div class="ic-card">
+      <svg class="ic-big" viewBox="0 0 200 200">
+        <g clip-path="url(#icClip)">
+          <rect width="200" height="200" fill="url(#icBgAurora)"/>
+          <use href="#icSpark" x="28" y="30" width="18" height="18"/><use href="#icSpark" x="156" y="40" width="12" height="12" opacity="0.8"/><use href="#icSpark" x="40" y="150" width="9" height="9" opacity="0.6"/>
+          <!-- büyük hilal: hamak -->
+          <circle cx="104" cy="150" r="70" fill="url(#icMoon)"/>
+          <circle cx="118" cy="128" r="66" fill="url(#icBgAurora)"/>
+          <g transform="translate(96 108) scale(1.05) translate(-100 -112)">
+            <use href="#icBody" width="200" height="200"/><use href="#icFace" width="200" height="200"/><use href="#icBow" width="200" height="200"/>
+          </g>
+        </g>
+      </svg>
+      <div class="ic-row">
+        <div><svg class="s60" viewBox="0 0 200 200"><g clip-path="url(#icClip)"><rect width="200" height="200" fill="url(#icBgAurora)"/><circle cx="104" cy="150" r="70" fill="url(#icMoon)"/><circle cx="118" cy="128" r="66" fill="url(#icBgAurora)"/><g transform="translate(96 108) scale(1.05) translate(-100 -112)"><use href="#icBody" width="200" height="200"/><use href="#icFace" width="200" height="200"/><use href="#icBow" width="200" height="200"/></g></g></svg><div class="ic-tag">60</div></div>
+        <div><svg class="s29" viewBox="0 0 200 200"><g clip-path="url(#icClip)"><rect width="200" height="200" fill="url(#icBgAurora)"/><circle cx="104" cy="150" r="70" fill="url(#icMoon)"/><circle cx="118" cy="128" r="66" fill="url(#icBgAurora)"/><g transform="translate(96 108) scale(1.05) translate(-100 -112)"><use href="#icBody" width="200" height="200"/><use href="#icFace" width="200" height="200"/><use href="#icBow" width="200" height="200"/></g></g></svg><div class="ic-tag">29</div></div>
+      </div>
+      <div class="ic-name"><span class="k">D</span>Ay'da oturan</div>
+      <div class="ic-desc">Hilal küçük bir aksesuar olmaktan çıkıp maskotun oturduğu hamağa dönüşür; klasik "ay üstünde karakter" kompozisyonu.</div>
+      <div class="ic-pros"><span class="p">+</span> Hikâye var, sıcak · beyaz hilal koyu zeminde güçlü kontrast<br><span class="m">−</span> Beyaz maskot + beyaz hilal birbirine karışabilir; hilalin kenarına ince gölge şart</div>
+    </div>
+
+    <!-- E · MARKA İŞARETİ -->
+    <div class="ic-card">
+      <svg class="ic-big" viewBox="0 0 200 200">
+        <g clip-path="url(#icClip)">
+          <rect width="200" height="200" fill="url(#icBgAurora)"/>
+          <circle cx="100" cy="100" r="70" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+          <circle cx="100" cy="100" r="54" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <g transform="translate(100 104) scale(2.6) translate(-100 -66)">
+            <use href="#icBow" width="200" height="200"/>
+          </g>
+        </g>
+      </svg>
+      <div class="ic-row">
+        <div><svg class="s60" viewBox="0 0 200 200"><g clip-path="url(#icClip)"><rect width="200" height="200" fill="url(#icBgAurora)"/><circle cx="100" cy="100" r="70" fill="none" stroke="rgba(255,255,255,0.14)"/><g transform="translate(100 104) scale(2.6) translate(-100 -66)"><use href="#icBow" width="200" height="200"/></g></g></svg><div class="ic-tag">60</div></div>
+        <div><svg class="s29" viewBox="0 0 200 200"><g clip-path="url(#icClip)"><rect width="200" height="200" fill="url(#icBgAurora)"/><g transform="translate(100 104) scale(2.6) translate(-100 -66)"><use href="#icBow" width="200" height="200"/></g></g></svg><div class="ic-tag">29</div></div>
+      </div>
+      <div class="ic-name"><span class="k">E</span>Marka işareti</div>
+      <div class="ic-desc">Maskot yok; sadece fiyonk + yıldız. Uygulamanın en küçük ve en özgün parçası tek başına işaret olur.</div>
+      <div class="ic-pros"><span class="p">+</span> Çok temiz, her boyutta okunur · iOS tinted/dark görünümlere kolay uyar<br><span class="m">−</span> Sevilen karakter kayboluyor — ana ikon değil, bildirim/widget/Apple Watch için ikincil işaret olarak düşün</div>
+    </div>
+
+    <!-- F · iOS GÖRÜNÜMLERİ -->
+    <div class="ic-card">
+      <div class="ic-row" style="gap:12px;margin-bottom:16px">
+        <div><svg style="width:84px;height:84px;border-radius:19px" viewBox="0 0 200 200"><g clip-path="url(#icClip)"><rect width="200" height="200" fill="url(#icBgAurora)"/><use href="#icCrescent" x="142" y="12" width="48" height="48"/><g transform="translate(100 118) scale(1.55) translate(-100 -112)"><use href="#icBody" width="200" height="200"/><use href="#icFace" width="200" height="200"/><use href="#icBow" width="200" height="200"/></g></g></svg><div class="ic-tag">Light / Default</div></div>
+        <div><svg style="width:84px;height:84px;border-radius:19px" viewBox="0 0 200 200"><g clip-path="url(#icClip)"><rect width="200" height="200" fill="#07060F"/><circle cx="100" cy="118" r="80" fill="#8F70FF" opacity="0.18"/><use href="#icCrescent" x="142" y="12" width="48" height="48"/><g transform="translate(100 118) scale(1.55) translate(-100 -112)"><use href="#icBody" width="200" height="200"/><use href="#icFace" width="200" height="200"/><use href="#icBow" width="200" height="200"/></g></g></svg><div class="ic-tag">Dark</div></div>
+        <div><svg style="width:84px;height:84px;border-radius:19px" viewBox="0 0 200 200"><g clip-path="url(#icClip)"><rect width="200" height="200" fill="url(#icMono)"/><g transform="translate(100 118) scale(1.55) translate(-100 -112)" opacity="0.92"><use href="#icBody" width="200" height="200" style="filter:grayscale(1)"/><g style="filter:grayscale(1) brightness(0.3)"><use href="#icFace" width="200" height="200"/></g><g style="filter:grayscale(1) brightness(1.6)"><use href="#icBow" width="200" height="200"/></g></g></g></svg><div class="ic-tag">Tinted</div></div>
+      </div>
+      <div class="ic-name"><span class="k">F</span>iOS 18+ görünümleri</div>
+      <div class="ic-desc">Şu an üç görünüm de aynı PNG. Dark için zemin daha koyu + lavanta ışıma; Tinted için gri tonlu alfa maskesi (sistem kendi rengini verir).</div>
+      <div class="ic-pros"><span class="p">+</span> Yakın kadraj üçünde de çalışıyor: beyaz maskot her zeminde kontrastlı<br><span class="m">−</span> Mevcut ikonun küçük hilali ve yıldızları Tinted'da tamamen siliniyor</div>
+    </div>
+  </div>
+
+  <!-- Ana ekran provası + katmanlar -->
+  <div class="two" style="margin-top:28px">
+    <div class="card">
+      <h4>ANA EKRAN PROVASI · 60 PX</h4>
+      <div class="homegrid">
+        <div class="app"><div class="tile" style="background:linear-gradient(160deg,#3a3a4a,#20202c)"></div><div class="nm">Takvim</div></div>
+        <div class="app"><svg class="tile" viewBox="0 0 200 200"><g clip-path="url(#icClip)"><rect width="200" height="200" fill="url(#icBgAurora)"/><use href="#icCrescent" x="142" y="12" width="48" height="48"/><g transform="translate(100 118) scale(1.55) translate(-100 -112)"><use href="#icBody" width="200" height="200"/><use href="#icFace" width="200" height="200"/><use href="#icBow" width="200" height="200"/></g></g></svg><div class="nm">AstroApp</div></div>
+        <div class="app"><div class="tile" style="background:linear-gradient(160deg,#2e4a3a,#1a2c22)"></div><div class="nm">Notlar</div></div>
+        <div class="app"><div class="tile" style="background:linear-gradient(160deg,#4a2e2e,#2c1a1a)"></div><div class="nm">Müzik</div></div>
+        <div class="app"><img class="tile" src="AstroApp/Assets.xcassets/AppIcon.appiconset/AppIcon.png" alt="" style="object-fit:cover"><div class="nm">Mevcut</div></div>
+        <div class="app"><svg class="tile icon-ring" viewBox="0 0 200 200"><g clip-path="url(#icClip)"><rect width="200" height="200" fill="url(#icBg)"/><g class="ring" data-cx="100" data-cy="104" data-r1="78" data-r2="92"></g><g transform="translate(100 118) scale(1.12) translate(-100 -112)"><use href="#icBody" width="200" height="200"/><use href="#icFace" width="200" height="200"/><use href="#icBow" width="200" height="200"/></g></g></svg><div class="nm">C</div></div>
+        <div class="app"><svg class="tile" viewBox="0 0 200 200"><g clip-path="url(#icClip)"><rect width="200" height="200" fill="url(#icBgAurora)"/><circle cx="104" cy="150" r="70" fill="url(#icMoon)"/><circle cx="118" cy="128" r="66" fill="url(#icBgAurora)"/><g transform="translate(96 108) scale(1.05) translate(-100 -112)"><use href="#icBody" width="200" height="200"/><use href="#icFace" width="200" height="200"/><use href="#icBow" width="200" height="200"/></g></g></svg><div class="nm">D</div></div>
+        <div class="app"><div class="tile" style="background:linear-gradient(160deg,#2e3a4a,#1a222c)"></div><div class="nm">Mail</div></div>
+      </div>
+      <p style="font-size:12px;color:var(--t3);margin-top:14px;line-height:1.6">Komşu ikonlar nötr placeholder. Karşılaştırma: ikinci sırada <b style="color:var(--t1)">B (öneri)</b>, alt sırada mevcut, C ve D. Gerçek karar bu boyutta verilir.</p>
+    </div>
+    <div class="card">
+      <h4>İCON COMPOSER KATMANLARI (iOS 26 LIQUID GLASS)</h4>
+      <div class="layers">
+        <div class="layer"><svg viewBox="0 0 200 200"><rect width="200" height="200" fill="url(#icBgAurora)"/></svg><div class="l">1 · Zemin</div></div>
+        <span class="layer-plus">+</span>
+        <div class="layer"><svg viewBox="0 0 200 200"><use href="#icCrescent" x="142" y="12" width="48" height="48"/><use href="#icSpark" x="22" y="26" width="16" height="16"/></svg><div class="l">2 · Hilal</div></div>
+        <span class="layer-plus">+</span>
+        <div class="layer"><svg viewBox="0 0 200 200"><g transform="translate(100 118) scale(1.55) translate(-100 -112)"><use href="#icBody" width="200" height="200"/><use href="#icFace" width="200" height="200"/></g></svg><div class="l">3 · Maskot</div></div>
+        <span class="layer-plus">+</span>
+        <div class="layer"><svg viewBox="0 0 200 200"><g transform="translate(100 118) scale(1.55) translate(-100 -112)"><use href="#icBow" width="200" height="200"/></g></svg><div class="l">4 · Fiyonk</div></div>
+      </div>
+      <p style="font-size:12px;color:var(--t2);margin-top:14px;line-height:1.65">
+        iOS 26'da ikon tek PNG yerine <code style="color:var(--accent2)">.icon</code> paketi olabilir (Xcode → Icon Composer). Katmanlar ayrı verilince sistem her birine
+        kendi cam parlamasını ve hafif paralaksı uygular; Dark ve Tinted görünümleri de aynı katmanlardan otomatik türer. Maskot ve fiyonk ayrı katman olursa
+        fiyonk cam gibi parlar, maskot mat kalır — fiziksel olarak da doğru.
+      </p>
+      <p style="font-size:12px;color:var(--t3);margin-top:8px;line-height:1.6">Teslim: 1024×1024 PNG (köşe yuvarlatmasız, sistem kırpar) ya da Icon Composer katmanları SVG/PNG. Maskotun orijinal vektörü varsa B kadrajı için yalnızca ölçek + konum değişir, yeniden çizim gerekmez.</p>
+    </div>
+  </div>
+</section>
+
 <div class="foot">
   AstroApp · Liquid Glass Design 2026 · Bu dosya statik bir tasarım çalışmasıdır; gezegen konumları ve puanlar örnek veridir.
   Çarklar sayfa yüklenince JavaScript ile çizilir (Ascendant solda, saat yönünün tersine ekliptik) — <code style="color:var(--accent2)">ChartWheelView.chartAngle()</code> ile aynı dönüşüm.
@@ -1331,6 +1565,23 @@
         else if(j>=i){ d.style.background='transparent'; }
         grid.appendChild(d); }); });
   }
+})();
+
+/* ───────── İkon C: element tonlu burç halkası ───────── */
+(function(){
+  const EL=['#FF736B','#6BD185','#FFD959','#66ADFF'];
+  function pt(cx,cy,r,deg){ const a=deg*Math.PI/180; return [cx+r*Math.cos(a), cy-r*Math.sin(a)]; }
+  document.querySelectorAll('svg.icon-ring g.ring').forEach(g=>{
+    const cx=+g.dataset.cx, cy=+g.dataset.cy, r1=+g.dataset.r1, r2=+g.dataset.r2;
+    for(let i=0;i<12;i++){
+      const d0=i*30, d1=d0+30, n=8; let d='';
+      for(let k=0;k<=n;k++){ const [x,y]=pt(cx,cy,r2,d0+(d1-d0)*k/n); d+=(k?'L':'M')+x.toFixed(1)+' '+y.toFixed(1); }
+      for(let k=n;k>=0;k--){ const [x,y]=pt(cx,cy,r1,d0+(d1-d0)*k/n); d+='L'+x.toFixed(1)+' '+y.toFixed(1); }
+      const p=document.createElementNS('http://www.w3.org/2000/svg','path');
+      p.setAttribute('d',d+'Z'); p.setAttribute('fill',EL[i%4]); p.setAttribute('fill-opacity','0.38'); p.setAttribute('stroke','rgba(255,255,255,0.15)'); p.setAttribute('stroke-width','0.6');
+      g.appendChild(p);
+    }
+  });
 })();
 </script>
 </body>

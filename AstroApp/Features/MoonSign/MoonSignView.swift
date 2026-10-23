@@ -94,7 +94,7 @@ struct MoonSignView: View {
 
             AdGateView(
                 title: "Tekrar Hesapla",
-                description: "Ay burcunu tekrar hesaplamak için kısa bir reklam izle veya Pro'ya geç."
+                description: "Ay burcunu tekrar hesaplamak için kısa bir reklam izle."
             ) {
                 isUnlockedByAd = true
             }

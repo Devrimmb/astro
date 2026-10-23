@@ -40,6 +40,9 @@ enum AstroTheme {
         endPoint: .bottomTrailing
     )
 
+    /// Kart yüzlerindeki altın vurgu — deste çarkı, tarot/katina ön yüz çerçevesi
+    static let gold = Color(red: 0.91, green: 0.78, blue: 0.49)
+
     // Cam katmanı
     static let cardBorder = Color.white.opacity(0.08)
     /// Kartın üst kenarındaki 1px parlama — camın ışığı yakaladığı hissini verir

@@ -42,12 +42,12 @@ struct PaywallView: View {
                 .font(.system(size: 40))
                 .foregroundStyle(AstroTheme.accent)
 
-            Text("Pro Özellikleri Aç")
+            Text("Doğum Haritanı Aç")
                 .font(.title2)
                     .fontDesign(.serif)
                 .foregroundStyle(.white)
 
-            Text("Yıldız haritanın tüm detaylarını keşfet")
+            Text("Tek seferlik ödeme — abonelik yok")
                 .font(.subheadline)
                 .foregroundStyle(AstroTheme.textSecondary)
         }
@@ -58,9 +58,9 @@ struct PaywallView: View {
 
     private var featuresGrid: some View {
         VStack(spacing: 10) {
-            featureRow(icon: "star.circle.fill", title: "Tam Natal Chart", subtitle: "Tüm gezegen yorumları")
-            featureRow(icon: "heart.text.square", title: "Synastry Analizi", subtitle: "İlişki haritası karşılaştırması")
-            featureRow(icon: "sparkles", title: "Sınırsız Tarot", subtitle: "Detaylı kart yorumları")
+            featureRow(icon: "star.circle.fill", title: "Tam Doğum Haritası", subtitle: "Tüm gezegen, ev ve açı yorumları")
+            featureRow(icon: "heart.text.square", title: "Synastry ve Composite", subtitle: "İlişki haritaları ve uyum analizi")
+            featureRow(icon: "arrow.triangle.2.circlepath", title: "Transit ve Güneş Dönüşü", subtitle: "Haritana göre kişisel öngörüler")
         }
         .glassCard()
     }
@@ -105,7 +105,8 @@ struct PaywallView: View {
                         .padding()
                 }
             } else {
-                ForEach(store.products, id: \.id) { product in
+                // Yalnızca tek seferlik doğum haritası ürünü; "tüm özellikler" paketi satılmıyor
+                ForEach(store.products.filter { $0.id == StoreManager.natalChartID }, id: \.id) { product in
                     productCard(product)
                 }
             }

@@ -6,7 +6,7 @@ class TarotViewModel {
     var drawnCard: TarotCard?
     var isRevealed = false
 
-    private let deck: [TarotCard]
+    let deck: [TarotCard]
 
     private static let lastFreeReadingKey = "tarot_last_free_reading_date"
 

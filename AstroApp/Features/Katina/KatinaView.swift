@@ -104,7 +104,7 @@ struct KatinaView: View {
 
             AdGateView(
                 title: "Tekrar Fal Bak",
-                description: "Kartını tekrar çekmek için kısa bir reklam izle veya Pro'ya geç."
+                description: "Kartını tekrar çekmek için kısa bir reklam izle."
             ) {
                 isUnlockedByAd = true
             }

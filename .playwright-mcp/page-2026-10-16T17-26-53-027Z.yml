@@ -1,0 +1,1965 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e4]: ASTROAPP · 2026
+    - link "Tasarım Dili" [ref=e5] [cursor=pointer]:
+      - /url: "#dil"
+    - link "Renk & Tipografi" [ref=e6] [cursor=pointer]:
+      - /url: "#token"
+    - link "Bileşenler" [ref=e7] [cursor=pointer]:
+      - /url: "#comp"
+    - link "Anasayfa" [ref=e8] [cursor=pointer]:
+      - /url: "#home"
+    - link "Doğum Haritası" [ref=e9] [cursor=pointer]:
+      - /url: "#natal"
+    - link "Transit & Synastry" [ref=e10] [cursor=pointer]:
+      - /url: "#transit"
+    - link "Takvim & Ay" [ref=e11] [cursor=pointer]:
+      - /url: "#takvim"
+    - link "Kart Falı" [ref=e12] [cursor=pointer]:
+      - /url: "#kart"
+    - link "Paywall & Ayarlar" [ref=e13] [cursor=pointer]:
+      - /url: "#para"
+    - link "SwiftUI Eşlemesi" [ref=e14] [cursor=pointer]:
+      - /url: "#swift"
+    - link "Eski → Yeni" [ref=e15] [cursor=pointer]:
+      - /url: "#fark"
+    - link "İkon" [ref=e16] [cursor=pointer]:
+      - /url: "#ikon"
+  - banner [ref=e17]:
+    - generic [ref=e18]: TASARIM ÇALIŞMASI · v2 · LIQUID GLASS
+    - heading [level=1] [ref=e19]:
+      - text: Gökyüzünü
+      - emphasis [ref=e20]: camdan
+      - text: okumak.AstroApp için 2026 tasarım dili.
+    - paragraph [ref=e21]:
+      - text: "Bu doküman, uygulamanın bugünkü gerçek yapısı üzerine kurulu: 4 sekme ("
+      - code [ref=e22]: Anasayfa
+      - text: ","
+      - code [ref=e23]: Astroloji
+      - text: ","
+      - code [ref=e24]: Kart Falı
+      - text: ","
+      - code [ref=e25]: Ayarlar
+      - text: ),
+      - code [ref=e26]: AstroTheme
+      - text: renkleri,
+      - code [ref=e27]: GlassCard
+      - text: ", Canvas tabanlı"
+      - code [ref=e28]: ChartWheelView
+      - text: ", Kozmik Koç, Synastry skoru ve kart yelpazesi. Her ekranın altında bire bir SwiftUI karşılığı yazıyor; önerilen her şey iOS 17+ ve iOS 26 Liquid Glass API'leriyle yapılabilir, özel kütüphane gerektirmez."
+    - generic [ref=e29]:
+      - generic [ref=e30]:
+        - generic [ref=e31]: 01 · YÜZEY
+        - generic [ref=e32]:
+          - text: Katmanlı cam
+          - generic [ref=e33]:
+            - text: Arka planda aurora ışıması, üstte yarı saydam kartlar, 1px üst parlama (specular).
+            - code [ref=e34]: glassEffect()
+            - text: +
+            - code [ref=e35]: GlassEffectContainer
+            - text: .
+      - generic [ref=e36]:
+        - generic [ref=e37]: 02 · TİPOGRAFİ
+        - generic [ref=e38]:
+          - text: Serif başlık, sans gövde
+          - generic [ref=e39]:
+            - text: Büyük başlıklar ve gezegen glifleri New York (
+            - code [ref=e40]: .fontDesign(.serif)
+            - text: ); okuma metni SF Pro. Mistik ama okunur.
+      - generic [ref=e41]:
+        - generic [ref=e42]: 03 · RENK
+        - generic [ref=e43]:
+          - text: Lavanta + gök mavisi
+          - generic [ref=e44]:
+            - text: Mevcut
+            - code [ref=e45]: AstroTheme.accent
+            - text: korunur. Element ve ton renkleri tek bir anlam sistemine bağlanır; ekran başına keyfi renk yok.
+      - generic [ref=e46]:
+        - generic [ref=e47]: 04 · HAREKET
+        - generic [ref=e48]:
+          - text: Az ama anlamlı
+          - generic [ref=e49]:
+            - text: Kart çevirme, sayı geçişi, sembol nabzı.
+            - code [ref=e50]: .contentTransition(.numericText())
+            - text: ","
+            - code [ref=e51]: .symbolEffect
+            - text: ","
+            - code [ref=e52]: .sensoryFeedback
+            - text: .
+  - generic [ref=e53]:
+    - generic [ref=e54]:
+      - generic [ref=e55]: "01"
+      - heading "Tasarım dili — eskisinden ne farklı?" [level=2] [ref=e56]
+    - paragraph [ref=e57]: "Eski çalışma (Spatial Radial) tamamen çark odaklıydı; neredeyse monokrom, çok küçük metinler, düz siyah yüzeyler. Yeni dil uygulamanın tamamını kapsıyor ve üç kararla ayrışıyor: (1) yüzeyler düz değil, katmanlı cam; (2) her içerik tipinin kendi rengi var (tonlar, elementler, gezegenler) ve bunlar ekranlar arasında değişmiyor; (3) tipografi iki sesli — serif ile \"kehanet\" tonu, sans ile \"bilgi\" tonu. Aşağıdaki iki kart farkı yan yana gösterir."
+    - generic [ref=e58]:
+      - generic [ref=e59]:
+        - heading "ESKİ · SPATIAL RADIAL (2025)" [level=4] [ref=e60]
+        - generic [ref=e61]:
+          - generic [ref=e62]: Devrim · Doğum haritası · İkizler
+          - generic [ref=e63]:
+            - generic [ref=e65]: Güneş
+            - generic [ref=e66]: ♊ 2°14'
+            - generic [ref=e67]: 8. ev
+          - generic [ref=e68]:
+            - generic [ref=e70]: Ay
+            - generic [ref=e71]: ♋ 18°33'
+            - generic [ref=e72]: 11. ev
+          - generic [ref=e73]:
+            - generic [ref=e74]: Harita
+            - generic [ref=e75]: Yorum
+            - generic [ref=e76]: Geçişler
+            - generic [ref=e77]: Fal
+        - paragraph [ref=e78]: Düz siyah yüzey · 7–9px metin · tek vurgu rengi · hiyerarşi yalnızca opaklıkla kuruluyor.
+      - generic [ref=e79]:
+        - heading "YENİ · LIQUID GLASS (2026)" [level=4] [ref=e80]
+        - generic [ref=e81]:
+          - generic [ref=e82]:
+            - generic [ref=e83]: ✦
+            - generic [ref=e84]: Kozmik Koçun
+            - generic [ref=e85]: Sana özel
+          - generic [ref=e86]:
+            - generic [ref=e87]: ☉
+            - generic [ref=e88]: Güneş
+            - generic [ref=e89]: ♊ İkizler 2°14′
+            - generic [ref=e90]: 8. ev
+          - generic [ref=e91]:
+            - generic [ref=e92]: ☽
+            - generic [ref=e93]: Ay
+            - generic [ref=e94]: ♋ Yengeç 18°33′
+            - generic [ref=e95]: 11. ev
+        - paragraph [ref=e96]: Tonlu cam · 10–13px okunur metin · gezegen renkleri · serif glif · üst parlama ile derinlik.
+  - generic [ref=e97]:
+    - generic [ref=e98]:
+      - generic [ref=e99]: "02"
+      - heading "Renk & tipografi token'ları" [level=2] [ref=e100]
+    - paragraph [ref=e101]:
+      - text: İlk 10 renk zaten
+      - code [ref=e102]: AstroTheme
+      - text: "'de var; hex'ler birebir. Gezegen paleti yeni öneri: şu an"
+      - code [ref=e103]: ChartWheelView.planetColor()
+      - text: sistem renklerini (
+      - code [ref=e104]: .orange
+      - text: ","
+      - code [ref=e105]: .brown
+      - text: ","
+      - code [ref=e106]: .gray
+      - text: …) kullanıyor; bunlar koyu zeminde kirli duruyor. Önerilen palet aynı sırayla
+      - code [ref=e107]: AstroTheme.planet(_:)
+      - text: olarak eklenir.
+    - generic [ref=e108]:
+      - generic [ref=e111]:
+        - generic [ref=e112]: background
+        - generic [ref=e113]: "#0A0D1F"
+        - generic [ref=e114]: mevcut
+      - generic [ref=e117]:
+        - generic [ref=e118]: background mid
+        - generic [ref=e119]: "#12102E"
+        - generic [ref=e120]: gradient orta
+      - generic [ref=e123]:
+        - generic [ref=e124]: accent
+        - generic [ref=e125]: "#8F70FF"
+        - generic [ref=e126]: lavanta · mevcut
+      - generic [ref=e129]:
+        - generic [ref=e130]: accentSecondary
+        - generic [ref=e131]: "#59C7FA"
+        - generic [ref=e132]: gök mavisi · mevcut
+      - generic [ref=e135]:
+        - generic [ref=e136]: harmonik
+        - generic [ref=e137]: "#4DD9A6"
+        - generic [ref=e138]: üçgen / altıgen
+      - generic [ref=e141]:
+        - generic [ref=e142]: zorlayıcı
+        - generic [ref=e143]: "#FF6673"
+        - generic [ref=e144]: kare / karşıt
+      - generic [ref=e147]:
+        - generic [ref=e148]: nötr
+        - generic [ref=e149]: "#8C8CFF"
+        - generic [ref=e150]: kavuşum
+      - generic [ref=e153]:
+        - generic [ref=e154]: fire
+        - generic [ref=e155]: "#FF736B"
+        - generic [ref=e156]: ♈ ♌ ♐
+      - generic [ref=e159]:
+        - generic [ref=e160]: earth
+        - generic [ref=e161]: "#6BD185"
+        - generic [ref=e162]: ♉ ♍ ♑
+      - generic [ref=e165]:
+        - generic [ref=e166]: air
+        - generic [ref=e167]: "#FFD959"
+        - generic [ref=e168]: ♊ ♎ ♒
+      - generic [ref=e171]:
+        - generic [ref=e172]: water
+        - generic [ref=e173]: "#66ADFF"
+        - generic [ref=e174]: ♋ ♏ ♓
+      - generic [ref=e177]:
+        - generic [ref=e178]: ☉ sun
+        - generic [ref=e179]: "#FFB547"
+        - generic [ref=e180]: öneri
+      - generic [ref=e183]:
+        - generic [ref=e184]: ☽ moon
+        - generic [ref=e185]: "#E8ECFF"
+        - generic [ref=e186]: öneri
+      - generic [ref=e189]:
+        - generic [ref=e190]: ☿ mercury
+        - generic [ref=e191]: "#5AD8E6"
+        - generic [ref=e192]: öneri
+      - generic [ref=e195]:
+        - generic [ref=e196]: ♀ venus
+        - generic [ref=e197]: "#FF8AB8"
+        - generic [ref=e198]: öneri
+      - generic [ref=e201]:
+        - generic [ref=e202]: ♂ mars
+        - generic [ref=e203]: "#FF5F57"
+        - generic [ref=e204]: öneri
+      - generic [ref=e207]:
+        - generic [ref=e208]: ♃ jupiter
+        - generic [ref=e209]: "#B98CFF"
+        - generic [ref=e210]: öneri
+      - generic [ref=e213]:
+        - generic [ref=e214]: ♄ saturn
+        - generic [ref=e215]: "#C9A27E"
+        - generic [ref=e216]: öneri
+      - generic [ref=e219]:
+        - generic [ref=e220]: ♅ uranus
+        - generic [ref=e221]: "#5EEAD4"
+        - generic [ref=e222]: öneri
+      - generic [ref=e225]:
+        - generic [ref=e226]: ♆ neptune
+        - generic [ref=e227]: "#7B8CFF"
+        - generic [ref=e228]: öneri
+      - generic [ref=e231]:
+        - generic [ref=e232]: ♇ pluto
+        - generic [ref=e233]: "#9CA3AF"
+        - generic [ref=e234]: öneri
+    - generic [ref=e235]:
+      - generic [ref=e236]:
+        - heading "TİPOGRAFİ ÖLÇEĞİ → SWIFTUI" [level=4] [ref=e237]
+        - table [ref=e238]:
+          - rowgroup [ref=e239]:
+            - row [ref=e240]:
+              - cell [ref=e241]:
+                - text: Günaydın,
+                - emphasis [ref=e242]: Devrim
+              - cell ".largeTitle · .fontDesign(.serif) Ekran karşılaması, kart adı, paywall başlığı" [ref=e243]:
+                - generic [ref=e244]: .largeTitle · .fontDesign(.serif)
+                - generic [ref=e245]: Ekran karşılaması, kart adı, paywall başlığı
+            - row [ref=e246]:
+              - cell "Güneş · İkizler" [ref=e247]
+              - cell ".title2 · .fontDesign(.serif) Detay sheet başlığı" [ref=e248]:
+                - generic [ref=e249]: .title2 · .fontDesign(.serif)
+                - generic [ref=e250]: Detay sheet başlığı
+            - row [ref=e251]:
+              - cell "Kozmik Koçun" [ref=e252]
+              - cell ".headline Kart başlığı (mevcut kullanım korunur)" [ref=e253]:
+                - generic [ref=e254]: .headline
+                - generic [ref=e255]: Kart başlığı (mevcut kullanım korunur)
+            - row [ref=e256]:
+              - cell "Kimlik ile duygular aynı noktada birleşir." [ref=e257]
+              - cell ".subheadline Yorum gövdesi — caption yerine; okunurluk için bir kademe büyütüldü" [ref=e258]:
+                - generic [ref=e259]: .subheadline
+                - generic [ref=e260]: Yorum gövdesi — caption yerine; okunurluk için bir kademe büyütüldü
+            - row [ref=e261]:
+              - cell "Yaklaşan · 2.1° orb" [ref=e262]
+              - cell ".caption Meta bilgi, ikincil satır" [ref=e263]:
+                - generic [ref=e264]: .caption
+                - generic [ref=e265]: Meta bilgi, ikincil satır
+            - row [ref=e266]:
+              - cell "BUGÜNÜN GÖKYÜZÜ" [ref=e267]
+              - cell ".caption2.weight(.bold) · .textCase(.uppercase) · .kerning(1.2) Bölüm etiketi (mevcut sectionLabel)" [ref=e268]:
+                - generic [ref=e269]: .caption2.weight(.bold) · .textCase(.uppercase) · .kerning(1.2)
+                - generic [ref=e270]:
+                  - text: Bölüm etiketi (mevcut
+                  - code [ref=e271]: sectionLabel
+                  - text: )
+            - row [ref=e272]:
+              - cell "☉ ☽ ♀" [ref=e273]
+              - cell "Text(glyph).fontDesign(.serif) Glifler her yerde serif; Canvas'ta Font.system(size:design:.serif)" [ref=e274]:
+                - generic [ref=e275]: Text(glyph).fontDesign(.serif)
+                - generic [ref=e276]:
+                  - text: Glifler her yerde serif; Canvas'ta
+                  - code [ref=e277]: Font.system(size:design:.serif)
+      - generic [ref=e278]:
+        - heading "ŞEKİL · BOŞLUK · CAM KATMANLARI" [level=4] [ref=e279]
+        - generic [ref=e280]:
+          - generic [ref=e281]: 12 · iç öğe
+          - generic [ref=e284]: 16 · tile
+          - generic [ref=e287]: 20 · kart
+          - generic [ref=e290]: 28 · hero
+        - paragraph [ref=e293]:
+          - text: Tüm köşeler
+          - code [ref=e294]: .continuous
+          - text: . Boşluk ölçeği 4 · 8 · 12 · 16 · 20 · 24; kartlar arası 12, ekran kenarı 16.
+        - generic [ref=e295]:
+          - generic [ref=e297]: Katman 2 · kartglassEffect(.regular)
+          - generic [ref=e298]: Katman 3
+        - paragraph [ref=e299]:
+          - text: "Katman 1: aurora + yıldız arka planı ("
+          - code [ref=e300]: SubtleStarsBackground
+          - text: "korunur, üstüne 2 radial glow). Katman 2: içerik kartları. Katman 3: tonlu, etkileşimli cam — buton, tab bar, seçili chip."
+  - generic [ref=e301]:
+    - generic [ref=e302]:
+      - generic [ref=e303]: "03"
+      - heading "Bileşen kütüphanesi" [level=2] [ref=e304]
+    - paragraph [ref=e305]:
+      - text: Mevcut
+      - code [ref=e306]: Design/
+      - text: klasöründe GlassCard, GlassButton, InfoTip, SectionHeaderWithInfo, PersonSelectionCard var. Aşağıdakiler onlara eklenecek ya da onları güncelleyecek parçalar. Her birinin altında önerilen Swift imzası yazıyor.
+    - generic [ref=e307]:
+      - generic [ref=e308]:
+        - generic [ref=e309]: TonePill
+        - generic [ref=e310]: "TonePill(tone: .harmonik) · DailyCosmicCoach.Tone"
+        - generic [ref=e311]:
+          - generic [ref=e312]: △ Harmonik
+          - generic [ref=e313]: □ Zorlayıcı
+          - generic [ref=e314]: ☌ Nötr
+          - generic [ref=e315]: Sana özel
+          - generic [ref=e316]: ✦ Pro
+        - paragraph [ref=e317]:
+          - text: "Ton renkleri tek kaynaktan:"
+          - code [ref=e318]: AstroTheme.harmonik / zorlayici / notr
+          - text: . Bugün
+          - code [ref=e319]: HomeView.toneColor
+          - code [ref=e320]: .green/.orange
+          - text: döndürüyor — birleştirilmeli.
+      - generic [ref=e321]:
+        - generic [ref=e322]: PlanetRow
+        - generic [ref=e323]: PlanetRow(placement:) · glif + burç + ev
+        - generic [ref=e324]:
+          - generic [ref=e325]:
+            - generic [ref=e326]: ☉
+            - generic [ref=e327]: Güneş
+            - generic [ref=e328]: ♊ İkizler 2°14′
+            - generic [ref=e329]: 8. ev
+          - generic [ref=e330]:
+            - generic [ref=e331]: ♀
+            - generic [ref=e332]: Venüs
+            - generic [ref=e333]: ♉ Boğa 24°09′
+            - generic [ref=e334]: 9. ev
+          - generic [ref=e335]:
+            - generic [ref=e336]: ♂
+            - generic [ref=e337]:
+              - text: Mars
+              - generic [ref=e338]: ℞
+            - generic [ref=e339]: ♓ Balık 11°47′
+            - generic [ref=e340]: 7. ev
+      - generic [ref=e341]:
+        - generic [ref=e342]: AspectRow
+        - generic [ref=e343]: AspectRow(aspect:) · orb rengi tona göre
+        - generic [ref=e344]:
+          - generic [ref=e345]:
+            - generic [ref=e346]: ☉☽
+            - generic [ref=e347]:
+              - text: Güneş üçgen Ay
+              - generic [ref=e348]: Yaklaşan · 120°
+            - generic [ref=e349]: 2.1°
+          - generic [ref=e350]:
+            - generic [ref=e351]: ☉♂
+            - generic [ref=e352]:
+              - text: Güneş kare Mars
+              - generic [ref=e353]: Ayrılan · 90°
+            - generic [ref=e354]: 3.2°
+          - generic [ref=e355]:
+            - generic [ref=e356]: ♀♃
+            - generic [ref=e357]:
+              - text: Venüs kavuşum Jüpiter
+              - generic [ref=e358]: Yaklaşan · 0°
+            - generic [ref=e359]: 0.8°
+      - generic [ref=e360]:
+        - generic [ref=e361]: DotMeter
+        - generic [ref=e362]: "DotMeter(value: 4, of: 5, tint:) · Gauge yerine özel"
+        - generic [ref=e363]:
+          - generic [ref=e364]:
+            - generic [ref=e365]: Aşk
+            - generic [ref=e372]: 4/5
+          - generic [ref=e373]:
+            - generic [ref=e374]: Kariyer
+            - generic [ref=e381]: 3/5
+          - generic [ref=e382]:
+            - generic [ref=e383]: Sağlık
+            - generic [ref=e390]: 5/5
+      - generic [ref=e391]:
+        - generic [ref=e392]: ScoreRing
+        - generic [ref=e393]: "ScoreRing(value: 72) · Gauge(.accessoryCircularCapacity) tabanlı"
+        - generic [ref=e394]:
+          - img [ref=e395]:
+            - generic [ref=e398]: "72"
+            - generic [ref=e399]: PUAN
+          - generic [ref=e400]:
+            - text: İlişki skoru, aspect uyumu, günlük enerji — tüm "tek sayı" göstergeleri aynı halka. Sayı
+            - code [ref=e401]: .contentTransition(.numericText())
+            - text: ile akar.
+      - generic [ref=e402]:
+        - generic [ref=e403]: GlassTabBar
+        - generic [ref=e404]: TabView · .tabBarMinimizeBehavior(.onScrollDown) (iOS 26)
+        - generic [ref=e406]:
+          - generic [ref=e407]:
+            - generic [ref=e408]: ⌂
+            - generic [ref=e409]: Anasayfa
+          - generic [ref=e410]:
+            - generic [ref=e411]: ✧
+            - generic [ref=e412]: Astroloji
+          - generic [ref=e413]:
+            - generic [ref=e414]: ✦
+            - generic [ref=e415]: Kart Falı
+          - generic [ref=e416]:
+            - generic [ref=e417]: ⚙
+            - generic [ref=e418]: Ayarlar
+      - generic [ref=e419]:
+        - generic [ref=e420]: SegmentedGlass
+        - generic [ref=e421]: Picker(.segmented) yerine özel · matchedGeometryEffect
+        - generic [ref=e423]:
+          - generic [ref=e424]: Harita
+          - generic [ref=e425]: Gezegenler
+          - generic [ref=e426]: Açılar
+          - generic [ref=e427]: Yorum
+        - paragraph [ref=e428]: Doğum haritası sonuç ekranı 4 alt görünüme bölünür; şu an uzun tek scroll.
+      - generic [ref=e429]:
+        - generic [ref=e430]: Primary / Ghost Button
+        - generic [ref=e431]: .buttonStyle(.glassProminent) · .buttonStyle(.glass)
+        - generic [ref=e432]:
+          - generic [ref=e433]: Synastry Hesapla
+          - generic [ref=e434]: Sonucu Paylaş
+        - paragraph [ref=e435]:
+          - text: iOS 26 altında mevcut
+          - code [ref=e436]: GlassButton
+          - text: modifier'ı (capsule + gradient) kullanılır; aynı görünüm.
+      - generic [ref=e437]:
+        - generic [ref=e438]: Pro Lock
+        - generic [ref=e439]: .proGated(feature:) · EntitlementManager
+        - generic [ref=e440]:
+          - generic [ref=e442]:
+            - generic [ref=e443]: ♀
+            - generic [ref=e444]:
+              - generic [ref=e445]: Venüs 9. evde Boğa
+              - generic [ref=e446]: Değerler ve estetik anlayışı uzak kültürlerle, felsefeyle beslenir…
+          - generic [ref=e447]: ✦ Pro ile aç · veya reklam izle
+  - generic [ref=e449]:
+    - generic [ref=e450]:
+      - generic [ref=e451]: "04"
+      - heading "Anasayfa — Kozmik Koç ve bugün" [level=2] [ref=e452]
+    - paragraph [ref=e453]:
+      - code [ref=e454]: HomeView
+      - text: "'ın mevcut sırası korunur: karşılama → Kozmik Koç → Büyük Üçlü → bugünün gezegenleri → takvim → retro → ay fazı → gezegen saati. Değişen şey hiyerarşi: Koç kartı tonlu hero oluyor, Büyük Üçlü yatay üçlü tile, \"ay fazı + gezegen saati\" yan yana kompakt. Sekme çubuğu yüzen Liquid Glass hap; scroll'da küçülür."
+    - generic [ref=e455]:
+      - generic [ref=e456]:
+        - generic [ref=e459]:
+          - generic [ref=e460]:
+            - generic [ref=e461]: 09:41
+            - generic [ref=e462]: ●●● ⌔ ▮
+          - generic [ref=e463]:
+            - generic [ref=e464]:
+              - generic [ref=e465]: ASTROAPP
+              - generic [ref=e466]: 👤
+            - generic [ref=e467]:
+              - generic [ref=e468]:
+                - text: Günaydın,
+                - emphasis [ref=e469]: Devrim
+              - generic [ref=e470]: 16 Ekim 2026 · Cuma · Ay ♉ Boğa'da
+            - generic [ref=e471]:
+              - generic [ref=e472]:
+                - generic [ref=e473]: ✦
+                - generic [ref=e474]: Kozmik Koçun
+                - generic [ref=e475]: "?"
+              - generic [ref=e476]: BUGÜNÜN GÖKYÜZÜ
+              - generic [ref=e477]:
+                - generic [ref=e478]: ☿
+                - generic [ref=e479]:
+                  - generic [ref=e480]: Merkür Akrep'te
+                  - generic [ref=e481]: Konuşmalar derinleşir; yüzeysel cevaplar tatmin etmez.
+              - generic [ref=e482]:
+                - generic [ref=e483]: ☽
+                - generic [ref=e484]:
+                  - generic [ref=e485]: Ay Boğa'da · sakin
+                  - generic [ref=e486]: Yavaşlamak için iyi bir gün. Beden ve konfor öne çıkar.
+              - generic [ref=e487]: SANA ÖZEL
+              - generic [ref=e488]:
+                - generic [ref=e489]: ♃
+                - generic [ref=e490]:
+                  - generic [ref=e491]:
+                    - text: Jüpiter üçgen natal Güneş
+                    - generic [ref=e492]: △
+                  - generic [ref=e493]: Genişleme enerjisi kimliğini destekliyor; sahneye çık.
+            - generic [ref=e494]:
+              - generic [ref=e495]:
+                - generic [ref=e496]: ☉
+                - generic [ref=e497]: GÜNEŞ
+                - generic [ref=e498]: İkizler
+              - generic [ref=e499]:
+                - generic [ref=e500]: ☽
+                - generic [ref=e501]: AY
+                - generic [ref=e502]: Yengeç
+              - generic [ref=e503]:
+                - generic [ref=e504]: AC
+                - generic [ref=e505]: YÜKSELEN
+                - generic [ref=e506]: Başak
+            - generic [ref=e507]:
+              - generic [ref=e508]:
+                - generic [ref=e509]: ◎
+                - generic [ref=e510]: Bugünün Gezegenleri
+                - generic [ref=e511]: Tümü ›
+              - generic [ref=e512]:
+                - generic [ref=e513]:
+                  - generic [ref=e514]: ☉
+                  - generic [ref=e515]: ♎ 23°
+                - generic [ref=e516]:
+                  - generic [ref=e517]: ☽
+                  - generic [ref=e518]: ♉ 8°
+                - generic [ref=e519]:
+                  - generic [ref=e520]: ☿
+                  - generic [ref=e521]: ♏ 10°
+                - generic [ref=e522]:
+                  - generic [ref=e523]: ♀
+                  - generic [ref=e524]: ♏ 5°
+                - generic [ref=e525]:
+                  - generic [ref=e526]: ♂
+                  - generic [ref=e527]: ♐ 2°
+                - generic [ref=e528]:
+                  - generic [ref=e529]: ♄
+                  - generic [ref=e530]: ♈ 1°
+                  - generic [ref=e531]: ℞
+            - generic [ref=e532]:
+              - generic [ref=e533]:
+                - generic [ref=e534]: AY FAZI
+                - generic [ref=e535]: 🌔 Şişkin Ay
+                - generic [ref=e536]: "%68 aydınlık · ♉ Boğa"
+              - generic [ref=e537]:
+                - generic [ref=e538]: GEZEGEN SAATİ
+                - generic [ref=e539]: ♀ Venüs
+                - generic [ref=e540]: 09:12 – 10:18
+          - generic [ref=e541]:
+            - generic [ref=e542]:
+              - generic [ref=e543]: ⌂
+              - generic [ref=e544]: Anasayfa
+            - generic [ref=e545]:
+              - generic [ref=e546]: ✧
+              - generic [ref=e547]: Astroloji
+            - generic [ref=e548]:
+              - generic [ref=e549]: ✦
+              - generic [ref=e550]: Kart Falı
+            - generic [ref=e551]:
+              - generic [ref=e552]: ⚙
+              - generic [ref=e553]: Ayarlar
+        - generic [ref=e554]:
+          - generic [ref=e555]: Anasayfa
+          - generic [ref=e556]: Serif karşılama · hero Koç kartı · Büyük Üçlü tile'ları
+          - generic [ref=e557]: "ScrollView + LazyVStack(spacing: 12) · .glassEffect(.regular.tint(accent.opacity(0.18)))"
+      - generic [ref=e558]:
+        - generic [ref=e561]:
+          - generic [ref=e562]:
+            - generic [ref=e563]: 09:41
+            - generic [ref=e564]: ●●● ⌔ ▮
+          - generic [ref=e565]:
+            - generic [ref=e566]:
+              - generic [ref=e567]: Astroloji
+              - generic [ref=e568]: 🔍
+            - generic [ref=e569]:
+              - img [ref=e570]:
+                - generic [ref=e576]: ♊
+              - generic [ref=e577]:
+                - generic [ref=e578]: Doğum Haritan
+                - generic [ref=e579]: Devrim · 12 Haz 1990 · İstanbul
+              - generic [ref=e580]: ›
+            - generic [ref=e581]: DOĞUM HARİTASI
+            - generic [ref=e582]:
+              - generic [ref=e583]:
+                - generic [ref=e584]: ☼
+                - generic [ref=e585]: Yükselen Yorumu
+                - generic [ref=e586]: Başak · Güneş İkizler
+              - generic [ref=e587]:
+                - generic [ref=e588]: ☽
+                - generic [ref=e589]: Ay Burcu Yorumu
+                - generic [ref=e590]: Yengeç · duygusal dünya
+            - generic [ref=e591]: GÜNLÜK & DÖNEMSEL
+            - generic [ref=e592]:
+              - generic [ref=e593]:
+                - generic [ref=e594]: ☼
+                - generic [ref=e595]:
+                  - generic [ref=e596]: Günlük Burç Yorumu
+                  - generic [ref=e597]: Bugünün enerjisi · 4/5
+                - generic [ref=e598]: Hazır
+              - generic [ref=e599]:
+                - generic [ref=e600]: ⟳
+                - generic [ref=e601]:
+                  - generic [ref=e602]: Transitler
+                  - generic [ref=e603]: 3 önemli transit aktif
+                - generic [ref=e604]: ›
+              - generic [ref=e605]:
+                - generic [ref=e606]: ◉
+                - generic [ref=e607]:
+                  - generic [ref=e608]: Güneş Dönüşü 2026
+                  - generic [ref=e609]: Yılın haritası
+                - generic [ref=e610]: Pro
+            - generic [ref=e611]: UYUM & İLİŞKİLER
+            - generic [ref=e612]:
+              - generic [ref=e613]:
+                - generic [ref=e614]: ♡
+                - generic [ref=e615]:
+                  - generic [ref=e616]: Synastry Analizi
+                  - generic [ref=e617]: İki harita, gerçek uyum
+                - generic [ref=e618]: ›
+              - generic [ref=e619]:
+                - generic [ref=e620]: ⧖
+                - generic [ref=e621]:
+                  - generic [ref=e622]: Composite Harita
+                  - generic [ref=e623]: İlişkinin kendi haritası
+                - generic [ref=e624]: ›
+            - generic [ref=e625]: AY & GÖK OLAYLARI
+            - generic [ref=e626]:
+              - generic [ref=e627]:
+                - generic [ref=e628]: 🌔
+                - generic [ref=e629]: Ay Fazları
+              - generic [ref=e630]:
+                - generic [ref=e631]: ℞
+                - generic [ref=e632]: Retrograde
+          - generic [ref=e633]:
+            - generic [ref=e634]:
+              - generic [ref=e635]: ⌂
+              - generic [ref=e636]: Anasayfa
+            - generic [ref=e637]:
+              - generic [ref=e638]: ✧
+              - generic [ref=e639]: Astroloji
+            - generic [ref=e640]:
+              - generic [ref=e641]: ✦
+              - generic [ref=e642]: Kart Falı
+            - generic [ref=e643]:
+              - generic [ref=e644]: ⚙
+              - generic [ref=e645]: Ayarlar
+        - generic [ref=e646]:
+          - generic [ref=e647]: Astroloji sekmesi
+          - generic [ref=e648]: Uzun kart listesi yerine gruplanmış tile + satırlar; harita hero üstte
+          - generic [ref=e649]: "Section başlıkları → .caption2 uppercase · tile'lar LazyVGrid(columns: 2) · Pro rozeti EntitlementManager"
+  - generic [ref=e650]:
+    - generic [ref=e651]:
+      - generic [ref=e652]: "05"
+      - heading "Doğum haritası — çark, gezegenler, açılar, yorum" [level=2] [ref=e653]
+    - paragraph [ref=e654]:
+      - text: Çark
+      - code [ref=e655]: ChartWheelView
+      - text: "'daki Canvas mantığıyla aynı: Ascendant solda (180°), burç halkası dışta, ev halkası içte, açı çizgileri merkezde. Yenilik: burç dilimleri element rengiyle hafifçe boyanır, gezegenler kendi renginde glif + ince tick, açı çizgileri tona göre renkli ve majör/minör kalınlıkta. Sonuç ekranı 4 segmente ayrılır; gezegen detayı tam ekran yerine yarım sheet olarak açılır."
+    - generic [ref=e656]:
+      - generic [ref=e657]:
+        - generic [ref=e660]:
+          - generic [ref=e661]:
+            - generic [ref=e662]: 09:41
+            - generic [ref=e663]: ●●● ⌔ ▮
+          - generic [ref=e664]:
+            - generic [ref=e665]:
+              - generic [ref=e666]: Astroloji
+              - generic [ref=e668]: Devrim
+              - generic [ref=e669]: ⇪
+            - generic [ref=e670]: 12 Haziran 1990 · 14:35 · İstanbul · Placidus
+            - img [ref=e672]:
+              - generic [ref=e675]: ♈
+              - generic [ref=e677]: ♉
+              - generic [ref=e679]: ♊
+              - generic [ref=e681]: ♋
+              - generic [ref=e683]: ♌
+              - generic [ref=e685]: ♍
+              - generic [ref=e687]: ♎
+              - generic [ref=e689]: ♏
+              - generic [ref=e691]: ♐
+              - generic [ref=e693]: ♑
+              - generic [ref=e695]: ♒
+              - generic [ref=e697]: ♓
+              - generic [ref=e700]: "1"
+              - generic [ref=e702]: "2"
+              - generic [ref=e704]: "3"
+              - generic [ref=e706]: "4"
+              - generic [ref=e708]: "5"
+              - generic [ref=e710]: "6"
+              - generic [ref=e711]: "7"
+              - generic [ref=e713]: "8"
+              - generic [ref=e715]: "9"
+              - generic [ref=e717]: "10"
+              - generic [ref=e719]: "11"
+              - generic [ref=e721]: "12"
+              - generic [ref=e722]: AC
+              - generic [ref=e723]: MC
+              - generic [ref=e737]: ♀
+              - generic [ref=e740]: ☉
+              - generic [ref=e743]: ☿
+              - generic [ref=e746]: ♃
+              - generic [ref=e749]: ☽
+              - generic [ref=e752]: ♇
+              - generic [ref=e755]: ♅
+              - generic [ref=e758]: ♆
+              - generic [ref=e761]: ♄
+              - generic [ref=e764]: ♂
+              - generic [ref=e766]: ♊
+            - generic [ref=e767]:
+              - generic [ref=e768]: Harita
+              - generic [ref=e769]: Gezegenler
+              - generic [ref=e770]: Açılar
+              - generic [ref=e771]: Yorum
+            - generic [ref=e772]:
+              - generic [ref=e773]:
+                - generic [ref=e774]: ☉
+                - generic [ref=e775]: Güneş
+                - generic [ref=e776]: ♊ İkizler 2°14′
+                - generic [ref=e777]: 8. ev
+              - generic [ref=e778]:
+                - generic [ref=e779]: ☽
+                - generic [ref=e780]: Ay
+                - generic [ref=e781]: ♋ Yengeç 18°33′
+                - generic [ref=e782]: 11. ev
+              - generic [ref=e783]:
+                - generic [ref=e784]: ☿
+                - generic [ref=e785]: Merkür
+                - generic [ref=e786]: ♊ İkizler 20°24′
+                - generic [ref=e787]: 9. ev
+              - generic [ref=e788]:
+                - generic [ref=e789]: ♀
+                - generic [ref=e790]: Venüs
+                - generic [ref=e791]: ♉ Boğa 24°09′
+                - generic [ref=e792]: 9. ev
+        - generic [ref=e793]:
+          - generic [ref=e794]: Doğum haritası · Harita
+          - generic [ref=e795]: Element boyalı burç halkası · renkli açı ağı · segment geçişi
+          - generic [ref=e796]: "Canvas { } · burç dilimi: Path.addArc + element.opacity(0.12) · segment: @Namespace + matchedGeometryEffect"
+      - generic [ref=e797]:
+        - generic [ref=e800]:
+          - generic [ref=e801]:
+            - generic [ref=e802]: 09:41
+            - generic [ref=e803]: ●●● ⌔ ▮
+          - generic [ref=e804]:
+            - generic [ref=e805]:
+              - generic [ref=e806]: Astroloji
+              - generic [ref=e808]: Devrim
+              - generic [ref=e809]: ⇪
+            - img [ref=e811]:
+              - generic [ref=e814]: ♈
+              - generic [ref=e816]: ♉
+              - generic [ref=e818]: ♊
+              - generic [ref=e820]: ♋
+              - generic [ref=e822]: ♌
+              - generic [ref=e824]: ♍
+              - generic [ref=e826]: ♎
+              - generic [ref=e828]: ♏
+              - generic [ref=e830]: ♐
+              - generic [ref=e832]: ♑
+              - generic [ref=e834]: ♒
+              - generic [ref=e836]: ♓
+              - generic [ref=e839]: "1"
+              - generic [ref=e841]: "2"
+              - generic [ref=e843]: "3"
+              - generic [ref=e845]: "4"
+              - generic [ref=e847]: "5"
+              - generic [ref=e849]: "6"
+              - generic [ref=e850]: "7"
+              - generic [ref=e852]: "8"
+              - generic [ref=e854]: "9"
+              - generic [ref=e856]: "10"
+              - generic [ref=e858]: "11"
+              - generic [ref=e860]: "12"
+              - generic [ref=e861]: AC
+              - generic [ref=e862]: MC
+              - generic [ref=e876]: ♀
+              - generic [ref=e879]: ☉
+              - generic [ref=e882]: ☿
+              - generic [ref=e885]: ♃
+              - generic [ref=e888]: ☽
+              - generic [ref=e891]: ♇
+              - generic [ref=e894]: ♅
+              - generic [ref=e897]: ♆
+              - generic [ref=e900]: ♄
+              - generic [ref=e903]: ♂
+              - generic [ref=e905]: ♊
+          - generic [ref=e906]:
+            - generic [ref=e908]:
+              - generic [ref=e909]: ☉
+              - generic [ref=e910]:
+                - generic [ref=e911]: Güneş · İkizler
+                - generic [ref=e912]: 8. ev · 2°14′ · Direkt · Hava
+            - generic [ref=e913]:
+              - generic [ref=e914]: Yorum
+              - generic [ref=e915]: Açılar (4)
+              - generic [ref=e916]: Transit (2)
+            - generic [ref=e917]:
+              - generic [ref=e918]: 🌌 GENEL ETKİ
+              - text: Kimlik ile duygular aynı noktada birleşir. Bu açı, bu iki konunun hayatta ayrı ayrı değil birlikte çalıştığını gösterir. Günlük hayatta kişi bir yandan kendini ortaya koymak ister…
+              - generic [ref=e919]: 🌟 OLUMLU ETKİLER
+              - generic [ref=e920]: • Kendini net ortaya koyabilme• Duyguları fark edebilme• Güçlü ve net etki bırakabilme
+        - generic [ref=e922]:
+          - generic [ref=e923]: Gezegen detayı · sheet
+          - generic [ref=e924]:
+            - text: Çarka dokun → yarım sheet; yorum
+            - code [ref=e925]: planet_house_sign.json
+            - text: "'dan"
+          - generic [ref=e926]: .sheet · .presentationDetents([.fraction(0.68), .large]) · .presentationBackground(.ultraThinMaterial) · .presentationCornerRadius(28)
+      - generic [ref=e927]:
+        - generic [ref=e930]:
+          - generic [ref=e931]:
+            - generic [ref=e932]: 09:41
+            - generic [ref=e933]: ●●● ⌔ ▮
+          - generic [ref=e934]:
+            - generic [ref=e935]:
+              - generic [ref=e936]: Astroloji
+              - generic [ref=e938]: Devrim
+              - generic [ref=e939]: ⇪
+            - generic [ref=e940]:
+              - generic [ref=e941]: Harita
+              - generic [ref=e942]: Gezegenler
+              - generic [ref=e943]: Açılar
+              - generic [ref=e944]: Yorum
+            - generic [ref=e945]:
+              - generic [ref=e946]:
+                - generic [ref=e947]: ◬
+                - generic [ref=e948]: Açı Matrisi
+                - generic [ref=e949]: 14 açı
+              - generic [ref=e950]:
+                - generic [ref=e952]: ☉
+                - generic [ref=e953]: ☽
+                - generic [ref=e954]: ☿
+                - generic [ref=e955]: ♀
+                - generic [ref=e956]: ♂
+                - generic [ref=e957]: ♃
+                - generic [ref=e958]: ♄
+                - generic [ref=e959]: ☉
+                - generic [ref=e967]: ☽
+                - generic [ref=e975]: ☿
+                - generic [ref=e983]: ♀
+                - generic [ref=e991]: ♂
+                - generic [ref=e999]: ♃
+                - generic [ref=e1007]: ♄
+                - generic [ref=e1008]: △
+              - generic [ref=e1015]:
+                - generic [ref=e1016]: △ Üçgen
+                - generic [ref=e1017]: ⚹ Altıgen
+                - generic [ref=e1018]: □ Kare
+                - generic [ref=e1019]: ☍ Karşıt
+                - generic [ref=e1020]: ☌ Kavuşum
+            - generic [ref=e1021]: EN GÜÇLÜ AÇILAR
+            - generic [ref=e1022]:
+              - generic [ref=e1023]:
+                - generic [ref=e1024]: ☉♀
+                - generic [ref=e1025]:
+                  - text: Güneş kavuşum Venüs
+                  - generic [ref=e1026]: Yaklaşan · cazibe, estetik, uyum
+                - generic [ref=e1027]: 8.1°
+              - generic [ref=e1028]:
+                - generic [ref=e1029]: ☉☽
+                - generic [ref=e1030]:
+                  - text: Güneş altıgen Ay
+                  - generic [ref=e1031]: Kimlik ve duygu dengede
+                - generic [ref=e1032]: 1.7°
+              - generic [ref=e1033]:
+                - generic [ref=e1034]: ♀♇
+                - generic [ref=e1035]:
+                  - text: Venüs karşıt Plüton
+                  - generic [ref=e1036]: Yoğun, dönüştürücü bağlar
+                - generic [ref=e1037]: 1.4°
+        - generic [ref=e1038]:
+          - generic [ref=e1039]: Açılar · matris + liste
+          - generic [ref=e1040]:
+            - text: Mevcut
+            - code [ref=e1041]: AspectGridView
+            - text: renklendirildi; hücreye dokun → açı yorumu (
+            - code [ref=e1042]: aspects.json
+            - text: ", 950 kayıt)"
+          - generic [ref=e1043]: "Grid { GridRow } · hücre: RoundedRectangle(4).fill(tone.opacity(0.18)) · tap → sheet"
+      - generic [ref=e1044]:
+        - generic [ref=e1047]:
+          - generic [ref=e1048]:
+            - generic [ref=e1049]: 09:41
+            - generic [ref=e1050]: ●●● ⌔ ▮
+          - generic [ref=e1051]:
+            - generic [ref=e1052]:
+              - generic [ref=e1053]: Astroloji
+              - generic [ref=e1055]: Devrim
+              - generic [ref=e1056]: ⇪
+            - generic [ref=e1057]:
+              - generic [ref=e1058]: Harita
+              - generic [ref=e1059]: Gezegenler
+              - generic [ref=e1060]: Açılar
+              - generic [ref=e1061]: Yorum
+            - generic [ref=e1062]:
+              - generic [ref=e1063]:
+                - generic [ref=e1064]: ✦
+                - generic [ref=e1065]: Genel Değerlendirme
+              - generic [ref=e1066]: Hava ağırlıklı, değişken bir harita. Zihin hızlı, iletişim güçlü; duygusal güvenlik Yengeç Ay'ı üzerinden aranır. Başak yükselen bu enerjiye düzen ve titizlik katar.
+            - generic [ref=e1067]:
+              - generic [ref=e1068]:
+                - generic [ref=e1069]: ◔
+                - generic [ref=e1070]: Element Dengesi
+              - generic [ref=e1071]:
+                - generic [ref=e1072]: Hava
+                - generic [ref=e1079]: "%42"
+              - generic [ref=e1080]:
+                - generic [ref=e1081]: Su
+                - generic [ref=e1088]: "%27"
+              - generic [ref=e1089]:
+                - generic [ref=e1090]: Toprak
+                - generic [ref=e1097]: "%19"
+              - generic [ref=e1098]:
+                - generic [ref=e1099]: Ateş
+                - generic [ref=e1106]: "%12"
+            - generic [ref=e1107]:
+              - generic [ref=e1108]:
+                - generic [ref=e1109]: ✓
+                - generic [ref=e1110]: Destekleyen Kalıplar
+              - generic [ref=e1111]:
+                - generic [ref=e1112]: △
+                - generic [ref=e1113]:
+                  - generic [ref=e1114]: Büyük Üçgen (Hava)
+                  - generic [ref=e1115]: "Merkür – Ay – Uranüs: fikirler kolay akar."
+            - generic [ref=e1116]:
+              - generic [ref=e1117]:
+                - generic [ref=e1118]: "!"
+                - generic [ref=e1119]: Gerilim Noktaları
+              - generic [ref=e1120]:
+                - generic [ref=e1121]: □
+                - generic [ref=e1122]:
+                  - generic [ref=e1123]: T-Kare · Mars odaklı
+                  - generic [ref=e1124]: Sabırsızlık; enerjiyi spora ya da projeye yönlendir.
+        - generic [ref=e1125]:
+          - generic [ref=e1126]: Yorum · sentez
+          - generic [ref=e1127]:
+            - code [ref=e1128]: ChartSynthesisSection
+            - text: + element dengesi; ton gruplarının rengi ikonla tekrar eder
+          - generic [ref=e1129]: ChartSynthesisSection(synthesis:) · Element bar → DotMeter · ToneGroup ikon rengi = AstroTheme ton rengi
+  - generic [ref=e1130]:
+    - generic [ref=e1131]:
+      - generic [ref=e1132]: "06"
+      - heading "Transitler, Synastry ve Composite" [level=2] [ref=e1133]
+    - paragraph [ref=e1134]: "Çift çark (bi-wheel) iki yerde kullanılır: transit (iç natal, dış bugün) ve synastry (iç A, dış B). Aynı Canvas bileşeni, farklı veri. Dış halka gezegenleri daha küçük ve yarı saydam; iç–dış açı çizgileri yalnızca seçili gezegen için tam parlaklıkta çizilir, diğerleri soluk. Synastry'de skor halkası ilk ekranda tek \"cevap\" olarak durur."
+    - generic [ref=e1135]:
+      - generic [ref=e1136]:
+        - generic [ref=e1139]:
+          - generic [ref=e1140]:
+            - generic [ref=e1141]: 09:41
+            - generic [ref=e1142]: ●●● ⌔ ▮
+          - generic [ref=e1143]:
+            - generic [ref=e1144]:
+              - generic [ref=e1145]: Astroloji
+              - generic [ref=e1147]: Transitler
+              - generic [ref=e1148]: ⇪
+            - generic [ref=e1149]:
+              - generic [ref=e1150]:
+                - generic [ref=e1151]: PZT
+                - text: "12"
+              - generic [ref=e1152]:
+                - generic [ref=e1153]: SAL
+                - text: "13"
+              - generic [ref=e1154]:
+                - generic [ref=e1155]: ÇAR
+                - text: "14"
+              - generic [ref=e1156]:
+                - generic [ref=e1157]: PER
+                - text: "15"
+              - generic [ref=e1158]:
+                - generic [ref=e1159]: CUM
+                - text: "16"
+              - generic [ref=e1160]:
+                - generic [ref=e1161]: CMT
+                - text: "17"
+              - generic [ref=e1162]:
+                - generic [ref=e1163]: PAZ
+                - text: "18"
+            - img [ref=e1165]:
+              - generic [ref=e1168]: ♈
+              - generic [ref=e1170]: ♉
+              - generic [ref=e1172]: ♊
+              - generic [ref=e1174]: ♋
+              - generic [ref=e1176]: ♌
+              - generic [ref=e1178]: ♍
+              - generic [ref=e1180]: ♎
+              - generic [ref=e1182]: ♏
+              - generic [ref=e1184]: ♐
+              - generic [ref=e1186]: ♑
+              - generic [ref=e1188]: ♒
+              - generic [ref=e1190]: ♓
+              - generic [ref=e1193]: "1"
+              - generic [ref=e1195]: "2"
+              - generic [ref=e1197]: "3"
+              - generic [ref=e1199]: "4"
+              - generic [ref=e1201]: "5"
+              - generic [ref=e1203]: "6"
+              - generic [ref=e1204]: "7"
+              - generic [ref=e1206]: "8"
+              - generic [ref=e1208]: "9"
+              - generic [ref=e1210]: "10"
+              - generic [ref=e1212]: "11"
+              - generic [ref=e1214]: "12"
+              - generic [ref=e1215]: AC
+              - generic [ref=e1216]: MC
+              - generic [ref=e1230]: ♀
+              - generic [ref=e1233]: ☉
+              - generic [ref=e1236]: ☿
+              - generic [ref=e1239]: ♃
+              - generic [ref=e1242]: ☽
+              - generic [ref=e1245]: ♇
+              - generic [ref=e1248]: ♅
+              - generic [ref=e1251]: ♆
+              - generic [ref=e1254]: ♄
+              - generic [ref=e1257]: ♂
+              - generic [ref=e1259]: ♄
+              - generic [ref=e1261]: ℞
+              - generic [ref=e1262]: ♆
+              - generic [ref=e1264]: ℞
+              - generic [ref=e1265]: ☽
+              - generic [ref=e1267]: ♅
+              - generic [ref=e1269]: ℞
+              - generic [ref=e1270]: ♃
+              - generic [ref=e1272]: ☉
+              - generic [ref=e1274]: ♀
+              - generic [ref=e1276]: ☿
+              - generic [ref=e1278]: ♂
+              - generic [ref=e1280]: ♇
+              - generic [ref=e1285]: ♊
+            - generic [ref=e1286]:
+              - generic [ref=e1287]: "İç: natal"
+              - generic [ref=e1289]: "Dış: 16 Ekim 2026"
+            - generic [ref=e1291]: ÖNEMLİ TRANSİTLER
+            - generic [ref=e1292]:
+              - generic [ref=e1293]:
+                - generic [ref=e1294]: ♃☉
+                - generic [ref=e1295]:
+                  - text: T. Jüpiter üçgen N. Güneş
+                  - generic [ref=e1296]: Yaklaşan · 1.3° · 3 hafta sürer
+                - generic [ref=e1297]: △
+              - generic [ref=e1298]:
+                - generic [ref=e1299]: ♄☽
+                - generic [ref=e1300]:
+                  - text: T. Satürn kare N. Ay
+                  - generic [ref=e1301]: ℞
+                  - generic [ref=e1302]: Ayrılan · 2.8° · duygusal disiplin
+                - generic [ref=e1303]: □
+              - generic [ref=e1304]:
+                - generic [ref=e1305]: ♀♀
+                - generic [ref=e1306]:
+                  - text: T. Venüs karşıt N. Venüs
+                  - generic [ref=e1307]: Yaklaşan · 0.9° · ilişkilerde ayna
+                - generic [ref=e1308]: ☍
+        - generic [ref=e1309]:
+          - generic [ref=e1310]: Transitler · bi-wheel
+          - generic [ref=e1311]: Üstte hafta şeridi (tarih kaydır); dış halka günün gökyüzü
+          - generic [ref=e1312]: TransitBiWheelView · ScrollView(.horizontal).scrollTargetBehavior(.viewAligned) · DatePicker yerine haftalık strip
+      - generic [ref=e1313]:
+        - generic [ref=e1316]:
+          - generic [ref=e1317]:
+            - generic [ref=e1318]: 09:41
+            - generic [ref=e1319]: ●●● ⌔ ▮
+          - generic [ref=e1320]:
+            - generic [ref=e1321]:
+              - generic [ref=e1322]: Astroloji
+              - generic [ref=e1324]: Synastry
+              - generic [ref=e1325]: ⇪
+            - generic [ref=e1326]:
+              - generic [ref=e1327]:
+                - generic [ref=e1328]: ♊
+                - generic [ref=e1329]: Devrim
+              - generic [ref=e1330]: ♡
+              - generic [ref=e1331]:
+                - generic [ref=e1332]: ♌
+                - generic [ref=e1333]: Ayşe
+            - generic [ref=e1334]:
+              - img [ref=e1335]:
+                - generic [ref=e1338]: "78"
+                - generic [ref=e1339]: PUAN
+              - generic [ref=e1340]: Güçlü çekim, büyüyen bağ
+              - generic [ref=e1341]: Discepolo metodu · 23 cross-aspect
+            - generic [ref=e1342]:
+              - generic [ref=e1343]:
+                - generic [ref=e1344]: AŞK
+                - generic [ref=e1345]: "84"
+              - generic [ref=e1346]:
+                - generic [ref=e1347]: İLETİŞİM
+                - generic [ref=e1348]: "71"
+              - generic [ref=e1349]:
+                - generic [ref=e1350]: UZUN VADE
+                - generic [ref=e1351]: "76"
+            - generic [ref=e1352]:
+              - generic [ref=e1353]:
+                - generic [ref=e1354]: ◬
+                - generic [ref=e1355]: Önemli Cross-Aspectler
+              - generic [ref=e1356]:
+                - generic [ref=e1357]: ♀♂
+                - generic [ref=e1358]:
+                  - text: Venüs (D) üçgen Mars (A)
+                  - generic [ref=e1359]: Çekim ve tutku doğal akar
+                - generic [ref=e1360]: 1.1°
+              - generic [ref=e1361]:
+                - generic [ref=e1362]: ☽♄
+                - generic [ref=e1363]:
+                  - text: Ay (D) kare Satürn (A)
+                  - generic [ref=e1364]: Duygusal mesafe; güven zamanla
+                - generic [ref=e1365]: 2.4°
+        - generic [ref=e1366]:
+          - generic [ref=e1367]: Synastry · sonuç
+          - generic [ref=e1368]: Skor halkası tek cevap; alt skorlar üçlü; çark ikinci segmentte
+          - generic [ref=e1369]: ScoreRing · PersonSelectionCard (mevcut) · .navigationTransition(.zoom(sourceID:in:)) kart → detay
+      - generic [ref=e1370]:
+        - generic [ref=e1373]:
+          - generic [ref=e1374]:
+            - generic [ref=e1375]: 09:41
+            - generic [ref=e1376]: ●●● ⌔ ▮
+          - generic [ref=e1377]:
+            - generic [ref=e1378]:
+              - generic [ref=e1379]: Astroloji
+              - generic [ref=e1381]: Composite
+              - generic [ref=e1382]: ⇪
+            - generic [ref=e1383]: Devrim + Ayşe · orta nokta haritası
+            - img [ref=e1385]:
+              - generic [ref=e1388]: ♈
+              - generic [ref=e1390]: ♉
+              - generic [ref=e1392]: ♊
+              - generic [ref=e1394]: ♋
+              - generic [ref=e1396]: ♌
+              - generic [ref=e1398]: ♍
+              - generic [ref=e1400]: ♎
+              - generic [ref=e1402]: ♏
+              - generic [ref=e1404]: ♐
+              - generic [ref=e1406]: ♑
+              - generic [ref=e1408]: ♒
+              - generic [ref=e1410]: ♓
+              - generic [ref=e1413]: "1"
+              - generic [ref=e1415]: "2"
+              - generic [ref=e1417]: "3"
+              - generic [ref=e1419]: "4"
+              - generic [ref=e1421]: "5"
+              - generic [ref=e1423]: "6"
+              - generic [ref=e1424]: "7"
+              - generic [ref=e1426]: "8"
+              - generic [ref=e1428]: "9"
+              - generic [ref=e1430]: "10"
+              - generic [ref=e1432]: "11"
+              - generic [ref=e1434]: "12"
+              - generic [ref=e1435]: AC
+              - generic [ref=e1436]: MC
+              - generic [ref=e1455]: ♂
+              - generic [ref=e1458]: ☉
+              - generic [ref=e1461]: ☿
+              - generic [ref=e1464]: ♀
+              - generic [ref=e1467]: ♃
+              - generic [ref=e1470]: ♇
+              - generic [ref=e1473]: ☽
+              - generic [ref=e1476]: ♅
+              - generic [ref=e1479]: ♆
+              - generic [ref=e1482]: ♄
+              - generic [ref=e1484]: ♋
+            - generic [ref=e1485]:
+              - generic [ref=e1486]:
+                - generic [ref=e1487]: ✦
+                - generic [ref=e1488]: İlişkinin Kimliği
+              - generic [ref=e1489]: "Composite Güneş 7. evde Yengeç: bu ilişki \"biz\" duygusunu yuva kurma ve birbirini kollama üzerinden tanımlar. Composite Ay Akrep'te derin bağ, kıskançlığa dikkat."
+            - generic [ref=e1490]:
+              - generic [ref=e1491]:
+                - generic [ref=e1492]: ☉
+                - generic [ref=e1493]: Güneş
+                - generic [ref=e1494]: ♋ Yengeç 8°
+                - generic [ref=e1495]: 7. ev
+              - generic [ref=e1496]:
+                - generic [ref=e1497]: ☽
+                - generic [ref=e1498]: Ay
+                - generic [ref=e1499]: ♏ Akrep 25°
+                - generic [ref=e1500]: 11. ev
+              - generic [ref=e1501]:
+                - generic [ref=e1502]: ♀
+                - generic [ref=e1503]: Venüs
+                - generic [ref=e1504]: ♋ Yengeç 26°
+                - generic [ref=e1505]: 7. ev
+        - generic [ref=e1506]:
+          - generic [ref=e1507]: Composite harita
+          - generic [ref=e1508]:
+            - text: Tek çark + "ilişkinin kimliği" hero;
+            - code [ref=e1509]: composite_aspects.json
+            - text: yorumları
+          - generic [ref=e1510]: "ChartWheelView(chart: composite) · ChartSynthesisSection · CompositeShareCard (mevcut)"
+  - generic [ref=e1511]:
+    - generic [ref=e1512]:
+      - generic [ref=e1513]: "07"
+      - heading "Astro Takvim, Ay Fazları, Günlük Burç" [level=2] [ref=e1514]
+    - paragraph [ref=e1515]: "Takvim dört olay türünü tek renk sistemiyle gösterir: ay fazı (beyaz), retrograde (zorlayıcı kırmızı), tutulma (lavanta), VOC (soluk mavi). Gün noktaları bu renklerde. Ay fazı ekranında Ay gerçekten çizilir (Canvas ile aydınlanma maskesi), ikon değil. Günlük burç puanları DotMeter ile."
+    - generic [ref=e1516]:
+      - generic [ref=e1517]:
+        - generic [ref=e1520]:
+          - generic [ref=e1521]:
+            - generic [ref=e1522]: 09:41
+            - generic [ref=e1523]: ●●● ⌔ ▮
+          - generic [ref=e1524]:
+            - generic [ref=e1525]:
+              - generic [ref=e1526]: Astroloji
+              - generic [ref=e1528]: Ekim 2026
+              - generic [ref=e1529]: ☰
+            - generic [ref=e1530]:
+              - generic [ref=e1531]:
+                - generic [ref=e1532]: PZT
+                - text: "12"
+              - generic [ref=e1534]:
+                - generic [ref=e1535]: SAL
+                - text: "13"
+              - generic [ref=e1538]:
+                - generic [ref=e1539]: ÇAR
+                - text: "14"
+              - generic [ref=e1541]:
+                - generic [ref=e1542]: PER
+                - text: "15"
+              - generic [ref=e1545]:
+                - generic [ref=e1546]: CUM
+                - text: "16"
+              - generic [ref=e1550]:
+                - generic [ref=e1551]: CMT
+                - text: "17"
+              - generic [ref=e1553]:
+                - generic [ref=e1554]: PAZ
+                - text: "18"
+            - generic [ref=e1557]:
+              - generic [ref=e1558]: "19"
+              - generic [ref=e1561]: "20"
+              - generic [ref=e1565]: "21"
+              - generic [ref=e1568]: "22"
+              - generic [ref=e1572]: "23"
+              - generic [ref=e1575]: "24"
+              - generic [ref=e1579]: "25"
+            - generic [ref=e1582]: 16 EKİM · CUMA
+            - generic [ref=e1583]:
+              - generic [ref=e1584]:
+                - generic [ref=e1585]: 🌔
+                - generic [ref=e1586]:
+                  - generic [ref=e1587]: Şişkin Ay · ♉ Boğa
+                  - generic [ref=e1588]: "%68 aydınlık · Dolunay'a 6 gün"
+              - generic [ref=e1589]:
+                - generic [ref=e1590]: ◌
+                - generic [ref=e1591]:
+                  - generic [ref=e1592]: Ay Boşlukta (VOC)
+                  - generic [ref=e1593]: 14:20 – 19:05 · önemli karar erteleyin
+                - generic [ref=e1594]: 4s 45d
+              - generic [ref=e1595]:
+                - generic [ref=e1596]: ℞
+                - generic [ref=e1597]:
+                  - generic [ref=e1598]: Satürn retro sürüyor
+                  - generic [ref=e1599]: 13 Tem – 28 Kas · sorumluluklar gözden geçirilir
+            - generic [ref=e1600]:
+              - generic [ref=e1601]:
+                - generic [ref=e1602]: ✦
+                - generic [ref=e1603]: Günün Tavsiyesi
+              - generic [ref=e1604]: Boğa Ay'ı ile sabah saatleri planlama ve bütçe için verimli. Öğleden sonra VOC'ta başlatma, bitir.
+        - generic [ref=e1605]:
+          - generic [ref=e1606]: Astro Takvim
+          - generic [ref=e1607]: Hafta ızgarası + gün detayı tek ekranda; renk noktaları olay türü
+          - generic [ref=e1608]: AstroCalendarView · LazyVGrid(7) · gün seçimi .sensoryFeedback(.selection) · CalendarDayDetailView inline
+      - generic [ref=e1609]:
+        - generic [ref=e1612]:
+          - generic [ref=e1613]:
+            - generic [ref=e1614]: 09:41
+            - generic [ref=e1615]: ●●● ⌔ ▮
+          - generic [ref=e1616]:
+            - generic [ref=e1617]:
+              - generic [ref=e1618]: Astroloji
+              - generic [ref=e1620]: Ay Fazları
+              - generic [ref=e1621]: ⇪
+            - generic [ref=e1622]:
+              - generic [ref=e1630]: Şişkin Ay
+              - generic [ref=e1631]: "%68 aydınlık · Ay şu anda ♉ Boğa burcunda"
+            - generic [ref=e1632]:
+              - generic [ref=e1633]:
+                - generic [ref=e1634]: ✦
+                - generic [ref=e1635]: Ay Enerjisi
+              - generic [ref=e1636]: Büyüyen Ay'ın son evresi. Başladığın işleri tamamlamaya, ayrıntıları yerine oturtmaya uygun. Boğa'da beden, para ve konfor konuları öne çıkar.
+            - generic [ref=e1637]: YAKLAŞAN EVRELER
+            - generic [ref=e1638]:
+              - generic [ref=e1639]:
+                - generic [ref=e1640]: 🌕
+                - generic [ref=e1641]:
+                  - generic [ref=e1642]: Dolunay · ♈ Koç
+                  - generic [ref=e1643]: 22 Ekim · 00:14
+                - generic [ref=e1644]: 6 gün
+              - generic [ref=e1645]:
+                - generic [ref=e1646]: 🌗
+                - generic [ref=e1647]:
+                  - generic [ref=e1648]: Son Dördün
+                  - generic [ref=e1649]: 29 Ekim · 19:47
+              - generic [ref=e1650]:
+                - generic [ref=e1651]: 🌑
+                - generic [ref=e1652]:
+                  - generic [ref=e1653]: Yeni Ay · ♏ Akrep
+                  - generic [ref=e1654]: 5 Kasım · 15:02
+        - generic [ref=e1655]:
+          - generic [ref=e1656]: Ay Fazları
+          - generic [ref=e1657]: Çizilen Ay (gölge elips maskesi) · serif evre adı
+          - generic [ref=e1658]: "Canvas: Circle + Ellipse(rx: r·|cos φ|) terminatör · .shadow(color: moon.opacity(0.3), radius: 30)"
+      - generic [ref=e1659]:
+        - generic [ref=e1662]:
+          - generic [ref=e1663]:
+            - generic [ref=e1664]: 09:41
+            - generic [ref=e1665]: ●●● ⌔ ▮
+          - generic [ref=e1666]:
+            - generic [ref=e1667]:
+              - generic [ref=e1668]: Astroloji
+              - generic [ref=e1670]: Günlük Burç
+              - generic [ref=e1671]: ⇪
+            - generic [ref=e1672]:
+              - generic [ref=e1673]: ♉
+              - generic [ref=e1675]: ♊
+              - generic [ref=e1677]: ♋
+              - generic [ref=e1679]: ♌
+              - generic [ref=e1681]: ♍
+            - generic [ref=e1683]:
+              - generic [ref=e1684]: İkizler
+              - generic [ref=e1685]: 16 Ekim 2026 · Hava · Değişken
+            - generic [ref=e1686]:
+              - generic [ref=e1687]:
+                - img [ref=e1688]:
+                  - generic [ref=e1691]: "4"
+                - generic [ref=e1692]:
+                  - generic [ref=e1693]: Genel enerji 4/5
+                  - generic [ref=e1694]: Zihin açık, sosyal akış güçlü
+              - generic [ref=e1695]: Merkür Akrep'te derin sohbetler çağırıyor; yüzeysel sohbetler bugün seni tatmin etmez. Öğleden sonra Ay–Venüs uyumu estetik işler ve alışveriş için elverişli.
+            - generic [ref=e1696]:
+              - generic [ref=e1697]:
+                - generic [ref=e1698]: Aşk
+                - generic [ref=e1705]: "4"
+              - generic [ref=e1706]:
+                - generic [ref=e1707]: Kariyer
+                - generic [ref=e1714]: "3"
+              - generic [ref=e1715]:
+                - generic [ref=e1716]: Sağlık
+                - generic [ref=e1723]: "5"
+              - generic [ref=e1724]:
+                - generic [ref=e1725]: Şans
+                - generic [ref=e1732]: "3"
+            - generic [ref=e1733]:
+              - generic [ref=e1734]:
+                - generic [ref=e1735]: ŞANSLI RENK
+                - generic [ref=e1736]: Turkuaz
+              - generic [ref=e1738]:
+                - generic [ref=e1739]: ŞANSLI SAYI
+                - generic [ref=e1740]: "7"
+        - generic [ref=e1741]:
+          - generic [ref=e1742]: Günlük Burç Yorumu
+          - generic [ref=e1743]: Burç şeridi (diğer burçlar reklam/Pro ile açılır) · DotMeter puanlar
+          - generic [ref=e1744]: DailyHoroscopeView · ScrollView(.horizontal) burç seçimi · AdGateView kilidi mevcut
+  - generic [ref=e1745]:
+    - generic [ref=e1746]:
+      - generic [ref=e1747]: "08"
+      - heading "Kart Falı — Tarot, Katina, Rün, Tanrı Kartları" [level=2] [ref=e1748]
+    - paragraph [ref=e1749]: "Dört fal türü aynı akışı paylaşır: kategori → yelpazeden seç → dokun ve çevir → yorum → paylaş. Yelpaze gerçek kart gibi pivot etrafında döner; seçilen kart yükselir ve parlar. Kart arkası tek tasarım (lavanta yıldız), kart önü türe göre renklenir: Tarot altın, Katina gül, Rün taş grisi, Tanrı Kartları indigo-elektrik."
+    - generic [ref=e1750]:
+      - generic [ref=e1751]:
+        - generic [ref=e1754]:
+          - generic [ref=e1755]:
+            - generic [ref=e1756]: 09:41
+            - generic [ref=e1757]: ●●● ⌔ ▮
+          - generic [ref=e1758]:
+            - generic [ref=e1759]:
+              - generic [ref=e1760]: Kart Falı
+              - generic [ref=e1761]: 1 ücretsiz hak
+            - generic [ref=e1762]:
+              - generic [ref=e1763]:
+                - generic [ref=e1764]: ☉
+                - generic [ref=e1765]:
+                  - generic [ref=e1766]: TAROT · GÜNLÜK
+                  - generic [ref=e1767]: Bugünün kartını çek
+                  - generic [ref=e1768]: Geçmiş · Şimdi · Gelecek
+              - generic [ref=e1769]: Kart Çek
+            - generic [ref=e1770]:
+              - generic [ref=e1771]:
+                - generic [ref=e1772]: 👁
+                - generic [ref=e1773]: Katina Falı
+                - generic [ref=e1774]: Kadim aşk kartları
+              - generic [ref=e1775]:
+                - generic [ref=e1776]: ᚠ
+                - generic [ref=e1777]: Rün Falı
+                - generic [ref=e1778]: Viking rehberliği
+              - generic [ref=e1779]:
+                - generic [ref=e1780]: ⚡
+                - generic [ref=e1781]: Tanrı Kartları
+                - generic [ref=e1782]: Mitolojik mesaj
+              - generic [ref=e1783]:
+                - generic [ref=e1784]: ◷
+                - generic [ref=e1785]: Geçmiş Fallar
+                - generic [ref=e1786]: 12 kayıt
+            - generic [ref=e1787]:
+              - generic [ref=e1788]:
+                - generic [ref=e1789]: "?"
+                - generic [ref=e1790]: Nasıl Çalışır?
+              - generic [ref=e1791]:
+                - generic [ref=e1792]: ☝
+                - generic [ref=e1793]: Yelpazeden bir kart seç ve dokun
+              - generic [ref=e1795]:
+                - generic [ref=e1796]: ⟳
+                - generic [ref=e1797]: Kartını çevir ve yorumunu oku
+              - generic [ref=e1799]:
+                - generic [ref=e1800]: 🎁
+                - generic [ref=e1801]: Her gün 1 ücretsiz hak, ekstra için reklam izle
+          - generic [ref=e1803]:
+            - generic [ref=e1804]:
+              - generic [ref=e1805]: ⌂
+              - generic [ref=e1806]: Anasayfa
+            - generic [ref=e1807]:
+              - generic [ref=e1808]: ✧
+              - generic [ref=e1809]: Astroloji
+            - generic [ref=e1810]:
+              - generic [ref=e1811]: ✦
+              - generic [ref=e1812]: Kart Falı
+            - generic [ref=e1813]:
+              - generic [ref=e1814]: ⚙
+              - generic [ref=e1815]: Ayarlar
+        - generic [ref=e1816]:
+          - generic [ref=e1817]: Kart Falı sekmesi
+          - generic [ref=e1818]: Günlük tarot hero · 2×2 fal türü · kalan hak rozeti
+          - generic [ref=e1819]: CardReadingTabView · LazyVGrid(2) · hak sayacı EntitlementManager.freeReadingsLeft
+      - generic [ref=e1820]:
+        - generic [ref=e1823]:
+          - generic [ref=e1824]:
+            - generic [ref=e1825]: 09:41
+            - generic [ref=e1826]: ●●● ⌔ ▮
+          - generic [ref=e1827]:
+            - generic [ref=e1828]:
+              - generic [ref=e1829]: Kart Falı
+              - generic [ref=e1831]: Tarot
+              - generic [ref=e1832]: ✕
+            - generic [ref=e1833]:
+              - generic [ref=e1834]: ✦
+              - generic [ref=e1835]: Kartını Seç
+              - generic [ref=e1836]: Zihnini odakla ve bir kart seç
+            - generic [ref=e1837]:
+              - generic [ref=e1838]: ✦
+              - generic [ref=e1839]: ✦
+              - generic [ref=e1840]: ✦
+              - generic [ref=e1841]: ✦
+              - generic [ref=e1842]: ✦
+              - generic [ref=e1843]: ✦
+              - generic [ref=e1844]: ✦
+            - generic [ref=e1845]: Kaydırarak yelpazeyi döndür · dokunarak seç
+            - generic [ref=e1846]:
+              - generic [ref=e1847]: Aşk
+              - generic [ref=e1848]: Kariyer
+              - generic [ref=e1849]: Genel
+        - generic [ref=e1850]:
+          - generic [ref=e1851]: Kart seçimi · yelpaze
+          - generic [ref=e1852]: Pivot etrafında dönen kartlar; seçilen yükselir, cam parlaması
+          - generic [ref=e1853]: "ZStack + .rotationEffect(.degrees(i·12), anchor: .init(x:0.5,y:1.4)) · DragGesture ile açı · .sensoryFeedback(.impact)"
+      - generic [ref=e1854]:
+        - generic [ref=e1857]:
+          - generic [ref=e1858]:
+            - generic [ref=e1859]: 09:41
+            - generic [ref=e1860]: ●●● ⌔ ▮
+          - generic [ref=e1861]:
+            - generic [ref=e1862]:
+              - generic [ref=e1863]: Geri
+              - generic [ref=e1865]: Tarot
+              - generic [ref=e1866]: ⇪
+            - generic [ref=e1867]:
+              - generic [ref=e1869]: XIX
+              - generic [ref=e1870]: ☉
+              - generic [ref=e1871]: Güneş
+              - generic [ref=e1872]: MAJÖR ARKANA
+            - generic [ref=e1873]:
+              - generic [ref=e1874]: Düz
+              - generic [ref=e1875]: Aşk
+            - generic [ref=e1876]:
+              - generic [ref=e1877]:
+                - generic [ref=e1878]: ✦
+                - generic [ref=e1879]: Kartın Yorumu
+              - generic [ref=e1880]: Güneş, açıklık ve neşe getirir. İlişkide saklanan bir şey kalmaz; sıcaklık ve dürüstlük bağı güçlendirir. Kendini olduğun gibi göster — görülmek bugün ödüllendirilir.
+            - generic [ref=e1881]: Sonucu Paylaş
+        - generic [ref=e1882]:
+          - generic [ref=e1883]: Kart açıldı · yorum
+          - generic [ref=e1884]:
+            - text: Kart önü tür rengiyle; yorum
+            - code [ref=e1885]: tarot_cards.json
+            - text: ; paylaşım kartı mevcut
+          - generic [ref=e1886]: ".rotation3DEffect(.degrees(flip), axis: (0,1,0)) · 90° sonrası ön yüz · TarotShareCard + ShareImageRenderer"
+  - generic [ref=e1887]:
+    - generic [ref=e1888]:
+      - generic [ref=e1889]: "09"
+      - heading "Paywall, Onboarding ve Ayarlar" [level=2] [ref=e1890]
+    - paragraph [ref=e1891]: Paywall üç kademe (₺200 / ₺300 / ₺400) tek sheet'te; önerilen kademe tonlu cam ile öne çıkar. Onboarding üç adım, her adım tek soru. Ayarlar düz liste; dil değişimi (TR/EN) ve "Haritayı yeniden hesapla" burada.
+    - generic [ref=e1892]:
+      - generic [ref=e1893]:
+        - generic [ref=e1896]:
+          - generic [ref=e1897]:
+            - generic [ref=e1898]: 09:41
+            - generic [ref=e1899]: ●●● ⌔ ▮
+          - generic [ref=e1900]:
+            - generic [ref=e1901]: ✕
+            - generic [ref=e1903]:
+              - generic [ref=e1904]: ✦
+              - generic [ref=e1905]: Pro Özellikleri Aç
+              - generic [ref=e1906]: Yıldız haritanın tüm detaylarını keşfet
+            - generic [ref=e1907]:
+              - generic [ref=e1908]:
+                - generic [ref=e1909]: ✓
+                - generic [ref=e1910]: Tüm gezegen & ev yorumları
+              - generic [ref=e1912]:
+                - generic [ref=e1913]: ✓
+                - generic [ref=e1914]: Synastry, Composite, Güneş Dönüşü
+              - generic [ref=e1916]:
+                - generic [ref=e1917]: ✓
+                - generic [ref=e1918]: Sınırsız kart falı, reklamsız
+            - generic [ref=e1920]:
+              - generic [ref=e1922]:
+                - generic [ref=e1923]: Doğum Haritası Pro
+                - generic [ref=e1924]: Tek seferlik
+              - generic [ref=e1925]: ₺200
+            - generic [ref=e1926]:
+              - generic [ref=e1928]:
+                - generic [ref=e1929]:
+                  - text: Astroloji Paketi
+                  - generic [ref=e1930]: Popüler
+                - generic [ref=e1931]: Harita + ilişki analizleri
+              - generic [ref=e1932]: ₺300
+            - generic [ref=e1933]:
+              - generic [ref=e1935]:
+                - generic [ref=e1936]: Her Şey Dahil
+                - generic [ref=e1937]: Astroloji + tüm fallar
+              - generic [ref=e1938]: ₺400
+            - generic [ref=e1939]: ₺300 ile Devam Et
+            - generic [ref=e1940]: Satın Almaları Geri Yükle · Kullanım Koşulları
+        - generic [ref=e1941]:
+          - generic [ref=e1942]: Paywall
+          - generic [ref=e1943]: Tek sheet · önerilen kademe tonlu · tek CTA
+          - generic [ref=e1944]: PaywallView · StoreManager.products (sıralı) · .presentationDetents([.large]) · ProductView yerine özel satır
+      - generic [ref=e1945]:
+        - generic [ref=e1948]:
+          - generic [ref=e1949]:
+            - generic [ref=e1950]: 09:41
+            - generic [ref=e1951]: ●●● ⌔ ▮
+          - generic [ref=e1952]:
+            - generic [ref=e1957]:
+              - generic [ref=e1958]: ADIM 2 / 3
+              - generic [ref=e1959]:
+                - text: Ne zaman
+                - emphasis [ref=e1960]: doğdun?
+              - generic [ref=e1961]: Yükselen ve Ay burcun içindoğum saatin gerekli.
+            - generic [ref=e1962]:
+              - generic [ref=e1963]:
+                - generic [ref=e1964]: "12"
+                - generic [ref=e1965]: Haziran
+                - generic [ref=e1966]: "1990"
+              - generic [ref=e1968]:
+                - generic [ref=e1969]: "14"
+                - generic [ref=e1970]: ":"
+                - generic [ref=e1971]: "35"
+              - generic [ref=e1972]: Saati bilmiyorum →
+            - generic [ref=e1974]: Devam
+            - generic [ref=e1975]: Bu uygulama eğlence amaçlıdır.Profesyonel danışmanlık yerine geçmez.
+        - generic [ref=e1976]:
+          - generic [ref=e1977]: Onboarding · adım 2
+          - generic [ref=e1978]: Her adım tek soru; serif soru başlığı; ilerleme çubuğu
+          - generic [ref=e1979]: TabView(.page) + özel indikatör · DatePicker(.wheel) tonlu cam içinde · "Saati bilmiyorum" → houses gizlenir
+      - generic [ref=e1980]:
+        - generic [ref=e1983]:
+          - generic [ref=e1984]:
+            - generic [ref=e1985]: 09:41
+            - generic [ref=e1986]: ●●● ⌔ ▮
+          - generic [ref=e1987]:
+            - generic [ref=e1988]: Ayarlar
+            - generic [ref=e1990]:
+              - generic [ref=e1991]: ♊
+              - generic [ref=e1992]:
+                - generic [ref=e1993]: Devrim
+                - generic [ref=e1994]: ☉ İkizler · ☽ Yengeç · AC Başak
+              - generic [ref=e1995]: ✦ Pro
+            - generic [ref=e1996]: PROFİL
+            - generic [ref=e1997]:
+              - generic [ref=e1998]:
+                - generic [ref=e1999]: ◎
+                - generic [ref=e2000]: Doğum Bilgilerim
+                - generic [ref=e2001]: ›
+              - generic [ref=e2002]:
+                - generic [ref=e2003]: ♡
+                - generic [ref=e2004]: Kayıtlı Kişiler
+                - generic [ref=e2005]: "3"
+                - generic [ref=e2006]: ›
+              - generic [ref=e2007]:
+                - generic [ref=e2008]: ⟳
+                - generic [ref=e2009]: Haritayı Yeniden Hesapla
+                - generic [ref=e2010]: ›
+            - generic [ref=e2011]: UYGULAMA
+            - generic [ref=e2012]:
+              - generic [ref=e2013]:
+                - generic [ref=e2014]: 🌐
+                - generic [ref=e2015]: Dil
+                - generic [ref=e2016]: Türkçe
+                - generic [ref=e2017]: ›
+              - generic [ref=e2018]:
+                - generic [ref=e2019]: 🔔
+                - generic [ref=e2020]: Transit Bildirimleri
+              - generic [ref=e2022]:
+                - generic [ref=e2023]: 🌙
+                - generic [ref=e2024]: Günlük Hatırlatıcı
+                - generic [ref=e2025]: 09:00
+                - generic [ref=e2026]: ›
+            - generic [ref=e2027]: SATIN ALMA
+            - generic [ref=e2028]:
+              - generic [ref=e2029]:
+                - generic [ref=e2030]: ✦
+                - generic [ref=e2031]: Pro Özellikleri
+                - generic [ref=e2032]: ›
+              - generic [ref=e2033]:
+                - generic [ref=e2034]: ↺
+                - generic [ref=e2035]: Satın Almaları Geri Yükle
+                - generic [ref=e2036]: ›
+          - generic [ref=e2037]:
+            - generic [ref=e2038]:
+              - generic [ref=e2039]: ⌂
+              - generic [ref=e2040]: Anasayfa
+            - generic [ref=e2041]:
+              - generic [ref=e2042]: ✧
+              - generic [ref=e2043]: Astroloji
+            - generic [ref=e2044]:
+              - generic [ref=e2045]: ✦
+              - generic [ref=e2046]: Kart Falı
+            - generic [ref=e2047]:
+              - generic [ref=e2048]: ⚙
+              - generic [ref=e2049]: Ayarlar
+        - generic [ref=e2050]:
+          - generic [ref=e2051]: Ayarlar
+          - generic [ref=e2052]:
+            - text: Profil hero + gruplanmış cam listeler;
+            - code [ref=e2053]: ProfileView
+            - text: içeriği buraya taşındı
+          - generic [ref=e2054]: List yerine VStack + glassCard (List arka planı Liquid Glass'ta sorunlu) · Toggle(.tint(harmonik))
+  - generic [ref=e2055]:
+    - generic [ref=e2056]:
+      - generic [ref=e2057]: "10"
+      - heading "SwiftUI eşleme tablosu" [level=2] [ref=e2058]
+    - paragraph [ref=e2059]: Her görsel karar bir API'ye bağlı. iOS 26'ya özel olanlar işaretli; altında iOS 17 fallback'i yazıyor. Yeni bağımlılık yok.
+    - table [ref=e2061]:
+      - rowgroup [ref=e2062]:
+        - row [ref=e2063]:
+          - columnheader "GÖRSEL" [ref=e2064]
+          - columnheader "SWIFTUI" [ref=e2065]
+          - columnheader "NOT" [ref=e2066]
+        - row [ref=e2067]:
+          - cell "Cam kart" [ref=e2068]
+          - 'cell ".glassEffect(.regular, in: .rect(cornerRadius: 20)) iOS 26 .glassCard() (mevcut, fallback)" [ref=e2069]':
+            - code [ref=e2070]: ".glassEffect(.regular, in: .rect(cornerRadius: 20))"
+            - generic [ref=e2071]: iOS 26
+            - code [ref=e2072]: .glassCard()
+            - text: (mevcut, fallback)
+          - cell [ref=e2073]:
+            - code [ref=e2074]: GlassCard
+            - text: modifier'ı içinde
+            - code [ref=e2075]: "if #available(iOS 26)"
+            - text: dallanması; çağıran kod değişmez.
+        - row [ref=e2076]:
+          - cell "Tonlu hero kart" [ref=e2077]
+          - cell [ref=e2078]:
+            - code [ref=e2079]: .glassEffect(.regular.tint(AstroTheme.accent.opacity(0.18)))
+          - cell [ref=e2080]:
+            - text: "Fallback: mevcut"
+            - code [ref=e2081]: GlassCard
+            - text: +
+            - code [ref=e2082]: LinearGradient
+            - text: overlay.
+        - row [ref=e2083]:
+          - cell "Yüzen tab bar" [ref=e2084]
+          - 'cell "TabView { Tab(\"Anasayfa\", systemImage: \"house.fill\") { … } } .tabBarMinimizeBehavior(.onScrollDown) iOS 26" [ref=e2085]':
+            - code [ref=e2086]: "TabView { Tab(\"Anasayfa\", systemImage: \"house.fill\") { … } }"
+            - code [ref=e2087]: .tabBarMinimizeBehavior(.onScrollDown)
+            - generic [ref=e2088]: iOS 26
+          - cell [ref=e2089]:
+            - text: iOS 26'da sistem zaten Liquid Glass çizer; özel tab bar yazma. Mevcut
+            - code [ref=e2090]: tabItem
+            - text: yapısı
+            - code [ref=e2091]: Tab
+            - text: API'sine geçirilir.
+        - row [ref=e2092]:
+          - cell "Butonlar" [ref=e2093]
+          - cell ".buttonStyle(.glassProminent) / .buttonStyle(.glass) iOS 26" [ref=e2094]:
+            - code [ref=e2095]: .buttonStyle(.glassProminent)
+            - text: /
+            - code [ref=e2096]: .buttonStyle(.glass)
+            - generic [ref=e2097]: iOS 26
+          - cell [ref=e2098]:
+            - text: "Fallback: mevcut"
+            - code [ref=e2099]: GlassButton
+            - text: .
+        - row [ref=e2100]:
+          - cell "Serif başlıklar" [ref=e2101]
+          - cell [ref=e2102]:
+            - code [ref=e2103]: .font(.largeTitle).fontDesign(.serif)
+          - cell [ref=e2104]:
+            - text: New York sistemde var; Canvas'ta
+            - code [ref=e2105]: "Font.system(size:, design: .serif)"
+            - text: .
+        - row [ref=e2106]:
+          - cell "Aurora arka plan" [ref=e2107]
+          - cell [ref=e2108]:
+            - code [ref=e2109]: SubtleStarsBackground
+            - text: + 2 ×
+            - code [ref=e2110]: RadialGradient
+            - text: ","
+            - code [ref=e2111]: .blur(60)
+          - cell [ref=e2112]:
+            - text: Mevcut yıldız Canvas'ı korunur; gradient'ler
+            - code [ref=e2113]: ZStack
+            - text: "'in altına."
+        - row [ref=e2114]:
+          - cell "Çark" [ref=e2115]
+          - cell [ref=e2116]:
+            - code [ref=e2117]: Canvas
+            - text: (mevcut) · burç dilimi
+            - code [ref=e2118]: Path.addArc
+            - text: +
+            - code [ref=e2119]: element.opacity(0.12)
+          - cell [ref=e2120]:
+            - text: Açı çizgi rengi
+            - code [ref=e2121]: AstroTheme.harmonik/zorlayici/notr
+            - text: ; minör açılar
+            - code [ref=e2122]: StrokeStyle(dash:)
+            - text: .
+        - row [ref=e2123]:
+          - cell "Gezegen detayı" [ref=e2124]
+          - cell [ref=e2125]:
+            - code [ref=e2126]: .sheet(item:)
+            - text: ·
+            - code [ref=e2127]: .presentationDetents([.fraction(0.68), .large])
+            - text: ·
+            - code [ref=e2128]: .presentationBackground(.ultraThinMaterial)
+          - cell [ref=e2129]:
+            - text: "Çark üstünde dokunma:"
+            - code [ref=e2130]: "onTapGesture { location in }"
+            - text: → en yakın gezegen.
+        - row [ref=e2131]:
+          - cell "Segment geçişi" [ref=e2132]
+          - cell [ref=e2133]:
+            - code [ref=e2134]: "@Namespace"
+            - text: +
+            - code [ref=e2135]: matchedGeometryEffect
+            - text: seçili pill
+          - cell [ref=e2136]:
+            - text: Sistem
+            - code [ref=e2137]: Picker(.segmented)
+            - text: cam ile uyumsuz; özel 40 satır.
+        - row [ref=e2138]:
+          - cell "Skor halkası" [ref=e2139]
+          - cell [ref=e2140]:
+            - code [ref=e2141]: "Circle().trim(from: 0, to: value)"
+            - text: +
+            - code [ref=e2142]: AngularGradient
+          - cell [ref=e2143]:
+            - text: "Sayı:"
+            - code [ref=e2144]: .contentTransition(.numericText())
+            - text: ; animasyon
+            - code [ref=e2145]: ".spring(duration: 0.8)"
+            - text: .
+        - row [ref=e2146]:
+          - cell "Kart yelpazesi" [ref=e2147]
+          - cell [ref=e2148]:
+            - code [ref=e2149]: ZStack
+            - text: +
+            - code [ref=e2150]: ".rotationEffect(_, anchor: UnitPoint(x: 0.5, y: 1.4))"
+          - cell [ref=e2151]:
+            - code [ref=e2152]: DragGesture
+            - text: açı ofseti; seçimde
+            - code [ref=e2153]: ".sensoryFeedback(.impact(weight: .light))"
+            - text: .
+        - row [ref=e2154]:
+          - cell "Kart çevirme" [ref=e2155]
+          - cell [ref=e2156]:
+            - code [ref=e2157]: ".rotation3DEffect(.degrees(flip), axis: (0,1,0), perspective: 0.6)"
+          - cell [ref=e2158]:
+            - text: Mevcut
+            - code [ref=e2159]: flipProgress
+            - text: mantığı aynı; sadece kart önü/arkası yeniden çizilir.
+        - row [ref=e2160]:
+          - cell "Kart → detay geçişi" [ref=e2161]
+          - cell [ref=e2162]:
+            - code [ref=e2163]: .matchedTransitionSource(id:in:)
+            - text: +
+            - code [ref=e2164]: .navigationTransition(.zoom)
+          - 'cell "iOS 18+. Fallback: standart push." [ref=e2165]'
+        - row [ref=e2166]:
+          - cell "Takvim günleri" [ref=e2167]
+          - cell [ref=e2168]:
+            - code [ref=e2169]: "LazyVGrid(columns: 7)"
+            - text: · seçili gün
+            - code [ref=e2170]: .glassEffect(.regular.tint(accent).interactive())
+          - cell [ref=e2171]:
+            - text: Olay noktaları
+            - code [ref=e2172]: "HStack(spacing: 2) { Circle().frame(3) }"
+            - text: .
+        - row [ref=e2173]:
+          - cell "Ay çizimi" [ref=e2174]
+          - cell [ref=e2175]:
+            - code [ref=e2176]: Canvas
+            - text: ": ışıklı daire + terminatör"
+            - code [ref=e2177]: Ellipse
+            - text: maske
+          - cell [ref=e2178]:
+            - code [ref=e2179]: illumination
+            - text: → elips genişliği
+            - code [ref=e2180]: r·cos(π·k)
+            - text: ; evreye göre sol/sağ.
+        - row [ref=e2181]:
+          - cell "Haptik" [ref=e2182]
+          - cell [ref=e2183]:
+            - code [ref=e2184]: .sensoryFeedback(.selection, trigger:)
+          - cell "Segment, gün seçimi, kart seçimi; başka yerde yok." [ref=e2185]
+        - row [ref=e2186]:
+          - cell "Boş durum" [ref=e2187]
+          - cell [ref=e2188]:
+            - code [ref=e2189]: "ContentUnavailableView(\"Henüz profil oluşturulmadı\", systemImage: \"person.crop.circle.badge.plus\", description:)"
+          - cell "Profile/People/Synastry boş ekranları tek bileşen." [ref=e2190]
+  - generic [ref=e2191]:
+    - generic [ref=e2192]:
+      - generic [ref=e2193]: "11"
+      - 'heading "Eski çalışma → bu çalışma: ne değişti, koda ne dokunur" [level=2] [ref=e2194]'
+    - generic [ref=e2195]:
+      - generic [ref=e2196]:
+        - heading "TASARIMDA DEĞİŞENLER" [level=4] [ref=e2197]
+        - list [ref=e2198]:
+          - listitem [ref=e2199]:
+            - generic [ref=e2200]: "01"
+            - generic [ref=e2201]: "Kapsam. Eski: 4 çark ekranı. Yeni: 4 sekme, 16 ekran, bileşen kütüphanesi ve token'lar."
+          - listitem [ref=e2202]:
+            - generic [ref=e2203]: "02"
+            - generic [ref=e2204]: "Yüzey. Düz #06030e → katmanlı cam, aurora glow, 1px specular. Kartlar arasında derinlik var."
+          - listitem [ref=e2205]:
+            - generic [ref=e2206]: "03"
+            - generic [ref=e2207]: Okunurluk. 7–9px → en küçük metin 10.5px (telefon ölçeğinde ≈ .caption). Yorum gövdesi .caption'dan .subheadline'a.
+          - listitem [ref=e2208]:
+            - generic [ref=e2209]: "04"
+            - generic [ref=e2210]: Renk anlamı. Element, ton ve gezegen renkleri sabit; ekranlar arasında aynı şey aynı renkte.
+          - listitem [ref=e2211]:
+            - generic [ref=e2212]: "05"
+            - generic [ref=e2213]: Tipografi. Tek sans → serif + sans ikili ses. Glifler her yerde serif.
+          - listitem [ref=e2214]:
+            - generic [ref=e2215]: "06"
+            - generic [ref=e2216]: Navigasyon. Doğum haritası tek uzun scroll → 4 segment; gezegen detayı push → yarım sheet.
+          - listitem [ref=e2217]:
+            - generic [ref=e2218]: "07"
+            - generic [ref=e2219]: "Tek cevap kuralı. Synastry, günlük burç, enerji: ekranın üstünde bir sayı/halka, sonra detay."
+      - generic [ref=e2220]:
+        - heading "KODA DOKUNAN NOKTALAR (ÖNCELİK SIRASI)" [level=4] [ref=e2221]
+        - list [ref=e2222]:
+          - listitem [ref=e2223]:
+            - generic [ref=e2224]: A
+            - generic [ref=e2225]:
+              - text: AstroTheme —
+              - code [ref=e2226]: planet(_:)
+              - text: paleti ekle;
+              - code [ref=e2227]: HomeView.toneColor
+              - text: "'ı tema renklerine bağla (şu an .green/.orange)."
+          - listitem [ref=e2228]:
+            - generic [ref=e2229]: B
+            - generic [ref=e2230]:
+              - text: "GlassCard — iOS 26 dalı:"
+              - code [ref=e2231]: glassEffect
+              - text: ; tint parametresi ekle (hero kartlar için).
+          - listitem [ref=e2232]:
+            - generic [ref=e2233]: C
+            - generic [ref=e2234]:
+              - text: ChartWheelView — burç dilimi element dolgusu, açı rengi tema, glif serif,
+              - code [ref=e2235]: planetColor
+              - text: → tema.
+          - listitem [ref=e2236]:
+            - generic [ref=e2237]: D
+            - generic [ref=e2238]: BirthChartResultView — segment kontrolü + gezegen detay sheet'i.
+          - listitem [ref=e2239]:
+            - generic [ref=e2240]: E
+            - generic [ref=e2241]: Yeni bileşenler — TonePill, PlanetRow, AspectRow, DotMeter, ScoreRing, SegmentedGlass (Design/ altına).
+          - listitem [ref=e2242]:
+            - generic [ref=e2243]: F
+            - generic [ref=e2244]:
+              - text: ContentView —
+              - code [ref=e2245]: Tab
+              - text: API'si +
+              - code [ref=e2246]: tabBarMinimizeBehavior
+              - text: ; tab başına reset mantığı aynen kalır.
+          - listitem [ref=e2247]:
+            - generic [ref=e2248]: G
+            - generic [ref=e2249]: MoonPhaseView — SF Symbol yerine Canvas Ay; SettingsView — ProfileView içeriği buraya.
+  - generic [ref=e2250]:
+    - generic [ref=e2251]:
+      - generic [ref=e2252]: "12"
+      - heading "Uygulama ikonu — maskotu koruyarak" [level=2] [ref=e2253]
+    - paragraph [ref=e2254]: "Mevcut ikon seviliyor ve doğru: beyaz pofuduk maskot + lavanta fiyonk + hilal, koyu indigo zemin. Sorun ikonun kendisi değil, kadrajı — maskot ikonun yaklaşık %55'ini kaplıyor, 60px'te yüz detayları (göz parlamaları, yanak, gülümseme) kayboluyor ve etrafta boş alan kalıyor. Aşağıdaki seçenekler maskotu değiştirmez; kadrajı, ölçeği ve uygulamanın çark diliyle bağını dener. Her biri 160 / 60 / 29 px'te yan yana — ikon kararı 60px'te verilir."
+    - generic [ref=e2255]:
+      - generic [ref=e2256]:
+        - img "Mevcut ikon" [ref=e2257]
+        - generic [ref=e2258]:
+          - generic [ref=e2259]: "60"
+          - generic [ref=e2261]: "29"
+        - generic [ref=e2263]:
+          - generic [ref=e2264]: A
+          - text: Mevcut ikon
+        - generic [ref=e2265]: Maskot ortada, geniş boşluk, sağ üstte hilal, dağınık yıldızlar.
+        - generic [ref=e2266]: + Karakter sevimli ve ayırt edici · fiyonk markaya özgü− 60px'te yüz okunmuyor · hilal ve yıldızlar gürültüye dönüşüyor · zemin düz mor, uygulamanın aurora zeminiyle farklı
+      - generic [ref=e2267]:
+        - generic [ref=e2277]:
+          - generic [ref=e2278]: "60"
+          - generic [ref=e2287]: "29"
+        - generic [ref=e2296]:
+          - generic [ref=e2297]: B
+          - text: Yakın kadraj
+          - generic [ref=e2298]: Öneri
+        - generic [ref=e2299]: Aynı maskot, %55 → %90. Gövde alt kenardan taşar (iOS ikonlarında yaygın "portre" kadrajı), hilal sağ üstte tek aksesuar, aurora zemin.
+        - generic [ref=e2300]: + 29px'te bile göz + fiyonk okunuyor · uygulama zeminiyle süreklilik · tek odak− Yıldızlar azaldı (ikon ölçeğinde zaten görünmüyorlardı)
+      - generic [ref=e2301]:
+        - generic [ref=e2323]:
+          - generic [ref=e2324]: "60"
+          - generic [ref=e2345]: "29"
+        - generic [ref=e2366]:
+          - generic [ref=e2367]: C
+          - text: Çark halkası
+        - generic [ref=e2368]: Maskot, 12 element tonlu burç halkasının içinde — uygulamadaki natal çarkla doğrudan akrabalık.
+        - generic [ref=e2369]: + "Astroloji" mesajı anında · ürünle görsel bağ− Halka maskotu küçültüyor, 29px'te renkli bir çember + beyaz leke oluyor · iki odak
+      - generic [ref=e2370]:
+        - generic [ref=e2382]:
+          - generic [ref=e2383]: "60"
+          - generic [ref=e2393]: "29"
+        - generic [ref=e2403]:
+          - generic [ref=e2404]: D
+          - text: Ay'da oturan
+        - generic [ref=e2405]: Hilal küçük bir aksesuar olmaktan çıkıp maskotun oturduğu hamağa dönüşür; klasik "ay üstünde karakter" kompozisyonu.
+        - generic [ref=e2406]: + Hikâye var, sıcak · beyaz hilal koyu zeminde güçlü kontrast− Beyaz maskot + beyaz hilal birbirine karışabilir; hilalin kenarına ince gölge şart
+      - generic [ref=e2407]:
+        - generic [ref=e2413]:
+          - generic [ref=e2414]: "60"
+          - generic [ref=e2420]: "29"
+        - generic [ref=e2425]:
+          - generic [ref=e2426]: E
+          - text: Marka işareti
+        - generic [ref=e2427]: Maskot yok; sadece fiyonk + yıldız. Uygulamanın en küçük ve en özgün parçası tek başına işaret olur.
+        - generic [ref=e2428]: + Çok temiz, her boyutta okunur · iOS tinted/dark görünümlere kolay uyar− Sevilen karakter kayboluyor — ana ikon değil, bildirim/widget/Apple Watch için ikincil işaret olarak düşün
+      - generic [ref=e2429]:
+        - generic [ref=e2430]:
+          - generic [ref=e2431]: Light / Default
+          - generic [ref=e2440]: Dark
+          - generic [ref=e2450]: Tinted
+        - generic [ref=e2459]:
+          - generic [ref=e2460]: F
+          - text: iOS 18+ görünümleri
+        - generic [ref=e2461]: Şu an üç görünüm de aynı PNG. Dark için zemin daha koyu + lavanta ışıma; Tinted için gri tonlu alfa maskesi (sistem kendi rengini verir).
+        - generic [ref=e2462]: "+ Yakın kadraj üçünde de çalışıyor: beyaz maskot her zeminde kontrastlı− Mevcut ikonun küçük hilali ve yıldızları Tinted'da tamamen siliniyor"
+    - generic [ref=e2463]:
+      - generic [ref=e2464]:
+        - heading "ANA EKRAN PROVASI · 60 PX" [level=4] [ref=e2465]
+        - generic [ref=e2466]:
+          - generic [ref=e2467]: Takvim
+          - generic [ref=e2470]: AstroApp
+          - generic [ref=e2479]: Notlar
+          - generic [ref=e2482]: Müzik
+          - generic [ref=e2485]: Mevcut
+          - generic [ref=e2487]: C
+          - generic [ref=e2508]: D
+          - generic [ref=e2518]: Mail
+        - paragraph [ref=e2521]: "Komşu ikonlar nötr placeholder. Karşılaştırma: ikinci sırada B (öneri), alt sırada mevcut, C ve D. Gerçek karar bu boyutta verilir."
+      - generic [ref=e2522]:
+        - heading "İCON COMPOSER KATMANLARI (iOS 26 LIQUID GLASS)" [level=4] [ref=e2523]
+        - generic [ref=e2524]:
+          - generic [ref=e2525]: 1 · Zemin
+          - generic [ref=e2529]: +
+          - generic [ref=e2530]: 2 · Hilal
+          - generic [ref=e2535]: +
+          - generic [ref=e2536]: 3 · Maskot
+          - generic [ref=e2542]: +
+          - generic [ref=e2543]: 4 · Fiyonk
+        - paragraph [ref=e2546]:
+          - text: iOS 26'da ikon tek PNG yerine
+          - code [ref=e2547]: .icon
+          - text: paketi olabilir (Xcode → Icon Composer). Katmanlar ayrı verilince sistem her birine kendi cam parlamasını ve hafif paralaksı uygular; Dark ve Tinted görünümleri de aynı katmanlardan otomatik türer. Maskot ve fiyonk ayrı katman olursa fiyonk cam gibi parlar, maskot mat kalır — fiziksel olarak da doğru.
+        - paragraph [ref=e2548]: "Teslim: 1024×1024 PNG (köşe yuvarlatmasız, sistem kırpar) ya da Icon Composer katmanları SVG/PNG. Maskotun orijinal vektörü varsa B kadrajı için yalnızca ölçek + konum değişir, yeniden çizim gerekmez."
+  - generic [ref=e2549]:
+    - text: AstroApp · Liquid Glass Design 2026 · Bu dosya statik bir tasarım çalışmasıdır; gezegen konumları ve puanlar örnek veridir. Çarklar sayfa yüklenince JavaScript ile çizilir (Ascendant solda, saat yönünün tersine ekliptik) —
+    - code [ref=e2550]: ChartWheelView.chartAngle()
+    - text: "ile aynı dönüşüm. Karşılaştırma için:"
+    - code [ref=e2551]: astroapp_full_html.html
+    - text: (2025) ↔
+    - code [ref=e2552]: astroapp_design_2026.html
+    - text: (bu dosya).

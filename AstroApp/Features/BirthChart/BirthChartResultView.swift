@@ -33,6 +33,7 @@ struct BirthChartResultView: View {
                         case .wheel:
                             chartWheelCard
                             bigThreeCard
+                            elementInterpretationCard
                         case .planets:
                             planetPositionsCard
                             housesCard
@@ -41,7 +42,6 @@ struct BirthChartResultView: View {
                         case .reading:
                             synthesisSection
                             if let expr = chart.dominantSignExpression { dominantSignCard(expr) }
-                            elementInterpretationCard
                             modalityCard
                         }
                     }
@@ -260,9 +260,17 @@ struct BirthChartResultView: View {
         }
 
         return VStack(alignment: .leading, spacing: 10) {
-            Text("Element Yorumları")
-                .font(.headline)
-                .foregroundStyle(.white)
+            HStack(spacing: 6) {
+                Image(systemName: "circle.grid.2x2.fill")
+                    .foregroundStyle(AstroTheme.accent)
+                Text("Element Dengesi")
+                    .font(.headline)
+                    .foregroundStyle(.white)
+                Spacer()
+                Text("Yorum için dokun")
+                    .font(.caption2)
+                    .foregroundStyle(AstroTheme.textTertiary)
+            }
 
             ForEach(sortedElements, id: \.self) { element in
                 let score = elements[element, default: 0]

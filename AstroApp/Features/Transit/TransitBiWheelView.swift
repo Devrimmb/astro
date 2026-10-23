@@ -43,7 +43,7 @@ struct TransitBiWheelView: View {
             let path = WheelGeometry.ringSegment(center: center, innerRadius: signRingInner, outerRadius: outerRadius,
                                                  startAngle: startAngle, endAngle: endAngle)
 
-            let color = AstroTheme.element(sign.element).opacity(0.12)
+            let color = AstroTheme.element(sign.element).opacity(0.22)
             context.fill(path, with: .color(color))
             context.stroke(path, with: .color(.white.opacity(0.10)), lineWidth: 0.5)
 

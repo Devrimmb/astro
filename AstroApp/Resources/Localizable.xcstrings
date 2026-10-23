@@ -235,6 +235,16 @@
         }
       }
     },
+    "%@%@" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@%2$@"
+          }
+        }
+      }
+    },
     "%@°" : {
 
     },
@@ -353,6 +363,9 @@
 
     },
     "✦ UYUM ANALİZİ ✦" : {
+
+    },
+    "✧" : {
 
     },
     "🌙 Ay Dönüşü" : {
@@ -647,6 +660,9 @@
           }
         }
       }
+    },
+    "AstroApp açılıyor" : {
+
     },
     "AstroApp v1.0\nKozmik rehberiniz.\n\nBu uygulama eğlence amaçlıdır, profesyonel danışmanlık yerine geçmez." : {
       "extractionState" : "manual",
@@ -1659,6 +1675,9 @@
     "Derece" : {
 
     },
+    "Deste, %lld kart" : {
+
+    },
     "Detaylı harita, AI sohbet ve daha fazlası" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1677,6 +1696,7 @@
       }
     },
     "Detaylı harita, uyumluluk analizi ve daha fazlası" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1726,7 +1746,7 @@
         }
       }
     },
-    "Diğer burçların günlük yorumunu okumak için reklam izle veya Pro'ya geç." : {
+    "Diğer burçların günlük yorumunu okumak için kısa bir reklam izle." : {
 
     },
     "Dil" : {
@@ -1815,6 +1835,9 @@
     "Doğum Haritan" : {
 
     },
+    "Doğum Haritanı Aç" : {
+
+    },
     "Doğum haritanı keşfet, tarot kartlarını çek\nve kozmik rehberini dinle." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1872,6 +1895,9 @@
         }
       }
     },
+    "Doğum Haritası Açık" : {
+
+    },
     "Doğum Haritası Hesapla" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1888,6 +1914,12 @@
           }
         }
       }
+    },
+    "Doğum haritası satın alınmış" : {
+
+    },
+    "Doğum haritasını satın al" : {
+
     },
     "Doğum saati yükselen burç hesabı için çok önemlidir" : {
 
@@ -2050,9 +2082,6 @@
           }
         }
       }
-    },
-    "Element Yorumları" : {
-
     },
     "EN GÜÇLÜ AÇILAR" : {
 
@@ -2854,6 +2883,9 @@
         }
       }
     },
+    "Haritayı Satın Al" : {
+
+    },
     "Haritayı Yeniden Hesapla" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3546,6 +3578,7 @@
       }
     },
     "Kartını Seç" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -3577,6 +3610,9 @@
           }
         }
       }
+    },
+    "Kartları çevirmek için sola veya sağa kaydır" : {
+
     },
     "Kartları tekrar çekmek için kısa bir reklam izle veya Pro'ya geç." : {
       "extractionState" : "manual",
@@ -4264,6 +4300,9 @@
         }
       }
     },
+    "Ortadaki kartı seç" : {
+
+    },
     "Pallas" : {
       "localizations" : {
         "de" : {
@@ -4350,9 +4389,6 @@
         }
       }
     },
-    "Pro abonelik aktif" : {
-
-    },
     "Pro Aktif" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -4386,9 +4422,6 @@
           }
         }
       }
-    },
-    "Pro sürüme geç" : {
-
     },
     "Pro'ya Geç" : {
       "extractionState" : "manual",
@@ -4823,6 +4856,9 @@
         }
       }
     },
+    "Seçilen kart" : {
+
+    },
     "Şehir" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -5191,6 +5227,9 @@
         }
       }
     },
+    "Tam harita, ilişki analizleri ve transitler kullanımına açık." : {
+
+    },
     "Tam Natal Chart" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -5293,6 +5332,12 @@
           }
         }
       }
+    },
+    "Tek seferlik ödeme — abonelik yok" : {
+
+    },
+    "Tek seferlik ödeme, abonelik yok. Diğer sayfalar reklam izleyerek açılır." : {
+
     },
     "Tek seferlik ödeme. Abonelik değildir." : {
       "localizations" : {
@@ -5880,6 +5925,9 @@
         }
       }
     },
+    "YILDIZLARIN REHBERLİĞİNDE" : {
+
+    },
     "Yıldız Haritanı Keşfet" : {
       "localizations" : {
         "de" : {
@@ -6071,6 +6119,9 @@
           }
         }
       }
+    },
+    "Yorum için dokun" : {
+
     },
     "Yorumlar" : {
       "extractionState" : "manual",
