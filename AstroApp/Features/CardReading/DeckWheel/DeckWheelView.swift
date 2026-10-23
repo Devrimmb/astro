@@ -19,6 +19,36 @@ struct DeckStyle {
         glyph: "✦",
         aspect: 1.75
     )
+
+    /// Katina — Venüs pembesi, şarap tonlu arka yüz; 400×700 görseller
+    static let katina = DeckStyle(
+        tint: AstroTheme.planet(.venus),
+        backColors: [Color(red: 0.55, green: 0.22, blue: 0.40),
+                     Color(red: 0.33, green: 0.12, blue: 0.26),
+                     Color(red: 0.20, green: 0.07, blue: 0.17)],
+        glyph: "♡\u{FE0E}",
+        aspect: 1.75
+    )
+
+    /// Rün — Satürn bronzu, ahşap tonlu arka yüz; görsel yok, sembol + ad
+    static let rune = DeckStyle(
+        tint: AstroTheme.planet(.saturn),
+        backColors: [Color(red: 0.60, green: 0.40, blue: 0.18),
+                     Color(red: 0.40, green: 0.25, blue: 0.10),
+                     Color(red: 0.30, green: 0.18, blue: 0.06)],
+        glyph: "ᚱ",
+        aspect: 1.6
+    )
+
+    /// Tanrı kartları — Neptün mavisi, mor arka yüz; 525×525 kare görsel + ad bandı
+    static let god = DeckStyle(
+        tint: AstroTheme.planet(.neptune),
+        backColors: [Color(red: 0.40, green: 0.25, blue: 0.60),
+                     Color(red: 0.25, green: 0.15, blue: 0.45),
+                     Color(red: 0.18, green: 0.10, blue: 0.35)],
+        glyph: "⚡\u{FE0E}",
+        aspect: 1.45
+    )
 }
 
 // MARK: - Çark görünümü
