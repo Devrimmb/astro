@@ -18,18 +18,18 @@ enum WidgetZodiacSign: String, CaseIterable {
 
     var glyph: String {
         switch self {
-        case .aries: "♈"
-        case .taurus: "♉"
-        case .gemini: "♊"
-        case .cancer: "♋"
-        case .leo: "♌"
-        case .virgo: "♍"
-        case .libra: "♎"
-        case .scorpio: "♏"
-        case .sagittarius: "♐"
-        case .capricorn: "♑"
-        case .aquarius: "♒"
-        case .pisces: "♓"
+        case .aries: "♈\u{FE0E}"
+        case .taurus: "♉\u{FE0E}"
+        case .gemini: "♊\u{FE0E}"
+        case .cancer: "♋\u{FE0E}"
+        case .leo: "♌\u{FE0E}"
+        case .virgo: "♍\u{FE0E}"
+        case .libra: "♎\u{FE0E}"
+        case .scorpio: "♏\u{FE0E}"
+        case .sagittarius: "♐\u{FE0E}"
+        case .capricorn: "♑\u{FE0E}"
+        case .aquarius: "♒\u{FE0E}"
+        case .pisces: "♓\u{FE0E}"
         }
     }
 
@@ -174,6 +174,15 @@ struct WidgetPlanetInfo: Codable {
     let signName: String
     let signGlyph: String
     let isRetrograde: Bool
+    /// Ekliptik boylam; uygulama güncellenmeden önce yazılmış kayıtlarda yok
+    var longitude: Double? = nil
+
+    /// Çark için boylam: gerçek değer yoksa burcun ortası
+    var wheelLongitude: Double {
+        if let longitude { return longitude }
+        let idx = WidgetZodiacSign.allCases.firstIndex { $0.rawValue == signName } ?? 0
+        return Double(idx) * 30 + 15
+    }
 
     // 10 klasik gezegenin kısa sembol rengi
     var symbolColor: String {

@@ -55,12 +55,13 @@ struct CosmicStatusWidget: Widget {
         StaticConfiguration(kind: kind, provider: CosmicStatusProvider()) { entry in
             CosmicStatusWidgetView(entry: entry)
                 .containerBackground(for: .widget) {
-                    Color(red: 0.05, green: 0.06, blue: 0.15)
+                    WidgetSkyBackground()
                 }
         }
         .configurationDisplayName("Kozmik Durum")
-        .description("Ay fazı, retrograd, gezegen saati ve bugünün gezegenleri")
+        .description("Bugünün gökyüzü çarkı: Ay evresi, gezegenler, açılar, retrograd ve gezegen saati")
         .supportedFamilies([.systemSmall, .systemMedium])
+        .contentMarginsDisabled()
     }
 }
 
@@ -77,241 +78,120 @@ struct CosmicStatusWidgetView: View {
         }
     }
 
-    // MARK: - Small: Ay + 4 İç Gezegen + Retrograd
+    // MARK: - Small: çark + tek satır
 
     private var smallView: some View {
-        VStack(spacing: 0) {
-            // Ay fazı (üst)
-            VStack(spacing: 3) {
-                Image(systemName: entry.moon.phase.sfSymbol)
-                    .font(.system(size: 38))
-                    .foregroundStyle(.yellow.opacity(0.85))
+        VStack(spacing: 4) {
+            WidgetSkyWheel(planets: entry.planets, moon: entry.moon, size: 110)
+            HStack(spacing: 4) {
                 Text(entry.moon.phase.name)
-                    .font(.system(size: 10, weight: .bold))
+                    .font(.system(size: 11, weight: .semibold, design: .serif))
                     .foregroundStyle(.white)
-                    .multilineTextAlignment(.center)
-                    .lineLimit(2)
-                    .minimumScaleFactor(0.75)
-                HStack(spacing: 3) {
-                    Text(entry.moon.moonSign.glyph)
-                    Text(entry.moon.moonSign.rawValue)
-                        .lineLimit(1)
-                }
-                .font(.system(size: 8))
-                .foregroundStyle(.white.opacity(0.6))
-            }
-
-            Rectangle()
-                .fill(.white.opacity(0.07))
-                .frame(height: 1)
-                .padding(.vertical, 5)
-
-            // 4 iç gezegen yatay
-            let inner = entry.planets.prefix(4)  // Sun, Moon, Mercury, Venus
-            HStack(spacing: 0) {
-                ForEach(inner, id: \.name) { p in
-                    VStack(spacing: 2) {
-                        Text(p.symbol)
-                            .font(.system(size: 13))
-                            .foregroundStyle(planetColor(p.symbol))
-                        Text(p.signGlyph)
-                            .font(.system(size: 9))
-                            .foregroundStyle(.white.opacity(0.55))
-                    }
-                    .frame(maxWidth: .infinity)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.7)
+                if !entry.retrogrades.isEmpty {
+                    Text("· ℞\(entry.retrogrades.count)")
+                        .font(.system(size: 10, weight: .semibold))
+                        .foregroundStyle(WidgetPalette.retro)
                 }
             }
-
-            Spacer(minLength: 4)
-
-            // Retrograd
-            retroBadgeRow
         }
-        .padding(.horizontal, 6)
-        .padding(.vertical, 8)
+        .padding(12)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
-    // MARK: - Medium: Kombo C — Üst Şerit + Alt 5×2 Izgara
+    // MARK: - Medium: solda çark, sağda bilgi sütunu
 
     private var mediumView: some View {
-        VStack(spacing: 0) {
-            // ── Üst şerit ──
-            HStack(spacing: 8) {
-                // Ay
-                HStack(spacing: 6) {
-                    Image(systemName: entry.moon.phase.sfSymbol)
-                        .font(.system(size: 26))
-                        .foregroundStyle(.yellow.opacity(0.85))
-                    VStack(alignment: .leading, spacing: 1) {
-                        Text(entry.moon.phase.name)
-                            .font(.system(size: 10, weight: .bold))
-                            .foregroundStyle(.white)
-                            .lineLimit(1)
-                            .minimumScaleFactor(0.8)
-                        HStack(spacing: 3) {
-                            Text(entry.moon.moonSign.glyph)
-                            Text(entry.moon.moonSign.rawValue)
-                        }
-                        .font(.system(size: 8))
-                        .foregroundStyle(.white.opacity(0.55))
-                        Text("%\(Int(entry.moon.illumination * 100)) aydın.")
-                            .font(.system(size: 7))
-                            .foregroundStyle(.white.opacity(0.3))
-                    }
+        HStack(spacing: 14) {
+            WidgetSkyWheel(planets: entry.planets, moon: entry.moon, size: 126)
+
+            VStack(alignment: .leading, spacing: 0) {
+                Text(entry.moon.phase.name)
+                    .font(.system(size: 19, weight: .semibold, design: .serif))
+                    .foregroundStyle(.white)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.7)
+
+                HStack(spacing: 4) {
+                    Text("☽\u{FE0E}")
+                        .font(.system(size: 10, design: .serif))
+                        .foregroundStyle(WidgetPalette.planet("☽"))
+                    Text("\(moonSignName) · %\(Int(entry.moon.illumination * 100)) aydınlık")
+                        .font(.system(size: 10))
+                        .foregroundStyle(WidgetPalette.textSecondary)
+                        .lineLimit(1)
                 }
+                .padding(.top, 2)
 
                 Rectangle()
-                    .fill(.white.opacity(0.07))
-                    .frame(width: 1)
-                    .padding(.vertical, 2)
+                    .fill(.white.opacity(0.10))
+                    .frame(height: 1)
+                    .padding(.vertical, 7)
 
-                // Retrogradlar
-                VStack(alignment: .leading, spacing: 2) {
-                    if entry.retrogrades.isEmpty {
-                        HStack(spacing: 3) {
-                            Image(systemName: "checkmark.circle.fill")
-                                .font(.system(size: 8))
-                                .foregroundStyle(.green.opacity(0.7))
-                            Text("Retrograd yok")
-                                .font(.system(size: 8))
-                                .foregroundStyle(.white.opacity(0.5))
-                        }
-                    } else {
-                        ForEach(entry.retrogrades.prefix(3), id: \.self) { p in
-                            HStack(spacing: 3) {
-                                Text("℞")
-                                    .font(.system(size: 8, weight: .bold))
-                                    .foregroundStyle(.red.opacity(0.85))
-                                Text(p)
-                                    .font(.system(size: 8, weight: .semibold))
-                                    .foregroundStyle(.red.opacity(0.9))
-                            }
+                if let hour = entry.planetaryHour {
+                    HStack(spacing: 6) {
+                        Text(hour.planetSymbol + "\u{FE0E}")
+                            .font(.system(size: 11, design: .serif))
+                            .foregroundStyle(WidgetPalette.planet(hour.planetSymbol))
+                            .frame(width: 20, height: 20)
+                            .background(WidgetPalette.planet(hour.planetSymbol).opacity(0.14), in: .circle)
+                        VStack(alignment: .leading, spacing: 0) {
+                            Text("\(hour.planet) saati")
+                                .font(.system(size: 11, weight: .semibold))
+                                .foregroundStyle(.white)
+                            Text(hour.timeText)
+                                .font(.system(size: 9))
+                                .foregroundStyle(WidgetPalette.textTertiary)
                         }
                     }
                 }
 
-                Spacer()
+                retroLine
+                    .padding(.top, 6)
 
-                // Gezegen saati + tarih
-                VStack(alignment: .trailing, spacing: 2) {
-                    if let hour = entry.planetaryHour {
-                        HStack(spacing: 3) {
-                            Text(hour.planetSymbol)
-                                .font(.system(size: 11))
-                                .foregroundStyle(.purple.opacity(0.8))
-                            Text(hour.planet)
-                                .font(.system(size: 8))
-                                .foregroundStyle(.white.opacity(0.5))
-                        }
-                    }
-                    Text(shortDateText)
-                        .font(.system(size: 7))
-                        .foregroundStyle(.white.opacity(0.2))
-                }
+                Spacer(minLength: 2)
+
+                Text(dateText)
+                    .font(.system(size: 9, weight: .medium))
+                    .foregroundStyle(WidgetPalette.textTertiary)
+                    .textCase(.uppercase)
+                    .kerning(0.8)
             }
-            .padding(.horizontal, 10)
-            .padding(.top, 8)
-            .padding(.bottom, 6)
-
-            Rectangle()
-                .fill(.white.opacity(0.07))
-                .frame(height: 1)
-                .padding(.horizontal, 6)
-
-            // ── Alt 5×2 gezegen ızgarası ──
-            if entry.planets.isEmpty {
-                Spacer()
-                Text("Uygulama açıldığında güncellenir")
-                    .font(.system(size: 9))
-                    .foregroundStyle(.white.opacity(0.3))
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 12)
-                Spacer()
-            } else {
-                let rows = [
-                    Array(entry.planets.prefix(5)),
-                    Array(entry.planets.dropFirst(5).prefix(5))
-                ]
-                VStack(spacing: 4) {
-                    ForEach(0..<rows.count, id: \.self) { rowIdx in
-                        HStack(spacing: 4) {
-                            ForEach(rows[rowIdx], id: \.name) { p in
-                                planetGridCell(p, isRetro: p.isRetrograde)
-                            }
-                        }
-                    }
-                }
-                .padding(.horizontal, 8)
-                .padding(.vertical, 6)
-            }
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
+        .padding(.horizontal, 14)
+        .padding(.vertical, 12)
     }
 
-    // MARK: - Gezegen Izgara Hücresi
-
-    private func planetGridCell(_ planet: WidgetPlanetInfo, isRetro: Bool) -> some View {
-        VStack(spacing: 2) {
-            Text(planet.symbol)
-                .font(.system(size: 14))
-                .foregroundStyle(planetColor(planet.symbol))
-
-            Text(planet.name)
-                .font(.system(size: 7, weight: .semibold))
-                .foregroundStyle(.white)
-                .lineLimit(1)
-                .minimumScaleFactor(0.7)
-
-            HStack(spacing: 1) {
-                Text(planet.signGlyph)
-                Text(shortSign(planet.signName))
-            }
-            .font(.system(size: 7))
-            .foregroundStyle(isRetro ? .red.opacity(0.8) : .white.opacity(0.45))
-
-            if isRetro {
-                Text("℞")
-                    .font(.system(size: 7, weight: .bold))
-                    .foregroundStyle(.red.opacity(0.8))
-            }
-        }
-        .frame(maxWidth: .infinity)
-        .padding(.vertical, 5)
-        .background(
-            isRetro
-                ? Color.red.opacity(0.07)
-                : Color.white.opacity(0.04),
-            in: RoundedRectangle(cornerRadius: 8)
-        )
-        .overlay(
-            isRetro
-                ? RoundedRectangle(cornerRadius: 8).stroke(Color.red.opacity(0.2), lineWidth: 1)
-                : nil
-        )
+    /// Ay burcu: uygulamanın yazdığı gerçek konum varsa o, yoksa yaklaşık hesap
+    private var moonSignName: String {
+        entry.planets.first { $0.symbol == "☽" }?.signName ?? entry.moon.moonSign.rawValue
     }
 
-    // MARK: - Retrograd badge satırı (small için)
+    // MARK: - Retrograd satırı
 
-    private var retroBadgeRow: some View {
+    private var retroLine: some View {
         Group {
             if entry.retrogrades.isEmpty {
-                HStack(spacing: 3) {
+                HStack(spacing: 4) {
                     Image(systemName: "checkmark.circle.fill")
-                        .font(.system(size: 8))
-                        .foregroundStyle(.green.opacity(0.7))
+                        .font(.system(size: 9))
+                        .foregroundStyle(WidgetPalette.harmonik)
                     Text("Retrograd yok")
-                        .font(.system(size: 8))
-                        .foregroundStyle(.white.opacity(0.45))
+                        .font(.system(size: 10))
+                        .foregroundStyle(WidgetPalette.textSecondary)
                 }
             } else {
-                HStack(spacing: 3) {
+                HStack(alignment: .firstTextBaseline, spacing: 4) {
                     Text("℞")
-                        .font(.system(size: 8, weight: .bold))
-                        .foregroundStyle(.red.opacity(0.85))
-                    Text(entry.retrogrades.prefix(2).joined(separator: ", "))
-                        .font(.system(size: 8, weight: .medium))
-                        .foregroundStyle(.red.opacity(0.9))
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.7)
+                        .font(.system(size: 11, weight: .bold, design: .serif))
+                        .foregroundStyle(WidgetPalette.retro)
+                    Text(entry.retrogrades.joined(separator: " · "))
+                        .font(.system(size: 10, weight: .semibold))
+                        .foregroundStyle(WidgetPalette.retro.opacity(0.9))
+                        .lineLimit(2)
+                        .minimumScaleFactor(0.8)
                 }
             }
         }
@@ -319,39 +199,10 @@ struct CosmicStatusWidgetView: View {
 
     // MARK: - Yardımcılar
 
-    private func planetColor(_ symbol: String) -> Color {
-        switch symbol {
-        case "☉": return Color(red: 0.94, green: 0.75, blue: 0.25)
-        case "☽": return Color(red: 0.31, green: 0.76, blue: 0.97)
-        case "♀": return Color(red: 0.96, green: 0.56, blue: 0.69)
-        case "♂": return Color(red: 0.94, green: 0.32, blue: 0.31)
-        case "♃": return Color(red: 1.00, green: 0.70, blue: 0.00)
-        case "♄": return Color(red: 0.56, green: 0.64, blue: 0.68)
-        case "⛢": return Color(red: 0.50, green: 0.79, blue: 0.77)
-        case "♆": return Color(red: 0.47, green: 0.53, blue: 0.80)
-        case "♇": return Color(red: 0.81, green: 0.58, blue: 0.85)
-        default:  return .white.opacity(0.7)
-        }
-    }
-
-    private func shortSign(_ name: String) -> String {
-        switch name {
-        case "İkizler":     "İkiz"
-        case "Yengeç":      "Yenç"
-        case "Terazi":      "Ter."
-        case "Akrep":       "Akrp"
-        case "Yay":         "Yay"
-        case "Oğlak":       "Oğlk"
-        case "Kova":        "Kova"
-        case "Balık":       "Balık"
-        default:             name.prefix(4).description
-        }
-    }
-
-    private var shortDateText: String {
+    private var dateText: String {
         let f = DateFormatter()
         f.locale = Locale(identifier: "tr_TR")
-        f.dateFormat = "d MMM, EEE"
+        f.dateFormat = "d MMMM, EEEE"
         return f.string(from: entry.date)
     }
 }

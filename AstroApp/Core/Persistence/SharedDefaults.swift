@@ -16,6 +16,8 @@ enum SharedDefaults {
         let signName: String
         let signGlyph: String
         let isRetrograde: Bool
+        /// Ekliptik boylam (0–360) — widget'taki gökyüzü çarkı için; eski kayıtlarda yok
+        var longitude: Double? = nil
     }
 
     private enum Keys {
@@ -44,7 +46,8 @@ enum SharedDefaults {
                     symbol: pos.planet.widgetSymbol,
                     signName: pos.sign.name,
                     signGlyph: pos.sign.glyph,
-                    isRetrograde: pos.isRetrograde
+                    isRetrograde: pos.isRetrograde,
+                    longitude: pos.longitude
                 )
             }
         saveTodayPlanets(snapshots)
