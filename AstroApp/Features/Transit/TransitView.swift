@@ -9,6 +9,7 @@ struct TransitView: View {
     @State private var personName = ""
     @State private var expandedAspects: Set<UUID> = []
     @State private var expandedPlanets: Set<Planet> = []
+    @State private var highlightedPlanet: Planet?
 
     private var isToday: Bool {
         Calendar.current.isDateInToday(selectedDate)
@@ -75,11 +76,25 @@ struct TransitView: View {
                         TransitBiWheelView(
                             natalChart: chart,
                             transitPositions: report.transitPositions,
-                            size: 340
-                        )
+                            size: 340,
+                            highlightedPlanet: highlightedPlanet
+                        ) { planet in
+                            withAnimation(.easeInOut(duration: 0.2)) {
+                                highlightedPlanet = highlightedPlanet == planet ? nil : planet
+                            }
+                        }
                         HStack(spacing: 14) {
                             wheelLegend(color: .white, text: "İç: natal")
                             wheelLegend(color: AstroTheme.accentSecondary, text: "Dış: \(shortDateText(selectedDate))")
+                        }
+                        if let highlightedPlanet {
+                            Text("\(highlightedPlanet.glyph) \(highlightedPlanet.name) · ona gelen transitler parlıyor")
+                                .font(.caption2)
+                                .foregroundStyle(AstroTheme.planet(highlightedPlanet))
+                        } else {
+                            Text("Natal gezegene dokun → transit açıları parlasın")
+                                .font(.caption2)
+                                .foregroundStyle(AstroTheme.textTertiary)
                         }
                     }
                     .glassCard()

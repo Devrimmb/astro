@@ -274,9 +274,9 @@ struct ChartWheelView: View {
 
     // MARK: - Yardımcılar
 
-    /// Ekliptik derece → Canvas açısı. Ascendant sol tarafa (180°) hizalanır.
+    /// Ekliptik derece → Canvas açısı. Yükselen solda (180°), burçlar saat yönünün tersine artar (standart çark).
     private func chartAngle(_ eclipticDegree: Double) -> Angle {
-        Angle(degrees: -(eclipticDegree - ascDegree) + 180)
+        Angle(degrees: (eclipticDegree - ascDegree) + 180)
     }
 
     private func pointOnCircle(center: CGPoint, radius: CGFloat, angle: Angle) -> CGPoint {

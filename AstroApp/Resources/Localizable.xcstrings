@@ -16,6 +16,9 @@
     "— %@" : {
 
     },
+    ":" : {
+
+    },
     "·" : {
 
     },
@@ -83,6 +86,16 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "%1$@ %2$@ · %3$@"
+          }
+        }
+      }
+    },
+    "%@ %@ · ona gelen transitler parlıyor" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$@ · ona gelen transitler parlıyor"
           }
         }
       }
@@ -344,10 +357,16 @@
     "☉ %@" : {
 
     },
+    "☉︎ %@" : {
+
+    },
     "☌" : {
 
     },
     "☽ %@" : {
+
+    },
+    "☽︎ %@" : {
 
     },
     "✦" : {
@@ -1126,6 +1145,12 @@
     "Bilgileri Manuel Gir" : {
 
     },
+    "Bir gezegene dokun, açıları haritada parlasın" : {
+
+    },
+    "Bir gezegene dokununca açıları vurgulanır" : {
+
+    },
     "Bir kategori seç ve kartını çek" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1633,6 +1658,9 @@
         }
       }
     },
+    "Daha az göster" : {
+
+    },
     "Değişken" : {
       "localizations" : {
         "de" : {
@@ -1809,6 +1837,9 @@
         }
       }
     },
+    "Doğum bilgilerini gir" : {
+
+    },
     "Doğum bilgilerinizle kişisel yıldız haritanızı oluşturun" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1872,6 +1903,9 @@
         }
       }
     },
+    "Doğum haritası" : {
+
+    },
     "Doğum Haritası" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1890,6 +1924,9 @@
       }
     },
     "Doğum Haritası Açık" : {
+
+    },
+    "Doğum haritası çarkı" : {
 
     },
     "Doğum Haritası Hesapla" : {
@@ -2197,7 +2234,7 @@
     "Geçmiş · Şimdi · Gelecek" : {
 
     },
-    "Geçmiş Fallarınız" : {
+    "Geçmiş okumalar" : {
 
     },
     "Geçmiş, şimdi ve gelecek — 3 kart açılımı" : {
@@ -2985,6 +3022,9 @@
         }
       }
     },
+    "Hesaplanıyor…" : {
+
+    },
     "Hilal (Büyüyen)" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -3713,6 +3753,9 @@
         }
       }
     },
+    "Kaydet ve hesapla" : {
+
+    },
     "Kayıtlı kişilerden seç" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3797,6 +3840,9 @@
           }
         }
       }
+    },
+    "Kişi seç" : {
+
     },
     "Kişi Seç" : {
 
@@ -4107,6 +4153,9 @@
 
     },
     "Natal" : {
+
+    },
+    "Natal gezegene dokun → transit açıları parlasın" : {
 
     },
     "Natal gezegenlerinize 1.5° içinde kavuşum yapan sabit yıldızlar:" : {
@@ -5297,6 +5346,9 @@
         }
       }
     },
+    "Tarihi ve saati çevir, harita canlı hesaplansın" : {
+
+    },
     "Tarot" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -5586,6 +5638,9 @@
 
     },
     "Tüm yorumlar ve transitler haritana göre kişiselleşir." : {
+
+    },
+    "Tümünü gör (%lld)" : {
 
     },
     "Tutku" : {
@@ -5925,6 +5980,9 @@
           }
         }
       }
+    },
+    "Yeni kişi" : {
+
     },
     "YILDIZLARIN REHBERLİĞİNDE" : {
 

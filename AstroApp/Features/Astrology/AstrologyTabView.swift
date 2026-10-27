@@ -23,7 +23,7 @@ struct AstrologyTabView: View {
                             title: "Doğum Haritası Hesapla",
                             description: "Doğum bilgilerinizle kişisel yıldız haritanızı oluşturun",
                             color: AstroTheme.accent
-                        ) { BirthChartInputView() }
+                        ) { BirthChartView() }
 
                         featureCard(
                             icon: "sunrise.fill",
@@ -153,7 +153,7 @@ struct AstrologyTabView: View {
         if let chart = appState.currentChart {
             let name = appState.birthDataStore.savedData?.name ?? ""
             NavigationLink {
-                BirthChartResultView(chart: chart, personName: name.isEmpty ? "Haritam" : name)
+                BirthChartView(initialChart: chart, initialName: name)
                     .environment(appState)
                     .environment(appState.store)
                     .environment(appState.entitlements)
@@ -191,7 +191,7 @@ struct AstrologyTabView: View {
             }
         } else {
             NavigationLink {
-                BirthChartInputView()
+                BirthChartView()
                     .environment(appState)
                     .environment(appState.store)
                     .environment(appState.entitlements)

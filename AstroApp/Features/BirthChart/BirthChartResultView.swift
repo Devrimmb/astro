@@ -4,6 +4,9 @@ struct BirthChartResultView: View {
     @Environment(AppState.self) private var appState
     let chart: BirthChart
     let personName: String
+    /// `BirthChartView` içinde yaşayan çarkın altına gömülür: kendi zemini, kaydırması,
+    /// başlık çubuğu ve statik çark kartı olmadan yalnızca içerik.
+    var embedded: Bool = false
     @State private var selectedHouse: House?
     @State private var selectedPlanet: PlanetPosition?
     @State private var selectedAspect: SelectedAspectItem?
@@ -20,70 +23,28 @@ struct BirthChartResultView: View {
     }
 
     var body: some View {
-        ZStack {
-            SubtleStarsBackground()
+        Group {
+            if embedded {
+                sections
+            } else {
+                ZStack {
+                    SubtleStarsBackground()
 
-            ScrollView {
-                VStack(spacing: 16) {
-                    personHeaderBar
-                    SegmentedGlass(options: ChartSection.allCases, selection: $section) { $0.rawValue }
-
-                    Group {
-                        switch section {
-                        case .wheel:
-                            chartWheelCard
-                            bigThreeCard
-                            elementInterpretationCard
-                        case .planets:
-                            planetPositionsCard
-                            housesCard
-                        case .aspects:
-                            aspectsCard
-                        case .reading:
-                            synthesisSection
-                            if let expr = chart.dominantSignExpression { dominantSignCard(expr) }
-                            modalityCard
+                    ScrollView {
+                        VStack(spacing: 16) {
+                            personHeaderBar
+                            sections
                         }
+                        .padding(.horizontal)
+                        .padding(.bottom, 40)
                     }
-                    .transition(.opacity.combined(with: .move(edge: .bottom)))
-                    .id(section)
-
-                    // Aksiyon butonları
-                    HStack(spacing: 12) {
-                        Button {
-                            ShareImageRenderer.shareChart(chart: chart, ownerName: personName)
-                        } label: {
-                            HStack(spacing: 8) {
-                                Image(systemName: "square.and.arrow.up")
-                                Text("Paylaş")
-                            }
-                            .glassButton()
-                        }
-
-                        Button {
-                            ChartPDFExporter.exportAndShare(
-                                chart: chart,
-                                ownerName: personName,
-                                interpretation: appState.interpretation
-                            )
-                        } label: {
-                            HStack(spacing: 8) {
-                                Image(systemName: "doc.richtext")
-                                Text("PDF")
-                            }
-                            .glassButton()
-                        }
-                    }
-                    .padding(.top, 4)
                 }
-                .padding(.horizontal)
-                .padding(.bottom, 40)
+                .navigationTitle("Doğum Haritanız")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbarColorScheme(.dark, for: .navigationBar)
             }
         }
         .animation(.easeInOut(duration: 0.22), value: section)
-        .navigationTitle("Doğum Haritanız")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbarColorScheme(.dark, for: .navigationBar)
         // Sheet'ler kökte: hangi segment açık olursa olsun sunulabilsin
         .sheet(item: $selectedPlanet) { position in
             PlanetInterpretationSheet(
@@ -97,6 +58,61 @@ struct BirthChartResultView: View {
         }
         .sheet(item: $selectedAspect) { item in
             AspectInterpretationSheet(aspect: item.aspect, interpretation: item.interpretation)
+        }
+    }
+
+    /// Segment seçici + seçili bölüm + paylaşım düğmeleri
+    private var sections: some View {
+        VStack(spacing: 16) {
+            SegmentedGlass(options: ChartSection.allCases, selection: $section) { $0.rawValue }
+
+            Group {
+                switch section {
+                case .wheel:
+                    if !embedded { chartWheelCard }
+                    bigThreeCard
+                    elementInterpretationCard
+                case .planets:
+                    planetPositionsCard
+                    housesCard
+                case .aspects:
+                    aspectsCard
+                case .reading:
+                    synthesisSection
+                    if let expr = chart.dominantSignExpression { dominantSignCard(expr) }
+                    modalityCard
+                }
+            }
+            .transition(.opacity.combined(with: .move(edge: .bottom)))
+            .id(section)
+
+            // Aksiyon butonları
+            HStack(spacing: 12) {
+                Button {
+                    ShareImageRenderer.shareChart(chart: chart, ownerName: personName)
+                } label: {
+                    HStack(spacing: 8) {
+                        Image(systemName: "square.and.arrow.up")
+                        Text("Paylaş")
+                    }
+                    .glassButton()
+                }
+
+                Button {
+                    ChartPDFExporter.exportAndShare(
+                        chart: chart,
+                        ownerName: personName,
+                        interpretation: appState.interpretation
+                    )
+                } label: {
+                    HStack(spacing: 8) {
+                        Image(systemName: "doc.richtext")
+                        Text("PDF")
+                    }
+                    .glassButton()
+                }
+            }
+            .padding(.top, 4)
         }
     }
 
@@ -949,7 +965,7 @@ private struct AspectInterpretationSheet: View {
 
 // MARK: - Gezegen Yorum Sheet
 
-private struct PlanetInterpretationSheet: View {
+struct PlanetInterpretationSheet: View {
     @Environment(\.dismiss) private var dismiss
     let position: PlanetPosition
     let chart: BirthChart

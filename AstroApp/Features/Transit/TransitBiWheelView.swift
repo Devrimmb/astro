@@ -5,6 +5,10 @@ struct TransitBiWheelView: View {
     let natalChart: BirthChart
     let transitPositions: [PlanetPosition]
     let size: CGFloat
+    /// Vurgulanan natal gezegen: ona gelen transit açıları parlar, diğerleri söner
+    var highlightedPlanet: Planet? = nil
+    /// Natal gezegen rozetine dokunulunca (nil → dokunma kapalı)
+    var onSelectPlanet: ((Planet) -> Void)? = nil
 
     private var outerRadius: CGFloat { size / 2 - 10 }
     private var transitRingRadius: CGFloat { outerRadius - 18 }
@@ -29,6 +33,27 @@ struct TransitBiWheelView: View {
         }
         .frame(width: size, height: size)
         .drawingGroup()
+        .contentShape(Rectangle())
+        .onTapGesture(coordinateSpace: .local) { location in
+            guard let onSelectPlanet, let hit = natalPlanet(at: location) else { return }
+            onSelectPlanet(hit)
+        }
+    }
+
+    // MARK: - Dokunma
+
+    private func natalPlanet(at location: CGPoint) -> Planet? {
+        let center = CGPoint(x: size / 2, y: size / 2)
+        let hitRadius = size * 0.055
+        var best: (planet: Planet, distance: CGFloat)?
+        for pos in natalChart.planets where Planet.classicPlanets.contains(pos.planet) {
+            let point = pointOnCircle(center: center, radius: natalPlanetRadius, angle: chartAngle(pos.longitude))
+            let distance = hypot(point.x - location.x, point.y - location.y)
+            if distance <= hitRadius, distance < (best?.distance ?? .infinity) {
+                best = (pos.planet, distance)
+            }
+        }
+        return best?.planet
     }
 
     // MARK: - Zodiac Ring
@@ -106,9 +131,21 @@ struct TransitBiWheelView: View {
             let point = pointOnCircle(center: center, radius: natalPlanetRadius, angle: angle)
             let color = AstroTheme.planet(pos.planet)
             let badge = size * 0.024
-            context.fill(Path(ellipseIn: CGRect(x: point.x - badge, y: point.y - badge, width: badge * 2, height: badge * 2)),
-                         with: .color(AstroTheme.background.opacity(0.85)))
-            let text = Text(pos.planet.glyph).font(.system(size: size * 0.032, design: .serif)).foregroundColor(color)
+            let isHighlighted = highlightedPlanet == pos.planet
+            let dimmed = highlightedPlanet != nil && !isHighlighted
+            if isHighlighted {
+                let glow = badge * 2.6
+                context.fill(Path(ellipseIn: CGRect(x: point.x - glow, y: point.y - glow, width: glow * 2, height: glow * 2)),
+                             with: .radialGradient(Gradient(colors: [color.opacity(0.5), .clear]),
+                                                   center: point, startRadius: 0, endRadius: glow))
+            }
+            let badgePath = Path(ellipseIn: CGRect(x: point.x - badge, y: point.y - badge, width: badge * 2, height: badge * 2))
+            context.fill(badgePath, with: .color(AstroTheme.background.opacity(0.85)))
+            if isHighlighted {
+                context.stroke(badgePath, with: .color(color), lineWidth: 1.4)
+            }
+            let text = Text(pos.planet.glyph).font(.system(size: size * 0.032, design: .serif))
+                .foregroundColor(color.opacity(dimmed ? 0.4 : 1))
             context.draw(context.resolve(text), at: point, anchor: .center)
         }
     }
@@ -168,8 +205,11 @@ struct TransitBiWheelView: View {
                         path.addLine(to: p2)
 
                         let color = AstroTheme.nature(aspectType.nature)
-                        context.stroke(path, with: .color(color.opacity(0.35)),
-                                       style: StrokeStyle(lineWidth: 0.6, dash: [3, 3]))
+                        let involved = highlightedPlanet == nil || natal.planet == highlightedPlanet
+                        let opacity: Double = highlightedPlanet == nil ? 0.35 : (involved ? 0.9 : 0.06)
+                        context.stroke(path, with: .color(color.opacity(opacity)),
+                                       style: StrokeStyle(lineWidth: involved && highlightedPlanet != nil ? 1.4 : 0.6,
+                                                          dash: involved && highlightedPlanet != nil ? [] : [3, 3]))
                         break
                     }
                 }
@@ -180,7 +220,7 @@ struct TransitBiWheelView: View {
     // MARK: - Helpers
 
     private func chartAngle(_ eclipticDegree: Double) -> Angle {
-        Angle(degrees: -(eclipticDegree - ascDegree) + 180)
+        Angle(degrees: (eclipticDegree - ascDegree) + 180)
     }
 
     private func pointOnCircle(center: CGPoint, radius: CGFloat, angle: Angle) -> CGPoint {
