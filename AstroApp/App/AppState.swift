@@ -35,7 +35,7 @@ class AppState {
             date: data.birthDate,
             latitude: data.latitude,
             longitude: data.longitude,
-            timeZone: TimeZone(identifier: "Europe/Istanbul")!
+            timeZone: data.birthTimeZone
         )
         currentChart = chart
         syncWidgetData()

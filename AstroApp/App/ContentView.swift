@@ -32,7 +32,7 @@ struct ContentView: View {
         }
     }
 
-    /// iOS 18+ `Tab` API'si; iOS 26'da sistem Liquid Glass çubuğu scroll'da küçülür.
+    /// iOS 18+ `Tab` API'si; iOS 26'da Liquid Glass çubuğu her zaman tam boyda kalır.
     @available(iOS 18.0, *)
     private var modernTabs: some View {
         TabView(selection: $selectedTab) {
@@ -49,7 +49,7 @@ struct ContentView: View {
                 SettingsView().id(settingsResetID)
             }
         }
-        .modifier(TabBarMinimizeOnScroll())
+        .modifier(TabBarNeverMinimize())
     }
 
     private var legacyTabs: some View {
@@ -74,11 +74,11 @@ struct ContentView: View {
     }
 }
 
-/// iOS 26'da tab bar aşağı kaydırınca küçülür; altında etkisiz.
-private struct TabBarMinimizeOnScroll: ViewModifier {
+/// iOS 26'da tab bar kaydırmada küçülmesin, tüm sekmeler hep görünsün; altında etkisiz.
+private struct TabBarNeverMinimize: ViewModifier {
     func body(content: Content) -> some View {
         if #available(iOS 26.0, *) {
-            content.tabBarMinimizeBehavior(.onScrollDown)
+            content.tabBarMinimizeBehavior(.never)
         } else {
             content
         }

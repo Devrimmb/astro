@@ -26,6 +26,12 @@ struct BirthData: Codable, Sendable, Identifiable, Equatable {
         self.longitude = longitude
         self.isOwner = isOwner
     }
+
+    /// Doğum şehrinin saat dilimi (bulunamazsa İstanbul)
+    var birthTimeZone: TimeZone {
+        let tz = WorldCityStore.coordinates(for: cityName, countryCode: "").tz
+        return TimeZone(identifier: tz) ?? TimeZone(identifier: "Europe/Istanbul")!
+    }
 }
 
 @Observable

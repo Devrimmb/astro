@@ -37,6 +37,7 @@ CATEGORIES = [
     ("katina_cards.json", "Katina", "💌", "Katina aşk falı kartları"),
     ("rune_cards.json", "Rünler", "ᚠ", "Rün kartları"),
     ("god_cards.json", "Tanrı Kartları", "⚡", "Mitolojik tanrı kartları"),
+    ("life_cycles.json", "Hayat Döngüleri", "⏳", "Satürn/Jüpiter dönüşleri, Uranüs karşıtlığı vb. hayat dönemeçleri"),
 ]
 
 
@@ -411,6 +412,17 @@ function flatList(file){
   } else if(file === 'god_cards.json'){
     for(const v of d){
       out.push({ title: `${v.name} (#${v.id})`, body: v.description });
+    }
+  } else if(file === 'life_cycles.json'){
+    for(const v of d){
+      const occ = v.occurrences || {};
+      out.push({
+        title: v.title,
+        tags: [v.planet, v.aspect, `Yaş: ${v.typicalAges}`],
+        short: v.summary,
+        body: v.description,
+        sections: Object.keys(occ).map(k => ({ h: `${k}. gerçekleşme`, body: occ[k] }))
+      });
     }
   } else if(file === 'planet_house_sign.json'){
     for(const v of d){

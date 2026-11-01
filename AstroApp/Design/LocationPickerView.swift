@@ -4,6 +4,8 @@ import SwiftUI
 struct LocationPickerView: View {
     @Binding var selectedCountryCode: String
     @Binding var selectedCity: String
+    /// Kompakt: ülke ve şehir yan yana, başlıklar kutunun içinde (dar sheet'ler için)
+    var compact = false
 
     @State private var showCountryPicker = false
     @State private var showCityPicker = false
@@ -13,6 +15,55 @@ struct LocationPickerView: View {
     }
 
     var body: some View {
+        Group {
+            if compact {
+                HStack(spacing: 10) {
+                    compactButton(title: "Ülke", value: countryName) { showCountryPicker = true }
+                    compactButton(title: "Şehir", value: selectedCity) { showCityPicker = true }
+                }
+            } else {
+                regularLayout
+            }
+        }
+        .sheet(isPresented: $showCountryPicker) {
+            CountrySearchSheet(selectedCode: $selectedCountryCode) {
+                // Ülke değişince şehiri o ülkenin ilk şehrine ayarla
+                let cities = WorldCityStore.cities(for: selectedCountryCode)
+                selectedCity = cities.first?.city ?? "İstanbul"
+            }
+        }
+        .sheet(isPresented: $showCityPicker) {
+            CitySearchSheet(countryCode: selectedCountryCode, selectedCity: $selectedCity)
+        }
+    }
+
+    private func compactButton(title: String, value: String, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            HStack(spacing: 6) {
+                VStack(alignment: .leading, spacing: 1) {
+                    Text(title)
+                        .font(.caption2)
+                        .foregroundStyle(AstroTheme.textSecondary)
+                    Text(value)
+                        .font(.subheadline)
+                        .foregroundStyle(.white)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.8)
+                }
+                Spacer(minLength: 0)
+                Image(systemName: "chevron.down")
+                    .font(.caption)
+                    .foregroundStyle(AstroTheme.textTertiary)
+            }
+            .padding(.horizontal, 12)
+            .padding(.vertical, 8)
+            .frame(maxWidth: .infinity)
+            .background(AstroTheme.surface, in: .rect(cornerRadius: 12))
+        }
+        .accessibilityLabel("\(title): \(value)")
+    }
+
+    private var regularLayout: some View {
         VStack(alignment: .leading, spacing: 8) {
             // Ülke seçimi
             Text("Ülke")
@@ -53,16 +104,6 @@ struct LocationPickerView: View {
                 .padding(12)
                 .background(AstroTheme.surface, in: .rect(cornerRadius: 12))
             }
-        }
-        .sheet(isPresented: $showCountryPicker) {
-            CountrySearchSheet(selectedCode: $selectedCountryCode) {
-                // Ülke değişince şehiri o ülkenin ilk şehrine ayarla
-                let cities = WorldCityStore.cities(for: selectedCountryCode)
-                selectedCity = cities.first?.city ?? "İstanbul"
-            }
-        }
-        .sheet(isPresented: $showCityPicker) {
-            CitySearchSheet(countryCode: selectedCountryCode, selectedCity: $selectedCity)
         }
     }
 }

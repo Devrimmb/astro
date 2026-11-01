@@ -56,7 +56,11 @@ struct SwissEphemerisCalculator: EphemerisCalculating, Sendable {
         let ascLongitude = cuspList[0].tropical.value
         let sunLon = sunCoord.longitude
         let moonLon = moonCoord.longitude
-        let isDayChart = sunLon > ascLongitude - 180 && sunLon < ascLongitude
+        // Gunes ufkun ustunde (DSC → MC → ASC yayi) ise gunduz haritasi.
+        // ASC'den Gunes'e olan aci 180–360 arasindaysa bu yaydadir (0/360 gecisi dahil).
+        var sunFromAsc = (sunLon - ascLongitude).truncatingRemainder(dividingBy: 360)
+        if sunFromAsc < 0 { sunFromAsc += 360 }
+        let isDayChart = sunFromAsc >= 180
         let pofLongitude: Double
         if isDayChart {
             pofLongitude = (ascLongitude + moonLon - sunLon).truncatingRemainder(dividingBy: 360)

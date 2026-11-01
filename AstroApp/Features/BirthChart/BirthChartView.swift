@@ -30,6 +30,11 @@ struct BirthChartView: View {
     @State private var pendingBirthData: BirthData?
     @State private var isCalculating = false
     @State private var showAllHistory = false
+    @State private var isEditingHistory = false
+    @State private var readingToDelete: SavedChartReading?
+    /// Manuel giriş sheet'inin yüksekliği ve sayfanın üstten ekran altına kadar boyu
+    @State private var manualSheetHeight: CGFloat = 440
+    @State private var pageHeight: CGFloat = 0
 
     private let wheelSize: CGFloat = 340
     private let selectionHaptic = UISelectionFeedbackGenerator()
@@ -43,7 +48,10 @@ struct BirthChartView: View {
 
             ScrollView {
                 VStack(spacing: 0) {
-                    header
+                    if model.mode != .manual {
+                        header
+                            .transition(.opacity)
+                    }
                     wheelBlock
 
                     if isResult {
@@ -51,17 +59,17 @@ struct BirthChartView: View {
                             .transition(.move(edge: .bottom).combined(with: .opacity))
                     } else {
                         homeSection
-                            .opacity(model.mode == .home ? 1 : 0.25)
+                            .opacity(model.mode == .home ? 1 : (model.mode == .manual ? 0 : 0.25))
                             .disabled(model.mode != .home)
                             .transition(.opacity)
                     }
                 }
                 .padding(.horizontal)
                 .padding(.bottom, 40)
-                .offset(y: model.mode == .manual ? -110 : 0)
             }
             .scrollDisabled(model.mode == .manual)
         }
+        .onGeometryChange(for: CGFloat.self) { $0.size.height + $0.safeAreaInsets.bottom } action: { pageHeight = $0 }
         .animation(.spring(duration: 0.6, bounce: 0.08), value: model.mode)
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
@@ -89,10 +97,11 @@ struct BirthChartView: View {
                 onSave: { data, chart in
                     pendingManual = (data, chart)
                     showManual = false
-                }
+                },
+                onHeightChange: { manualSheetHeight = $0 }
             )
-            .astroSheetStyle(detents: [.fraction(0.58), .large])
-            .presentationBackgroundInteraction(.enabled(upThrough: .fraction(0.58)))
+            .astroSheetStyle(detents: [.height(manualSheetHeight)])
+            .presentationBackgroundInteraction(.enabled)
         }
         .sheet(isPresented: $showPayment) {
             ChartPaymentSheet {
@@ -104,13 +113,17 @@ struct BirthChartView: View {
             }
         }
         .sheet(item: $highlighted) { position in
-            if let chart = resultChart {
-                PlanetInterpretationSheet(
-                    position: position,
-                    chart: chart,
-                    sections: appState.interpretation.interpretations(forPlanet: position.planet, in: chart)
-                )
-            }
+            PlanetInterpretationSheet(position: position)
+        }
+        .alert(
+            "Okuma silinsin mi?",
+            isPresented: Binding(get: { readingToDelete != nil }, set: { if !$0 { readingToDelete = nil } }),
+            presenting: readingToDelete
+        ) { reading in
+            Button("Sil", role: .destructive) { deleteReading(reading) }
+            Button("Vazgeç", role: .cancel) {}
+        } message: { reading in
+            Text("\(reading.personName) için kayıtlı harita okuması silinecek. Bu haritayı yeniden açmak yeni bir harita hakkı (ödeme) gerektirir. Bu işlem geri alınamaz.")
         }
         .onAppear(perform: setup)
     }
@@ -137,7 +150,7 @@ struct BirthChartView: View {
     // MARK: - Çark
 
     private var wheelBlock: some View {
-        let scale: CGFloat = isResult ? 1 : 0.8
+        let scale: CGFloat = isResult ? 1 : (model.mode == .manual ? manualWheelScale : 0.8)
         return ZStack {
             LiveChartWheelView(model: model, size: wheelSize) { planet in
                 model.toggleSelection(planet)
@@ -149,8 +162,16 @@ struct BirthChartView: View {
         }
         .frame(width: wheelSize, height: wheelSize)
         .scaleEffect(scale, anchor: .top)
-        .frame(height: wheelSize * scale)
+        // Üstten hizala: ortalanırsa 340pt'lik çark kısa çerçeveden yukarı taşar, başlığın üstüne biner
+        .frame(height: wheelSize * scale, alignment: .top)
         .padding(.top, 10)
+    }
+
+    /// Manuel girişte çark, sheet'in üstünde kalan boşluğa sığacak kadar küçülür
+    private var manualWheelScale: CGFloat {
+        guard pageHeight > 0 else { return 0.8 }
+        let available = pageHeight - manualSheetHeight - 10 - 12
+        return min(1, max(0.45, available / wheelSize))
     }
 
     /// Ana modda çarkın ortası: seçili kişinin Güneş · Ay · Yükselen burcu
@@ -200,19 +221,23 @@ struct BirthChartView: View {
         .padding(.top, 6)
     }
 
+    /// "Yeni kişi" solda sabit; kişi sayısı artınca yalnızca kişiler kayar
     private var chips: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 10) {
-                ForEach(people) { person in
-                    personChip(person)
+        HStack(spacing: 10) {
+            addChip
+                .padding(.vertical, 8)
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 10) {
+                    ForEach(people) { person in
+                        personChip(person)
+                    }
                 }
-                addChip
+                .padding(.horizontal, 4)
+                .padding(.vertical, 8)
             }
-            .padding(.horizontal, 4)
-            .padding(.vertical, 8)
+            .padding(.horizontal, -4)
+            .accessibilityLabel("Kişi seç")
         }
-        .padding(.horizontal, -4)
-        .accessibilityLabel("Kişi seç")
     }
 
     private func personChip(_ person: BirthData) -> some View {
@@ -283,6 +308,12 @@ struct BirthChartView: View {
                     Text("\(readings.count) okuma")
                         .font(.caption)
                         .foregroundStyle(AstroTheme.textTertiary)
+                    Button(isEditingHistory ? "Bitti" : "Düzenle") {
+                        withAnimation(.easeInOut(duration: 0.2)) { isEditingHistory.toggle() }
+                    }
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(AstroTheme.accent)
+                    .padding(.leading, 8)
                 }
                 .padding(.bottom, 4)
 
@@ -310,7 +341,11 @@ struct BirthChartView: View {
         let sun = chart.sunSign
         let color = sun.map { AstroTheme.element($0.element) } ?? AstroTheme.accent
         return Button {
-            openReading(reading)
+            if isEditingHistory {
+                readingToDelete = reading
+            } else {
+                openReading(reading)
+            }
         } label: {
             HStack(spacing: 14) {
                 Text(sun?.glyph ?? "✦")
@@ -334,16 +369,39 @@ struct BirthChartView: View {
 
                 Spacer()
 
-                Text(reading.calculatedAt.formatted(.relative(presentation: .named).locale(Locale(identifier: "tr_TR"))))
-                    .font(.caption2)
-                    .foregroundStyle(AstroTheme.textTertiary)
-                    .multilineTextAlignment(.trailing)
+                if isEditingHistory {
+                    Image(systemName: "trash")
+                        .font(.body.weight(.semibold))
+                        .foregroundStyle(.red)
+                        .frame(width: 36, height: 36)
+                        .background(Color.red.opacity(0.14), in: .circle)
+                        .transition(.scale.combined(with: .opacity))
+                } else {
+                    Text(reading.calculatedAt.formatted(.relative(presentation: .named).locale(Locale(identifier: "tr_TR"))))
+                        .font(.caption2)
+                        .foregroundStyle(AstroTheme.textTertiary)
+                        .multilineTextAlignment(.trailing)
+                }
             }
             .padding(.vertical, 12)
             .overlay(alignment: .bottom) { Rectangle().fill(AstroTheme.cardBorder).frame(height: 1) }
             .contentShape(.rect)
         }
         .buttonStyle(.plain)
+        .contextMenu {
+            Button("Okumayı sil", systemImage: "trash", role: .destructive) {
+                readingToDelete = reading
+            }
+        }
+        .accessibilityAction(named: "Okumayı sil") { readingToDelete = reading }
+    }
+
+    private func deleteReading(_ reading: SavedChartReading) {
+        withAnimation(.easeInOut(duration: 0.25)) {
+            appState.chartReadingStore.removeReading(forPersonID: reading.personID)
+            if appState.chartReadingStore.readings.isEmpty { isEditingHistory = false }
+        }
+        readingToDelete = nil
     }
 
     // MARK: - Sonuç modu

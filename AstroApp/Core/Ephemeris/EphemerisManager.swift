@@ -10,12 +10,39 @@ final class EphemerisManager {
 
     // MARK: - Natal Chart
 
+    /// `date`: DatePicker'dan gelen, cihaz saat diliminde kurulmuş doğum anı.
+    /// `timeZone`: doğum yerinin saat dilimi — girilen saat bu yerin yerel saati kabul edilir.
     func calculateBirthChart(
         date: Date, latitude: Double, longitude: Double, timeZone: TimeZone
     ) async -> BirthChart {
-        await calculator.calculateBirthChart(
-            date: date, latitude: latitude, longitude: longitude, timeZone: timeZone
+        let instant = Self.birthInstant(from: date, in: timeZone)
+        let chart = await calculator.calculateBirthChart(
+            date: instant, latitude: latitude, longitude: longitude, timeZone: timeZone
         )
+        // Gösterimde kullanıcının girdiği tarih/saat korunur
+        return BirthChart(
+            birthDate: date,
+            latitude: chart.latitude,
+            longitude: chart.longitude,
+            timeZoneIdentifier: chart.timeZoneIdentifier,
+            planets: chart.planets,
+            houses: chart.houses,
+            aspects: chart.aspects
+        )
+    }
+
+    /// Duvar saatini (yıl/ay/gün/saat/dakika) cihaz saat diliminden okuyup doğum yerinin
+    /// saat diliminde yeniden kurar. Tarihsel yaz saati kuralları TimeZone verisinden gelir.
+    static func birthInstant(
+        from date: Date, in birthTimeZone: TimeZone, deviceTimeZone: TimeZone = .current
+    ) -> Date {
+        guard birthTimeZone.identifier != deviceTimeZone.identifier else { return date }
+        var source = Calendar(identifier: .gregorian)
+        source.timeZone = deviceTimeZone
+        var target = Calendar(identifier: .gregorian)
+        target.timeZone = birthTimeZone
+        let comps = source.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        return target.date(from: comps) ?? date
     }
 
     // MARK: - Transit

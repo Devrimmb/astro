@@ -43,13 +43,11 @@ struct AspectCalculator: Sendable {
                 }
 
                 if let best = bestAspect {
-                    let speedDiff = p1.speed - p2.speed
-                    let applying: Bool
-                    if p1.longitude < p2.longitude {
-                        applying = speedDiff > 0
-                    } else {
-                        applying = speedDiff < 0
-                    }
+                    let applying = isApplying(
+                        lon1: p1.longitude, speed1: p1.speed,
+                        lon2: p2.longitude, speed2: p2.speed,
+                        aspectAngle: best.type.rawValue
+                    )
 
                     aspects.append(Aspect(
                         point1: p1.point,
@@ -62,5 +60,20 @@ struct AspectCalculator: Sendable {
             }
         }
         return aspects
+    }
+
+    /// Orb küçülüyorsa (açı tamlaşmaya gidiyorsa) yaklaşan açıdır.
+    static func isApplying(
+        lon1: Double, speed1: Double, lon2: Double, speed2: Double, aspectAngle: Double
+    ) -> Bool {
+        // İşaretli fark (-180, 180]
+        var d = (lon2 - lon1).truncatingRemainder(dividingBy: 360)
+        if d > 180 { d -= 360 }
+        if d <= -180 { d += 360 }
+        let separation = abs(d)
+        // d|d|/dt = sign(d) · (v2 - v1); d(orb)/dt = sign(|d| - açı) · d|d|/dt
+        let separationRate = (d >= 0 ? 1.0 : -1.0) * (speed2 - speed1)
+        let orbRate = (separation >= aspectAngle ? 1.0 : -1.0) * separationRate
+        return orbRate < 0
     }
 }

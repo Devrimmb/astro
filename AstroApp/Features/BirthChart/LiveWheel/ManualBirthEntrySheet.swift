@@ -10,6 +10,8 @@ struct ManualBirthEntrySheet: View {
     var onPreview: (BirthChart) -> Void
     /// "Kaydet ve hesapla" — kişi + hesaplanmış harita
     var onSave: (BirthData, BirthChart) -> Void
+    /// İçeriğin ölçülen yüksekliği — sheet detent'i ve üstteki çarkın boyu buna göre ayarlanır
+    var onHeightChange: (CGFloat) -> Void = { _ in }
 
     @State private var name = ""
     @State private var day = 15
@@ -32,63 +34,56 @@ struct ManualBirthEntrySheet: View {
     private var years: [Int] { Array(1930...Calendar.current.component(.year, from: .now)) }
 
     var body: some View {
-        ScrollView {
-            VStack(spacing: 12) {
-                HStack {
-                    Text("Yeni kişi")
-                        .font(.system(size: 26, weight: .semibold, design: .serif))
-                        .foregroundStyle(.white)
-                    Spacer()
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "xmark")
-                            .font(.subheadline.weight(.semibold))
-                            .foregroundStyle(AstroTheme.textSecondary)
-                            .frame(width: 34, height: 34)
-                            .background(AstroTheme.surface, in: .circle)
-                    }
-                    .accessibilityLabel("Kapat")
-                }
-                .padding(.top, 6)
-
-                liveBigThree
-
-                Text("Tarihi ve saati çevir, harita canlı hesaplansın")
-                    .font(.caption)
-                    .foregroundStyle(AstroTheme.textTertiary)
-
-                TextField("", text: $name, prompt: Text("İsim").foregroundStyle(AstroTheme.textTertiary))
+        // Kaydırma yok: tüm alanlar tek ekranda; sheet yüksekliği içeriğe göre ölçülür
+        VStack(spacing: 10) {
+            HStack(spacing: 10) {
+                TextField("", text: $name, prompt: Text("Yeni kişinin adı").foregroundStyle(AstroTheme.textTertiary))
                     .textFieldStyle(.plain)
                     .focused($nameFocused)
                     .submitLabel(.done)
-                    .padding(13)
+                    .padding(.horizontal, 13)
+                    .frame(height: 44)
                     .background(AstroTheme.surface, in: .rect(cornerRadius: 14))
                     .overlay { RoundedRectangle(cornerRadius: 14, style: .continuous).stroke(AstroTheme.cardBorder, lineWidth: 1) }
                     .foregroundStyle(.white)
-
-                pickers
-
-                LocationPickerView(selectedCountryCode: $countryCode, selectedCity: $city)
-
                 Button {
-                    save()
+                    dismiss()
                 } label: {
-                    HStack(spacing: 8) {
-                        Image(systemName: "star.circle.fill")
-                        Text("Kaydet ve hesapla")
-                    }
-                    .frame(maxWidth: .infinity)
-                    .glassButton()
+                    Image(systemName: "xmark")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(AstroTheme.textSecondary)
+                        .frame(width: 44, height: 44)
+                        .background(AstroTheme.surface, in: .circle)
                 }
-                .disabled(name.trimmingCharacters(in: .whitespaces).isEmpty || preview == nil)
-                .opacity(name.trimmingCharacters(in: .whitespaces).isEmpty ? 0.6 : 1)
-                .padding(.top, 4)
+                .accessibilityLabel("Kapat")
             }
-            .padding(.horizontal, 20)
-            .padding(.bottom, 24)
+
+            liveBigThree
+
+            pickers
+
+            LocationPickerView(selectedCountryCode: $countryCode, selectedCity: $city, compact: true)
+
+            Button {
+                save()
+            } label: {
+                HStack(spacing: 8) {
+                    Image(systemName: "star.circle.fill")
+                    Text("Kaydet ve hesapla")
+                }
+                .frame(maxWidth: .infinity)
+                .glassButton()
+            }
+            .disabled(name.trimmingCharacters(in: .whitespaces).isEmpty || preview == nil)
+            .opacity(name.trimmingCharacters(in: .whitespaces).isEmpty ? 0.6 : 1)
         }
-        .scrollDismissesKeyboard(.interactively)
+        .padding(.horizontal, 20)
+        .padding(.top, 22)
+        .padding(.bottom, 8)
+        .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { onHeightChange($0) }
+        .frame(maxHeight: .infinity, alignment: .top)
+        .contentShape(Rectangle())
+        .onTapGesture { nameFocused = false }
         .environment(\.colorScheme, .dark)
         .onAppear { recompute(immediate: true) }
         .onChange(of: [day, month, year, hour, minute]) { _, _ in recompute() }
@@ -141,8 +136,7 @@ struct ManualBirthEntrySheet: View {
                 }
             }
         }
-        .frame(height: 140)
-        .padding(.top, 4)
+        .frame(height: 118)
     }
 
     private func wheel(selection: Binding<Int>, values: [Int], width: CGFloat, label: @escaping (Int) -> String) -> some View {
@@ -156,7 +150,7 @@ struct ManualBirthEntrySheet: View {
         }
         .pickerStyle(.wheel)
         .labelsHidden()
-        .frame(width: width, height: 120)
+        .frame(width: width, height: 100)
         .clipped()
         .compositingGroup()
     }

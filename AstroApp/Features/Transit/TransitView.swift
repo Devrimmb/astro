@@ -418,7 +418,7 @@ struct TransitView: View {
             date: data.birthDate,
             latitude: data.latitude,
             longitude: data.longitude,
-            timeZone: TimeZone(identifier: "Europe/Istanbul")!
+            timeZone: data.birthTimeZone
         )
         natalChart = chart
         await loadTransits()

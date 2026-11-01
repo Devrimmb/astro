@@ -79,29 +79,6 @@ final class InterpretationEngine {
         return ChartInterpretation(sections: sections)
     }
 
-    /// Tek bir gezegenle ilgili yorumları toplar: ev + burç üçlü kombinasyonu
-    /// (varsa) ve o gezegeni içeren açılar. Gezegen pozisyon kartındaki detay
-    /// panelinde kullanılır.
-    func interpretations(forPlanet planet: Planet, in chart: BirthChart) -> [InterpretationSection] {
-        guard let pos = chart.planets.first(where: { $0.planet == planet }) else { return [] }
-        var out: [InterpretationSection] = []
-
-        if let e = PlanetHouseSignInterpretation.interpretation(planet: planet, house: pos.house, zodiacSign: pos.sign) {
-            out.append(InterpretationSection(title: e.title, body: e.description, category: .planetInHouseSign))
-        }
-        for aspect in chart.aspects {
-            let involves: Bool = {
-                if case .planet(let p) = aspect.point1, p == planet { return true }
-                if case .planet(let p) = aspect.point2, p == planet { return true }
-                return false
-            }()
-            if involves, let i = aspectInterpretation(aspect) {
-                out.append(InterpretationSection(title: i.title, body: i.detailed, category: .aspect))
-            }
-        }
-        return out
-    }
-
     func aspectInterpretation(_ aspect: Aspect) -> Interpretation? {
         guard let point1 = interpretationIdentifier(for: aspect.point1),
               let point2 = interpretationIdentifier(for: aspect.point2) else { return nil }

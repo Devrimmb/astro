@@ -14,12 +14,11 @@ struct BirthChartResultView: View {
     @State private var expandedElements: Set<ZodiacSign.Element> = []
     @State private var section: ChartSection = .wheel
 
-    /// Sonuç ekranının dört alt görünümü
+    /// Sonuç ekranının üç alt görünümü
     private enum ChartSection: String, CaseIterable {
         case wheel = "Harita"
         case planets = "Gezegenler"
         case aspects = "Açılar"
-        case reading = "Yorum"
     }
 
     var body: some View {
@@ -47,11 +46,7 @@ struct BirthChartResultView: View {
         .animation(.easeInOut(duration: 0.22), value: section)
         // Sheet'ler kökte: hangi segment açık olursa olsun sunulabilsin
         .sheet(item: $selectedPlanet) { position in
-            PlanetInterpretationSheet(
-                position: position,
-                chart: chart,
-                sections: appState.interpretation.interpretations(forPlanet: position.planet, in: chart)
-            )
+            PlanetInterpretationSheet(position: position)
         }
         .sheet(item: $selectedHouse) { house in
             HouseInterpretationSheet(house: house)
@@ -71,16 +66,14 @@ struct BirthChartResultView: View {
                 case .wheel:
                     if !embedded { chartWheelCard }
                     bigThreeCard
+                    if let expr = chart.dominantSignExpression { dominantSignCard(expr) }
                     elementInterpretationCard
+                    modalityCard
                 case .planets:
                     planetPositionsCard
                     housesCard
                 case .aspects:
                     aspectsCard
-                case .reading:
-                    synthesisSection
-                    if let expr = chart.dominantSignExpression { dominantSignCard(expr) }
-                    modalityCard
                 }
             }
             .transition(.opacity.combined(with: .move(edge: .bottom)))
@@ -263,6 +256,22 @@ struct BirthChartResultView: View {
             }
         }
         .glassCard()
+    }
+
+    private func modalityIcon(_ modality: ZodiacSign.Modality) -> String {
+        switch modality {
+        case .cardinal: "bolt.fill"
+        case .fixed:    "circle.fill"
+        case .mutable:  "arrow.triangle.2.circlepath"
+        }
+    }
+
+    private func modalityColor(_ modality: ZodiacSign.Modality) -> Color {
+        switch modality {
+        case .cardinal: AstroTheme.air
+        case .fixed:    AstroTheme.accent
+        case .mutable:  AstroTheme.accentSecondary
+        }
     }
 
     // MARK: - Element Yorumları
@@ -504,23 +513,6 @@ struct BirthChartResultView: View {
         }
     }
 
-    private func modalityIcon(_ modality: ZodiacSign.Modality) -> String {
-        switch modality {
-        case .cardinal: "bolt.fill"
-        case .fixed:    "circle.fill"
-        case .mutable:  "arrow.triangle.2.circlepath"
-        }
-    }
-
-    private func modalityColor(_ modality: ZodiacSign.Modality) -> Color {
-        switch modality {
-        case .cardinal: AstroTheme.air
-        case .fixed:    AstroTheme.accent
-        case .mutable:  AstroTheme.accentSecondary
-        }
-    }
-
-
     // MARK: - Gezegen Pozisyonları
 
     private var planetPositionsCard: some View {
@@ -754,25 +746,6 @@ struct BirthChartResultView: View {
         .glassCard()
     }
 
-    // MARK: - Bütüncül Yorum (sentez)
-
-    /// Genel değerlendirme + kalıplar (Büyük Üçgen, T-Kare…) + tona göre gruplar.
-    private var synthesisSection: some View {
-        let majors = chart.aspects.filter { $0.type.isMajor }
-        let guidances = majors.map { asp in
-            ChartSynthesizer.WeightedGuidance(
-                item: ChartAspectInterpreter.interpretation(asp, context: .natal),
-                weight: ChartSynthesizer.weight(asp),
-                planets: ChartSynthesizer.planets(in: asp)
-            )
-        }
-        let synth = ChartSynthesizer.synthesize(
-            guidances,
-            structure: ChartSynthesizer.ChartStructure(planets: chart.planets, aspects: chart.aspects),
-            context: .birthChart
-        )
-        return ChartSynthesisSection(synthesis: synth)
-    }
 }
 
 private struct SelectedAspectItem: Identifiable {
@@ -966,64 +939,24 @@ private struct AspectInterpretationSheet: View {
 // MARK: - Gezegen Yorum Sheet
 
 struct PlanetInterpretationSheet: View {
-    @Environment(\.dismiss) private var dismiss
     let position: PlanetPosition
-    let chart: BirthChart
-    let sections: [InterpretationSection]
-
-    @State private var tab: SheetTab = .reading
-    @State private var transits: [TransitAspect]?
-
-    private enum SheetTab: Hashable { case reading, aspects, transits }
 
     private var planetColor: Color { AstroTheme.planet(position.planet) }
 
-    /// Bu gezegenin haritadaki açıları (dar orb önce)
-    private var planetAspects: [Aspect] {
-        chart.aspects
-            .filter { $0.point1 == .planet(position.planet) || $0.point2 == .planet(position.planet) }
-            .sorted { $0.orb < $1.orb }
-    }
-
-    private func tabTitle(_ tab: SheetTab) -> String {
-        switch tab {
-        case .reading:  "Yorum"
-        case .aspects:  "Açılar (\(planetAspects.count))"
-        case .transits: transits.map { "Transit (\($0.count))" } ?? "Transit"
-        }
+    /// Yalnızca bu yerleşimin yorumu: gezegen × ev × burç (ör. "Güneş 10. Evde İkizler Burcunda")
+    private var entry: PlanetHouseSignEntry? {
+        PlanetHouseSignInterpretation.interpretation(
+            planet: position.planet, house: position.house, zodiacSign: position.sign)
     }
 
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
                 header
-                SegmentedGlass(options: [.reading, .aspects, .transits], selection: $tab, title: tabTitle)
-
-                Group {
-                    switch tab {
-                    case .reading:  readingContent
-                    case .aspects:  aspectsContent
-                    case .transits: transitsContent
-                    }
-                }
-                .id(tab)
-                .transition(.opacity)
+                readingContent
             }
             .padding()
             .padding(.bottom, 40)
-        }
-        .animation(.easeInOut(duration: 0.2), value: tab)
-        .task {
-            // Bugünün gökyüzünün bu natal gezegene yaptığı açılar
-            let planet = position.planet
-            let natal = chart
-            let aspects = await Task.detached(priority: .userInitiated) {
-                TransitCalculator.calculate(natalChart: natal, transitDate: .now)
-                    .aspects
-                    .filter { $0.natalPlanet == planet }
-                    .sorted { $0.orb < $1.orb }
-            }.value
-            transits = aspects
         }
         .astroSheetStyle()
     }
@@ -1076,81 +1009,17 @@ struct PlanetInterpretationSheet: View {
 
     @ViewBuilder
     private var readingContent: some View {
-        if sections.isEmpty {
-            emptyNote("Bu gezegen için henüz yorum eklenmedi.")
+        if let entry {
+            VStack(alignment: .leading, spacing: 10) {
+                Text(entry.title)
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.white)
+                MarkdownTextView(entry.description)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .glassCard()
         } else {
-            ForEach(sections) { section in
-                VStack(alignment: .leading, spacing: 10) {
-                    HStack(spacing: 8) {
-                        Pill(text: categoryLabel(section.category), color: categoryColor(section.category))
-                        Text(section.title)
-                            .font(.subheadline.weight(.semibold))
-                            .foregroundStyle(.white)
-                    }
-                    MarkdownTextView(section.body)
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .glassCard()
-            }
-        }
-    }
-
-    // MARK: Açılar
-
-    @ViewBuilder
-    private var aspectsContent: some View {
-        if planetAspects.isEmpty {
-            emptyNote("\(position.planet.name) haritada belirgin bir açı yapmıyor.")
-        } else {
-            VStack(spacing: 0) {
-                ForEach(Array(planetAspects.enumerated()), id: \.offset) { index, aspect in
-                    AspectRow(aspect, subtitle: aspectShort(aspect))
-                        .padding(.vertical, 6)
-                    if index < planetAspects.count - 1 {
-                        Divider().overlay(AstroTheme.cardBorder)
-                    }
-                }
-            }
-            .glassCard(padding: 12)
-        }
-    }
-
-    private func aspectShort(_ aspect: Aspect) -> String {
-        ChartAspectInterpreter.interpretation(aspect, context: .natal).message
-    }
-
-    // MARK: Transit
-
-    @ViewBuilder
-    private var transitsContent: some View {
-        if let transits {
-            if transits.isEmpty {
-                emptyNote("Bugün \(position.planet.name) natal konumuna açı yapan transit yok.")
-            } else {
-                VStack(spacing: 0) {
-                    ForEach(Array(transits.enumerated()), id: \.offset) { index, aspect in
-                        VStack(alignment: .leading, spacing: 6) {
-                            AspectRow(aspect)
-                            Text(DailyCosmicCoach.aspectInterpretation(aspect, today: true).message)
-                                .font(.caption)
-                                .foregroundStyle(AstroTheme.textSecondary)
-                                .fixedSize(horizontal: false, vertical: true)
-                        }
-                        .padding(.vertical, 8)
-                        if index < transits.count - 1 {
-                            Divider().overlay(AstroTheme.cardBorder)
-                        }
-                    }
-                }
-                .glassCard(padding: 12)
-            }
-        } else {
-            HStack {
-                Spacer()
-                ProgressView().tint(.white)
-                Spacer()
-            }
-            .padding(.vertical, 24)
+            emptyNote("\(position.planet.name) \(position.house). evde \(position.sign.name) burcu için henüz yorum eklenmedi.")
         }
     }
 
@@ -1166,27 +1035,5 @@ struct PlanetInterpretationSheet: View {
         }
         .frame(maxWidth: .infinity)
         .padding(.vertical, 32)
-    }
-
-    private func categoryLabel(_ category: InterpretationCategory) -> String {
-        switch category {
-        case .planetInHouseSign: "Ev + Burç"
-        case .aspect: "Açı"
-        case .bigThree: "Temel"
-        case .houseInSign: "Ev Burcu"
-        case .element: "Element"
-        case .modality: "Modalite"
-        }
-    }
-
-    private func categoryColor(_ category: InterpretationCategory) -> Color {
-        switch category {
-        case .planetInHouseSign: AstroTheme.accent
-        case .aspect: AstroTheme.notr
-        case .bigThree: AstroTheme.planet(.sun)
-        case .houseInSign: AstroTheme.accentSecondary
-        case .element: AstroTheme.fire
-        case .modality: AstroTheme.textSecondary
-        }
     }
 }

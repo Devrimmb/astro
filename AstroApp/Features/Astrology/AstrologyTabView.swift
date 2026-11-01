@@ -12,9 +12,6 @@ struct AstrologyTabView: View {
                     VStack(spacing: 12) {
                         chartHeroCard
 
-                        // MARK: - Bilgi Bandı
-                        astrologyInfoBanner
-
                         // MARK: - Doğum Haritası
                         sectionHeader(title: "Doğum Haritası", icon: "star.circle.fill", color: AstroTheme.accent)
 
@@ -62,6 +59,13 @@ struct AstrologyTabView: View {
                             description: "Yıllık Solar Return haritanız — yılın enerjisini keşfedin",
                             color: AstroTheme.air
                         ) { SolarReturnView() }
+
+                        featureCard(
+                            icon: "hourglass",
+                            title: "Hayat Döngüleri",
+                            description: "Satürn dönüşü, Jüpiter dönüşleri ve hayatının büyük dönemeçleri",
+                            color: AstroTheme.planet(.saturn)
+                        ) { LifeCyclesView() }
 
                         // MARK: - Uyum & İlişkiler
                         sectionHeader(title: "Uyum & İlişkiler", icon: "heart.text.square", color: AstroTheme.planet(.venus))
@@ -227,53 +231,6 @@ struct AstrologyTabView: View {
         parts.append(f.string(from: chart.birthDate))
         if let city = appState.birthDataStore.savedData?.cityName, !city.isEmpty { parts.append(city) }
         return parts.joined(separator: " · ")
-    }
-
-    // MARK: - Bilgi Bandı
-
-    @AppStorage("astrology_info_dismissed") private var astrologyInfoDismissed = false
-
-    @ViewBuilder
-    private var astrologyInfoBanner: some View {
-        if !astrologyInfoDismissed {
-            VStack(alignment: .leading, spacing: 10) {
-                HStack {
-                    Image(systemName: "star.circle.fill")
-                        .foregroundStyle(AstroTheme.accent)
-                    Text("Astroloji Rehberi")
-                        .font(.subheadline.weight(.bold))
-                        .foregroundStyle(.white)
-                    Spacer()
-                    Button {
-                        withAnimation { astrologyInfoDismissed = true }
-                    } label: {
-                        Image(systemName: "xmark.circle.fill")
-                            .foregroundStyle(AstroTheme.textTertiary)
-                    }
-                }
-
-                VStack(alignment: .leading, spacing: 6) {
-                    astroInfoLine(icon: "star.circle.fill", text: "Doğum haritanı hesaplatarak tüm özellikleri aç")
-                    astroInfoLine(icon: "sunrise.fill", text: "Yükselen ve Ay burcu için doğum saatin gerekli")
-                    astroInfoLine(icon: "sun.horizon", text: "Günlük burcun her gün güncellenir")
-                    astroInfoLine(icon: "gift.fill", text: "Günde 1 ücretsiz yorum hakkın var")
-                }
-            }
-            .glassCard()
-            .transition(.opacity.combined(with: .move(edge: .top)))
-        }
-    }
-
-    private func astroInfoLine(icon: String, text: String) -> some View {
-        HStack(spacing: 8) {
-            Image(systemName: icon)
-                .font(.caption2)
-                .foregroundStyle(AstroTheme.accent)
-                .frame(width: 16)
-            Text(text)
-                .font(.caption)
-                .foregroundStyle(AstroTheme.textSecondary)
-        }
     }
 
     // MARK: - Section Header

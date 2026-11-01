@@ -158,7 +158,7 @@ struct PeopleListView: View {
             date: person.birthDate,
             latitude: person.latitude,
             longitude: person.longitude,
-            timeZone: TimeZone(identifier: "Europe/Istanbul")!
+            timeZone: person.birthTimeZone
         )
         appState.currentChart = chart
         appState.syncWidgetData()

@@ -159,6 +159,9 @@
     "%@ Güneş Dönüşü" : {
 
     },
+    "%@ için kayıtlı harita okuması silinecek. Bu haritayı yeniden açmak yeni bir harita hakkı (ödeme) gerektirir. Bu işlem geri alınamaz." : {
+
+    },
     "%@ Retrograde" : {
 
     },
@@ -711,9 +714,6 @@
         }
       }
     },
-    "Astroloji Rehberi" : {
-
-    },
     "Astroloji sekmesinden doğum bilgilerini girerek haritanı oluştur." : {
 
     },
@@ -1169,6 +1169,9 @@
       }
     },
     "Bitiş: %@" : {
+
+    },
+    "Bitti" : {
 
     },
     "Boğa" : {
@@ -2043,6 +2046,9 @@
         }
       }
     },
+    "Döngüler hesaplanıyor…" : {
+
+    },
     "Duygusal tema" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2232,6 +2238,9 @@
       }
     },
     "Geçmiş · Şimdi · Gelecek" : {
+
+    },
+    "Geçmiş dönemeçler (%lld)" : {
 
     },
     "Geçmiş okumalar" : {
@@ -2950,6 +2959,9 @@
           }
         }
       }
+    },
+    "Hayat Döngüleri" : {
+
     },
     "Henüz kayıtlı kişi yok" : {
 
@@ -3807,6 +3819,9 @@
         }
       }
     },
+    "Kişi değiştir" : {
+
+    },
     "Kişi Düzenle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -4215,6 +4230,12 @@
           }
         }
       }
+    },
+    "Okuma silinsin mi?" : {
+
+    },
+    "Okumayı sil" : {
+
     },
     "Olaylar" : {
       "extractionState" : "manual",
@@ -4906,6 +4927,9 @@
         }
       }
     },
+    "Satürn dönüşü, Jüpiter dönüşleri ve hayatının büyük dönemeçleri" : {
+
+    },
     "Seçilen kart" : {
 
     },
@@ -4991,6 +5015,9 @@
           }
         }
       }
+    },
+    "SIRADAKİ BÜYÜK DÖNEMEÇ" : {
+
     },
     "Şişkin Ay (Büyüyen)" : {
       "extractionState" : "stale",
@@ -5170,6 +5197,9 @@
         }
       }
     },
+    "ŞU AN İÇİNDESİN" : {
+
+    },
     "Şu An Retrograde" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -5277,6 +5307,12 @@
         }
       }
     },
+    "Tam açı tarihi" : {
+
+    },
+    "Tam açı tarihleri" : {
+
+    },
     "Tam harita, ilişki analizleri ve transitler kullanımına açık." : {
 
     },
@@ -5346,7 +5382,7 @@
         }
       }
     },
-    "Tarihi ve saati çevir, harita canlı hesaplansın" : {
+    "Tarihler gezegenin doğum konumuna tam açı yaptığı anlardır; retro hareket nedeniyle bir dönemde birden fazla tarih olabilir." : {
 
     },
     "Tarot" : {
@@ -5508,6 +5544,9 @@
       }
     },
     "Test Reklam" : {
+
+    },
+    "Tipik yaşlar: %@" : {
 
     },
     "Toplam: %lld puan" : {
@@ -5795,6 +5834,9 @@
         }
       }
     },
+    "Vazgeç" : {
+
+    },
     "Venüs" : {
       "localizations" : {
         "de" : {
@@ -5982,6 +6024,9 @@
       }
     },
     "Yeni kişi" : {
+
+    },
+    "Yeni kişinin adı" : {
 
     },
     "YILDIZLARIN REHBERLİĞİNDE" : {
@@ -6198,6 +6243,9 @@
           }
         }
       }
+    },
+    "Yorumu gör" : {
+
     },
     "Yorumu Göster" : {
       "extractionState" : "stale",
