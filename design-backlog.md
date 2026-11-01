@@ -91,17 +91,9 @@ Kilit ekranı / Dynamic Island: o günün Ay evresi + gezegen saati; transit yo�
 
 ## E. Temizlik ve belge
 
-- `StoreManager.allFeaturesID` / `hasFullAccess` gelir modelinde yeri yok, ama hâlâ bağlı:
-  `EntitlementManager.canCalculateChart`, `hasFullAccess` ve diğer yetki kontrolleri, `PaywallView` ürün listesi.
-  Önce App Store Connect'te bu üründe satış olup olmadığını kontrol et (satın alan varsa erişimi korunmalı),
-  sonra yetki kontrollerinden ve paywall'dan çıkar. ☐
-- `astroapp_design_2026.html` tasarım dokümanı koddaki son hale göre güncel değil (deste çarkı, yaşayan
-  çark, widget çarkı eklenmeli). ☐
 - Uygulama ikonu: karar kullanıcıda; mevcut ikon kalıyor. ☐
-- `Localizable.xcstrings` içinde kaldırılan ekranlardan kalan eski (stale) metinleri temizle: "Astroloji Rehberi"
-  kartı, sonuç sayfasındaki "Yorum" sekmesi, gezegen penceresinin Açılar/Transit alt sekmeleri. ☐
 - "Yeni kişi" manuel giriş ekranını küçük ekranda (iPhone SE) ve büyük yazı boyutunda (Dynamic Type) dene;
-  çark en fazla %45'e küçülüyor, sheet içeriğe göre uzuyor. ☐
+  çark en fazla %45'e küçülüyor, sheet içeriğe göre uzuyor. ☐ (kullanıcı cihazda deneyecek)
 
 ---
 
@@ -145,5 +137,10 @@ Kilit ekranı / Dynamic Island: o günün Ay evresi + gezegen saati; transit yo�
   Deste çarkı, yaşayan çark, manuel giriş, kişi seçimi, segment/transit tarih seçimi buraya taşındı; kart çevirmede
   kenar tıkı + yerleşme; Synastry skoru hızlanarak sayar, 5 puanda bir sıklaşan tık, sonunda güçlü vuruş.
   Ayarlar → "Titreşimler" anahtarı (`hapticsEnabled`) hepsini kapatır; `astroFeedback` modifier'ı da ona uyar.
+- ☑ Temizlik (1 Kasım 2026) — "Tüm özellikler" (`allFeaturesID`) ürünü kaldırıldı (hiç satılmamıştı): `StoreManager`
+  yalnızca `natalChartID` yükler, `EntitlementManager.hasFullAccess` silindi, yetkiler yalnızca doğum haritası/kredi,
+  `PaywallView` tek ürün, `Products.storekit` tek ürün. `Localizable.xcstrings` içinden kodda geçmeyen 52 eski metin
+  silindi (PRO, eski fal ekranları, eski rün/tanrı ekranı metinleri). `astroapp_design_2026.html` güncellendi:
+  PRO/kademe dili → tek ürün + ödüllü reklam, Ayarlar'da Titreşimler, yeni bölüm 13 "Hareket ve dokunuş".
 - ☑ Alt menü kaydırınca küçülmüyor (`tabBarMinimizeBehavior(.never)`); Astroloji sekmesinden "Astroloji Rehberi"
   kartı kaldırıldı (1 Kasım 2026).

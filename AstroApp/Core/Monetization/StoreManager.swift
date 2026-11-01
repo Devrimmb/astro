@@ -3,24 +3,20 @@ import StoreKit
 @Observable
 final class StoreManager {
     var products: [Product] = []
-    var purchasedProductIDs: Set<String> = []
     var isLoading = false
 
     static let natalChartID = "com.duygubal.AstroApp.natalchart"
-    static let allFeaturesID = "com.duygubal.AstroApp.allfeatures"
 
-    private let productIDs: Set<String> = [
-        natalChartID, allFeaturesID
-    ]
+    /// Tek ürün: doğum haritası (tek seferlik). PRO / abonelik / "tüm özellikler" paketi yok.
+    private let productIDs: Set<String> = [natalChartID]
 
     // MARK: - Consumable Kredi Sistemi
 
     private static let chartCreditsKey = "natal_chart_credits"
 
-    /// Mevcut harita hesaplama kredisi
-    var chartCredits: Int {
-        get { UserDefaults.standard.integer(forKey: Self.chartCreditsKey) }
-        set { UserDefaults.standard.set(newValue, forKey: Self.chartCreditsKey) }
+    /// Mevcut harita hesaplama kredisi. Saklı özellik: sonradan onaylanan bir ödeme kredi eklediğinde ekranlar güncellenir.
+    var chartCredits: Int = UserDefaults.standard.integer(forKey: chartCreditsKey) {
+        didSet { UserDefaults.standard.set(chartCredits, forKey: Self.chartCreditsKey) }
     }
 
     /// Kredi ekle (satın alma sonrası)
@@ -37,12 +33,26 @@ final class StoreManager {
         return true
     }
 
+    // MARK: - İşlem teslimi
+    //
+    // Doğum haritası tüketilebilir (Consumable) bir ürün: Apple bunu yeniden açılışta ya da "geri yükle" ile
+    // geri vermez, kalıcı karşılığı cihazdaki kredi ve kişi başına kaydedilen okumadır (`ChartReadingStore`).
+    // Bir işlem üç yoldan gelebilir: anlık satın alma, sonradan onaylanan ödeme (ebeveyn onayı, banka onayı)
+    // ya da önceki açılışta bitirilmemiş işlem. Hepsi `deliver` üzerinden geçer; her işlem en fazla bir kez kredi ekler.
+
+    private static let deliveredTransactionsKey = "delivered_transaction_ids"
+
+    private var deliveredTransactionIDs: Set<UInt64> {
+        get { Set((UserDefaults.standard.array(forKey: Self.deliveredTransactionsKey) as? [UInt64]) ?? []) }
+        set { UserDefaults.standard.set(Array(newValue), forKey: Self.deliveredTransactionsKey) }
+    }
+
     private var transactionListener: Task<Void, Never>?
 
     init() {
         transactionListener = listenForTransactions()
         Task { await loadProducts() }
-        Task { await restorePurchases() }
+        Task { await deliverUnfinishedTransactions() }
     }
 
     deinit {
@@ -60,20 +70,14 @@ final class StoreManager {
         isLoading = false
     }
 
+    /// - Returns: true ise ödeme tamamlandı ve kredi eklendi; bekleyen/iptal edilen ödemede false
     func purchase(_ product: Product) async throws -> Bool {
         let result = try await product.purchase()
 
         switch result {
         case .success(let verification):
             let transaction = try Self.checkVerified(verification)
-
-            // Consumable ürünlerde kredi ekle
-            if transaction.productID == Self.natalChartID {
-                addChartCredit()
-            }
-
-            purchasedProductIDs.insert(transaction.productID)
-            await transaction.finish()
+            await deliver(transaction)
             return true
         case .pending, .userCancelled:
             return false
@@ -82,26 +86,30 @@ final class StoreManager {
         }
     }
 
-    func restorePurchases() async {
-        for await result in Transaction.currentEntitlements {
+    private func deliver(_ transaction: Transaction) async {
+        if transaction.productID == Self.natalChartID,
+           transaction.revocationDate == nil,
+           !deliveredTransactionIDs.contains(transaction.id) {
+            deliveredTransactionIDs.insert(transaction.id)
+            addChartCredit()
+        }
+        await transaction.finish()
+    }
+
+    private func deliverUnfinishedTransactions() async {
+        for await result in Transaction.unfinished {
             if let transaction = try? Self.checkVerified(result) {
-                purchasedProductIDs.insert(transaction.productID)
+                await deliver(transaction)
             }
         }
     }
 
-    func isPurchased(_ productID: String) -> Bool {
-        purchasedProductIDs.contains(productID)
-    }
-
     private func listenForTransactions() -> Task<Void, Never> {
-        Task.detached {
+        Task { [weak self] in
             for await result in Transaction.updates {
+                guard let self else { return }
                 if let transaction = try? Self.checkVerified(result) {
-                    await MainActor.run {
-                        self.purchasedProductIDs.insert(transaction.productID)
-                    }
-                    await transaction.finish()
+                    await self.deliver(transaction)
                 }
             }
         }

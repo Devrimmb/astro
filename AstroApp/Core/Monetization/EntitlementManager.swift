@@ -1,22 +1,6 @@
 import Foundation
 import UIKit
 
-enum AppFeature {
-    case dailyHoroscope
-    case tarot
-    case moonPhase
-    case elementAnalysis
-    case detailedChart
-    case compatibility
-    case fullNatalChart
-}
-
-enum FeatureAccess: Sendable {
-    case free
-    case requiresPurchase(String)
-    case locked
-}
-
 @Observable
 final class EntitlementManager {
     private let store: StoreManager
@@ -25,49 +9,13 @@ final class EntitlementManager {
         self.store = store
     }
 
-    func accessLevel(for feature: AppFeature) -> FeatureAccess {
-        if Self.isAdmin { return .free }
-        switch feature {
-        case .dailyHoroscope, .tarot, .moonPhase, .elementAnalysis:
-            return .free
-
-        case .detailedChart, .compatibility:
-            if store.isPurchased(StoreManager.natalChartID) ||
-               store.isPurchased(StoreManager.allFeaturesID) {
-                return .free
-            }
-            return .requiresPurchase(StoreManager.natalChartID)
-
-        case .fullNatalChart:
-            if store.isPurchased(StoreManager.natalChartID) ||
-               store.isPurchased(StoreManager.allFeaturesID) {
-                return .free
-            }
-            return .requiresPurchase(StoreManager.natalChartID)
-        }
-    }
-
-    var hasFullAccess: Bool {
-        Self.isAdmin || store.isPurchased(StoreManager.allFeaturesID)
-    }
-
-    var hasNatalChart: Bool {
-        Self.isAdmin || store.isPurchased(StoreManager.natalChartID) || hasFullAccess
-    }
-
-    /// Harita hesaplama hakkı var mı? (admin, kredi veya allFeatures)
+    /// Harita hesaplama hakkı var mı? (admin veya kredi)
+    ///
+    /// Satın alma yalnızca haritayı açar: her kredi bir kişinin haritasını hesaplar, okuma `ChartReadingStore`'a
+    /// kaydedilir ve o kişinin harita yorumları (Hayat Döngüleri, Anı Haritası dahil) kalıcı olarak açık kalır.
+    /// Diğer kilitli sayfalar (diğer burçlar, Ay/Yükselen, kart falları) satın almayla değil ödüllü reklamla açılır.
     var canCalculateChart: Bool {
-        Self.isAdmin || store.chartCredits > 0 || store.isPurchased(StoreManager.allFeaturesID)
-    }
-
-    var hasNatalChartOrTest: Bool {
-        if Self.isAdmin { return true }
-        #if DEBUG
-        return true
-        #else
-        if Self.isTestFlight { return true }
-        return hasNatalChart
-        #endif
+        Self.isAdmin || store.chartCredits > 0
     }
 
     /// Admin test modu — admin kullanıcı, normal kullanıcı gibi görebilir
@@ -98,14 +46,5 @@ final class EntitlementManager {
             return false
         }
         return adminIDs.contains(deviceID)
-    }()
-
-    /// TestFlight build'i mi kontrol et
-    static let isTestFlight: Bool = {
-        #if DEBUG
-        return false
-        #else
-        return Bundle.main.url(forResource: "embedded", withExtension: "mobileprovision") != nil
-        #endif
     }()
 }

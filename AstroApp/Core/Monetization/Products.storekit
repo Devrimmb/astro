@@ -10,9 +10,7 @@
     ]
   },
   "identifier" : "38904BB8",
-  "nonRenewingSubscriptions" : [
-
-  ],
+  "nonRenewingSubscriptions" : [],
   "products" : [
     {
       "displayPrice" : "49.99",
@@ -33,26 +31,6 @@
       "productID" : "com.duygubal.AstroApp.natalchart",
       "referenceName" : "Doğum Haritası",
       "type" : "Consumable"
-    },
-    {
-      "displayPrice" : "399.99",
-      "familyShareable" : false,
-      "internalID" : "B465635D",
-      "localizations" : [
-        {
-          "description" : "",
-          "displayName" : "",
-          "locale" : "en_US"
-        },
-        {
-          "description" : "hepsi",
-          "displayName" : "Her şey",
-          "locale" : "tr"
-        }
-      ],
-      "productID" : "com.duygubal.AstroApp.allfeatures",
-      "referenceName" : "Tüm Özellikler",
-      "type" : "NonConsumable"
     }
   ],
   "settings" : {
@@ -64,14 +42,10 @@
     "_locale" : "en_US",
     "_renewalBillingIssuesEnabled" : false,
     "_storefront" : "USA",
-    "_storeKitErrors" : [
-
-    ],
+    "_storeKitErrors" : [],
     "_timeRate" : 0
   },
-  "subscriptionGroups" : [
-
-  ],
+  "subscriptionGroups" : [],
   "version" : {
     "major" : 4,
     "minor" : 0

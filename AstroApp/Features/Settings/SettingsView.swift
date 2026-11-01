@@ -75,7 +75,7 @@ struct SettingsView: View {
 
                     Spacer(minLength: 0)
 
-                    if entitlements.hasNatalChart {
+                    if ownChartUnlocked {
                         Pill.chartUnlocked
                     }
                 }
@@ -133,23 +133,41 @@ struct SettingsView: View {
         return f.string(from: date)
     }
 
-    // MARK: - Pro Status
+    // MARK: - Harita Durumu
+
+    /// Profildeki kişinin ödenmiş harita okuması var mı (satın alma kişi başına, kalıcı)
+    private var ownChartUnlocked: Bool {
+        guard let data = appState.birthDataStore.savedData else { return false }
+        return appState.chartReadingStore.reading(forPersonID: data.id) != nil
+    }
 
     private var proStatusCard: some View {
         VStack(spacing: 12) {
-            if entitlements.hasNatalChart {
+            if ownChartUnlocked {
                 HStack(spacing: 8) {
                     Image(systemName: "checkmark.seal.fill")
                         .foregroundStyle(AstroTheme.harmonik)
-                    Text("Doğum Haritası Açık")
+                    Text("Doğum Haritan Açık")
                         .font(.headline)
                         .foregroundStyle(.white)
                 }
                 .accessibilityElement(children: .combine)
-                .accessibilityLabel("Doğum haritası satın alınmış")
-                Text("Tam harita, ilişki analizleri ve transitler kullanımına açık.")
+                Text("Haritan ve yorumları kalıcı olarak açık. Başka biri için yeni harita alabilirsin; diğer sayfalar reklam izleyerek açılır.")
                     .font(.caption)
                     .foregroundStyle(AstroTheme.textSecondary)
+                    .multilineTextAlignment(.center)
+                if appState.store.chartCredits > 0 {
+                    Text("\(appState.store.chartCredits) harita hakkın var")
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(AstroTheme.accent)
+                }
+                Button {
+                    showPaywall = true
+                } label: {
+                    Text("Yeni Harita Al")
+                        .glassButton()
+                }
+                .padding(.top, 4)
             } else {
                 VStack(spacing: 8) {
                     Text("Doğum Haritanı Aç")
@@ -281,10 +299,6 @@ struct SettingsView: View {
             .onChange(of: hapticsEnabled) { _, newValue in
                 AstroHaptics.isEnabled = newValue
                 if newValue { AstroHaptics.tap(0.6) }
-            }
-            Divider().overlay(AstroTheme.cardBorder)
-            settingsRow(icon: "arrow.clockwise", title: "Satın Almaları Geri Yükle") {
-                Task { await appState.store.restorePurchases() }
             }
             Divider().overlay(AstroTheme.cardBorder)
             settingsRow(icon: "info.circle", title: "Hakkında") {

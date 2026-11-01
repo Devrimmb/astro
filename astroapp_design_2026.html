@@ -318,6 +318,7 @@
   <a href="#swift">SwiftUI Eşlemesi</a>
   <a href="#fark">Eski → Yeni</a>
   <a href="#ikon">İkon</a>
+  <a href="#hareket">Hareket & Dokunuş</a>
 </nav>
 
 <!-- ═══════════════ HERO ═══════════════ -->
@@ -326,7 +327,7 @@
   <h1>Gökyüzünü <em>camdan</em> okumak.<br>AstroApp için 2026 tasarım dili.</h1>
   <p class="lead">
     Bu doküman, uygulamanın bugünkü gerçek yapısı üzerine kurulu: 4 sekme (<code>Anasayfa</code>, <code>Astroloji</code>, <code>Kart Falı</code>, <code>Ayarlar</code>),
-    <code>AstroTheme</code> renkleri, <code>GlassCard</code>, Canvas tabanlı <code>ChartWheelView</code>, Kozmik Koç, Synastry skoru ve kart yelpazesi.
+    <code>AstroTheme</code> renkleri, <code>GlassCard</code>, Canvas tabanlı <code>ChartWheelView</code> ve yaşayan çark (<code>LiveWheel/</code>), Kozmik Koç, iç içe Synastry çarkı ve deste çarkı (<code>DeckWheel/</code>).
     Her ekranın altında bire bir SwiftUI karşılığı yazıyor; önerilen her şey iOS 17+ ve iOS 26 Liquid Glass API'leriyle yapılabilir, özel kütüphane gerektirmez.
   </p>
   <div class="pillars">
@@ -438,7 +439,7 @@
   <p class="sec-note">Mevcut <code>Design/</code> klasöründe <b>GlassCard, GlassButton, InfoTip, SectionHeaderWithInfo, PersonSelectionCard</b> var. Aşağıdakiler onlara eklenecek ya da onları güncelleyecek parçalar. Her birinin altında önerilen Swift imzası yazıyor.</p>
   <div class="comps">
     <div class="comp"><div class="cn">TonePill</div><div class="ca">TonePill(tone: .harmonik) · DailyCosmicCoach.Tone</div>
-      <div class="demo" style="display:flex;gap:8px;flex-wrap:wrap"><span class="pill h">△ Harmonik</span><span class="pill z">□ Zorlayıcı</span><span class="pill n">☌ Nötr</span><span class="pill a">Sana özel</span><span class="pill pro">✦ Pro</span></div>
+      <div class="demo" style="display:flex;gap:8px;flex-wrap:wrap"><span class="pill h">△ Harmonik</span><span class="pill z">□ Zorlayıcı</span><span class="pill n">☌ Nötr</span><span class="pill a">Sana özel</span><span class="pill h">✓ Harita açık</span></div>
       <p style="font-size:11.5px;color:var(--t3);margin-top:10px;line-height:1.55">Ton renkleri tek kaynaktan: <code style="color:var(--accent2)">AstroTheme.harmonik / zorlayici / notr</code>. Bugün <code style="color:var(--accent2)">HomeView.toneColor</code> <code style="color:var(--accent2)">.green/.orange</code> döndürüyor — birleştirilmeli.</p></div>
 
     <div class="comp"><div class="cn">PlanetRow</div><div class="ca">PlanetRow(placement:) · glif + burç + ev</div>
@@ -468,7 +469,7 @@
         <div style="font-size:11.5px;color:var(--t2);line-height:1.6">İlişki skoru, aspect uyumu, günlük enerji — tüm "tek sayı" göstergeleri aynı halka. Sayı <code style="color:var(--accent2)">.contentTransition(.numericText())</code> ile akar.</div>
       </div></div>
 
-    <div class="comp"><div class="cn">GlassTabBar</div><div class="ca">TabView · .tabBarMinimizeBehavior(.onScrollDown) (iOS 26)</div>
+    <div class="comp"><div class="cn">GlassTabBar</div><div class="ca">TabView · .tabBarMinimizeBehavior(.never) (iOS 26)</div>
       <div class="demo" style="position:relative;height:70px;background:linear-gradient(180deg,#12102E,#0A0D1F);border-radius:16px">
         <div class="tabbar" style="position:absolute;left:12px;right:12px;bottom:10px">
           <div class="tab act"><div class="ti">⌂</div><div class="tl">Anasayfa</div></div>
@@ -486,10 +487,10 @@
       <div class="demo" style="display:grid;gap:8px"><span class="btn">Synastry Hesapla</span><span class="btn ghost">Sonucu Paylaş</span></div>
       <p style="font-size:11.5px;color:var(--t3);margin-top:10px;line-height:1.55">iOS 26 altında mevcut <code style="color:var(--accent2)">GlassButton</code> modifier'ı (capsule + gradient) kullanılır; aynı görünüm.</p></div>
 
-    <div class="comp"><div class="cn">Pro Lock</div><div class="ca">.proGated(feature:) · EntitlementManager</div>
+    <div class="comp"><div class="cn">Kilit</div><div class="ca">AdGateView · EntitlementManager.hasNatalChart</div>
       <div class="demo" style="position:relative;overflow:hidden;border-radius:14px">
         <div style="filter:blur(3px);opacity:0.85"><div class="row"><div class="ic">♀</div><div class="tx"><div class="tt">Venüs 9. evde Boğa</div><div class="ms">Değerler ve estetik anlayışı uzak kültürlerle, felsefeyle beslenir…</div></div></div></div>
-        <div style="position:absolute;inset:0;display:grid;place-items:center"><span class="btn sm" style="padding:7px 14px">✦ Pro ile aç · veya reklam izle</span></div>
+        <div style="position:absolute;inset:0;display:grid;place-items:center"><span class="btn sm" style="padding:7px 14px">▶ Reklam izle · veya haritanı aç</span></div>
       </div></div>
   </div>
 </section>
@@ -603,7 +604,7 @@
           </div>
         </div>
       </div>
-      <div class="lbl"><div class="t">Astroloji sekmesi</div><div class="s">Uzun kart listesi yerine gruplanmış tile + satırlar; harita hero üstte</div><div class="api">Section başlıkları → .caption2 uppercase · tile'lar LazyVGrid(columns: 2) · Pro rozeti EntitlementManager</div></div>
+      <div class="lbl"><div class="t">Astroloji sekmesi</div><div class="s">Uzun kart listesi yerine gruplanmış tile + satırlar; harita hero üstte</div><div class="api">Section başlıkları → .caption2 uppercase · tile'lar LazyVGrid(columns: 2) · "Harita açık" rozeti EntitlementManager</div></div>
     </div>
 
   </div>
@@ -956,7 +957,7 @@
           <div class="fade"></div>
         </div>
       </div>
-      <div class="lbl"><div class="t">Günlük Burç Yorumu</div><div class="s">Burç şeridi (diğer burçlar reklam/Pro ile açılır) · DotMeter puanlar</div><div class="api">DailyHoroscopeView · ScrollView(.horizontal) burç seçimi · AdGateView kilidi mevcut</div></div>
+      <div class="lbl"><div class="t">Günlük Burç Yorumu</div><div class="s">Burç şeridi (diğer burçlar ödüllü reklamla açılır) · DotMeter puanlar</div><div class="api">DailyHoroscopeView · ScrollView(.horizontal) burç seçimi · AdGateView kilidi mevcut</div></div>
     </div>
 
   </div>
@@ -1068,7 +1069,7 @@
 <!-- ═══════════════ 9. PAYWALL & AYARLAR ═══════════════ -->
 <section class="section" id="para">
   <div class="sec-head"><span class="sec-num">09</span><h2 class="sec-title">Paywall, Onboarding ve Ayarlar</h2></div>
-  <p class="sec-note">Paywall üç kademe (₺200 / ₺300 / ₺400) tek sheet'te; önerilen kademe tonlu cam ile öne çıkar. Onboarding üç adım, her adım tek soru. Ayarlar düz liste; dil değişimi (TR/EN) ve "Haritayı yeniden hesapla" burada.</p>
+  <p class="sec-note">Paywall tek ürün: <b>doğum haritası, tek seferlik</b> (~₺100). PRO katmanı, paket ya da abonelik yok; diğer kilitli sayfalar ödüllü reklamla (<code>AdGateView</code>) açılır. Onboarding üç adım, her adım tek soru. Ayarlar düz liste; dil değişimi (TR/EN) ve "Haritayı yeniden hesapla" burada.</p>
   <div class="phones">
 
     <!-- PAYWALL -->
@@ -1080,23 +1081,21 @@
             <div class="navbar"><div></div><div class="ic">✕</div></div>
             <div style="text-align:center;padding:4px 0 0">
               <div style="width:64px;height:64px;border-radius:50%;margin:0 auto;display:grid;place-items:center;font-size:26px;color:#fff;background:radial-gradient(circle,rgba(143,112,255,0.6),rgba(143,112,255,0.1) 70%);box-shadow:0 0 40px rgba(143,112,255,0.5)">✦</div>
-              <div style="font-family:var(--serif);font-size:24px;margin-top:12px">Pro Özellikleri Aç</div>
-              <div style="font-size:10.5px;color:var(--t2);margin-top:4px">Yıldız haritanın tüm detaylarını keşfet</div>
+              <div style="font-family:var(--serif);font-size:24px;margin-top:12px">Doğum Haritanı Aç</div>
+              <div style="font-size:10.5px;color:var(--t2);margin-top:4px">Tek seferlik ödeme — abonelik yok</div>
             </div>
             <div class="g compact" style="margin-top:14px">
-              <div class="row"><div class="ic" style="color:var(--harmonik)">✓</div><div class="tx"><div class="ms" style="color:var(--t1)">Tüm gezegen & ev yorumları</div></div></div>
-              <div class="row"><div class="ic" style="color:var(--harmonik)">✓</div><div class="tx"><div class="ms" style="color:var(--t1)">Synastry, Composite, Güneş Dönüşü</div></div></div>
-              <div class="row"><div class="ic" style="color:var(--harmonik)">✓</div><div class="tx"><div class="ms" style="color:var(--t1)">Sınırsız kart falı, reklamsız</div></div></div>
+              <div class="row"><div class="ic" style="color:var(--harmonik)">✓</div><div class="tx"><div class="ms" style="color:var(--t1)">Tam doğum haritası · tüm gezegen, ev ve açı yorumları</div></div></div>
+              <div class="row"><div class="ic" style="color:var(--harmonik)">✓</div><div class="tx"><div class="ms" style="color:var(--t1)">Synastry ve Composite</div></div></div>
+              <div class="row"><div class="ic" style="color:var(--harmonik)">✓</div><div class="tx"><div class="ms" style="color:var(--t1)">Transit ve Güneş Dönüşü</div></div></div>
             </div>
-            <div class="tier"><div class="radio"></div><div><div class="n">Doğum Haritası Pro</div><div class="d">Tek seferlik</div></div><div class="p">₺200</div></div>
-            <div class="tier best"><div class="radio"></div><div><div class="n">Astroloji Paketi <span class="pill pro" style="margin-left:4px">Popüler</span></div><div class="d">Harita + ilişki analizleri</div></div><div class="p">₺300</div></div>
-            <div class="tier"><div class="radio"></div><div><div class="n">Her Şey Dahil</div><div class="d">Astroloji + tüm fallar</div></div><div class="p">₺400</div></div>
-            <span class="btn" style="margin-top:4px">₺300 ile Devam Et</span>
+            <div class="tier best"><div class="radio"></div><div><div class="n">Doğum Haritası Hesapla</div><div class="d">Tek seferlik · 1 harita</div></div><div class="p">₺100</div></div>
+            <span class="btn" style="margin-top:4px">₺100 ile Haritanı Aç</span>
             <div style="text-align:center;font-size:9px;color:var(--t3);margin-top:8px">Satın Almaları Geri Yükle · Kullanım Koşulları</div>
           </div>
         </div>
       </div>
-      <div class="lbl"><div class="t">Paywall</div><div class="s">Tek sheet · önerilen kademe tonlu · tek CTA</div><div class="api">PaywallView · StoreManager.products (sıralı) · .presentationDetents([.large]) · ProductView yerine özel satır</div></div>
+      <div class="lbl"><div class="t">Paywall</div><div class="s">Tek sheet · tek ürün · tek CTA</div><div class="api">PaywallView · StoreManager.products (yalnızca natalChartID) · .presentationDetents([.large]) · ProductView yerine özel satır</div></div>
     </div>
 
     <!-- ONBOARDING -->
@@ -1132,7 +1131,7 @@
             <div class="g hero compact" style="display:flex;align-items:center;gap:10px">
               <div style="width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:18px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2)">♊</div>
               <div style="flex:1"><div style="font-size:12px;font-weight:600">Devrim</div><div style="font-size:9.5px;color:var(--t2);margin-top:2px">☉ İkizler · ☽ Yengeç · AC Başak</div></div>
-              <span class="pill pro">✦ Pro</span>
+              <span class="pill h">✓ Harita açık</span>
             </div>
             <div class="lab">PROFİL</div>
             <div class="g compact">
@@ -1144,11 +1143,12 @@
             <div class="g compact">
               <div class="srow"><div class="ic" style="background:rgba(255,255,255,0.08)">🌐</div><div class="t">Dil</div><div style="font-size:9.5px;color:var(--t3)">Türkçe</div><div class="ch">›</div></div>
               <div class="srow"><div class="ic" style="background:rgba(255,255,255,0.08)">🔔</div><div class="t">Transit Bildirimleri</div><div class="toggle"></div></div>
+              <div class="srow"><div class="ic" style="background:rgba(255,255,255,0.08)">〰</div><div class="t">Titreşimler</div><div class="toggle"></div></div>
               <div class="srow"><div class="ic" style="background:rgba(255,255,255,0.08)">🌙</div><div class="t">Günlük Hatırlatıcı</div><div style="font-size:9.5px;color:var(--t3)">09:00</div><div class="ch">›</div></div>
             </div>
             <div class="lab">SATIN ALMA</div>
             <div class="g compact">
-              <div class="srow"><div class="ic" style="background:rgba(255,181,71,0.18);color:var(--sun)">✦</div><div class="t">Pro Özellikleri</div><div class="ch">›</div></div>
+              <div class="srow"><div class="ic" style="background:rgba(255,181,71,0.18);color:var(--sun)">✦</div><div class="t">Doğum Haritanı Aç</div><div class="ch">›</div></div>
               <div class="srow"><div class="ic" style="background:rgba(255,255,255,0.08)">↺</div><div class="t">Satın Almaları Geri Yükle</div><div class="ch">›</div></div>
             </div>
           </div>
@@ -1176,7 +1176,7 @@
       <tr><th>GÖRSEL</th><th>SWIFTUI</th><th>NOT</th></tr>
       <tr><td>Cam kart</td><td><code>.glassEffect(.regular, in: .rect(cornerRadius: 20))</code> <span class="pill a" style="font-size:8px">iOS 26</span><br><code>.glassCard()</code> (mevcut, fallback)</td><td class="note"><code>GlassCard</code> modifier'ı içinde <code>if #available(iOS 26)</code> dallanması; çağıran kod değişmez.</td></tr>
       <tr><td>Tonlu hero kart</td><td><code>.glassEffect(.regular.tint(AstroTheme.accent.opacity(0.18)))</code></td><td class="note">Fallback: mevcut <code>GlassCard</code> + <code>LinearGradient</code> overlay.</td></tr>
-      <tr><td>Yüzen tab bar</td><td><code>TabView { Tab("Anasayfa", systemImage: "house.fill") { … } }</code><br><code>.tabBarMinimizeBehavior(.onScrollDown)</code> <span class="pill a" style="font-size:8px">iOS 26</span></td><td class="note">iOS 26'da sistem zaten Liquid Glass çizer; özel tab bar yazma. Mevcut <code>tabItem</code> yapısı <code>Tab</code> API'sine geçirilir.</td></tr>
+      <tr><td>Yüzen tab bar</td><td><code>TabView { Tab("Anasayfa", systemImage: "house.fill") { … } }</code><br><code>.tabBarMinimizeBehavior(.never)</code> <span class="pill a" style="font-size:8px">iOS 26</span></td><td class="note">iOS 26'da sistem zaten Liquid Glass çizer; özel tab bar yazma. Mevcut <code>tabItem</code> yapısı <code>Tab</code> API'sine geçirilir.</td></tr>
       <tr><td>Butonlar</td><td><code>.buttonStyle(.glassProminent)</code> / <code>.buttonStyle(.glass)</code> <span class="pill a" style="font-size:8px">iOS 26</span></td><td class="note">Fallback: mevcut <code>GlassButton</code>.</td></tr>
       <tr><td>Serif başlıklar</td><td><code>.font(.largeTitle).fontDesign(.serif)</code></td><td class="note">New York sistemde var; Canvas'ta <code>Font.system(size:, design: .serif)</code>.</td></tr>
       <tr><td>Aurora arka plan</td><td><code>SubtleStarsBackground</code> + 2 × <code>RadialGradient</code>, <code>.blur(60)</code></td><td class="note">Mevcut yıldız Canvas'ı korunur; gradient'ler <code>ZStack</code>'in altına.</td></tr>
@@ -1184,12 +1184,12 @@
       <tr><td>Gezegen detayı</td><td><code>.sheet(item:)</code> · <code>.presentationDetents([.fraction(0.68), .large])</code> · <code>.presentationBackground(.ultraThinMaterial)</code></td><td class="note">Çark üstünde dokunma: <code>onTapGesture { location in }</code> → en yakın gezegen.</td></tr>
       <tr><td>Segment geçişi</td><td><code>@Namespace</code> + <code>matchedGeometryEffect</code> seçili pill</td><td class="note">Sistem <code>Picker(.segmented)</code> cam ile uyumsuz; özel 40 satır.</td></tr>
       <tr><td>Skor halkası</td><td><code>Circle().trim(from: 0, to: value)</code> + <code>AngularGradient</code></td><td class="note">Sayı: <code>.contentTransition(.numericText())</code>; animasyon <code>.spring(duration: 0.8)</code>.</td></tr>
-      <tr><td>Kart yelpazesi</td><td><code>ZStack</code> + <code>.rotationEffect(_, anchor: UnitPoint(x: 0.5, y: 1.4))</code></td><td class="note"><code>DragGesture</code> açı ofseti; seçimde <code>.sensoryFeedback(.impact(weight: .light))</code>.</td></tr>
+      <tr><td>Deste çarkı</td><td><code>ZStack</code> + <code>.rotationEffect(_, anchor: UnitPoint(x: 0.5, y: 1.4))</code></td><td class="note"><code>DragGesture</code> açı ofseti; seçimde <code>.sensoryFeedback(.impact(weight: .light))</code>.</td></tr>
       <tr><td>Kart çevirme</td><td><code>.rotation3DEffect(.degrees(flip), axis: (0,1,0), perspective: 0.6)</code></td><td class="note">Mevcut <code>flipProgress</code> mantığı aynı; sadece kart önü/arkası yeniden çizilir.</td></tr>
       <tr><td>Kart → detay geçişi</td><td><code>.matchedTransitionSource(id:in:)</code> + <code>.navigationTransition(.zoom)</code></td><td class="note">iOS 18+. Fallback: standart push.</td></tr>
       <tr><td>Takvim günleri</td><td><code>LazyVGrid(columns: 7)</code> · seçili gün <code>.glassEffect(.regular.tint(accent).interactive())</code></td><td class="note">Olay noktaları <code>HStack(spacing: 2) { Circle().frame(3) }</code>.</td></tr>
       <tr><td>Ay çizimi</td><td><code>Canvas</code>: ışıklı daire + terminatör <code>Ellipse</code> maske</td><td class="note"><code>illumination</code> → elips genişliği <code>r·cos(π·k)</code>; evreye göre sol/sağ.</td></tr>
-      <tr><td>Haptik</td><td><code>.sensoryFeedback(.selection, trigger:)</code></td><td class="note">Segment, gün seçimi, kart seçimi; başka yerde yok.</td></tr>
+      <tr><td>Haptik</td><td><code>AstroHaptics.selection()/tick()/tap()</code> · <code>.astroFeedback(.selection, trigger:)</code></td><td class="note">Tek katman (<code>Design/AstroHaptics.swift</code>); Ayarlar → Titreşimler kapatır. Ayrıntı: bölüm 13.</td></tr>
       <tr><td>Boş durum</td><td><code>ContentUnavailableView("Henüz profil oluşturulmadı", systemImage: "person.crop.circle.badge.plus", description:)</code></td><td class="note">Profile/People/Synastry boş ekranları tek bileşen.</td></tr>
     </table>
   </div>
@@ -1430,6 +1430,34 @@
       </p>
       <p style="font-size:12px;color:var(--t3);margin-top:8px;line-height:1.6">Teslim: 1024×1024 PNG (köşe yuvarlatmasız, sistem kırpar) ya da Icon Composer katmanları SVG/PNG. Maskotun orijinal vektörü varsa B kadrajı için yalnızca ölçek + konum değişir, yeniden çizim gerekmez.</p>
     </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 13. HAREKET & DOKUNUŞ ═══════════════ -->
+<section class="section" id="hareket">
+  <div class="sec-head"><span class="sec-num">13</span><h2 class="sec-title">Hareket ve dokunuş: koddaki son hal</h2></div>
+  <p class="sec-note">Bu doküman ilk yazıldıktan sonra eklenen sahneler. Hepsi <code>TimelineView</code> + <code>Canvas</code> ile çizilir, yeni bağımlılık yok; <code>accessibilityReduceMotion</code> açıksa doğrudan son hal gösterilir.</p>
+  <div class="card" style="padding:8px 14px">
+    <table class="map">
+      <tr><th>SAHNE</th><th>KOD</th><th>DAVRANIŞ</th></tr>
+      <tr><td>Deste çarkı</td><td><code>Features/CardReading/DeckWheel/</code> · <code>DeckWheelView</code>, <code>DeckWheelModel</code>, <code>DeckStyle</code></td><td class="note">Tarot, katina, rün ve tanrı kartı için tek motor. Kartlar çark üstünde döner; karıştırma, seçme, çevirme ortak. Desteler yalnızca renk, arka yüz sembolü ve kart oranıyla ayrışır.</td></tr>
+      <tr><td>Yaşayan doğum haritası</td><td><code>Features/BirthChart/LiveWheel/</code> · <code>LiveChartWheelModel</code></td><td class="note">Dört mod: <b>home</b> (yavaş döner, Güneş + Ay), <b>calc</b> (tam tur, gezegenler sırayla iner, açılar tek tek çizilir), <b>result</b> (dokununca gezegenin açıları parlar), <b>manual</b> (manuel girişte tekerlek çevrildikçe canlı akar). Gezegenler yay fiziğiyle hedefe gider.</td></tr>
+      <tr><td>Synastry iç içe çarklar</td><td><code>Features/Synastry/SynastryWheelStage</code> · <code>SynastryBiWheelView</code></td><td class="note">Dış halka (burçlar + 2. kişi) sağdan, iç halka (evler + 1. kişi) soldan dönerek gelip oturur; açılar dar orb önce çizilir, uyum skoru 0'dan sayar. Dokunmak sahneyi atlar; sonra bir gezegene dokunmak yalnızca onun açılarını bırakır.</td></tr>
+      <tr><td>Kozmik Durum widget'ı</td><td><code>AstroWidget/WidgetSkyWheel</code></td><td class="note">Bugünün gökyüzü: gerçek boylamlarda gezegenler, majör açılar, merkezde gerçek Ay evresi.</td></tr>
+    </table>
+  </div>
+  <div class="card" style="padding:8px 14px;margin-top:14px">
+    <table class="map">
+      <tr><th>HAPTİK AN</th><th>ÇAĞRI</th><th>NEREDE</th></tr>
+      <tr><td>Seçim</td><td><code>selection()</code></td><td class="note">Kişi, gezegen, segment, transit günü, çarkta kart geçişi.</td></tr>
+      <tr><td>Yerine oturma</td><td><code>tick(_:)</code></td><td class="note">Gezegen inişi; Synastry skorunda 5 puanda bir, sona doğru sıklaşıp güçlenir.</td></tr>
+      <tr><td>Kullanıcı bir şey başlattı</td><td><code>tap(_:)</code></td><td class="note">Karıştırma, kart seçme, manuel girişte Büyük Üçlü değişimi.</td></tr>
+      <tr><td>Sonuç hazır</td><td><code>success()</code></td><td class="note">Doğum haritası hesaplaması bitti.</td></tr>
+      <tr><td>Kart çevirme</td><td><code>cardEdge()</code> → <code>cardSettle()</code></td><td class="note">90° kenarda kuru tık, yüz otururken yumuşak yerleşme.</td></tr>
+      <tr><td>Nefes</td><td><code>breath()</code> · CoreHaptics</td><td class="note">Splash → anasayfa; 0.9 sn yükselip sönen titreşim.</td></tr>
+      <tr><td>Skor finali</td><td><code>scoreFinale()</code> · CoreHaptics</td><td class="note">Synastry sayımının sonunda tek güçlü vuruş ve kısa yankı.</td></tr>
+    </table>
+    <p style="font-size:11.5px;color:var(--t3);margin:6px 0 4px;line-height:1.55">Tümü <code style="color:var(--accent2)">Design/AstroHaptics.swift</code> üzerinden; Ayarlar → Titreşimler (<code style="color:var(--accent2)">hapticsEnabled</code>) hepsini kapatır.</p>
   </div>
 </section>
 

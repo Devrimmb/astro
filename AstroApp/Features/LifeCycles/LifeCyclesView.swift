@@ -5,7 +5,6 @@ import SwiftUI
 /// yoksa ödüllü reklamla açılır.
 struct LifeCyclesView: View {
     @Environment(AppState.self) private var appState
-    @Environment(EntitlementManager.self) private var entitlements
 
     /// Verilirse kişi seçimi atlanır (anasayfa kartından gelişte)
     var initialPerson: BirthData? = nil
@@ -279,10 +278,9 @@ struct LifeCyclesView: View {
 
     // MARK: - Mantık
 
-    /// Kişinin ödenmiş harita okuması varsa (ya da eski tek seferlik ürün / admin) yorum açıktır
+    /// Kişinin ödenmiş harita okuması varsa (ya da admin) yorum açıktır
     private func isUnlocked(_ event: LifeCycleEvent, for person: BirthData) -> Bool {
         EntitlementManager.isAdmin
-            || entitlements.hasNatalChart
             || appState.chartReadingStore.reading(forPersonID: person.id) != nil
             || unlockedByAd.contains(event.id)
     }

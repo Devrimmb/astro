@@ -2,7 +2,6 @@ import SwiftUI
 
 struct DailyHoroscopeView: View {
     @Environment(AppState.self) private var appState
-    @Environment(EntitlementManager.self) private var entitlements
     @State private var selectedSign: ZodiacSign?
     @State private var horoscope: DailyHoroscope?
     @State private var isUnlockedByAd = false
@@ -14,9 +13,9 @@ struct DailyHoroscopeView: View {
             ?? appState.birthDataStore.savedData.map { ZodiacSign.from(birthDate: $0.birthDate) }
     }
 
-    /// Seçili burç kendi burcuysa veya Pro ise göster, değilse reklam gate
+    /// Seçili burç kendi burcuysa göster, değilse reklam gate
     private var canViewSelected: Bool {
-        entitlements.hasNatalChart || isUnlockedByAd || selectedSign == userSign
+        EntitlementManager.isAdmin || isUnlockedByAd || selectedSign == userSign
     }
 
     var body: some View {

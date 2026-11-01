@@ -2,7 +2,6 @@ import SwiftUI
 
 struct MoonSignView: View {
     @Environment(AppState.self) private var appState
-    @Environment(EntitlementManager.self) private var entitlements
     @State private var selectedGender: Gender = .women
     @State private var useManualEntry = false
     @State private var isCalculating = false
@@ -27,7 +26,7 @@ struct MoonSignView: View {
     }
 
     private var canCalculate: Bool {
-        entitlements.hasNatalChart || hasFreeReadingToday || isUnlockedByAd
+        EntitlementManager.isAdmin || hasFreeReadingToday || isUnlockedByAd
     }
 
     enum Gender: String, CaseIterable {

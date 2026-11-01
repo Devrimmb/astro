@@ -4,7 +4,6 @@ import SwiftUI
 /// Altında o tarihte içinde olunan hayat döngüleri ve o günün transit yorumları.
 struct MemoryDetailView: View {
     @Environment(AppState.self) private var appState
-    @Environment(EntitlementManager.self) private var entitlements
     @Environment(\.dismiss) private var dismiss
 
     let memoryID: UUID
@@ -22,7 +21,6 @@ struct MemoryDetailView: View {
 
     private var isUnlocked: Bool {
         EntitlementManager.isAdmin
-            || entitlements.hasNatalChart
             || appState.chartReadingStore.reading(forPersonID: person.id) != nil
             || unlockedByAd
     }

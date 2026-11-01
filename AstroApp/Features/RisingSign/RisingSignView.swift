@@ -2,7 +2,6 @@ import SwiftUI
 
 struct RisingSignView: View {
     @Environment(AppState.self) private var appState
-    @Environment(EntitlementManager.self) private var entitlements
     @State private var isCalculating = false
     @State private var isUnlockedByAd = false
 
@@ -14,7 +13,7 @@ struct RisingSignView: View {
     }
 
     private var canCalculate: Bool {
-        entitlements.hasNatalChart || hasFreeReadingToday || isUnlockedByAd
+        EntitlementManager.isAdmin || hasFreeReadingToday || isUnlockedByAd
     }
 
     // Kaynak seçimi

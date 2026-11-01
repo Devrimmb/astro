@@ -16,7 +16,6 @@ struct PaywallView: View {
                     header
                     featuresGrid
                     productsSection
-                    restoreButton
                 }
                 .padding()
                 .padding(.bottom, 40)
@@ -59,8 +58,8 @@ struct PaywallView: View {
     private var featuresGrid: some View {
         VStack(spacing: 10) {
             featureRow(icon: "star.circle.fill", title: "Tam Doğum Haritası", subtitle: "Tüm gezegen, ev ve açı yorumları")
-            featureRow(icon: "heart.text.square", title: "Synastry ve Composite", subtitle: "İlişki haritaları ve uyum analizi")
-            featureRow(icon: "arrow.triangle.2.circlepath", title: "Transit ve Güneş Dönüşü", subtitle: "Haritana göre kişisel öngörüler")
+            featureRow(icon: "clock.arrow.circlepath", title: "Hayat Döngüleri ve Anılar", subtitle: "O kişinin tüm dönem ve anı yorumları")
+            featureRow(icon: "infinity", title: "Kalıcı", subtitle: "Bir kez öde, haritan hep açık kalsın")
         }
         .glassCard()
     }
@@ -105,8 +104,7 @@ struct PaywallView: View {
                         .padding()
                 }
             } else {
-                // Yalnızca tek seferlik doğum haritası ürünü; "tüm özellikler" paketi satılmıyor
-                ForEach(store.products.filter { $0.id == StoreManager.natalChartID }, id: \.id) { product in
+                ForEach(store.products, id: \.id) { product in
                     productCard(product)
                 }
             }
@@ -120,9 +118,6 @@ struct PaywallView: View {
     }
 
     private func productCard(_ product: Product) -> some View {
-        let isPurchased = store.isPurchased(product.id)
-        let isAllFeatures = product.id == StoreManager.allFeaturesID
-
         return Button {
             Task { await purchase(product) }
         } label: {
@@ -138,49 +133,21 @@ struct PaywallView: View {
 
                 Spacer()
 
-                if isPurchased {
-                    Image(systemName: "checkmark.circle.fill")
-                        .foregroundStyle(AstroTheme.harmonik)
-                } else {
-                    Text(product.displayPrice)
-                        .font(.subheadline.weight(.bold))
-                        .foregroundStyle(isAllFeatures ? .white : AstroTheme.accent)
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 8)
-                        .background {
-                            if isAllFeatures {
-                                Capsule().fill(AstroTheme.accentGradient)
-                            } else {
-                                Capsule().stroke(AstroTheme.accent, lineWidth: 1.5)
-                            }
-                        }
-                }
+                Text(product.displayPrice)
+                    .font(.subheadline.weight(.bold))
+                    .foregroundStyle(.white)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 8)
+                    .background(AstroTheme.accentGradient, in: .capsule)
             }
             .padding(14)
-            .background(
-                isAllFeatures ? AstroTheme.surfaceElevated : AstroTheme.surface,
-                in: .rect(cornerRadius: 14)
-            )
+            .background(AstroTheme.surfaceElevated, in: .rect(cornerRadius: 14))
             .overlay {
-                if isAllFeatures {
-                    RoundedRectangle(cornerRadius: 14)
-                        .stroke(AstroTheme.accent.opacity(0.3), lineWidth: 1)
-                }
+                RoundedRectangle(cornerRadius: 14)
+                    .stroke(AstroTheme.accent.opacity(0.3), lineWidth: 1)
             }
         }
-        .disabled(isPurchased || isPurchasing)
-    }
-
-    // MARK: - Geri Yükle
-
-    private var restoreButton: some View {
-        Button {
-            Task { await store.restorePurchases() }
-        } label: {
-            Text("Satın Almaları Geri Yükle")
-                .font(.caption)
-                .foregroundStyle(AstroTheme.textSecondary)
-        }
+        .disabled(isPurchasing)
     }
 
     // MARK: - Satın Al
@@ -189,6 +156,7 @@ struct PaywallView: View {
         isPurchasing = true
         error = nil
         do {
+            // Bekleyen ödeme (ebeveyn/banka onayı) sonradan onaylanınca kredi kendiliğinden eklenir
             let success = try await store.purchase(product)
             if success { dismiss() }
         } catch {

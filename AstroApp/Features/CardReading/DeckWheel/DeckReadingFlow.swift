@@ -36,7 +36,6 @@ struct DeckReadingFlow<Card, Front: View>: View {
         var style: DeckStyle
     }
 
-    @Environment(EntitlementManager.self) private var entitlements
 
     let config: Config
     let deck: [Card]
@@ -71,7 +70,7 @@ struct DeckReadingFlow<Card, Front: View>: View {
     private var quota: DailyReadingQuota { DailyReadingQuota(key: config.quotaKey) }
 
     private var canDraw: Bool {
-        entitlements.hasNatalChart || quota.hasFreeReadingToday || isUnlockedByAd
+        EntitlementManager.isAdmin || quota.hasFreeReadingToday || isUnlockedByAd
     }
 
     var body: some View {

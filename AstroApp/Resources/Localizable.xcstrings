@@ -25,6 +25,9 @@
     "· orta nokta haritası" : {
 
     },
+    "\"%@\" kalıcı olarak silinecek." : {
+
+    },
     "(%@)" : {
 
     },
@@ -90,12 +93,42 @@
         }
       }
     },
+    "%@ %@ · %@ → %@: %lld açı" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$@ · %3$@ → %4$@: %5$lld açı"
+          }
+        }
+      }
+    },
+    "%@ %@ · o gün ona gelen açılar parlıyor" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$@ · o gün ona gelen açılar parlıyor"
+          }
+        }
+      }
+    },
     "%@ %@ · ona gelen transitler parlıyor" : {
       "localizations" : {
         "tr" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%1$@ %2$@ · ona gelen transitler parlıyor"
+          }
+        }
+      }
+    },
+    "%@ %@ (%@) ile %@ arasında belirgin açı yok" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$@ (%3$@) ile %4$@ arasında belirgin açı yok"
           }
         }
       }
@@ -152,6 +185,16 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "%1$@ elementi %2$@"
+          }
+        }
+      }
+    },
+    "%@ elementin baskın ve %@ burcu özelliği yansıtıyorsun." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ elementin baskın ve %2$@ burcu özelliği yansıtıyorsun."
           }
         }
       }
@@ -268,6 +311,9 @@
 
     },
     "%%%lld" : {
+
+    },
+    "%%%lld · baskın element" : {
 
     },
     "%%%lld aydınlık" : {
@@ -387,7 +433,13 @@
     "✧" : {
 
     },
+    "✨" : {
+
+    },
     "🌙 Ay Dönüşü" : {
+
+    },
+    "🎂" : {
 
     },
     "1. Kişi" : {
@@ -576,22 +628,23 @@
         }
       }
     },
-    "Antik Viking runeleri ile rehberlik alın" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lass dich von alten Wikinger-Runen leiten"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Get guidance with ancient Viking runes"
-          }
-        }
-      }
+    "Anı" : {
+
+    },
+    "Anı ekle" : {
+
+    },
+    "Anı Haritası" : {
+
+    },
+    "Anı seçenekleri" : {
+
+    },
+    "Anı silinsin mi?" : {
+
+    },
+    "Anıyı Düzenle" : {
+
     },
     "Aşk" : {
       "extractionState" : "manual",
@@ -626,22 +679,8 @@
         }
       }
     },
-    "Aspect Bazlı Uyum" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aspekt-basierte Kompatibilität"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aspect-Based Compatibility"
-          }
-        }
-      }
+    "ASPECT BAZLI UYUM" : {
+
     },
     "Astro Takvim" : {
       "extractionState" : "manual",
@@ -732,6 +771,9 @@
           }
         }
       }
+    },
+    "Atlamak için dokun" : {
+
     },
     "Ay" : {
       "extractionState" : "manual",
@@ -1074,23 +1116,6 @@
         }
       }
     },
-    "Başka Kart Çek" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Andere Karte ziehen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Draw Another Card"
-          }
-        }
-      }
-    },
     "Başla" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1107,6 +1132,9 @@
           }
         }
       }
+    },
+    "Başlık (ör. Mezuniyetim)" : {
+
     },
     "Ben" : {
       "extractionState" : "manual",
@@ -1146,6 +1174,9 @@
 
     },
     "Bir gezegene dokun, açıları haritada parlasın" : {
+
+    },
+    "Bir gezegene dokun: yalnızca onun açıları kalır" : {
 
     },
     "Bir gezegene dokununca açıları vurgulanır" : {
@@ -1240,6 +1271,9 @@
       }
     },
     "Bu kombinasyon için henüz yorum eklenmedi." : {
+
+    },
+    "Bu sayfayı paylaş" : {
 
     },
     "Bu tarihte aktif transit bulunmuyor." : {
@@ -1380,23 +1414,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Today's Calendar"
-          }
-        }
-      }
-    },
-    "Bugünün Yorumu" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tageshoroskop"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Today's Horoscope"
           }
         }
       }
@@ -1542,23 +1559,6 @@
     "Ciro Discepolo Skoru" : {
 
     },
-    "Çok Ö." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sehr W."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "V. Imp."
-          }
-        }
-      }
-    },
     "Composite Büyük Üçlü" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1703,57 +1703,6 @@
     "Deste, %lld kart" : {
 
     },
-    "Detaylı harita, AI sohbet ve daha fazlası" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Detailliertes Horoskop, KI-Chat und mehr"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Detailed chart, AI chat and more"
-          }
-        }
-      }
-    },
-    "Detaylı harita, uyumluluk analizi ve daha fazlası" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Detailliertes Horoskop, Kompatibilitätsanalyse und mehr"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Detailed chart, compatibility analysis and more"
-          }
-        }
-      }
-    },
-    "Detaylı kart yorumları" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Detaillierte Kartendeutungen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Detailed card interpretations"
-          }
-        }
-      }
-    },
     "Detaylı Uyum" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1860,7 +1809,16 @@
         }
       }
     },
+    "Doğum günün kutlu olsun!" : {
+
+    },
+    "Doğum günün yaklaşıyor" : {
+
+    },
     "Doğum Haritan" : {
+
+    },
+    "Doğum haritandaki bir gezegene dokun" : {
 
     },
     "Doğum Haritanı Aç" : {
@@ -1926,9 +1884,6 @@
         }
       }
     },
-    "Doğum Haritası Açık" : {
-
-    },
     "Doğum haritası çarkı" : {
 
     },
@@ -1992,42 +1947,8 @@
         }
       }
     },
-    "Doğum Yeri" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Geburtsort"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Place of Birth"
-          }
-        }
-      }
-    },
     "Dokun → Yorum" : {
 
-    },
-    "Dokun ve Aç" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tippen zum Aufdecken"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tap to Reveal"
-          }
-        }
-      }
     },
     "Dolunay" : {
       "extractionState" : "stale",
@@ -2123,6 +2044,9 @@
     "EN GÜÇLÜ AÇILAR" : {
 
     },
+    "EN GÜÇLÜ AÇIN" : {
+
+    },
     "Erkek" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -2203,23 +2127,6 @@
     "Fiyat bilgisi yükleniyor..." : {
 
     },
-    "Fotoğraf çekin, yapay zeka yorumlasın" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mach ein Foto, lass KI deuten"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Take a photo, let AI interpret"
-          }
-        }
-      }
-    },
     "Gece Saatleri" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2245,23 +2152,6 @@
     },
     "Geçmiş okumalar" : {
 
-    },
-    "Geçmiş, şimdi ve gelecek — 3 kart açılımı" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vergangenheit, Gegenwart und Zukunft — 3-Karten-Legung"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Past, present and future — 3 card spread"
-          }
-        }
-      }
     },
     "Genel" : {
       "extractionState" : "manual",
@@ -2655,23 +2545,6 @@
         }
       }
     },
-    "Günlük tarot kartı çekin ve yorumunu okuyun" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ziehen Sie eine tägliche Tarotkarte und lesen Sie ihre Deutung"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Draw a daily tarot card and read its interpretation"
-          }
-        }
-      }
-    },
     "Günlük Yorum" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2740,23 +2613,6 @@
         }
       }
     },
-    "Hangi tanrı sana mesaj gönderiyor?" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Welcher Gott sendet dir eine Nachricht?"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Which god is sending you a message?"
-          }
-        }
-      }
-    },
     "Harika" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2803,23 +2659,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Chart Credits:"
-          }
-        }
-      }
-    },
-    "Harita sekmesinden doğum bilgilerinizi girerek profilinizi oluşturun." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Erstellen Sie Ihr Profil, indem Sie Ihre Geburtsdaten im Horoskop-Tab eingeben."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Create your profile by entering your birth details in the Chart tab."
           }
         }
       }
@@ -2961,6 +2800,12 @@
       }
     },
     "Hayat Döngüleri" : {
+
+    },
+    "Hayat döngülerini açar" : {
+
+    },
+    "Henüz anı yok" : {
 
     },
     "Henüz kayıtlı kişi yok" : {
@@ -3229,23 +3074,6 @@
         }
       }
     },
-    "İskambil Falı" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Skatkarten-Legung"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Playing Card Reading"
-          }
-        }
-      }
-    },
     "İşleniyor..." : {
 
     },
@@ -3366,40 +3194,6 @@
         }
       }
     },
-    "Kadim katina kartları ile geleceğine bak" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Blicke mit den alten Katina-Karten in deine Zukunft"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Look into your future with ancient Katina cards"
-          }
-        }
-      }
-    },
-    "Kadim runelerden rehberlik al" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Erhalte Führung von alten Runen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Receive guidance from ancient runes"
-          }
-        }
-      }
-    },
     "Kadın" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -3413,23 +3207,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Female"
-          }
-        }
-      }
-    },
-    "Kahve Falı" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kaffeesatz-Lesung"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Coffee Reading"
           }
         }
       }
@@ -3524,57 +3301,6 @@
         }
       }
     },
-    "Kart Falları" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kartenlegungen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Card Readings"
-          }
-        }
-      }
-    },
-    "Kartı Çek" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Karte ziehen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Draw Card"
-          }
-        }
-      }
-    },
-    "Kartı Değiştir" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Karte wechseln"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Change Card"
-          }
-        }
-      }
-    },
     "Kartın Yorumu" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3588,40 +3314,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Card Interpretation"
-          }
-        }
-      }
-    },
-    "Kartına dokun ve aç" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tippe auf deine Karte"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tap your card to reveal"
-          }
-        }
-      }
-    },
-    "Kartını Çek" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ziehe deine Karte"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Draw Your Card"
           }
         }
       }
@@ -3643,59 +3335,8 @@
         }
       }
     },
-    "Kartını tekrar çekmek için kısa bir reklam izle veya Pro'ya geç." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sieh dir eine kurze Werbung an, um erneut zu ziehen, oder wechsle zu Pro."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Watch a short ad to draw again or upgrade to Pro."
-          }
-        }
-      }
-    },
     "Kartları çevirmek için sola veya sağa kaydır" : {
 
-    },
-    "Kartları tekrar çekmek için kısa bir reklam izle veya Pro'ya geç." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sieh dir eine kurze Werbung an, um erneut Karten zu ziehen, oder wechsle zu Pro."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Watch a short ad to draw cards again or upgrade to Pro."
-          }
-        }
-      }
-    },
-    "Kategorilere Dön" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zurück zu Kategorien"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Back to Categories"
-          }
-        }
-      }
     },
     "Katina" : {
       "extractionState" : "manual",
@@ -3916,23 +3557,6 @@
         }
       }
     },
-    "Klasik iskambil kartları ile fal bakın" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wahrsagen mit klassischen Spielkarten"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Read fortunes with classic playing cards"
-          }
-        }
-      }
-    },
     "Koç" : {
       "localizations" : {
         "de" : {
@@ -3967,6 +3591,9 @@
           }
         }
       }
+    },
+    "Kozmik Kimliğin" : {
+
     },
     "Kozmik Koçun" : {
 
@@ -4057,40 +3684,6 @@
     "MC" : {
 
     },
-    "Merhaba" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hallo"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hello"
-          }
-        }
-      }
-    },
-    "Merhaba, %@" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hallo, %@"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hello, %@"
-          }
-        }
-      }
-    },
     "Merkür" : {
       "localizations" : {
         "de" : {
@@ -4106,6 +3699,9 @@
           }
         }
       }
+    },
+    "Mezuniyet, ilk iş, bir tanışma ya da planladığın bir gün… Kaydet; o günün gökyüzünü haritanın etrafında görelim." : {
+
     },
     "Min." : {
       "extractionState" : "manual",
@@ -4209,6 +3805,27 @@
     "Normal kullanıcı gibi görüyorsun (ödeme/reklam aktif)" : {
 
     },
+    "Not" : {
+
+    },
+    "Not (isteğe bağlı)" : {
+
+    },
+    "O gün doğum haritana belirgin bir açı yapan transit yok." : {
+
+    },
+    "O gün gökyüzü sana ne diyecek" : {
+
+    },
+    "O gün gökyüzü sana ne diyordu" : {
+
+    },
+    "O tarihte içinde olacağın dönemeç" : {
+
+    },
+    "O tarihte içindeydin" : {
+
+    },
     "Ödül için bekleyin: %llds" : {
 
     },
@@ -4258,6 +3875,9 @@
 
     },
     "Önce doğum bilgilerinizi girerek haritanızı hesaplatın." : {
+
+    },
+    "Önceki sayfa" : {
 
     },
     "Öncü" : {
@@ -4312,6 +3932,9 @@
           }
         }
       }
+    },
+    "Önemli günlerini kaydet, o günün gökyüzünü haritanın etrafında gör" : {
+
     },
     "Önemli Transitler" : {
       "extractionState" : "manual",
@@ -4440,6 +4063,9 @@
         }
       }
     },
+    "Planlanan bir gün: yorumlar gelecek zamanla yazılır." : {
+
+    },
     "Plüton" : {
       "localizations" : {
         "de" : {
@@ -4452,57 +4078,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Pluto"
-          }
-        }
-      }
-    },
-    "Pro Aktif" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pro Aktiv"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pro Active"
-          }
-        }
-      }
-    },
-    "Pro Özellikleri Aç" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pro-Funktionen freischalten"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unlock Pro Features"
-          }
-        }
-      }
-    },
-    "Pro'ya Geç" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pro werden"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Go Pro"
           }
         }
       }
@@ -4720,57 +4295,6 @@
     "Rün Falı" : {
 
     },
-    "Rune Falı" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Runen-Legung"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rune Reading"
-          }
-        }
-      }
-    },
-    "Runene dokun ve aç" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tippe auf deine Rune"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tap your rune to reveal"
-          }
-        }
-      }
-    },
-    "Runeni Çek" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ziehe deine Rune"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Draw Your Rune"
-          }
-        }
-      }
-    },
     "Runenin Yorumu" : {
       "localizations" : {
         "de" : {
@@ -4803,6 +4327,15 @@
           }
         }
       }
+    },
+    "Saat" : {
+
+    },
+    "Saat bilinmiyorsa öğlen kabul edilir; Ay'ın o günkü açıları gösterilmez." : {
+
+    },
+    "Saati biliyorum" : {
+
     },
     "Sabit" : {
       "localizations" : {
@@ -4890,23 +4423,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Purchase"
-          }
-        }
-      }
-    },
-    "Satın Almaları Geri Yükle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Käufe wiederherstellen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Restore Purchases"
           }
         }
       }
@@ -5019,6 +4535,9 @@
     "SIRADAKİ BÜYÜK DÖNEMEÇ" : {
 
     },
+    "SIRADAKİ DÖNEMECİN" : {
+
+    },
     "Şişkin Ay (Büyüyen)" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -5070,39 +4589,8 @@
         }
       }
     },
-    "Sınırsız Tarot" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unbegrenztes Tarot"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unlimited Tarot"
-          }
-        }
-      }
-    },
-    "Solar Return Hesapla" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sonnenrückkehr berechnen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Calculate Solar Return"
-          }
-        }
-      }
+    "Sonraki sayfa" : {
+
     },
     "Sonucu Paylaş" : {
       "extractionState" : "manual",
@@ -5254,6 +4742,16 @@
     "Synastry Haritası" : {
 
     },
+    "Synastry haritası: iç halka %@, dış halka %@, %lld belirgin açı" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Synastry haritası: iç halka %1$@, dış halka %2$@, %3$lld belirgin açı"
+          }
+        }
+      }
+    },
     "Synastry Hesapla" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -5313,26 +4811,6 @@
     "Tam açı tarihleri" : {
 
     },
-    "Tam harita, ilişki analizleri ve transitler kullanımına açık." : {
-
-    },
-    "Tam Natal Chart" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vollständiges Geburtshoroskop"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Full Natal Chart"
-          }
-        }
-      }
-    },
     "Tamam" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -5381,6 +4859,9 @@
           }
         }
       }
+    },
+    "Tarih" : {
+
     },
     "Tarihler gezegenin doğum konumuna tam açı yaptığı anlardır; retro hareket nedeniyle bir dönemde birden fazla tarih olabilir." : {
 
@@ -5440,23 +4921,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "One-time payment. Not a subscription."
-          }
-        }
-      }
-    },
-    "Tekrar Çek" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nochmal ziehen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Draw Again"
           }
         }
       }
@@ -5549,6 +5013,9 @@
     "Tipik yaşlar: %@" : {
 
     },
+    "Titreşimler" : {
+
+    },
     "Toplam: %lld puan" : {
 
     },
@@ -5605,57 +5072,6 @@
     "Tüm Açılar" : {
 
     },
-    "Tüm gezegen yorumları" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Alle Planeteninterpretationen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "All planet interpretations"
-          }
-        }
-      }
-    },
-    "Tüm özelliklere erişiminiz var." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Du hast Zugriff auf alle Funktionen."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You have access to all features."
-          }
-        }
-      }
-    },
-    "Tüm Özellikleri Aç" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Alle Funktionen freischalten"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unlock All Features"
-          }
-        }
-      }
-    },
     "Tüm Sabit Yıldızlar" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -5677,6 +5093,9 @@
 
     },
     "Tüm yorumlar ve transitler haritana göre kişiselleşir." : {
+
+    },
+    "Tümü" : {
 
     },
     "Tümünü gör (%lld)" : {
@@ -5937,40 +5356,6 @@
         }
       }
     },
-    "Yarım Ay (İlk Dördün)" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Erstes Viertel"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "First Quarter"
-          }
-        }
-      }
-    },
-    "Yarım Ay (Son Dördün)" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Letztes Viertel"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Last Quarter"
-          }
-        }
-      }
-    },
     "Yasal uyarı: Bu uygulama eğlence amaçlıdır, profesyonel danışmanlık yerine geçmez." : {
 
     },
@@ -6006,6 +5391,9 @@
         }
       }
     },
+    "Yeni Anı" : {
+
+    },
     "Yeni Ay" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -6029,6 +5417,9 @@
     "Yeni kişinin adı" : {
 
     },
+    "Yeni yaşının kozmik kimliği hazır" : {
+
+    },
     "YILDIZLARIN REHBERLİĞİNDE" : {
 
     },
@@ -6044,23 +5435,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Discover Your Star Chart"
-          }
-        }
-      }
-    },
-    "Yıldız haritanın tüm detaylarını keşfet" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Entdecke alle Details deines Sternenhoroskops"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Discover all the details of your star chart"
           }
         }
       }
@@ -6095,23 +5469,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "The Stars Await You"
-          }
-        }
-      }
-    },
-    "Yıldızların Rehberliğinde" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unter der Führung der Sterne"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Guided by the Stars"
           }
         }
       }
@@ -6207,23 +5564,6 @@
     "Yorum" : {
 
     },
-    "Yorum bulunamadı." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Keine Deutungen gefunden."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No interpretations found."
-          }
-        }
-      }
-    },
     "Yorum için dokun" : {
 
     },
@@ -6246,23 +5586,6 @@
     },
     "Yorumu gör" : {
 
-    },
-    "Yorumu Göster" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Deutung anzeigen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Show Interpretation"
-          }
-        }
-      }
     },
     "Yükleniyor..." : {
       "extractionState" : "manual",
@@ -6315,57 +5638,6 @@
     },
     "Yükselen Burcunu Hesapla" : {
 
-    },
-    "Zihnini odakla ve bir kart seç" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Konzentriere dich und wähle eine Karte"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Focus your mind and choose a card"
-          }
-        }
-      }
-    },
-    "Zihnini odakla ve kartına dokun" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Konzentriere dich und tippe auf deine Karte"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Focus your mind and tap your card"
-          }
-        }
-      }
-    },
-    "Zihnini odakla ve kartını çek" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Konzentriere dich und ziehe deine Karte"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Focus your mind and draw your card"
-          }
-        }
-      }
     },
     "Zorlayıcı Transitler" : {
       "extractionState" : "manual",
