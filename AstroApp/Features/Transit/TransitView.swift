@@ -211,7 +211,7 @@ struct TransitView: View {
             }
         }
         .glassCard(cornerRadius: 16, padding: 12)
-        .sensoryFeedback(.selection, trigger: selectedDate)
+        .astroFeedback(.selection, trigger: selectedDate)
     }
 
     private func wheelLegend(color: Color, text: String) -> some View {

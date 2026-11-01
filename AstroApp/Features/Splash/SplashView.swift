@@ -100,6 +100,8 @@ struct SplashView: View {
         withAnimation(.easeOut(duration: 0.4)) { subtitleOpacity = 1 }
 
         try? await Task.sleep(for: .milliseconds(850))
+        // Anasayfaya geçerken yumuşak yükselip sönen "nefes"
+        AstroHaptics.breath()
         withAnimation(.easeInOut(duration: 0.3)) { dismissOpacity = 0 }
 
         try? await Task.sleep(for: .milliseconds(320))

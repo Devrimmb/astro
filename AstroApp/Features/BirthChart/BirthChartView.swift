@@ -37,7 +37,6 @@ struct BirthChartView: View {
     @State private var pageHeight: CGFloat = 0
 
     private let wheelSize: CGFloat = 340
-    private let selectionHaptic = UISelectionFeedbackGenerator()
 
     private var people: [BirthData] { appState.birthDataStore.people }
     private var isResult: Bool { model.mode == .result }
@@ -494,7 +493,7 @@ struct BirthChartView: View {
     private func selectPerson(_ id: UUID) {
         guard model.mode == .home, id != selectedPersonID else { return }
         selectedPersonID = id
-        selectionHaptic.selectionChanged()
+        AstroHaptics.selection()
         loadPreview(for: id, animated: true)
     }
 

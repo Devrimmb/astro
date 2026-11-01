@@ -28,7 +28,6 @@ struct ManualBirthEntrySheet: View {
     @State private var computeTask: Task<Void, Never>?
     @FocusState private var nameFocused: Bool
 
-    private let pulseHaptic = UIImpactFeedbackGenerator(style: .light)
     private let months = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
                           "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
     private var years: [Int] { Array(1930...Calendar.current.component(.year, from: .now)) }
@@ -193,7 +192,7 @@ struct ManualBirthEntrySheet: View {
             pulses[i] += 1
             changed = true
         }
-        if changed { pulseHaptic.impactOccurred(intensity: 0.7) }
+        if changed { AstroHaptics.tap(0.7) }
         lastSigns = signs
         preview = chart
         onPreview(chart)

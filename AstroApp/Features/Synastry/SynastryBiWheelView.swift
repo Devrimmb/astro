@@ -7,6 +7,45 @@ struct SynastryBiWheelView: View {
     let chart2: BirthChart
     let crossAspects: [SynastryAspect]
     let size: CGFloat
+    /// Çizilecek katmanlar; giriş animasyonunda her katman ayrı bir görünüm olarak kayar
+    var layers: Layers = .all
+    /// Açı çizim saati (adım biriminde): i. açı `aspectClock - i` ilerlemesiyle çizilir; `.infinity` → hepsi tam
+    var aspectClock: Double = .infinity
+    /// Seçili gezegen: yalnızca onun karşı haritaya açıları kalır
+    var selection: Selection? = nil
+    /// Dokunma; gezegene isabet yoksa nil gelir (nil closure → dokunma kapalı)
+    var onTap: ((Selection?) -> Void)? = nil
+
+    struct Layers: OptionSet {
+        let rawValue: Int
+        /// Burç halkası + 2. kişinin gezegenleri
+        static let outer = Layers(rawValue: 1 << 0)
+        /// Evler + 1. kişinin gezegenleri
+        static let inner = Layers(rawValue: 1 << 1)
+        static let aspects = Layers(rawValue: 1 << 2)
+        static let all: Layers = [.outer, .inner, .aspects]
+    }
+
+    struct Selection: Equatable {
+        let isPerson1: Bool
+        let planet: Planet
+    }
+
+    /// Bir açının çizimi kaç adım sürer (sonraki açılar öncekiler bitmeden başlar)
+    static let drawSteps = 1.5
+
+    /// Çarkta çizilen açılar, çizim sırasıyla: majör, dar orb önce. Seçim varsa yalnız o gezegeninkiler.
+    static func visibleAspects(_ aspects: [SynastryAspect], selection: Selection?) -> [SynastryAspect] {
+        let drawable = aspects
+            .filter { $0.type.isMajor && isDrawn($0.planet1) && isDrawn($0.planet2) }
+            .sorted { $0.orb < $1.orb }
+        guard let selection else { return Array(drawable.prefix(14)) }
+        return drawable.filter { (selection.isPerson1 ? $0.planet1 : $0.planet2) == selection.planet }
+    }
+
+    private static func isDrawn(_ planet: Planet) -> Bool {
+        Planet.classicPlanets.contains(planet) || planet == .northNode || planet == .chiron
+    }
 
     // Halka yarıçapları
     private var outerRadius: CGFloat      { size / 2 - 8 }
@@ -25,17 +64,62 @@ struct SynastryBiWheelView: View {
     var body: some View {
         Canvas { context, canvasSize in
             let center = CGPoint(x: canvasSize.width / 2, y: canvasSize.height / 2)
-            drawZodiacRing(context: &context, center: center)
-            drawZodiacGlyphs(context: &context, center: center)
-            drawSeparatorRing(context: &context, center: center)
-            drawHouseLines(context: &context, center: center)
-            drawInnerCircle(context: &context, center: center)
-            drawCrossAspects(context: &context, center: center)
-            drawPlanets2(context: &context, center: center)
-            drawPlanets1(context: &context, center: center)
+            if layers.contains(.outer) {
+                drawZodiacRing(context: &context, center: center)
+                drawZodiacGlyphs(context: &context, center: center)
+                drawSeparatorRing(context: &context, center: center)
+            }
+            if layers.contains(.inner) {
+                drawHouseLines(context: &context, center: center)
+                drawInnerCircle(context: &context, center: center)
+            }
+            if layers.contains(.aspects) {
+                drawCrossAspects(context: &context, center: center)
+            }
+            if layers.contains(.outer) {
+                drawPlanets2(context: &context, center: center)
+            }
+            if layers.contains(.inner) {
+                drawPlanets1(context: &context, center: center)
+            }
         }
         .frame(width: size, height: size)
         .drawingGroup()
+        .contentShape(Rectangle())
+        .onTapGesture(coordinateSpace: .local) { location in
+            onTap?(planet(at: location))
+        }
+        .allowsHitTesting(onTap != nil)
+    }
+
+    // MARK: - Dokunma
+
+    private func planet(at location: CGPoint) -> Selection? {
+        let center = CGPoint(x: size / 2, y: size / 2)
+        let hitRadius = size * 0.045
+        var best: (selection: Selection, distance: CGFloat)?
+        let rings: [(isPerson1: Bool, radius: CGFloat, placements: [Placement])] = [
+            (true, p1PlanetRing, placements1),
+            (false, p2PlanetRing, placements2)
+        ]
+        for ring in rings {
+            for p in ring.placements {
+                let point = pointOnCircle(center: center, radius: ring.radius, angle: chartAngle(p.displayDeg))
+                let distance = hypot(point.x - location.x, point.y - location.y)
+                if distance <= hitRadius, distance < (best?.distance ?? .infinity) {
+                    best = (Selection(isPerson1: ring.isPerson1, planet: p.planet), distance)
+                }
+            }
+        }
+        return best?.selection
+    }
+
+    /// Seçim varken parlak kalacak gezegenler: seçilen ve ona açı yapan karşı gezegenler
+    private func isDimmed(_ planet: Planet, isPerson1: Bool) -> Bool {
+        guard let selection else { return false }
+        if selection.isPerson1 == isPerson1 { return planet != selection.planet }
+        return !Self.visibleAspects(crossAspects, selection: selection)
+            .contains { (isPerson1 ? $0.planet1 : $0.planet2) == planet }
     }
 
     // MARK: - Burç Halkası
@@ -127,41 +211,46 @@ struct SynastryBiWheelView: View {
     // MARK: - Cross-Aspect Çizgileri
 
     private func drawCrossAspects(context: inout GraphicsContext, center: CGPoint) {
-        let visible = crossAspects
-            .filter { $0.type.isMajor }
-            .sorted { $0.orb < $1.orb }
-            .prefix(14)
+        let visible = Self.visibleAspects(crossAspects, selection: selection)
+        // Seçim değişince açılar yeniden çizilmez; animasyon yalnız ilk girişte
+        let clock = selection == nil ? aspectClock : .infinity
 
-        for aspect in visible {
-            guard
+        for (index, aspect) in visible.enumerated() {
+            let progress = min(max((clock - Double(index)) / Self.drawSteps, 0), 1)
+            guard progress > 0,
                 let lon1 = chart1.planets.first(where: { $0.planet == aspect.planet1 })?.longitude,
                 let lon2 = chart2.planets.first(where: { $0.planet == aspect.planet2 })?.longitude
             else { continue }
 
-            let angle1 = chartAngle(lon1)
-            let angle2 = chartAngle(lon2)
-            let pt1 = pointOnCircle(center: center, radius: aspectRadius, angle: angle1)
-            let pt2 = pointOnCircle(center: center, radius: aspectRadius, angle: angle2)
+            let pt1 = pointOnCircle(center: center, radius: aspectRadius, angle: chartAngle(lon1))
+            let pt2 = pointOnCircle(center: center, radius: aspectRadius, angle: chartAngle(lon2))
+            // 1. kişinin gezegeninden 2. kişininkine doğru uzar
+            let tip = CGPoint(x: pt1.x + (pt2.x - pt1.x) * progress, y: pt1.y + (pt2.y - pt1.y) * progress)
 
             var path = Path()
             path.move(to: pt1)
-            path.addLine(to: pt2)
+            path.addLine(to: tip)
 
             let color = AstroTheme.nature(aspect.type.nature)
             let dash: [CGFloat] = aspect.type == .sextile ? [4, 3] : []
+            let focused = selection != nil
             context.stroke(path,
-                           with: .color(color.opacity(0.5)),
-                           style: StrokeStyle(lineWidth: 0.9, dash: dash))
+                           with: .color(color.opacity(focused ? 0.95 : 0.5)),
+                           style: StrokeStyle(lineWidth: focused ? 1.5 : 0.9, dash: dash))
+
+            if progress < 1 {
+                let glow = size * 0.012
+                context.fill(Path(ellipseIn: CGRect(x: tip.x - glow, y: tip.y - glow, width: glow * 2, height: glow * 2)),
+                             with: .color(color))
+            }
         }
     }
 
     // MARK: - 2. Kişi Gezegenleri (dış halka)
 
     private func drawPlanets2(context: inout GraphicsContext, center: CGPoint) {
-        var placements = planetPlacements(from: chart2)
-        resolvePlanetCollisions(&placements)
-
-        for p in placements {
+        for p in placements2 {
+            let alpha = isDimmed(p.planet, isPerson1: false) ? 0.25 : 1.0
             let angle = chartAngle(p.displayDeg)
             let point = pointOnCircle(center: center, radius: p2PlanetRing, angle: angle)
             let badge = size * 0.022
@@ -169,23 +258,21 @@ struct SynastryBiWheelView: View {
                          with: .color(AstroTheme.background.opacity(0.8)))
             let text  = Text(p.planet.glyph)
                 .font(.system(size: size * 0.032, design: .serif))
-                .foregroundColor(AstroTheme.planet(p.planet).opacity(0.85))
+                .foregroundColor(AstroTheme.planet(p.planet).opacity(0.85 * alpha))
             context.draw(context.resolve(text), at: point, anchor: .center)
 
             drawTick(context: &context, center: center,
                      degree: p.degree,
                      outerR: signRingInner - 2, innerR: signRingInner - 8,
-                     color: AstroTheme.planet(p.planet).opacity(0.45))
+                     color: AstroTheme.planet(p.planet).opacity(0.45 * alpha))
         }
     }
 
     // MARK: - 1. Kişi Gezegenleri (iç halka)
 
     private func drawPlanets1(context: inout GraphicsContext, center: CGPoint) {
-        var placements = planetPlacements(from: chart1)
-        resolvePlanetCollisions(&placements)
-
-        for p in placements {
+        for p in placements1 {
+            let alpha = isDimmed(p.planet, isPerson1: true) ? 0.25 : 1.0
             let angle = chartAngle(p.displayDeg)
             let point = pointOnCircle(center: center, radius: p1PlanetRing, angle: angle)
             let badge = size * 0.024
@@ -193,24 +280,30 @@ struct SynastryBiWheelView: View {
                          with: .color(AstroTheme.background.opacity(0.85)))
             let text  = Text(p.planet.glyph)
                 .font(.system(size: size * 0.034, design: .serif))
-                .foregroundColor(AstroTheme.planet(p.planet))
+                .foregroundColor(AstroTheme.planet(p.planet).opacity(alpha))
             context.draw(context.resolve(text), at: point, anchor: .center)
 
             drawTick(context: &context, center: center,
                      degree: p.degree,
                      outerR: separatorRing - 2, innerR: separatorRing - 8,
-                     color: AstroTheme.planet(p.planet).opacity(0.55))
+                     color: AstroTheme.planet(p.planet).opacity(0.55 * alpha))
         }
     }
 
     // MARK: - Yardımcılar
 
-    private func planetPlacements(from chart: BirthChart)
-        -> [(planet: AstroApp.Planet, degree: Double, displayDeg: Double)]
-    {
-        chart.planets
-            .filter { Planet.classicPlanets.contains($0.planet) || $0.planet == .northNode || $0.planet == .chiron }
+    private typealias Placement = (planet: AstroApp.Planet, degree: Double, displayDeg: Double)
+
+    private var placements1: [Placement] { planetPlacements(from: chart1) }
+    private var placements2: [Placement] { planetPlacements(from: chart2) }
+
+    /// Çakışmaları açılmış gezegen konumları (çizim ve dokunma aynı konumu kullanır)
+    private func planetPlacements(from chart: BirthChart) -> [Placement] {
+        var placements: [Placement] = chart.planets
+            .filter { Self.isDrawn($0.planet) }
             .map { ($0.planet, $0.longitude, $0.longitude) }
+        resolvePlanetCollisions(&placements)
+        return placements
     }
 
     private func drawTick(context: inout GraphicsContext, center: CGPoint,
@@ -224,9 +317,7 @@ struct SynastryBiWheelView: View {
         context.stroke(tickPath, with: .color(color), lineWidth: 0.8)
     }
 
-    private func resolvePlanetCollisions(
-        _ placements: inout [(planet: AstroApp.Planet, degree: Double, displayDeg: Double)]
-    ) {
+    private func resolvePlanetCollisions(_ placements: inout [Placement]) {
         let minGap = 9.0
         placements.sort { $0.degree < $1.degree }
         for _ in 0..<5 {

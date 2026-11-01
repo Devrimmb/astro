@@ -55,9 +55,8 @@ struct SynastryView: View {
                     } else if let result = synastryResult {
                         pairHeader(result)
                         changePeopleButton
+                        SynastryWheelStage(result: result, name1: displayName1, name2: displayName2)
                         relationshipScoreCard(result)
-                        scoreCard(result)
-                        biWheelCard(result)
                         categoriesCard(result)
                         breakdownCard(result)
                         keyAspectsCard(result)
@@ -431,33 +430,6 @@ struct SynastryView: View {
         .glassCard()
     }
 
-    // MARK: - Score Card (Aspect-Based)
-
-    private func scoreCard(_ result: SynastryResult) -> some View {
-        let score = result.aspectBasedScore
-        return VStack(spacing: 12) {
-            HStack(spacing: 6) {
-                Image(systemName: "chart.pie.fill")
-                    .foregroundStyle(AstroTheme.accent)
-                Text("Aspect Bazlı Uyum")
-                    .font(.headline)
-                    .foregroundStyle(.white)
-            }
-
-            ScoreRing(value: score, total: 100, tint: scoreColor(score), label: "/ 100", size: 104)
-
-            Text(scoreText(score))
-                .font(.subheadline.bold())
-                .foregroundStyle(scoreColor(score))
-
-            Text("\(result.crossAspects.count) cross-aspect analizi")
-                .font(.caption)
-                .foregroundStyle(AstroTheme.textSecondary)
-        }
-        .frame(maxWidth: .infinity)
-        .glassCard()
-    }
-
     // MARK: - Categories
 
     private func categoriesCard(_ result: SynastryResult) -> some View {
@@ -558,66 +530,6 @@ struct SynastryView: View {
         return ChartSynthesisSection(synthesis: synth)
     }
 
-    // MARK: - Bi-Wheel Harita
-
-    private func biWheelCard(_ result: SynastryResult) -> some View {
-        let name1 = selectedPerson1?.name.isEmpty == false ? selectedPerson1!.name : "Kişi 1"
-        let name2 = useManualEntry
-            ? (partnerName.isEmpty ? "Partner" : partnerName)
-            : (selectedPerson2?.name.isEmpty == false ? selectedPerson2!.name : "Kişi 2")
-
-        return VStack(alignment: .leading, spacing: 10) {
-            HStack(spacing: 6) {
-                Image(systemName: "circle.circle.fill")
-                    .foregroundStyle(AstroTheme.accent)
-                Text("Synastry Haritası")
-                    .font(.headline)
-                    .foregroundStyle(.white)
-            }
-
-            // Kişi etiketleri
-            HStack {
-                Label(name1, systemImage: "person.fill")
-                    .font(.caption2)
-                    .foregroundStyle(.white)
-                Text("(iç halka)")
-                    .font(.caption2)
-                    .foregroundStyle(AstroTheme.textTertiary)
-                Spacer()
-                Label(name2, systemImage: "person")
-                    .font(.caption2)
-                    .foregroundStyle(.white.opacity(0.7))
-                Text("(dış halka)")
-                    .font(.caption2)
-                    .foregroundStyle(AstroTheme.textTertiary)
-            }
-
-            SynastryBiWheelView(
-                chart1: result.chart1,
-                chart2: result.chart2,
-                crossAspects: result.crossAspects,
-                size: 320
-            )
-            .frame(maxWidth: .infinity)
-
-            // Açıklama
-            HStack(spacing: 12) {
-                legendDot(AstroTheme.harmonik,  "Harmonik")
-                legendDot(AstroTheme.zorlayici, "Zorlayıcı")
-                legendDot(AstroTheme.notr,      "Nötr")
-            }
-            .frame(maxWidth: .infinity)
-        }
-        .glassCard()
-    }
-
-    private func legendDot(_ color: Color, _ label: String) -> some View {
-        HStack(spacing: 4) {
-            Circle().fill(color.opacity(0.7)).frame(width: 7, height: 7)
-            Text(label).font(.system(size: 9)).foregroundStyle(AstroTheme.textTertiary)
-        }
-    }
-
     // MARK: - Paylaşım
 
     private func synastryShareButton(_ result: SynastryResult) -> some View {
@@ -650,26 +562,6 @@ struct SynastryView: View {
         default: AstroTheme.textSecondary
         }
     }
-
-    private func scoreColor(_ score: Int) -> Color {
-        switch score {
-        case 70...100: AstroTheme.harmonik
-        case 50..<70: AstroTheme.accent
-        case 30..<50: AstroTheme.planet(.sun)
-        default: AstroTheme.zorlayici
-        }
-    }
-
-    private func scoreText(_ score: Int) -> String {
-        switch score {
-        case 80...100: "Mükemmel Uyum"
-        case 65..<80: "Güçlü Uyum"
-        case 50..<65: "İyi Uyum"
-        case 35..<50: "Zorlu Uyum"
-        default: "Karmaşık Dinamik"
-        }
-    }
-
 
     // MARK: - Calculation
 

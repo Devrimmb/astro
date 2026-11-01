@@ -12,26 +12,6 @@ iOS 17 davranışı da yazılı olmalı.
 
 ## A. Öncelikli
 
-### A1. Synastry — iç içe geçen çarklar ☐
-İki kişinin çarkı ekranın iki yanından gelip üst üste oturur (iç halka 1. kişi, dış halka 2. kişi).
-Kişiler arası açılar tek tek çizilir; bu sırada uyum skoru `ScoreRing` içinde 0'dan sayarak dolar.
-- Motor: `LiveChartWheelModel` kalıbı (yay fiziği, TimelineView + tek Canvas). İki model yan yana ya da
-  tek modelde iki gezegen seti.
-- Giriş: mevcut `SynastryView` kişi seçimi; hesap `EphemerisManager.calculateSynastry`.
-- Skor sayımı: `contentTransition(.numericText())` + sayım bitince medium haptik.
-- Gezegene dokununca yalnızca o gezegenin karşı haritaya açıları kalır (doğum haritasındaki vurgu modu).
-- Tahmin: 1–1,5 gün (iki çarkın birlikte animasyonu + açıların tek tek çizimi + skor sayımı).
-
-### A2. Haptik koreografisi — `AstroHaptics` ☐
-Tek bir katman; CoreHaptics kalıpları + basit `UIFeedbackGenerator` yedekleri.
-- Splash → anasayfa: yumuşak yükselen "nefes".
-- Kart çevirme: kartın 90°'ye geldiği anda tık, yüz göründüğünde hafif "yerleşme".
-- Hesaplama sahnesi: her gezegen inişinde hafif tık (bugün var), sonuçta success.
-- Skor sayımı: sayı hızlandıkça sıklaşan, sonunda tek güçlü vuruş.
-- Ay sürükleme: evre sınırlarını geçerken tık.
-- Bugün dağınık duran haptikler (`DeckWheelModel`, `LiveChartWheelModel`, `ManualBirthEntrySheet`,
-  `BirthChartView` kişi seçimi) buraya taşınır.
-
 ### A3. Yazılarak gelen yorumlar ☐
 Yorum metinleri (doğum haritası gezegen yorumu penceresi, tarot/katina/rün/tanrı kartı panelleri, günlük yorum) daktilo gibi
 değil, kelime kelime belirerek gelir. iOS 18+ `TextRenderer` ile; iOS 17'de düz göster.
@@ -49,6 +29,7 @@ gerçek zamanlı akar; retro gezegenler geri gider.
 - Vurgu modu bugün var (natal gezegene dokun → gelen transitler parlar); canlı akış yok.
 
 ### B2. Ay evresi — sürüklenebilir Ay ☐
+- Evre sınırlarını geçerken `AstroHaptics.selection()` çal (haptik katmanı hazır).
 `MoonPhaseView`'daki `MoonDisc` yatay sürüklemeyle ileri-geri evre değiştirir; altında tarih ve evre adı
 akar; bırakınca en yakın güne yaylanır. Haptik: evre sınırlarında tık.
 
@@ -155,5 +136,14 @@ Kilit ekranı / Dynamic Island: o günün Ay evresi + gezegen saati; transit yo�
   anı detayında doğum haritası + o günün gökyüzü (`TransitBiWheelView`), o tarihte etkin hayat döngüleri, kanonik
   geçmiş/gelecek kipli transit yorumu (`DailyCosmicCoach.memoryInterpretation`; saat yoksa Ay açıları gizli);
   anılar Hayat Döngüleri zaman çizgisinde de görünür. Yorumlar ödenmiş harita yoksa ödüllü reklamla.
+- ☑ Synastry iç içe çarklar (1 Kasım 2026) — `SynastryWheelStage`: dış halka (burçlar + 2. kişi) sağdan, iç halka
+  (evler + 1. kişi) soldan dönerek gelip oturur; açılar dar orb önce tek tek çizilir (her açıda hafif haptik), "Aspect
+  Bazlı Uyum" `ScoreRing` içinde 0'dan sayar, bitişte orta haptik. Dokununca sahne atlanır; sonra bir gezegene dokunmak
+  yalnızca onun karşı haritaya açılarını bırakır (iki halkadan da seçilebilir). Hareket azaltma açıksa doğrudan son hal.
+- ☑ Haptik koreografisi (1 Kasım 2026) — `Design/AstroHaptics.swift` tek katman: `selection`, `tick`, `tap`,
+  `success`, `cardEdge`/`cardSettle`, CoreHaptics desenleri `breath` (splash → anasayfa) ve `scoreFinale` (yedekli).
+  Deste çarkı, yaşayan çark, manuel giriş, kişi seçimi, segment/transit tarih seçimi buraya taşındı; kart çevirmede
+  kenar tıkı + yerleşme; Synastry skoru hızlanarak sayar, 5 puanda bir sıklaşan tık, sonunda güçlü vuruş.
+  Ayarlar → "Titreşimler" anahtarı (`hapticsEnabled`) hepsini kapatır; `astroFeedback` modifier'ı da ona uyar.
 - ☑ Alt menü kaydırınca küçülmüyor (`tabBarMinimizeBehavior(.never)`); Astroloji sekmesinden "Astroloji Rehberi"
   kartı kaldırıldı (1 Kasım 2026).

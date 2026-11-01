@@ -95,8 +95,6 @@ final class DeckWheelModel<Card> {
     @ObservationIgnored private var shuffleStart = 0.0
     @ObservationIgnored private var runID = 0
 
-    private let selectionHaptic = UISelectionFeedbackGenerator()
-    private let impactHaptic = UIImpactFeedbackGenerator(style: .medium)
 
     init(deck: [Card], pickCount: Int = 1, allowsReversed: Bool = false, aspect: Double = 1.6) {
         precondition(!deck.isEmpty, "Deste boş olamaz")
@@ -167,7 +165,7 @@ final class DeckWheelModel<Card> {
         guard phase == .idle || phase == .collapse else { return }
         phase = .shuffle
         shuffleStart = now()
-        impactHaptic.impactOccurred(intensity: 0.5)
+        AstroHaptics.tap(0.5)
         after(reduceMotion ? 0.2 : 1.45) { $0.spread() }
     }
 
@@ -183,8 +181,7 @@ final class DeckWheelModel<Card> {
         }
         after(reduceMotion ? 0.35 : 1.85) { m in
             m.phase = .ready
-            m.selectionHaptic.prepare()
-            m.impactHaptic.prepare()
+            AstroHaptics.prepare()
         }
     }
 
@@ -197,7 +194,7 @@ final class DeckWheelModel<Card> {
         let slot = picked.count
         picked.append(DeckPick(id: i, card: c.card, reversed: c.reversed, slot: slot, start: c.pose))
         spawn(x: c.pose.x, y: c.pose.y, n: 22, spread: 2.4)
-        impactHaptic.impactOccurred()
+        AstroHaptics.tap()
 
         after(0.02) { m in
             guard slot < m.picked.count else { return }
@@ -222,7 +219,9 @@ final class DeckWheelModel<Card> {
             after(Double(k) * 0.48) { m in
                 guard k < m.picked.count else { return }
                 withAnimation(.spring(response: 0.85, dampingFraction: 0.82)) { m.picked[k].flipped = true }
-                m.impactHaptic.impactOccurred(intensity: 0.7)
+                // Yay ≈0,2 sn'de kenara (90°) gelir, ≈0,5 sn'de yüzü oturur
+                m.after(0.2) { _ in AstroHaptics.cardEdge() }
+                m.after(0.5) { _ in AstroHaptics.cardSettle() }
                 m.after(0.38) { m in
                     let c = m.slotCenter(k)
                     m.spawn(x: c.x, y: c.y, n: 34, spread: 3.2)
@@ -271,7 +270,7 @@ final class DeckWheelModel<Card> {
         if !dragging {
             dragging = true; velocity = 0; moved = 0
             lastX = v.startLocation.x; lastMoveTime = v.time
-            selectionHaptic.prepare()
+            AstroHaptics.prepare()
         }
         let x = Double(v.location.x)
         let dx = x - lastX
@@ -362,7 +361,7 @@ final class DeckWheelModel<Card> {
         let want = phase == .ready ? best : nil
         if want != hotIndex {
             if let w = want, hotIndex != nil, dragging || velocity != 0 {
-                selectionHaptic.selectionChanged()     // her kart geçişinde "tık"
+                AstroHaptics.selection()     // her kart geçişinde "tık"
                 let p = cards[w].pose
                 spawn(x: p.x, y: p.y - Double(wheelCardSize.height) / 2 - 6, n: 3, spread: 0.9)
             }

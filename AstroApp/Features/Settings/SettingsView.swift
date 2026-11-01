@@ -7,6 +7,7 @@ struct SettingsView: View {
     @State private var showAbout = false
     @State private var showDeviceID = false
     @State private var adminTestMode = EntitlementManager.adminTestMode
+    @State private var hapticsEnabled = AstroHaptics.isEnabled
 
     var body: some View {
         NavigationStack {
@@ -261,6 +262,25 @@ struct SettingsView: View {
                 }
                 .padding(.horizontal, 16)
                 .padding(.vertical, 14)
+            }
+            Divider().overlay(AstroTheme.cardBorder)
+            Toggle(isOn: $hapticsEnabled) {
+                HStack(spacing: 12) {
+                    Image(systemName: "iphone.radiowaves.left.and.right")
+                        .font(.subheadline)
+                        .foregroundStyle(AstroTheme.accent)
+                        .frame(width: 24)
+                    Text("Titreşimler")
+                        .font(.subheadline)
+                        .foregroundStyle(.white)
+                }
+            }
+            .tint(AstroTheme.accent)
+            .padding(.horizontal, 16)
+            .padding(.vertical, 10)
+            .onChange(of: hapticsEnabled) { _, newValue in
+                AstroHaptics.isEnabled = newValue
+                if newValue { AstroHaptics.tap(0.6) }
             }
             Divider().overlay(AstroTheme.cardBorder)
             settingsRow(icon: "arrow.clockwise", title: "Satın Almaları Geri Yükle") {

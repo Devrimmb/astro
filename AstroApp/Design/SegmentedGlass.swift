@@ -54,7 +54,7 @@ struct SegmentedGlass<Option: Hashable>: View {
                 .fill(.white.opacity(0.05))
                 .overlay { Capsule().stroke(AstroTheme.cardBorder, lineWidth: 1) }
         }
-        .sensoryFeedback(.selection, trigger: selection)
+        .astroFeedback(.selection, trigger: selection)
     }
 }
 

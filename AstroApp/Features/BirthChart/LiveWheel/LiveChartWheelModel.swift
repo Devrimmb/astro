@@ -22,7 +22,7 @@ final class LiveChartWheelModel {
 
     /// Sonuç modunda vurgulanan gezegen (çarka dokunma ya da listeden seçim)
     var selectedPlanet: Planet? {
-        didSet { if selectedPlanet != oldValue { selectionHaptic.selectionChanged() } }
+        didSet { if selectedPlanet != oldValue { AstroHaptics.selection() } }
     }
 
     /// Dışarıdan tetiklenen her değişimde artar; görünüm bununla uyanır (durdurulmuş TimelineView)
@@ -98,9 +98,6 @@ final class LiveChartWheelModel {
     private let resultAfterFly = 1.95
     private let resultAfterSettle = 1.65
 
-    private let selectionHaptic = UISelectionFeedbackGenerator()
-    private let landingHaptic = UIImpactFeedbackGenerator(style: .light)
-    private let resultHaptic = UINotificationFeedbackGenerator()
 
     // MARK: Hedefler
 
@@ -169,7 +166,7 @@ final class LiveChartWheelModel {
         drift = 0
         selectedPlanet = nil
         wake()
-        if haptic { resultHaptic.notificationOccurred(.success) }
+        if haptic { AstroHaptics.success() }
     }
 
     func openManual() {
@@ -241,7 +238,7 @@ final class LiveChartWheelModel {
                 flyRadius[i] = 1.4 - 0.4 * Self.easeBack(t)
                 if t >= 0.7 && !landed[i] {
                     landed[i] = true
-                    landingHaptic.impactOccurred(intensity: 0.55)
+                    AstroHaptics.tick(0.55)
                 }
                 moving = true
             } else {

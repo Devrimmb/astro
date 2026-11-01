@@ -222,6 +222,8 @@ struct ScoreRing: View {
     var label: String? = nil
     var size: CGFloat = 100
     var lineWidth: CGFloat = 8
+    /// false → halka değeri kare kare izler (dışarıdan sayım yapılırken yayın gecikmesini önler)
+    var animated: Bool = true
 
     private var progress: Double {
         guard total > 0 else { return 0 }
@@ -245,7 +247,7 @@ struct ScoreRing: View {
                 )
                 .rotationEffect(.degrees(-90))
                 .shadow(color: tint.opacity(0.35), radius: 8)
-                .animation(.spring(duration: 0.8, bounce: 0.1), value: progress)
+                .animation(animated ? .spring(duration: 0.8, bounce: 0.1) : nil, value: progress)
 
             VStack(spacing: 0) {
                 Text("\(value)")
