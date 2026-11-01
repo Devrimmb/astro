@@ -67,6 +67,13 @@ struct AstrologyTabView: View {
                             color: AstroTheme.planet(.saturn)
                         ) { LifeCyclesView() }
 
+                        featureCard(
+                            icon: "clock.arrow.circlepath",
+                            title: "Anı Haritası",
+                            description: "Önemli günlerini kaydet, o günün gökyüzünü haritanın etrafında gör",
+                            color: AstroTheme.accentSecondary
+                        ) { MemoryMapView() }
+
                         // MARK: - Uyum & İlişkiler
                         sectionHeader(title: "Uyum & İlişkiler", icon: "heart.text.square", color: AstroTheme.planet(.venus))
 

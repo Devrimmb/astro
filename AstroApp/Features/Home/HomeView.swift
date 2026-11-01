@@ -9,6 +9,8 @@ struct HomeView: View {
     @State private var todayEvents: [CalendarEvent] = []
     @State private var todayPlanets: [PlanetPosition] = []
     @State private var guidance: DailyCosmicCoach.DailyGuidance?
+    @State private var lifeCycleEvents: [LifeCycleEvent] = []
+    @State private var showIdentity = false
 
     var body: some View {
         NavigationStack {
@@ -18,8 +20,10 @@ struct HomeView: View {
                 ScrollView {
                     VStack(spacing: 12) {
                         greetingSection
+                        birthdayIdentityCard
                         cosmicCoachCard
                         if appState.currentChart != nil { bigThreeCard }
+                        lifeCycleCard
                         todayPlanetsCard
                         moonAndHourTiles
                         todayCalendarCard
@@ -41,6 +45,13 @@ struct HomeView: View {
                 }.value
                 todayPlanets = positions
                 SharedDefaults.saveTodayPlanets(from: positions)
+            }
+            .task(id: appState.birthDataStore.savedData) {
+                guard let person = appState.birthDataStore.savedData else {
+                    lifeCycleEvents = []
+                    return
+                }
+                lifeCycleEvents = await LifeCycleCache.events(for: person, appState: appState)
             }
             .onChange(of: appState.currentChart?.sunSign) { _, _ in
                 loadData()
@@ -416,6 +427,114 @@ struct HomeView: View {
             }
         }
         .glassCard()
+    }
+
+    // MARK: - Doğum günü
+
+    /// Doğum gününe ±7 gün kala: yeni yaşın kozmik kimlik hikâyesi
+    @ViewBuilder
+    private var birthdayIdentityCard: some View {
+        if let person = appState.birthDataStore.savedData,
+           let chart = appState.currentChart,
+           Self.isNearBirthday(person.birthDate) {
+            Button {
+                showIdentity = true
+            } label: {
+                HStack(spacing: 14) {
+                    Text("🎂")
+                        .font(.system(size: 30))
+                        .frame(width: 50, height: 50)
+                        .background(AstroTheme.planet(.sun).opacity(0.15), in: .circle)
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text(Calendar.current.isDateInToday(Self.birthday(of: person.birthDate) ?? .distantPast)
+                             ? "Doğum günün kutlu olsun!" : "Doğum günün yaklaşıyor")
+                            .font(.headline)
+                            .foregroundStyle(.white)
+                        Text("Yeni yaşının kozmik kimliği hazır")
+                            .font(.subheadline)
+                            .foregroundStyle(AstroTheme.planet(.sun))
+                    }
+                    Spacer(minLength: 0)
+                    Image(systemName: "sparkles")
+                        .foregroundStyle(AstroTheme.planet(.sun))
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .glassCard()
+            }
+            .buttonStyle(.plain)
+            .fullScreenCover(isPresented: $showIdentity) {
+                CosmicIdentityStoryView(chart: chart, name: person.name, cityName: person.cityName)
+            }
+        }
+    }
+
+    /// Bu yılki doğum günü (29 Şubat → artık olmayan yılda 28 Şubat)
+    static func birthday(of birthDate: Date, in year: Int? = nil, now: Date = .now) -> Date? {
+        let cal = Calendar.current
+        let md = cal.dateComponents([.month, .day], from: birthDate)
+        let y = year ?? cal.component(.year, from: now)
+        var comps = DateComponents(year: y, month: md.month, day: md.day)
+        if md.month == 2, md.day == 29, cal.date(from: DateComponents(year: y, month: 2, day: 29)).map({ cal.component(.month, from: $0) }) != 2 {
+            comps.day = 28
+        }
+        return cal.date(from: comps)
+    }
+
+    /// Bugün, doğum gününe (yıl geçişi dahil) 7 günden yakın mı
+    static func isNearBirthday(_ birthDate: Date, now: Date = .now) -> Bool {
+        let cal = Calendar.current
+        let today = cal.startOfDay(for: now)
+        let year = cal.component(.year, from: now)
+        return [year - 1, year, year + 1].contains { y in
+            guard let b = birthday(of: birthDate, in: y, now: now) else { return false }
+            let days = cal.dateComponents([.day], from: today, to: cal.startOfDay(for: b)).day ?? 99
+            return abs(days) <= 7
+        }
+    }
+
+    // MARK: - Hayat Döngüleri
+
+    /// Sıradaki (ya da içinde bulunulan) büyük dönemeç; dokununca Hayat Döngüleri açılır
+    @ViewBuilder
+    private var lifeCycleCard: some View {
+        if let person = appState.birthDataStore.savedData,
+           let highlight = LifeCycleTiming.highlight(lifeCycleEvents) {
+            let event = highlight.event
+            let color = AstroTheme.planet(event.kind.planet)
+            NavigationLink {
+                LifeCyclesView(initialPerson: person)
+            } label: {
+                HStack(spacing: 14) {
+                    Text(event.kind.planet.glyph)
+                        .font(.system(size: 24, design: .serif))
+                        .foregroundStyle(color)
+                        .frame(width: 50, height: 50)
+                        .background(color.opacity(0.15), in: .circle)
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text(highlight.isActive ? "ŞU AN İÇİNDESİN" : "SIRADAKİ DÖNEMECİN")
+                            .font(.caption2.weight(.bold))
+                            .kerning(1)
+                            .foregroundStyle(AstroTheme.textTertiary)
+                        Text(LifeCycleTiming.title(event))
+                            .font(.headline)
+                            .foregroundStyle(.white)
+                        Text(highlight.isActive
+                             ? LifeCycleTiming.dateRange(event)
+                             : "\(LifeCycleTiming.countdown(to: event.start)) · \(LifeCycleTiming.ageText(event, birthDate: person.birthDate))")
+                            .font(.subheadline.weight(.semibold))
+                            .foregroundStyle(color)
+                    }
+                    Spacer(minLength: 0)
+                    Image(systemName: "chevron.right")
+                        .font(.caption2)
+                        .foregroundStyle(AstroTheme.textTertiary)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .glassCard()
+            }
+            .buttonStyle(.plain)
+            .accessibilityHint("Hayat döngülerini açar")
+        }
     }
 
     // MARK: - Büyük Üçlü

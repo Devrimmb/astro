@@ -89,12 +89,21 @@ enum ShareImageRenderer {
         presentShareSheet(items: [image])
     }
 
+    /// Kozmik kimlik sayfalarını 1080×1920 hikâye görselleri olarak paylaşır
+    static func shareCosmicIdentity(_ identity: CosmicIdentity, pages: [CosmicIdentityPage]) {
+        let images = pages.compactMap {
+            renderToImage(CosmicIdentityPageView(page: $0, identity: identity), scale: 1)
+        }
+        guard !images.isEmpty else { return }
+        presentShareSheet(items: images)
+    }
+
     // MARK: - Private
 
     @MainActor
-    private static func renderToImage<V: View>(_ view: V) -> UIImage? {
+    private static func renderToImage<V: View>(_ view: V, scale: CGFloat = 2) -> UIImage? {
         let renderer = ImageRenderer(content: view)
-        renderer.scale = 2
+        renderer.scale = scale
         renderer.isOpaque = true
         guard let cgImage = renderer.cgImage else { return nil }
         return UIImage(cgImage: cgImage)

@@ -13,6 +13,7 @@ struct BirthChartResultView: View {
     @State private var showAllAspects = false
     @State private var expandedElements: Set<ZodiacSign.Element> = []
     @State private var section: ChartSection = .wheel
+    @State private var showIdentity = false
 
     /// Sonuç ekranının üç alt görünümü
     private enum ChartSection: String, CaseIterable {
@@ -78,6 +79,21 @@ struct BirthChartResultView: View {
             }
             .transition(.opacity.combined(with: .move(edge: .bottom)))
             .id(section)
+
+            // Kozmik kimlik hikâyesi
+            Button {
+                showIdentity = true
+            } label: {
+                HStack(spacing: 8) {
+                    Image(systemName: "sparkles")
+                    Text("Kozmik Kimliğin")
+                }
+                .frame(maxWidth: .infinity)
+                .glassButton()
+            }
+            .fullScreenCover(isPresented: $showIdentity) {
+                CosmicIdentityStoryView(chart: chart, name: personName)
+            }
 
             // Aksiyon butonları
             HStack(spacing: 12) {

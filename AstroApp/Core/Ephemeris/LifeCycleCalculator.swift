@@ -193,3 +193,38 @@ enum LifeCycleCalculator {
         return d
     }
 }
+
+/// Haritaya göre hesaplanan döngüleri saklar; anasayfa kartı, Hayat Döngüleri sayfası ve
+/// Kozmik kimlik kartı paylaşır.
+enum LifeCycleCache {
+    private static var store: [String: [LifeCycleEvent]] = [:]
+
+    private static func key(_ chart: BirthChart) -> String {
+        "\(chart.birthDate.timeIntervalSince1970)_\(chart.latitude)_\(chart.longitude)_\(chart.timeZoneIdentifier)"
+    }
+
+    /// Kişinin haritasını (varsa kayıtlı okumadan) alıp döngüleri döndürür
+    static func events(for data: BirthData, appState: AppState) async -> [LifeCycleEvent] {
+        await events(for: natalChart(for: data, appState: appState))
+    }
+
+    /// Kişinin doğum haritası: kayıtlı (ödenmiş) okuma varsa o, yoksa yeni hesap
+    static func natalChart(for data: BirthData, appState: AppState) async -> BirthChart {
+        if let reading = appState.chartReadingStore.reading(forPersonID: data.id), reading.birthData == data {
+            return reading.chart
+        }
+        return await appState.ephemeris.calculateBirthChart(
+            date: data.birthDate, latitude: data.latitude, longitude: data.longitude, timeZone: data.birthTimeZone)
+    }
+
+    /// Önbellekte yoksa arka planda hesaplar
+    static func events(for chart: BirthChart) async -> [LifeCycleEvent] {
+        if let cached = store[key(chart)] { return cached }
+        let instant = EphemerisManager.birthInstant(from: chart.birthDate, in: chart.timeZone)
+        let result = await Task.detached(priority: .userInitiated) {
+            LifeCycleCalculator.calculate(natalChart: chart, birthInstant: instant)
+        }.value
+        store[key(chart)] = result
+        return result
+    }
+}

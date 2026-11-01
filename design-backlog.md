@@ -146,5 +146,14 @@ Kilit ekranı / Dynamic Island: o günün Ay evresi + gezegen saati; transit yo�
   okumalar "Düzenle" ya da uzun basma ile onaylı siliniyor; başlık–çark çakışması giderildi.
 - ☑ Sonuç sayfası sadeleşti (1 Kasım 2026) — 3 sekme (Harita / Gezegenler / Açılar); gezegen penceresinde yalnızca
   gezegen × ev × burç yorumu; burç yansıması ve Modalite Dengesi kartları Harita sekmesinde.
+- ☑ Hayat Döngüleri (1 Kasım 2026) — `LifeCycleCalculator` (Jüpiter/Satürn/Uranüs/Neptün/Plüton/Kiron/Ay Düğümü,
+  90 yıl, retro geçişleri gruplu), `life_cycles.json` (13 tür, gezginde), Astroloji sekmesinde sayfa, anasayfada
+  "Sıradaki dönemecin" kartı; ayrıntılı yorum ödenmiş harita yoksa ödüllü reklamla.
+- ☑ Kozmik kimlik hikâyesi (1 Kasım 2026) — 5 sayfa (kapak, Büyük Üçlü, element, haritanın imzası, sıradaki
+  dönemeç), 1080×1920 görsel paylaşım (tek/tümü); sonuç sayfasında düğme, doğum gününe ±7 gün kala anasayfa kartı.
+- ☑ Anı Haritası (1 Kasım 2026) — `MemoryStore` (kişi başına önemli günler, geçmiş + planlanan, isteğe bağlı saat),
+  anı detayında doğum haritası + o günün gökyüzü (`TransitBiWheelView`), o tarihte etkin hayat döngüleri, kanonik
+  geçmiş/gelecek kipli transit yorumu (`DailyCosmicCoach.memoryInterpretation`; saat yoksa Ay açıları gizli);
+  anılar Hayat Döngüleri zaman çizgisinde de görünür. Yorumlar ödenmiş harita yoksa ödüllü reklamla.
 - ☑ Alt menü kaydırınca küçülmüyor (`tabBarMinimizeBehavior(.never)`); Astroloji sekmesinden "Astroloji Rehberi"
   kartı kaldırıldı (1 Kasım 2026).

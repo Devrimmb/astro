@@ -159,6 +159,27 @@ struct DailyCosmicCoach: Sendable {
         return transitMessage(a, opener: opener)
     }
 
+    /// Anı haritası: belirli bir günün transit-natal açısı. Öneri cümlesi yok; zaman kipi
+    /// tarihe göre ("…destekliyordu" / "…destekleyecek").
+    static func memoryInterpretation(_ a: TransitAspect, isPast: Bool) -> GuidanceItem {
+        let area = natalArea[a.natalPlanet] ?? "yaşam alanını"
+        let verb: String
+        switch (a.type.nature, isPast) {
+        case (.harmonik, true): verb = "akıcı biçimde destekliyordu"
+        case (.harmonik, false): verb = "akıcı biçimde destekleyecek"
+        case (.zorlayici, true): verb = "zorluyordu"
+        case (.zorlayici, false): verb = "zorlayacak"
+        case (.notr, true): verb = "güçlü biçimde aktive ediyordu"
+        case (.notr, false): verb = "güçlü biçimde aktive edecek"
+        }
+        return GuidanceItem(
+            icon: toneIcon(a.type.nature),
+            title: "\(a.transitPlanet.name) \(a.type.symbol) \(a.natalPlanet.name)",
+            message: "O gün \(a.transitPlanet.name), \(area) \(verb).",
+            tone: tone(for: a.type.nature)
+        )
+    }
+
     /// Bir transit gezegenin natal evden geçişinin kanonik yorumu.
     /// "hayatının hangi alanı sahne alıyor" boyutu.
     static func houseTransitInterpretation(planet: Planet, house: Int) -> GuidanceItem? {

@@ -10,6 +10,7 @@ class AppState {
     let entitlements: EntitlementManager
     let birthDataStore: BirthDataStore
     let chartReadingStore: ChartReadingStore
+    let memoryStore: MemoryStore
     let adManager: AdManager
 
     init(
@@ -23,6 +24,7 @@ class AppState {
         self.entitlements = EntitlementManager(store: store)
         self.birthDataStore = BirthDataStore()
         self.chartReadingStore = ChartReadingStore()
+        self.memoryStore = MemoryStore()
         self.adManager = AdManager()
         self.adManager.configure()
         self.adManager.loadRewardedAd()

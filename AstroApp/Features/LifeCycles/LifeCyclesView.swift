@@ -7,6 +7,9 @@ struct LifeCyclesView: View {
     @Environment(AppState.self) private var appState
     @Environment(EntitlementManager.self) private var entitlements
 
+    /// Verilirse kişi seçimi atlanır (anasayfa kartından gelişte)
+    var initialPerson: BirthData? = nil
+
     @State private var person: BirthData?
     @State private var events: [LifeCycleEvent]?
     @State private var selected: LifeCycleEvent?
@@ -42,6 +45,11 @@ struct LifeCyclesView: View {
                     }
                     .foregroundStyle(AstroTheme.accent)
                 }
+            }
+        }
+        .task {
+            if let initialPerson, person == nil {
+                await load(initialPerson)
             }
         }
         .sheet(item: $selected) { event in
@@ -91,18 +99,24 @@ struct LifeCyclesView: View {
     private func content(events: [LifeCycleEvent], person: BirthData) -> some View {
         let now = Date.now
         let active = events.filter { LifeCycleTiming.isActive($0, now: now) }
-        let upcoming = events.filter { $0.start > now && !LifeCycleTiming.isActive($0, now: now) }
-        let past = events.filter { $0.end < now && !LifeCycleTiming.isActive($0, now: now) }.reversed()
+        // Döngüler ve kişinin anıları aynı zaman çizgisinde
+        let memories = appState.memoryStore.memories(for: person.id)
+        let upcoming = (events.filter { $0.start > now && !LifeCycleTiming.isActive($0, now: now) }.map(TimelineItem.cycle)
+            + memories.filter(\.isFuture).map(TimelineItem.memory))
+            .sorted { $0.date < $1.date }
+        let past = (events.filter { $0.end < now && !LifeCycleTiming.isActive($0, now: now) }.map(TimelineItem.cycle)
+            + memories.filter { !$0.isFuture }.map(TimelineItem.memory))
+            .sorted { $0.date > $1.date }
 
         return ScrollView {
             VStack(spacing: 16) {
-                heroCard(active: active.first, next: upcoming.first, person: person)
+                heroCard(active: active.first, next: events.first { $0.start > now }, person: person)
 
                 if !active.isEmpty {
-                    section(title: "Şu an içindesin", events: active, person: person, now: now)
+                    section(title: "Şu an içindesin", items: active.map(TimelineItem.cycle), person: person, now: now)
                 }
                 if !upcoming.isEmpty {
-                    section(title: "Yaklaşan", events: upcoming, person: person, now: now)
+                    section(title: "Yaklaşan", items: upcoming, person: person, now: now)
                 }
                 if !past.isEmpty {
                     VStack(alignment: .leading, spacing: 8) {
@@ -122,7 +136,7 @@ struct LifeCyclesView: View {
                         }
                         .buttonStyle(.plain)
                         if showPast {
-                            timeline(Array(past), person: person, now: now)
+                            timeline(past, person: person, now: now)
                         }
                     }
                     .glassCard()
@@ -189,21 +203,31 @@ struct LifeCyclesView: View {
         }
     }
 
-    private func section(title: String, events: [LifeCycleEvent], person: BirthData, now: Date) -> some View {
+    private func section(title: String, items: [TimelineItem], person: BirthData, now: Date) -> some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(title)
                 .font(.headline)
                 .foregroundStyle(.white)
-            timeline(events, person: person, now: now)
+            timeline(items, person: person, now: now)
         }
         .glassCard()
     }
 
-    private func timeline(_ events: [LifeCycleEvent], person: BirthData, now: Date) -> some View {
+    private func timeline(_ items: [TimelineItem], person: BirthData, now: Date) -> some View {
         VStack(spacing: 0) {
-            ForEach(Array(events.enumerated()), id: \.element.id) { index, event in
-                row(event, person: person, now: now)
-                if index < events.count - 1 {
+            ForEach(Array(items.enumerated()), id: \.element.id) { index, item in
+                switch item {
+                case .cycle(let event):
+                    row(event, person: person, now: now)
+                case .memory(let memory):
+                    NavigationLink {
+                        MemoryDetailView(memoryID: memory.id, person: person)
+                    } label: {
+                        MemoryRow(memory: memory, birthDate: person.birthDate)
+                    }
+                    .buttonStyle(.plain)
+                }
+                if index < items.count - 1 {
                     Divider().overlay(AstroTheme.cardBorder)
                 }
             }
@@ -267,26 +291,44 @@ struct LifeCyclesView: View {
         person = data
         events = nil
         showPast = false
-        let tz = data.birthTimeZone
-        let chart: BirthChart
-        if let reading = appState.chartReadingStore.reading(forPersonID: data.id), reading.birthData == data {
-            chart = reading.chart
-        } else {
-            chart = await appState.ephemeris.calculateBirthChart(
-                date: data.birthDate, latitude: data.latitude, longitude: data.longitude, timeZone: tz)
-        }
-        let instant = EphemerisManager.birthInstant(from: data.birthDate, in: tz)
-        let result = await Task.detached(priority: .userInitiated) {
-            LifeCycleCalculator.calculate(natalChart: chart, birthInstant: instant)
-        }.value
+        let result = await LifeCycleCache.events(for: data, appState: appState)
         guard person == data else { return }
         events = result
+    }
+}
+
+// MARK: - Zaman çizgisi öğesi
+
+/// Hayat Döngüleri zaman çizgisinde bir döngü ya da kişinin bir anısı
+private enum TimelineItem: Identifiable {
+    case cycle(LifeCycleEvent)
+    case memory(LifeMemory)
+
+    var id: String {
+        switch self {
+        case .cycle(let e): "cycle_\(e.id)"
+        case .memory(let m): "memory_\(m.id)"
+        }
+    }
+
+    var date: Date {
+        switch self {
+        case .cycle(let e): e.start
+        case .memory(let m): m.date
+        }
     }
 }
 
 // MARK: - Zaman metinleri
 
 enum LifeCycleTiming {
+    /// Öne çıkacak dönemeç: içinde bulunulan, yoksa sıradaki
+    static func highlight(_ events: [LifeCycleEvent], now: Date = .now) -> (event: LifeCycleEvent, isActive: Bool)? {
+        if let active = events.first(where: { isActive($0, now: now) }) { return (active, true) }
+        if let next = events.first(where: { $0.start > now }) { return (next, false) }
+        return nil
+    }
+
     /// Tam açıdan ~2 ay önce başlayıp son tam açıdan ~2 ay sonra biten dönem "içinde" sayılır
     static func isActive(_ event: LifeCycleEvent, now: Date) -> Bool {
         let margin: TimeInterval = 60 * 86_400
@@ -298,10 +340,11 @@ enum LifeCycleTiming {
         return event.kind.isRecurring ? "\(event.occurrence). \(base)" : base
     }
 
-    static func dateRange(_ event: LifeCycleEvent) -> String {
+    /// full: ay adı tam ("Ekim 2029"); değilse kısa ("Eki 2029")
+    static func dateRange(_ event: LifeCycleEvent, full: Bool = false) -> String {
         let f = DateFormatter()
         f.locale = Locale(identifier: "tr_TR")
-        f.dateFormat = "MMM yyyy"
+        f.dateFormat = full ? "MMMM yyyy" : "MMM yyyy"
         let a = f.string(from: event.start)
         let b = f.string(from: event.end)
         return a == b ? a : "\(a) – \(b)"
